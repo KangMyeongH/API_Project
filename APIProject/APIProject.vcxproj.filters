@@ -16,6 +16,9 @@
     <Filter Include="00. WINAPI">
       <UniqueIdentifier>{a921d8d7-412d-4ae5-92cd-88eb65e28e78}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Core">
+      <UniqueIdentifier>{b9728c32-e222-48e2-9512-503533327ebc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -33,6 +36,30 @@
     <ClInclude Include="targetver.h">
       <Filter>00. WINAPI</Filter>
     </ClInclude>
+    <ClInclude Include="Core.h">
+      <Filter>01. Core</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>01. Core</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectManager.h">
+      <Filter>01. Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>01. Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Coliider.h">
+      <Filter>01. Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>01. Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>01. Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -40,6 +67,24 @@
     </ClCompile>
     <ClCompile Include="APIProject.cpp">
       <Filter>00. WINAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="Core.cpp">
+      <Filter>01. Core</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>01. Core</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjectManager.cpp">
+      <Filter>01. Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Coliider.cpp">
+      <Filter>01. Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>01. Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
