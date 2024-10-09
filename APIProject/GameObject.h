@@ -17,7 +17,8 @@ public:
 	// 객체가 생성될 때 호출
 	virtual void 		Init() 								= 0;
 	// 객체가 생성된 후 첫 프레임에 단 한번 호출
-	virtual void 		Start() 							= 0;
+	virtual void 		Start()								= 0;
+	virtual void		FixedUpdate() 						= 0;
 	virtual void 		Update() 							= 0;
 	virtual void 		LateUpdate() 						= 0;
 	virtual void 		Render(HDC& hdc) 					= 0;
@@ -44,4 +45,3 @@ protected:
 	Transform 		mTransform;
 	Tag 			mTag;
 };
-

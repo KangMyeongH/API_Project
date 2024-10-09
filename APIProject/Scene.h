@@ -11,7 +11,7 @@ public:
 	Scene& operator=(const Scene&) 	= delete;
 	Scene& operator=(Scene&&) 		= delete;
 
-	virtual void	Init() = 0;
+	virtual void	Init() 			= 0;
 
 protected:
 	GameObjectList 			mGameObjects;

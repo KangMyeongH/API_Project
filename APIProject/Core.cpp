@@ -27,6 +27,10 @@ void Core::start()
 	mObjMgr->Start();
 }
 
+void Core::fixedUpdate()
+{
+}
+
 void Core::onCollision()
 {
 

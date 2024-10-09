@@ -3,14 +3,6 @@
   "WorkspaceRootPath": "C:\\APIProject\\API_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\Core.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Core.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\Core.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Core.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\GameObjectManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\GameObjectManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -23,36 +15,60 @@
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\Transform.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Transform.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\Vector2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Vector2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\APIProject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\APIProject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\pch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\pch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\Define.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Define.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\GameObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\GameObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\Coliider.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Coliider.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\Coliider.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Coliider.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\Core.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Core.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\Vector2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Vector2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\Core.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Core.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\Resource.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Resource.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\framework.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\framework.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\APIProject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\APIProject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\Transform.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Transform.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\Transform.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -61,26 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\targetver.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\targetver.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\Define.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Define.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\pch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\pch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\Resource.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Resource.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\APIProject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\APIProject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|C:\\APIProject\\API_Project\\APIProject\\APIProject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\APIProject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -89,12 +85,12 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 194,
-          "SelectedChildIndex": 6,
+          "DockedWidth": 198,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "Scene.cpp",
               "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\Scene.cpp",
               "RelativeDocumentMoniker": "APIProject\\Scene.cpp",
@@ -103,89 +99,60 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-30T12:39:20.514Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "targetver.h",
-              "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\targetver.h",
-              "RelativeDocumentMoniker": "APIProject\\targetver.h",
-              "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\targetver.h",
-              "RelativeToolTip": "APIProject\\targetver.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "Vector2.h",
+              "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\Vector2.h",
+              "RelativeDocumentMoniker": "APIProject\\Vector2.h",
+              "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\Vector2.h",
+              "RelativeToolTip": "APIProject\\Vector2.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-30T10:54:51.24Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-01T05:45:06.74Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Coliider.cpp",
-              "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\Coliider.cpp",
-              "RelativeDocumentMoniker": "APIProject\\Coliider.cpp",
-              "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\Coliider.cpp",
-              "RelativeToolTip": "APIProject\\Coliider.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "pch.h",
+              "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\pch.h",
+              "RelativeDocumentMoniker": "APIProject\\pch.h",
+              "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\pch.h",
+              "RelativeToolTip": "APIProject\\pch.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-29T05:19:50.636Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "APIProject.cpp",
+              "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\APIProject.cpp",
+              "RelativeDocumentMoniker": "APIProject\\APIProject.cpp",
+              "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\APIProject.cpp",
+              "RelativeToolTip": "APIProject\\APIProject.cpp",
+              "ViewState": "AgIAALsAAAAAAAAAAAAAALcAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-30T10:15:28.268Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-29T05:17:44.173Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "GameObjectManager.cpp",
               "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\GameObjectManager.cpp",
               "RelativeDocumentMoniker": "APIProject\\GameObjectManager.cpp",
               "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\GameObjectManager.cpp",
               "RelativeToolTip": "APIProject\\GameObjectManager.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAACAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAAAuwGoAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-30T05:54:16.976Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Define.h",
-              "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\Define.h",
-              "RelativeDocumentMoniker": "APIProject\\Define.h",
-              "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\Define.h",
-              "RelativeToolTip": "APIProject\\Define.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-30T03:33:47.07Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "pch.h",
-              "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\pch.h",
-              "RelativeDocumentMoniker": "APIProject\\pch.h",
-              "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\pch.h",
-              "RelativeToolTip": "APIProject\\pch.h",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAABgAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-29T05:19:50.636Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Core.cpp",
-              "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\Core.cpp",
-              "RelativeDocumentMoniker": "APIProject\\Core.cpp",
-              "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\Core.cpp",
-              "RelativeToolTip": "APIProject\\Core.cpp",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAC4AAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-30T03:54:19.895Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 7,
               "Title": "pch.cpp",
               "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\pch.cpp",
               "RelativeDocumentMoniker": "APIProject\\pch.cpp",
@@ -197,19 +164,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "APIProject.h",
-              "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\APIProject.h",
-              "RelativeDocumentMoniker": "APIProject\\APIProject.h",
-              "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\APIProject.h",
-              "RelativeToolTip": "APIProject\\APIProject.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "Define.h",
+              "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\Define.h",
+              "RelativeDocumentMoniker": "APIProject\\Define.h",
+              "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\Define.h",
+              "RelativeToolTip": "APIProject\\Define.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-29T05:18:08.538Z"
+              "WhenOpened": "2024-09-30T03:33:47.07Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 11,
+              "Title": "Core.cpp",
+              "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\Core.cpp",
+              "RelativeDocumentMoniker": "APIProject\\Core.cpp",
+              "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\Core.cpp",
+              "RelativeToolTip": "APIProject\\Core.cpp",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-09-30T03:54:19.895Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "Resource.h",
               "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\Resource.h",
               "RelativeDocumentMoniker": "APIProject\\Resource.h",
@@ -221,21 +200,45 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "APIProject.cpp",
-              "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\APIProject.cpp",
-              "RelativeDocumentMoniker": "APIProject\\APIProject.cpp",
-              "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\APIProject.cpp",
-              "RelativeToolTip": "APIProject\\APIProject.cpp",
-              "ViewState": "AgIAANwAAAAAAAAAAAAAANwAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-29T05:17:44.173Z"
+              "DocumentIndex": 14,
+              "Title": "framework.h",
+              "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\framework.h",
+              "RelativeDocumentMoniker": "APIProject\\framework.h",
+              "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\framework.h",
+              "RelativeToolTip": "APIProject\\framework.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-01T02:24:07.456Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "APIProject.h",
+              "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\APIProject.h",
+              "RelativeDocumentMoniker": "APIProject\\APIProject.h",
+              "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\APIProject.h",
+              "RelativeToolTip": "APIProject\\APIProject.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-29T05:18:08.538Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "targetver.h",
+              "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\targetver.h",
+              "RelativeDocumentMoniker": "APIProject\\targetver.h",
+              "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\targetver.h",
+              "RelativeToolTip": "APIProject\\targetver.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-30T10:54:51.24Z"
             }
           ]
         },
         {
-          "DockedWidth": 174,
-          "SelectedChildIndex": 4,
+          "DockedWidth": 170,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -247,112 +250,80 @@
               "RelativeToolTip": "APIProject\\GameObject.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-30T04:12:09.959Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-30T04:12:09.959Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Scene.h",
-              "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\Scene.h",
-              "RelativeDocumentMoniker": "APIProject\\Scene.h",
-              "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\Scene.h",
-              "RelativeToolTip": "APIProject\\Scene.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-30T12:23:24.781Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "GameObject.h",
               "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\GameObject.h",
               "RelativeDocumentMoniker": "APIProject\\GameObject.h",
               "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\GameObject.h",
               "RelativeToolTip": "APIProject\\GameObject.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-30T04:09:46.38Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-30T04:09:46.38Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
+              "Title": "Scene.h",
+              "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\Scene.h",
+              "RelativeDocumentMoniker": "APIProject\\Scene.h",
+              "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\Scene.h",
+              "RelativeToolTip": "APIProject\\Scene.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-30T12:23:24.781Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "GameObjectManager.h",
               "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\GameObjectManager.h",
               "RelativeDocumentMoniker": "APIProject\\GameObjectManager.h",
               "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\GameObjectManager.h",
               "RelativeToolTip": "APIProject\\GameObjectManager.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-09-30T04:09:29.426Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 12,
               "Title": "Core.h",
               "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\Core.h",
               "RelativeDocumentMoniker": "APIProject\\Core.h",
               "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\Core.h",
               "RelativeToolTip": "APIProject\\Core.h",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-30T03:44:22.419Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-30T03:44:22.419Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 16,
               "Title": "Transform.cpp",
               "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\Transform.cpp",
               "RelativeDocumentMoniker": "APIProject\\Transform.cpp",
               "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\Transform.cpp",
               "RelativeToolTip": "APIProject\\Transform.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-30T10:34:41.12Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-30T10:34:41.12Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Coliider.h",
-              "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\Coliider.h",
-              "RelativeDocumentMoniker": "APIProject\\Coliider.h",
-              "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\Coliider.h",
-              "RelativeToolTip": "APIProject\\Coliider.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-30T04:12:07.471Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Vector2.h",
-              "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\Vector2.h",
-              "RelativeDocumentMoniker": "APIProject\\Vector2.h",
-              "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\Vector2.h",
-              "RelativeToolTip": "APIProject\\Vector2.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-30T04:32:09.412Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "Transform.h",
               "DocumentMoniker": "C:\\APIProject\\API_Project\\APIProject\\Transform.h",
               "RelativeDocumentMoniker": "APIProject\\Transform.h",
               "ToolTip": "C:\\APIProject\\API_Project\\APIProject\\Transform.h",
               "RelativeToolTip": "APIProject\\Transform.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-30T10:24:48.732Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-30T10:24:48.732Z"
             }
           ]
         }

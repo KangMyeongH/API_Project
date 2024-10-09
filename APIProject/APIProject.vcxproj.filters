@@ -48,9 +48,6 @@
     <ClInclude Include="Vector2.h">
       <Filter>01. Core</Filter>
     </ClInclude>
-    <ClInclude Include="Coliider.h">
-      <Filter>01. Core</Filter>
-    </ClInclude>
     <ClInclude Include="Define.h">
       <Filter>01. Core</Filter>
     </ClInclude>
@@ -58,7 +55,7 @@
       <Filter>01. Core</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>01. Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -77,14 +74,11 @@
     <ClCompile Include="GameObjectManager.cpp">
       <Filter>01. Core</Filter>
     </ClCompile>
-    <ClCompile Include="Coliider.cpp">
-      <Filter>01. Core</Filter>
-    </ClCompile>
     <ClCompile Include="Transform.cpp">
       <Filter>01. Core</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>01. Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

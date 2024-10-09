@@ -14,12 +14,13 @@ public:
 
 	void 		Init(const GameObjectList* objectList);
 	void 		Start();
+	void		FixedUpdate();
 	void 		Update();
 	void 		LateUpdate();
 	void 		Render(HDC& hdc);
 	void 		OnDestroy();
 	void 		Release();
-
+	
 	void		AddGameObject(GameObject* object);
 	void		AddDestroy(GameObject* object);
 

@@ -33,6 +33,14 @@ void GameObjectManager::Start()
 	mPendingObjects.clear();
 }
 
+void GameObjectManager::FixedUpdate()
+{
+	for (const auto& object : mActiveObjects)
+	{
+		object->FixedUpdate();
+	}
+}
+
 void GameObjectManager::Update()
 {
 	for (const auto& object : mActiveObjects)

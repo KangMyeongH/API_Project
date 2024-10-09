@@ -21,6 +21,7 @@ public:
 
 private:
 	void 		start();
+	void		fixedUpdate();
 	void 		onCollision();
 	void 		update();
 	void 		lateUpdate();
