@@ -1,22 +1,18 @@
 #pragma once
 #include "GameObject.h"
 
-class GameObject;
-
+class Transform;
 class Component
 {
 public:
 	explicit Component(GameObject* owner) : mOwner(owner) {}
 	virtual ~Component() = default;
 
-	virtual void Start() {}
-	virtual void Update() {}
-	virtual void OnDestroy() {}
-
 	bool CompareTag(const Tag tag) const { return mOwner->CompareTag(tag); }
 
-	GameObject* 	GetOwner() const { return mOwner; }
-	Transform& 		Transform() const { return mOwner->GetTransformRef(); }
+	GameObject* 	GetGameObject() const { return mOwner; }
+	Transform* 		GetTransform() const { return mOwner->GetTransform(); }
+	Tag				GetTag() const { return mOwner->GetTag(); }
 
 protected:
 	GameObject* mOwner;

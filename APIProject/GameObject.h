@@ -1,46 +1,84 @@
 #pragma once
-#include "Define.h"
-#include "GameObjectManager.h"
+#include <typeindex>
+#include <unordered_map>
+
 #include "Transform.h"
 
 class GameObject
 {
 public:
-	GameObject();
-	virtual ~GameObject() 						= default;
-	GameObject(const GameObject&) 				= delete;
-	GameObject(GameObject&&) 					= delete;
-	GameObject& operator=(const GameObject&) 	= delete;
-	GameObject& operator=(GameObject&&) 		= delete;
-
-	// 객체가 생성될 때 호출
-	virtual void 		Init() 								= 0;
-	// 객체가 생성된 후 첫 프레임에 단 한번 호출
-	virtual void 		Start()								= 0;
-	virtual void		FixedUpdate() 						= 0;
-	virtual void 		Update() 							= 0;
-	virtual void 		LateUpdate() 						= 0;
-	virtual void 		Render(HDC& hdc) 					= 0;
-	virtual void 		OnCollisionEnter(Collider* other) 	= 0;
-
-	bool 					CompareTag(Tag tagName) const;
-	static void 			Destroy(GameObject* object);
-	static GameObjectList& 	FindGameObjectsWithTag(Tag tag);
-
-	template<typename T>
-	static std::enable_if_t<std::is_base_of<GameObject, T>::value, GameObject*> AddGameObject()
+	GameObject() : mTransform(this), mActiveSelf(true), mTag(UNTAGGED)
 	{
-		GameObject* newObject = new T();
-		GameObjectManager::GetInstance().AddGameObject(newObject);
-		newObject->Init();
-		return newObject;
 	}
 
-	Transform& 		GetTransformRef() { return mTransform; }
-	Tag& 			GetTagRef() { return mTag; }
+	virtual ~GameObject()
+	{
+		// 각각의 컴포넌트 매니저와 monoBehavior매니저의 객체들을 삭제해주는 작업을 해야함
+	}
 
-protected:
-	Collider* 		mCollider;
-	Transform 		mTransform;
-	Tag 			mTag;
+	Transform* GetTransform() { return &mTransform; }
+
+	// Component management
+	template <typename T, typename... Args>
+	T* AddComponent(Args&&... args)
+	{
+		static_assert(std::is_base_of<Component, T>::value, "T must be derived from Component");
+
+		T* component = new T(this, std::forward<Args>(args)...);
+		mComponents.push_back(component);
+		mComponentMap[typeid(T)].push_back(component);
+		return component;
+	}
+
+	template <typename T>
+	T* GetComponent() const
+	{
+		auto it = mComponentMap.find(typeid(T));
+		if (it != mComponentMap.end() && !it->second.empty())
+		{
+			return static_cast<T*>(it->second.front());
+		}
+		return nullptr;
+	}
+
+	bool CompareTag(const Tag tag) const { return mTag == tag; }
+	void SetTag(const Tag tag) { mTag = tag; }
+	Tag GetTag() const { return mTag; }
+
+	void SetActive(bool active)
+	{
+		if (mActiveSelf != active)
+		{
+			mActiveSelf = active;
+			MarkDirty();
+		}
+	}
+
+	bool IsActiveSelf() const { return mActiveSelf; }
+	bool IsActiveInHierarchy() const
+	{
+		if (mTransform.GetParent() && !mTransform.GetParent()->GetGameObject()->IsActiveInHierarchy())
+		{
+			return false;
+		}
+		return mActiveSelf;
+	}
+
+	virtual void Init() = 0;
+
+private:
+	void MarkDirty() const
+	{
+		for (Transform* child : mTransform.GetChildren())
+		{
+			child->GetGameObject()->MarkDirty();
+		}
+	}
+
+private:
+	Transform mTransform;
+	std::vector<Component*> mComponents;
+	std::unordered_map<std::type_index, std::vector<Component*>> mComponentMap;
+	bool mActiveSelf;
+	Tag mTag;
 };

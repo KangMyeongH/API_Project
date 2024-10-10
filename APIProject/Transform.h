@@ -1,19 +1,17 @@
 #pragma once
 #include <vector>
-
 #include "Component.h"
+
 class GameObject;
 
 class Transform final : public Component
 {
 	// 해당 Transform 컴포넌트는 더티 플래그와 캐싱을 사용해서 월드 변환을 최적화 시켜주고 있습니다.
 	// 로컬 변환이 변경되었거나 부모가 변경된 경우에만 플래그를 true로 설정하고, 그때만 월드 변환을 다시 계산합니다.
-
-
 public:
 	explicit Transform(GameObject* owner)
 		: Component(owner), mLocalPosition{ 0,0 }, mLocalRotation(0), mLocalScale{ 1.f, 1.f }, mWorldPosition{ 0.f,0.f },
-		mWorldRotation(0), mWorldScale(1.f, 1.f), mParent(nullptr), mIsDirty(false) {}
+		mWorldRotation(0), mWorldScale(1.f, 1.f), mParent(nullptr), mIsDirty(true) {}
 
 	// Local Position getter and setter
 	Vector2 GetLocalPosition() const { return mLocalPosition; }

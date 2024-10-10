@@ -20,6 +20,8 @@ public:
 	void 		Progress();
 
 private:
+	void		awake();
+	void		onEnable();
 	void 		start();
 	void		fixedUpdate();
 	void 		onCollision();
