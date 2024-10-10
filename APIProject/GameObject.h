@@ -3,7 +3,6 @@
 #include "GameObjectManager.h"
 #include "Transform.h"
 
-class Collider;
 class GameObject
 {
 public:
@@ -37,8 +36,8 @@ public:
 		return newObject;
 	}
 
-	Transform& 		GetTransform();
-	Tag				GetTag() const;
+	Transform& 		GetTransformRef() { return mTransform; }
+	Tag& 			GetTagRef() { return mTag; }
 
 protected:
 	Collider* 		mCollider;

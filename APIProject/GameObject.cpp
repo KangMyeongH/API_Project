@@ -23,13 +23,3 @@ GameObjectList& GameObject::FindGameObjectsWithTag(const Tag tag)
 {
 	return GameObjectManager::GetInstance().GetGameObjectsByTag(tag);
 }
-
-Transform& GameObject::GetTransform()
-{
-	return mTransform;
-}
-
-Tag GameObject::GetTag() const
-{
-	return mTag;
-}

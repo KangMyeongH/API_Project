@@ -136,6 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="APIProject.h" />
+    <ClInclude Include="Component.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="framework.h" />
@@ -150,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="APIProject.cpp" />
+    <ClCompile Include="Component.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />

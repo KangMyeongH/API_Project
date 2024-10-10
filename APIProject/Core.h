@@ -30,7 +30,9 @@ private:
 
 private:
 	HWND 		mHwnd;
-	HDC 		mHdc;
+	HDC 		mDC;
+	HDC			mMemDC;
+	HBITMAP		mBit;
 
 	// TODO : 여기에 바인딩 해줄 멤버 변수들 추가
 

@@ -6,7 +6,13 @@
 void Core::Init(const HWND& hwnd)
 {
 	mHwnd = hwnd;
-	mHdc = GetDC(mHwnd);
+	mDC = GetDC(mHwnd);
+
+	mBit = CreateCompatibleBitmap(mDC, WIN_WIDTH, WIN_HEIGHT);
+	mMemDC = CreateCompatibleDC(mDC);
+
+	HBITMAP hPrevBit = static_cast<HBITMAP>(SelectObject(mMemDC, mBit));
+	DeleteObject(hPrevBit);
 
 	// TODO : 여기에 Manager들 바인딩
 	mObjMgr = &GameObjectManager::GetInstance();
@@ -48,8 +54,11 @@ void Core::lateUpdate()
 
 void Core::render()
 {
-	Rectangle(mHdc, 0, 0, WIN_WIDTH, WIN_HEIGHT);
-	mObjMgr->Render(mHdc);
+	Rectangle(mMemDC, 0, 0, WIN_WIDTH, WIN_HEIGHT);
+	// TODO : 여기에 Render 할 것들 추가
+	// 예시 : mObjMgr->Render(mMemDC);
+
+	BitBlt(mDC, 0, 0, WIN_WIDTH, WIN_HEIGHT, mMemDC, 0, 0, SRCCOPY);
 }
 
 void Core::onDestroy()
