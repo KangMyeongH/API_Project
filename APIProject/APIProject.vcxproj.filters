@@ -25,6 +25,9 @@
     <Filter Include="01. Core\01. Scene">
       <UniqueIdentifier>{efdeca5e-dc39-4159-b4d8-001b2e552723}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Core\02. Component">
+      <UniqueIdentifier>{f0f6eb4a-a64a-4be2-80b2-097e90640711}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -51,9 +54,6 @@
     <ClInclude Include="Define.h">
       <Filter>01. Core</Filter>
     </ClInclude>
-    <ClInclude Include="Transform.h">
-      <Filter>01. Core</Filter>
-    </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>01. Core\00. GameObject</Filter>
     </ClInclude>
@@ -63,8 +63,11 @@
     <ClInclude Include="Scene.h">
       <Filter>01. Core\01. Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>01. Core\02. Component</Filter>
+    </ClInclude>
     <ClInclude Include="Component.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>01. Core\02. Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -77,9 +80,6 @@
     <ClCompile Include="Core.cpp">
       <Filter>01. Core</Filter>
     </ClCompile>
-    <ClCompile Include="Transform.cpp">
-      <Filter>01. Core</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>01. Core\00. GameObject</Filter>
     </ClCompile>
@@ -88,9 +88,6 @@
     </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>01. Core\01. Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Component.cpp">
-      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

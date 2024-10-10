@@ -6,10 +6,14 @@ class GameObject;
 
 class Transform final : public Component
 {
+	// 해당 Transform 컴포넌트는 더티 플래그와 캐싱을 사용해서 월드 변환을 최적화 시켜주고 있습니다.
+	// 로컬 변환이 변경되었거나 부모가 변경된 경우에만 플래그를 true로 설정하고, 그때만 월드 변환을 다시 계산합니다.
+
+
 public:
-	Transform(GameObject* owner)
-		: Component(owner), mLocalPosition{ 0,0 }, mLocalRotation(0), mLocalScale{ 1.f, 1.f }, mParent(nullptr),
-		mWorldPosition{ 0.f,0.f }, mWorldRotation(0), mWorldScale(1.f, 1.f), mIsDirty(false) {}
+	explicit Transform(GameObject* owner)
+		: Component(owner), mLocalPosition{ 0,0 }, mLocalRotation(0), mLocalScale{ 1.f, 1.f }, mWorldPosition{ 0.f,0.f },
+		mWorldRotation(0), mWorldScale(1.f, 1.f), mParent(nullptr), mIsDirty(false) {}
 
 	// Local Position getter and setter
 	Vector2 GetLocalPosition() const { return mLocalPosition; }
@@ -110,18 +114,45 @@ private:
 		mChildren.erase(std::remove(mChildren.begin(), mChildren.end(), child), mChildren.end());
 	}
 
+	void MarkDirty()
+	{
+		mIsDirty = true;
+		for (Transform* child : mChildren)
+		{
+			child->MarkDirty();
+		}
+	}
 
-	void Update();
+	void UpdateWorldTransform()
+	{
+		if (mParent)
+		{
+			mWorldPosition = mParent->GetLocalPosition() + mLocalPosition;
+			mWorldRotation = mParent->GetLocalRotation() + mLocalRotation;
+			mWorldScale = Vector2(mLocalScale.x * mParent->GetWorldScale().x, mLocalScale.y * mParent->GetWorldScale().y);
+		}
+
+		else
+		{
+			mWorldPosition = mLocalPosition;
+			mWorldRotation = mLocalRotation;
+			mWorldScale = mLocalScale;
+		}
+
+		mIsDirty = false;
+	}
 
 private:
-
 	Vector2						mLocalPosition;
 	float						mLocalRotation;
 	Vector2						mLocalScale;
-	Transform* 					mParent;
-	std::vector<Transform*> 	mChildren;
+
 	Vector2 					mWorldPosition;
 	float 						mWorldRotation;
 	Vector2 					mWorldScale;
+
+	Transform* 					mParent;
+	std::vector<Transform*> 	mChildren;
+
 	bool 						mIsDirty;
 };
