@@ -1,6 +1,6 @@
 #pragma once
-#include "GameObject.h"
 
+class GameObject;
 class Transform;
 class Component
 {
@@ -8,13 +8,14 @@ public:
 	explicit Component(GameObject* owner) : mOwner(owner) {}
 	virtual ~Component() = default;
 
-	bool CompareTag(const Tag tag) const { return mOwner->CompareTag(tag); }
+	bool 			CompareTag(Tag tag) const;
 
 	GameObject* 	GetGameObject() const { return mOwner; }
-	Transform* 		GetTransform() const { return mOwner->GetTransform(); }
-	Tag				GetTag() const { return mOwner->GetTag(); }
+	Transform* 		GetTransform() const;
+	Tag				GetTag() const;
 
+	virtual void 	Destroy() = 0;
 protected:
-	GameObject* mOwner;
+	GameObject* 	mOwner;
 };
 

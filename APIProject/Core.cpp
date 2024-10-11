@@ -2,6 +2,7 @@
 #include "Core.h"
 
 #include "GameObjectManager.h"
+#include "MonoBehaviourManager.h"
 
 void Core::Init(const HWND& hwnd)
 {
@@ -16,10 +17,12 @@ void Core::Init(const HWND& hwnd)
 
 	// TODO : 여기에 Manager들 바인딩
 	mObjMgr = &GameObjectManager::GetInstance();
+	mMonoBehaviourMgr = &MonoBehaviourManager::GetInstance();
 }
 
 void Core::Progress()
 {
+	mObjMgr->ActivePending();
 	start();
 	onCollision();
 	update();
@@ -30,11 +33,12 @@ void Core::Progress()
 
 void Core::start()
 {
-	mObjMgr->Start();
+	mMonoBehaviourMgr->Start();
 }
 
 void Core::fixedUpdate()
 {
+	mMonoBehaviourMgr->FixedUpdate();
 }
 
 void Core::onCollision()
@@ -44,12 +48,12 @@ void Core::onCollision()
 
 void Core::update()
 {
-	mObjMgr->Update();
+	mMonoBehaviourMgr->Update();
 }
 
 void Core::lateUpdate()
 {
-	mObjMgr->LateUpdate();
+	mMonoBehaviourMgr->LateUpdate();
 }
 
 void Core::render()
@@ -63,5 +67,6 @@ void Core::render()
 
 void Core::onDestroy()
 {
-	mObjMgr->OnDestroy();
+	// GameObject 소멸 -> 각종 컴포넌트들 소멸
+	mMonoBehaviourMgr->OnDestroy();
 }

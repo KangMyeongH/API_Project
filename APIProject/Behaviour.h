@@ -6,14 +6,15 @@ public:
 	explicit Behaviour(GameObject* owner) : Component(owner), mEnabled(true) {}
 	~Behaviour() override = default;
 
-	void SetEnable(const bool enabled)
+	virtual void SetEnable(const bool enabled)
 	{
 		mEnabled = enabled;
 	}
 
 	bool IsEnabled() const { return mEnabled; }
 
-private:
+	void Destroy() override = 0;
+protected:
 	bool mEnabled;
 };
 

@@ -37,6 +37,15 @@
     <Filter Include="01. Core\02. Component\02. MonoBehaviour">
       <UniqueIdentifier>{29f72710-bca8-4a62-8758-b253b71a9056}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Core\03. Manager">
+      <UniqueIdentifier>{896e0ec7-2b4a-4d4d-ae51-7a2b08ba15ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Core\03. Manager\00. MonoBehaviour">
+      <UniqueIdentifier>{9f22f084-2329-4896-b118-a86e44ef6093}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Core\03. Manager\01. GameObject">
+      <UniqueIdentifier>{0035be2c-be48-48a6-8465-b2a2870de27e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -84,6 +93,12 @@
     <ClInclude Include="MonoBehaviour.h">
       <Filter>01. Core\02. Component\02. MonoBehaviour</Filter>
     </ClInclude>
+    <ClInclude Include="MonoBehaviourManager.h">
+      <Filter>01. Core\03. Manager\00. MonoBehaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectManager.h">
+      <Filter>01. Core\03. Manager\01. GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -106,6 +121,15 @@
     </ClCompile>
     <ClCompile Include="Collider.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MonoBehaviourManager.cpp">
+      <Filter>01. Core\03. Manager\00. MonoBehaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjectManager.cpp">
+      <Filter>01. Core\03. Manager\01. GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="MonoBehaviour.cpp">
+      <Filter>01. Core\02. Component\02. MonoBehaviour</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

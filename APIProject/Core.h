@@ -1,6 +1,7 @@
 #pragma once
 #include "Define.h"
 
+class MonoBehaviourManager;
 class GameObjectManager;
 class Core
 {
@@ -38,6 +39,7 @@ private:
 
 	// TODO : 여기에 바인딩 해줄 멤버 변수들 추가
 
-	GameObjectManager* mObjMgr;
+	GameObjectManager* 		mObjMgr;
+	MonoBehaviourManager* 	mMonoBehaviourMgr;
 };
 

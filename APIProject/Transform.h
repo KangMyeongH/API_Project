@@ -105,6 +105,8 @@ public:
 	Transform* GetParent() const { return mParent; }
 	const std::vector<Transform*>& GetChildren() const { return mChildren; }
 
+	void Destroy() override {}
+
 private:
 	void AddChild(Transform* child) { mChildren.push_back(child); }
 	void RemoveChild(Transform* child)
