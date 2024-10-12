@@ -77,8 +77,6 @@ public:
 			obj->OnDestroy();
 			unregisterFromUpdates(obj);
 		}
-
-		mDestroyQueue.clear();
 	}
 
 	void AddMonoBehaviour(MonoBehaviour* monoBehaviour)

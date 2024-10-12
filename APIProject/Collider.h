@@ -1,7 +1,8 @@
 #pragma once
-#include "Component.h"
-class Collider : public Component
+#include "Behaviour.h"
+class Collider : public Behaviour
 {
-
+public:
+	explicit Collider(GameObject* owner) : Behaviour(owner) {}
 };
 

@@ -4,9 +4,9 @@
 
 #include "MonoBehaviour.h"
 #include "MonoBehaviourManager.h"
+#include "PhysicsManager.h"
 #include "Transform.h"
-
-class MonoBehaviourManager;
+#include "Rigidbody.h"
 
 class GameObject
 {
@@ -33,8 +33,15 @@ public:
 		T* component = new T(this, std::forward<Args>(args)...);
 		mComponents.push_back(component);
 		mComponentMap[typeid(T)].push_back(component);
+
 		if (dynamic_cast<MonoBehaviour*>(component))
 			MonoBehaviourManager::GetInstance().AddMonoBehaviour(dynamic_cast<MonoBehaviour*>(component));
+
+		else if (dynamic_cast<Rigidbody*>(component))
+			PhysicsManager::GetInstance().AddRigidbody(dynamic_cast<Rigidbody*>(component));
+
+
+
 		return component;
 	}
 

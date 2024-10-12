@@ -1,5 +1,12 @@
-﻿  pch.cpp
-  APIProject.cpp
+﻿  APIProject.cpp
+  Component.cpp
   Core.cpp
+  GameObject.cpp
+  GameObjectManager.cpp
+  MonoBehaviour.cpp
+  MonoBehaviourManager.cpp
+  PhysicsManager.cpp
+  Rigidbody.cpp
+  TimeManager.cpp
   코드를 생성하고 있습니다...
   APIProject.vcxproj -> C:\APIProject\API_Project\x64\Debug\APIProject.exe

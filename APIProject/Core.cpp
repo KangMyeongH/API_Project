@@ -3,8 +3,10 @@
 
 #include "GameObjectManager.h"
 #include "MonoBehaviourManager.h"
+#include "PhysicsManager.h"
+#include "TimeManager.h"
 
-void Core::Init(const HWND& hwnd)
+void Core::Init(HWND hwnd)
 {
 	mHwnd = hwnd;
 	mDC = GetDC(mHwnd);
@@ -16,19 +18,30 @@ void Core::Init(const HWND& hwnd)
 	DeleteObject(hPrevBit);
 
 	// TODO : ¿©±â¿¡ Managerµé ¹ÙÀÎµù
+	mTimeMgr = &TimeManager::GetInstance();
+	mTimeMgr->Init();
 	mObjMgr = &GameObjectManager::GetInstance();
 	mMonoBehaviourMgr = &MonoBehaviourManager::GetInstance();
+	mPhysicsMgr = &PhysicsManager::GetInstance();
 }
 
 void Core::Progress()
 {
+	mTimeMgr->Update();
+
 	mObjMgr->ActivePending();
+	mPhysicsMgr->RegisterForUpdate();
 	start();
+	fixedUpdate();
+	physicsUpdate();
+	onTrigger();
 	onCollision();
 	update();
 	lateUpdate();
 	render();
 	onDestroy();
+
+	mTimeMgr->FrameLimit();
 }
 
 void Core::start()
@@ -39,6 +52,15 @@ void Core::start()
 void Core::fixedUpdate()
 {
 	mMonoBehaviourMgr->FixedUpdate();
+}
+
+void Core::physicsUpdate()
+{
+	mPhysicsMgr->RigidbodyUpdate(mTimeMgr->GetDeltaTime());
+}
+
+void Core::onTrigger()
+{
 }
 
 void Core::onCollision()
@@ -67,6 +89,13 @@ void Core::render()
 
 void Core::onDestroy()
 {
-	// GameObject ¼Ò¸ê -> °¢Á¾ ÄÄÆ÷³ÍÆ®µé ¼Ò¸ê
 	mMonoBehaviourMgr->OnDestroy();
+}
+
+void Core::destroy()
+{
+	// GameObject ¼Ò¸ê -> °¢Á¾ ÄÄÆ÷³ÍÆ®µé ¼Ò¸ê ¼ø¼­
+	mObjMgr->DestroyQueue();
+	mPhysicsMgr->ClearDestroyRigidbodyQueue();
+	mMonoBehaviourMgr->ClearDestroyQueue();
 }

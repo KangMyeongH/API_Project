@@ -1,6 +1,8 @@
 #pragma once
 #include "Define.h"
 
+class TimeManager;
+class PhysicsManager;
 class MonoBehaviourManager;
 class GameObjectManager;
 class Core
@@ -17,19 +19,20 @@ public:
 	static Core& GetInstance() { static Core sCore; return sCore; }
 
 public:
-	void 		Init(const HWND& hwnd);
+	void 		Init(HWND hwnd);
 	void 		Progress();
 
 private:
-	void		awake();
-	void		onEnable();
 	void 		start();
 	void		fixedUpdate();
+	void		physicsUpdate();
+	void		onTrigger();
 	void 		onCollision();
 	void 		update();
 	void 		lateUpdate();
 	void 		render();
 	void 		onDestroy();
+	void		destroy();
 
 private:
 	HWND 		mHwnd;
@@ -38,8 +41,9 @@ private:
 	HBITMAP		mBit;
 
 	// TODO : 여기에 바인딩 해줄 멤버 변수들 추가
-
+	TimeManager* 			mTimeMgr;
 	GameObjectManager* 		mObjMgr;
 	MonoBehaviourManager* 	mMonoBehaviourMgr;
+	PhysicsManager* 		mPhysicsMgr;
 };
 

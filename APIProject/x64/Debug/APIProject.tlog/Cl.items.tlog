@@ -1,3 +1,13 @@
 C:\APIProject\API_Project\APIProject\APIProject.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\APIProject.obj
+C:\APIProject\API_Project\APIProject\Collider.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\Collider.obj
+C:\APIProject\API_Project\APIProject\Component.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\Component.obj
 C:\APIProject\API_Project\APIProject\Core.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\Core.obj
+C:\APIProject\API_Project\APIProject\GameObject.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\GameObject.obj
+C:\APIProject\API_Project\APIProject\GameObjectManager.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\GameObjectManager.obj
+C:\APIProject\API_Project\APIProject\MonoBehaviour.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\MonoBehaviour.obj
+C:\APIProject\API_Project\APIProject\MonoBehaviourManager.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\MonoBehaviourManager.obj
 C:\APIProject\API_Project\APIProject\pch.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\pch.obj
+C:\APIProject\API_Project\APIProject\PhysicsManager.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\PhysicsManager.obj
+C:\APIProject\API_Project\APIProject\Rigidbody.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\Rigidbody.obj
+C:\APIProject\API_Project\APIProject\Scene.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\Scene.obj
+C:\APIProject\API_Project\APIProject\TimeManager.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\TimeManager.obj

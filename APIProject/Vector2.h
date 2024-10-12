@@ -48,7 +48,7 @@ public:
 		return *this;
 	}
 
-	constexpr Vector2 operator/(const float rhs) const
+	Vector2 operator/(const float rhs) const
 	{
 		return Vector2{ x / rhs, y / rhs };
 	}

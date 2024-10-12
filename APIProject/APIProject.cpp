@@ -4,6 +4,7 @@
 #include "pch.h"
 #include "framework.h"
 #include "APIProject.h"
+#include "Core.h"
 
 #define MAX_LOADSTRING 100
 
@@ -49,7 +50,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     // Core의 초기화를 수행합니다:
     // TODO : 여기에 코드를 입력합니다.
-
+    Core::GetInstance().Init(gHwnd);
 
     ULONGLONG llTime = GetTickCount64();
 
@@ -71,12 +72,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         // Core의 루프입니다:
         else
         {
-	        if (llTime + 30 < GetTickCount64())
-	        {
-		        // TODO : 여기에 Core의 Progress 동작
-
-                llTime = GetTickCount64();
-	        }
+        	// TODO : 여기에 Core의 Progress 동작
+            Core::GetInstance().Progress();
         }
     }
 
