@@ -18,8 +18,10 @@ public:
 	static PhysicsManager& GetInstance() { static PhysicsManager sMgr; return sMgr; }
 
 public:
+	// 대기 상태인 컴포넌트를 업데이트할 수 있게 vector에 올려주는 함수
 	void RegisterForUpdate();
 
+	// 게임 루프에 들어갈 update
 	void RigidbodyUpdate(float deltaTime) const;
 
 	void AddRigidbody(Rigidbody* rigidbody)

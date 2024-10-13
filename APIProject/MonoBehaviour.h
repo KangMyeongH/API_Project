@@ -27,8 +27,8 @@ public:
 	virtual void OnDestroy() {}
 	virtual void OnGUI() {}
 	virtual void OnDisable() {}
-	//virtual void OnCollisionEnter(Collision* other) {}
-	//virtual void OnCollisionStay(Collision* other) {}
+	// virtual void OnCollisionEnter(Collision* other) {}
+	// virtual void OnCollisionStay(Collision* other) {}
 	// virtual void OnCollisionExit(Collision* other) {}
 
 	UpdateType GetUpdateType() const { return mUpdateType; }

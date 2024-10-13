@@ -26,17 +26,17 @@ public:
 	void 	SetTargetFrameRate(float fps) { mTargetFrameTime = 1.0f / fps; }
 
 private:
-	LARGE_INTEGER mFrequency;
-	LARGE_INTEGER mLastFrameTime;
-	LARGE_INTEGER mCurrentFrameTime;
-	float mDeltaTime;
-	float mUnscaledDeltaTime;
-	float mTimeScale;
-	float mUnscaledTime;
-	float mTargetFrameTime;
+	LARGE_INTEGER 	mFrequency;
+	LARGE_INTEGER 	mLastFrameTime;
+	LARGE_INTEGER 	mCurrentFrameTime;
+	float 			mDeltaTime;
+	float 			mUnscaledDeltaTime;
+	float 			mTimeScale;
+	float 			mUnscaledTime;
+	float 			mTargetFrameTime;
 
-	double	mAccTime;
-	int		mFPS;
-	TCHAR	m_szFPS[16];
+	double			mAccTime;
+	int				mFPS;
+	TCHAR			m_szFPS[16];
 };
 

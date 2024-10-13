@@ -1,12 +1,8 @@
-﻿  APIProject.cpp
-  Component.cpp
-  Core.cpp
+﻿  BoxCollider.cpp
+  Collider.cpp
+  EdgeCollider.cpp
   GameObject.cpp
-  GameObjectManager.cpp
-  MonoBehaviour.cpp
-  MonoBehaviourManager.cpp
-  PhysicsManager.cpp
-  Rigidbody.cpp
   TimeManager.cpp
   코드를 생성하고 있습니다...
-  APIProject.vcxproj -> C:\APIProject\API_Project\x64\Debug\APIProject.exe
+  LINK : D:\DDingHo\API_Project\x64\Debug\APIProject.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
+  APIProject.vcxproj -> D:\DDingHo\API_Project\x64\Debug\APIProject.exe
