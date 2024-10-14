@@ -55,11 +55,38 @@
     <Filter Include="01. Core\03. Manager\03. Time">
       <UniqueIdentifier>{0907c513-d9c2-45ab-b4a5-d7d92a3c493d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Core\02. Component\04. Collider2D">
+      <UniqueIdentifier>{1f67aeaf-00ae-4377-aaab-d44141d8c785}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Core\02. Component\04. Collider2D\00. Box">
+      <UniqueIdentifier>{c077af74-0872-4827-8d3e-8915d4f1de40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Core\02. Component\04. Collider2D\01. Edge">
+      <UniqueIdentifier>{a593a7db-995f-4969-9cfe-3cf87a838311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Core\03. Manager\04. Collision">
+      <UniqueIdentifier>{f3ceeca1-e61f-42dc-9a19-e0bbeb30f082}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Scripts">
+      <UniqueIdentifier>{a8504544-a9ff-4d78-bb4f-6e124f11833f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Scripts\00. Scene">
+      <UniqueIdentifier>{a0efa8a9-2799-4926-a0fa-d16acb03dd03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Scripts\01. GameObject">
+      <UniqueIdentifier>{8492a67f-cc9c-469a-8ced-5f4fa53a4308}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Scripts\02. Monobehaviour">
+      <UniqueIdentifier>{f65a4389-6601-4296-8e91-b985bce0888f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Core\03. Manager\05. Scene">
+      <UniqueIdentifier>{d61e6d28-f857-42fc-82bf-228f18ebc9e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Core\02. Component\05. Renderer">
+      <UniqueIdentifier>{e35b08a9-12dd-4fdc-a043-0a5230795410}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="APIProject.h">
       <Filter>00. WINAPI</Filter>
     </ClInclude>
@@ -105,9 +132,6 @@
     <ClInclude Include="GameObjectManager.h">
       <Filter>01. Core\03. Manager\01. GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="Collider.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Rigidbody.h">
       <Filter>01. Core\02. Component\03. Rigidbody</Filter>
     </ClInclude>
@@ -117,13 +141,34 @@
     <ClInclude Include="TimeManager.h">
       <Filter>01. Core\03. Manager\03. Time</Filter>
     </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>01. Core\02. Component\04. Collider2D</Filter>
+    </ClInclude>
     <ClInclude Include="BoxCollider.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>01. Core\02. Component\04. Collider2D\00. Box</Filter>
     </ClInclude>
     <ClInclude Include="EdgeCollider.h">
+      <Filter>01. Core\02. Component\04. Collider2D\01. Edge</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Collision.h">
+      <Filter>01. Core\02. Component\04. Collider2D</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>01. Core\03. Manager\04. Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>01. Core\03. Manager\05. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerObject.h">
+      <Filter>02. Scripts\01. GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>02. Scripts\00. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteRenderer.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -155,9 +200,6 @@
     <ClCompile Include="MonoBehaviour.cpp">
       <Filter>01. Core\02. Component\02. MonoBehaviour</Filter>
     </ClCompile>
-    <ClCompile Include="Collider.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Rigidbody.cpp">
       <Filter>01. Core\02. Component\03. Rigidbody</Filter>
     </ClCompile>
@@ -167,13 +209,31 @@
     <ClCompile Include="TimeManager.cpp">
       <Filter>01. Core\03. Manager\03. Time</Filter>
     </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>01. Core\02. Component\04. Collider2D</Filter>
+    </ClCompile>
     <ClCompile Include="BoxCollider.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>01. Core\02. Component\04. Collider2D\00. Box</Filter>
     </ClCompile>
     <ClCompile Include="EdgeCollider.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>01. Core\02. Component\04. Collider2D\01. Edge</Filter>
     </ClCompile>
     <ClCompile Include="Collision.cpp">
+      <Filter>01. Core\02. Component\04. Collider2D</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>01. Core\03. Manager\04. Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>01. Core\03. Manager\05. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerObject.cpp">
+      <Filter>02. Scripts\01. GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>02. Scripts\00. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteRenderer.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,6 +1,5 @@
 #pragma once
 
-class GameObjectManager;
 class Scene
 {
 public:
@@ -12,7 +11,4 @@ public:
 	Scene& operator=(Scene&&) 		= delete;
 
 	virtual void	Init() 			= 0;
-
-protected:
-	GameObjectList 			mGameObjects;
 };

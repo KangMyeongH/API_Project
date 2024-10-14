@@ -50,4 +50,5 @@ void Rigidbody::Destroy()
 {
 	// Rigidbody Manager의 컨테이너에 담긴 Rigidbody제거
 	PhysicsManager::GetInstance().RemoveRigidbody(this);
+	mOwner->RemoveComponent(this);
 }

@@ -2,6 +2,8 @@
 #include <typeindex>
 #include <unordered_map>
 
+#include "Collider.h"
+#include "CollisionManager.h"
 #include "MonoBehaviour.h"
 #include "MonoBehaviourManager.h"
 #include "PhysicsManager.h"
@@ -40,6 +42,8 @@ public:
 		else if (dynamic_cast<Rigidbody*>(component))
 			PhysicsManager::GetInstance().AddRigidbody(dynamic_cast<Rigidbody*>(component));
 
+		else if (dynamic_cast<Collider*>(component))
+			CollisionManager::GetInstance().AddCollider(dynamic_cast<Collider*>(component));
 
 
 		return component;
@@ -56,18 +60,20 @@ public:
 		return nullptr;
 	}
 
-	template <typename T>
-	void RemoveComponent()
+	void RemoveComponent(Component* component)
 	{
-		static_assert(std::is_base_of<Component, T>::value, "T must be derived from Component");
+		mComponents.erase(remove(mComponents.begin(), mComponents.end(), component), mComponents.end());
 
-		auto mapIter = mComponentMap.find(typeid(T));
-		Component* component = GetComponent<T>();
-		mComponentMap.erase(mapIter);
-		mComponents.erase(std::remove(mComponents.begin(), mComponents.end(), component), mComponents.end());
+		for (auto it = mComponentMap.begin(); it != mComponentMap.end();)
+		{
+			if (!it->second.empty() && it->second.front() == component)
+			{
+				mComponentMap.erase(it);
+				return;
+			}
 
-		if (dynamic_cast<MonoBehaviour*>(component))
-			MonoBehaviourManager::GetInstance().RemoveBehaviour(dynamic_cast<MonoBehaviour*>(component));
+			++it;
+		}
 	}
 
 	bool CompareTag(const Tag tag) const { return mTag == tag; }
@@ -96,6 +102,9 @@ public:
 	void Destroy();
 
 	virtual void Init() = 0;
+	void OnCollisionEnter(Collision other);
+	void OnCollisionStay(Collision other);
+	void OnCollisionExit(Collision other);
 
 
 private:

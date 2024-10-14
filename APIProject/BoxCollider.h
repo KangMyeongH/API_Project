@@ -19,8 +19,8 @@ private:
 	bool 		LineIntersectsLine(POINT p1, POINT p2, POINT p3, POINT p4);
 	int			Direction(POINT start, POINT end, POINT target);
 	bool		OnSegment(POINT start, POINT end, POINT target);
+	bool		AreRectsCollision(POINT& contactPoint, RECT rectA, RECT rectB);
 
 private:
 	RECT mRect;
 };
-

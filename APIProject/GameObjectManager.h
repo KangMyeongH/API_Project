@@ -5,7 +5,6 @@ class GameObjectManager
 {
 private:
 	GameObjectManager() {}
-
 	~GameObjectManager() { release(); }
 
 public:

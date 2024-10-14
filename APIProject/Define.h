@@ -15,6 +15,15 @@ enum Tag
 	END_TAG
 };
 
+enum CollisionDirection
+{
+	NONE = 0,
+	LEFT = 1 << 0,       // 0001
+	RIGHT = 1 << 1,    // 0010
+	TOP = 1 << 2,       // 0100
+	BOTTOM = 1 << 3    // 1000
+};
+
 extern HWND gHwnd;
 
 using GameObjectList = std::list<GameObject*>;

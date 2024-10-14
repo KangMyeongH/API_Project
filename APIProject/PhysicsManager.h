@@ -65,6 +65,5 @@ private:
 	std::vector<Rigidbody*> 	mRigidbodies;
 	std::list<Rigidbody*>		mPendingRigidbodyQueue;
 	std::list<Rigidbody*>		mDestroyRigidbodyQueue;
-
 };
 

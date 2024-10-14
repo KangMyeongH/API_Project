@@ -1,6 +1,8 @@
 #pragma once
 #include "Define.h"
 
+class SceneManager;
+class CollisionManager;
 class TimeManager;
 class PhysicsManager;
 class MonoBehaviourManager;
@@ -45,5 +47,7 @@ private:
 	GameObjectManager* 		mObjMgr;
 	MonoBehaviourManager* 	mMonoBehaviourMgr;
 	PhysicsManager* 		mPhysicsMgr;
+	CollisionManager* 		mCollisionMgr;
+	SceneManager* 			mSceneMgr;
 };
 

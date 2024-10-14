@@ -88,7 +88,6 @@ public:
 	void RemoveBehaviour(MonoBehaviour* monoBehaviour)
 	{
 		mDestroyQueue.push_back(monoBehaviour);
-		mMonoBehaviours.erase(std::remove(mMonoBehaviours.begin(), mMonoBehaviours.end(), monoBehaviour), mMonoBehaviours.end());
 	}
 
 	void ClearDestroyQueue()
@@ -96,6 +95,7 @@ public:
 		for (auto& obj : mDestroyQueue)
 		{
 			delete obj;
+			mMonoBehaviours.erase(std::remove(mMonoBehaviours.begin(), mMonoBehaviours.end(), obj), mMonoBehaviours.end());
 		}
 
 		mDestroyQueue.clear();

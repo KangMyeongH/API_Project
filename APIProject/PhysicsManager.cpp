@@ -4,6 +4,15 @@
 
 PhysicsManager::~PhysicsManager()
 {
+	for (auto& rigidbody : mRigidbodies)
+	{
+		delete rigidbody;
+	}
+
+	for (auto& rigidbody : mPendingRigidbodyQueue)
+	{
+		delete rigidbody;
+	}
 }
 
 void PhysicsManager::RegisterForUpdate()

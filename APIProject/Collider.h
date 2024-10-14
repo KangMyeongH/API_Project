@@ -12,7 +12,7 @@ class Collider : public Behaviour
 public:
 	explicit Collider(GameObject* owner, ColliderType type) : Behaviour(owner), mType(type), mIsTrigger(false) {}
 
-	~Collider() override;
+	~Collider() override = default;
 
 	virtual void Init() = 0;
 	virtual bool CheckCollision(Collider* other, POINT& contactPoint) = 0;

@@ -1,10 +1,13 @@
 #include "pch.h"
 #include "Core.h"
 
+#include "CollisionManager.h"
 #include "GameObjectManager.h"
 #include "MonoBehaviourManager.h"
 #include "PhysicsManager.h"
+#include "SceneManager.h"
 #include "TimeManager.h"
+#include "TitleScene.h"
 
 void Core::Init(HWND hwnd)
 {
@@ -23,6 +26,11 @@ void Core::Init(HWND hwnd)
 	mObjMgr = &GameObjectManager::GetInstance();
 	mMonoBehaviourMgr = &MonoBehaviourManager::GetInstance();
 	mPhysicsMgr = &PhysicsManager::GetInstance();
+	mCollisionMgr = &CollisionManager::GetInstance();
+
+
+	mSceneMgr = &SceneManager::GetInstance();
+	mSceneMgr->Init(new TitleScene);
 }
 
 void Core::Progress()
@@ -31,6 +39,7 @@ void Core::Progress()
 
 	mObjMgr->ActivePending();
 	mPhysicsMgr->RegisterForUpdate();
+	mCollisionMgr->RegisterForUpdate();
 	start();
 	fixedUpdate();
 	physicsUpdate();
@@ -40,7 +49,9 @@ void Core::Progress()
 	lateUpdate();
 	render();
 	onDestroy();
+	destroy();
 
+	mSceneMgr->RegisterScene();
 	mTimeMgr->FrameLimit();
 }
 
@@ -61,11 +72,12 @@ void Core::physicsUpdate()
 
 void Core::onTrigger()
 {
+
 }
 
 void Core::onCollision()
 {
-
+	mCollisionMgr->CheckCollisions();
 }
 
 void Core::update()
@@ -97,5 +109,6 @@ void Core::destroy()
 	// GameObject ¼Ò¸ê -> °¢Á¾ ÄÄÆ÷³ÍÆ®µé ¼Ò¸ê ¼ø¼­
 	mObjMgr->DestroyQueue();
 	mPhysicsMgr->ClearDestroyRigidbodyQueue();
+	mCollisionMgr->ClearDestroyColliderQueue();
 	mMonoBehaviourMgr->ClearDestroyQueue();
 }

@@ -11,6 +11,8 @@ void BoxCollider::Init()
 
 bool BoxCollider::CheckCollision(Collider* other, POINT& contactPoint)
 {
+	UpdateRect();
+
 	if (other->GetType() == ColliderType::Box)
 	{
 		BoxCollider* otherBox = static_cast<BoxCollider*>(other);
@@ -19,6 +21,11 @@ bool BoxCollider::CheckCollision(Collider* other, POINT& contactPoint)
 		{
 			contactPoint.x = (intersection.left + intersection.right) / 2;
 			contactPoint.y = (intersection.top + intersection.bottom) / 2;
+			return true;
+		}
+
+		if (AreRectsCollision(contactPoint,mRect,*otherBox->GetRect()))
+		{
 			return true;
 		}
 	}
@@ -98,4 +105,40 @@ bool BoxCollider::OnSegment(POINT start, POINT end, POINT target)
 {
 	return (std::min)(start.x, end.x) <= target.x && target.x <= (std::max)(start.x, end.x) &&
 		(std::min)(start.y, end.y) <= target.y && target.y <= (std::max)(start.y, end.y);
+}
+
+bool BoxCollider::AreRectsCollision(POINT& contactPoint ,RECT rectA, RECT rectB)
+{
+	// 오른쪽 경계선과 왼쪽 경계선이 맞닿는 경우
+	bool isTouchingHorizontally =
+		(rectA.right == rectB.left || rectA.left == rectB.right) &&
+		!(rectA.bottom <= rectB.top || rectA.top >= rectB.bottom);
+
+	if (isTouchingHorizontally)
+	{
+		int top = (std::min)(rectA.top, rectB.top);
+		int bottom = (std::max)(rectA.bottom, rectB.bottom);
+
+		if (rectA.right == rectB.left) contactPoint.x = rectA.right;
+		else contactPoint.x = rectA.left;
+
+		contactPoint.y = (top + bottom) / 2;
+	}
+
+	// 아래쪽 경계선과 위쪽 경계선이 맞닿는 경우
+	bool isTouchingVertically =
+		(rectA.bottom == rectB.top || rectA.top == rectB.bottom) &&
+		!(rectA.right <= rectB.left || rectA.left >= rectB.right);
+
+	if (isTouchingVertically)
+	{
+		int left = (std::min)(rectA.left, rectB.left);
+		int right = (std::max)(rectA.left, rectB.left);
+
+		contactPoint.x = (left + right) / 2;
+		if (rectA.bottom == rectB.top) contactPoint.y = rectA.bottom;
+		else contactPoint.y = rectA.top;
+	}
+
+	return isTouchingHorizontally || isTouchingVertically;
 }
