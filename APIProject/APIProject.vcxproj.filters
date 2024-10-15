@@ -85,6 +85,36 @@
     <Filter Include="01. Core\02. Component\05. Renderer">
       <UniqueIdentifier>{e35b08a9-12dd-4fdc-a043-0a5230795410}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Core\03. Manager\06. Render">
+      <UniqueIdentifier>{d374f2d3-4847-4e01-b71d-e581760f7b53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Core\03. Manager\07. Bitmap">
+      <UniqueIdentifier>{9d00c1c4-3f66-426e-8658-da1e28b3aa52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Core\02. Component\06. Animator">
+      <UniqueIdentifier>{824f452d-d13e-4e5c-9cf3-18e02858be34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Core\03. Manager\08. Animation">
+      <UniqueIdentifier>{8f98f2a9-195a-4044-844c-28f63cd012bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Scripts\03. Player">
+      <UniqueIdentifier>{f05ee970-28d3-4432-bcf4-447e385298f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Scripts\03. Player\00. GameObject">
+      <UniqueIdentifier>{1ab84066-38de-4295-82d3-03ed1fb414b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Scripts\03. Player\01. State">
+      <UniqueIdentifier>{bb0da5f8-dc2e-4b42-bda5-287efa1640f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Core\03. Manager\09. Key">
+      <UniqueIdentifier>{be7d4002-6686-44ff-8d6e-f6ffdd99cf92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Scripts\03. Player\01. State\00. Idle">
+      <UniqueIdentifier>{82b9a013-dcf4-464b-80b1-0a225f48f6cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Scripts\03. Player\01. State\01. Run">
+      <UniqueIdentifier>{b94f860a-326a-4926-a821-4e7ce43e4293}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="APIProject.h">
@@ -162,13 +192,49 @@
     <ClInclude Include="SceneManager.h">
       <Filter>01. Core\03. Manager\05. Scene</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerObject.h">
-      <Filter>02. Scripts\01. GameObject</Filter>
-    </ClInclude>
     <ClInclude Include="TitleScene.h">
       <Filter>02. Scripts\00. Scene</Filter>
     </ClInclude>
+    <ClInclude Include="RenderManager.h">
+      <Filter>01. Core\03. Manager\06. Render</Filter>
+    </ClInclude>
     <ClInclude Include="SpriteRenderer.h">
+      <Filter>01. Core\02. Component\05. Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Bitmap.h">
+      <Filter>01. Core\03. Manager\07. Bitmap</Filter>
+    </ClInclude>
+    <ClInclude Include="BitMapManager.h">
+      <Filter>01. Core\03. Manager\07. Bitmap</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>01. Core\02. Component\06. Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatorManager.h">
+      <Filter>01. Core\03. Manager\08. Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>02. Scripts\03. Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerObject.h">
+      <Filter>02. Scripts\03. Player\00. GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyManager.h">
+      <Filter>01. Core\03. Manager\09. Key</Filter>
+    </ClInclude>
+    <ClInclude Include="IdleState.h">
+      <Filter>02. Scripts\03. Player\01. State\00. Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="RunState.h">
+      <Filter>02. Scripts\03. Player\01. State\01. Run</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMachine.h">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
+    </ClInclude>
+    <ClInclude Include="JumpState.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -227,13 +293,49 @@
     <ClCompile Include="SceneManager.cpp">
       <Filter>01. Core\03. Manager\05. Scene</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerObject.cpp">
-      <Filter>02. Scripts\01. GameObject</Filter>
-    </ClCompile>
     <ClCompile Include="TitleScene.cpp">
       <Filter>02. Scripts\00. Scene</Filter>
     </ClCompile>
+    <ClCompile Include="RenderManager.cpp">
+      <Filter>01. Core\03. Manager\06. Render</Filter>
+    </ClCompile>
     <ClCompile Include="SpriteRenderer.cpp">
+      <Filter>01. Core\02. Component\05. Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Bitmap.cpp">
+      <Filter>01. Core\03. Manager\07. Bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="BitMapManager.cpp">
+      <Filter>01. Core\03. Manager\07. Bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>01. Core\02. Component\06. Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimatorManager.cpp">
+      <Filter>01. Core\03. Manager\08. Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>02. Scripts\03. Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerObject.cpp">
+      <Filter>02. Scripts\03. Player\00. GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyManager.cpp">
+      <Filter>01. Core\03. Manager\09. Key</Filter>
+    </ClCompile>
+    <ClCompile Include="IdleState.cpp">
+      <Filter>02. Scripts\03. Player\01. State\00. Idle</Filter>
+    </ClCompile>
+    <ClCompile Include="RunState.cpp">
+      <Filter>02. Scripts\03. Player\01. State\01. Run</Filter>
+    </ClCompile>
+    <ClCompile Include="StateMachine.cpp">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
+    </ClCompile>
+    <ClCompile Include="JumpState.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

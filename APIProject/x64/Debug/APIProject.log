@@ -1,14 +1,2 @@
-﻿  BoxCollider.cpp
-  Collider.cpp
-  CollisionManager.cpp
-  Component.cpp
-  Core.cpp
-  GameObject.cpp
-  GameObjectManager.cpp
-  MonoBehaviour.cpp
-  PhysicsManager.cpp
-  PlayerObject.cpp
-  Rigidbody.cpp
-  TitleScene.cpp
-  코드를 생성하고 있습니다...
+﻿  JumpState.cpp
   APIProject.vcxproj -> C:\APIProject\API_Project\x64\Debug\APIProject.exe

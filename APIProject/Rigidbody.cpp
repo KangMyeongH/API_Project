@@ -32,7 +32,7 @@ void Rigidbody::Update(const float deltaTime)
 	// Apply Gravity
 	if (mUseGravity)
 	{
-		mVelocity.y -= 9.81f * deltaTime;
+		mVelocity.y += 9.81f * deltaTime * 100.f;
 	}
 
 	// Apply Drag

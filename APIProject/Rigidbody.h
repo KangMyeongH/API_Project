@@ -21,6 +21,7 @@ public:
 
 	void 		SetVelocity(const Vector2& velocity) { mVelocity = velocity; }
 	Vector2 	GetVelocity() const { return mVelocity; }
+	Vector2& 	Velocity() { return mVelocity; }
 
 	void		SetPrevPosition(const Vector2& position) { mPrevPosition = position; }
 	Vector2		GetPrevPosition() const { return mPrevPosition; }

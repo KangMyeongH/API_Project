@@ -104,6 +104,8 @@ public:
 private:
 	void registerForUpdates(MonoBehaviour* obj)
 	{
+		mMonoBehaviours.push_back(obj);
+
 		if (obj->GetUpdateType() & UPDATE) mUpdateMonoBehaviours.push_back(obj);
 		if (obj->GetUpdateType() & FIXED_UPDATE) mFixedUpdateMonoBehaviours.push_back(obj);
 		if (obj->GetUpdateType() & LATE_UPDATE) mLateUpdateMonoBehaviours.push_back(obj);

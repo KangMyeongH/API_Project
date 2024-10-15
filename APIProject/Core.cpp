@@ -1,13 +1,21 @@
 #include "pch.h"
 #include "Core.h"
 
+#include "AnimatorManager.h"
 #include "CollisionManager.h"
 #include "GameObjectManager.h"
+#include "KeyManager.h"
 #include "MonoBehaviourManager.h"
 #include "PhysicsManager.h"
+#include "RenderManager.h"
 #include "SceneManager.h"
 #include "TimeManager.h"
 #include "TitleScene.h"
+
+Core::~Core()
+{
+	KeyManager::Destroy_Instance();
+}
 
 void Core::Init(HWND hwnd)
 {
@@ -27,8 +35,8 @@ void Core::Init(HWND hwnd)
 	mMonoBehaviourMgr = &MonoBehaviourManager::GetInstance();
 	mPhysicsMgr = &PhysicsManager::GetInstance();
 	mCollisionMgr = &CollisionManager::GetInstance();
-
-
+	mRenderMgr = &RenderManager::GetInstance();
+	mAnimatorMgr = &AnimatorManager::GetInstance();
 	mSceneMgr = &SceneManager::GetInstance();
 	mSceneMgr->Init(new TitleScene);
 }
@@ -36,10 +44,11 @@ void Core::Init(HWND hwnd)
 void Core::Progress()
 {
 	mTimeMgr->Update();
-
 	mObjMgr->ActivePending();
 	mPhysicsMgr->RegisterForUpdate();
 	mCollisionMgr->RegisterForUpdate();
+	mRenderMgr->RegisterForUpdate();
+	mAnimatorMgr->RegisterForUpdate();
 	start();
 	fixedUpdate();
 	physicsUpdate();
@@ -88,6 +97,8 @@ void Core::update()
 void Core::lateUpdate()
 {
 	mMonoBehaviourMgr->LateUpdate();
+	mAnimatorMgr->UpdateAnimator();
+	KeyManager::Get_Instance()->Update_Key();
 }
 
 void Core::render()
@@ -95,7 +106,7 @@ void Core::render()
 	Rectangle(mMemDC, 0, 0, WIN_WIDTH, WIN_HEIGHT);
 	// TODO : 여기에 Render 할 것들 추가
 	// 예시 : mObjMgr->Render(mMemDC);
-
+	mRenderMgr->Rendering(mMemDC);
 	BitBlt(mDC, 0, 0, WIN_WIDTH, WIN_HEIGHT, mMemDC, 0, 0, SRCCOPY);
 }
 
@@ -110,5 +121,8 @@ void Core::destroy()
 	mObjMgr->DestroyQueue();
 	mPhysicsMgr->ClearDestroyRigidbodyQueue();
 	mCollisionMgr->ClearDestroyColliderQueue();
+	mRenderMgr->ClearDestroyColliderQueue();
+	mAnimatorMgr->ClearDestroyAnimatorQueue();
 	mMonoBehaviourMgr->ClearDestroyQueue();
+	
 }

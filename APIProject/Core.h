@@ -1,6 +1,8 @@
 #pragma once
 #include "Define.h"
 
+class AnimatorManager;
+class RenderManager;
 class SceneManager;
 class CollisionManager;
 class TimeManager;
@@ -11,7 +13,7 @@ class Core
 {
 private:
 	Core() 							= default;
-	~Core() 						= default;
+	~Core();
 public:
 	Core(const Core&) 				= delete;
 	Core(Core&&) 					= delete;
@@ -49,5 +51,7 @@ private:
 	PhysicsManager* 		mPhysicsMgr;
 	CollisionManager* 		mCollisionMgr;
 	SceneManager* 			mSceneMgr;
+	RenderManager* 			mRenderMgr;
+	AnimatorManager* 		mAnimatorMgr;
 };
 

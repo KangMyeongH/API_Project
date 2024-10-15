@@ -2,13 +2,17 @@
 #include <typeindex>
 #include <unordered_map>
 
+#include "AnimatorManager.h"
 #include "Collider.h"
 #include "CollisionManager.h"
 #include "MonoBehaviour.h"
 #include "MonoBehaviourManager.h"
 #include "PhysicsManager.h"
+#include "RenderManager.h"
 #include "Transform.h"
 #include "Rigidbody.h"
+#include "SpriteRenderer.h"
+#include "Animator.h"
 
 class GameObject
 {
@@ -37,14 +41,34 @@ public:
 		mComponentMap[typeid(T)].push_back(component);
 
 		if (dynamic_cast<MonoBehaviour*>(component))
+		{
 			MonoBehaviourManager::GetInstance().AddMonoBehaviour(dynamic_cast<MonoBehaviour*>(component));
+			return component;
+		}
 
-		else if (dynamic_cast<Rigidbody*>(component))
+		if (dynamic_cast<Rigidbody*>(component))
+		{
 			PhysicsManager::GetInstance().AddRigidbody(dynamic_cast<Rigidbody*>(component));
+			return component;
+		}
 
-		else if (dynamic_cast<Collider*>(component))
+		if (dynamic_cast<Collider*>(component))
+		{
 			CollisionManager::GetInstance().AddCollider(dynamic_cast<Collider*>(component));
+			return component;
+		}
 
+		if (dynamic_cast<SpriteRenderer*>(component))
+		{
+			RenderManager::GetInstance().AddSprite(dynamic_cast<SpriteRenderer*>(component));
+			return component;
+		}
+
+		if (dynamic_cast<Animator*>(component))
+		{
+			AnimatorManager::GetInstance().AddAnimator(dynamic_cast<Animator*>(component));
+			return component;
+		}
 
 		return component;
 	}
@@ -124,7 +148,7 @@ private:
 		}
 	}
 
-private:
+protected:
 	Transform mTransform;
 	std::vector<Component*> mComponents;
 	std::unordered_map<std::type_index, std::vector<Component*>> mComponentMap;
