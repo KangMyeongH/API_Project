@@ -12,6 +12,7 @@ public:
 	void UpdateRect() override;
 
 	RECT* GetRect() override;
+	void Debug(HDC hdc) override;
 
 private:
 	bool 		CheckEdgeCollision(EdgeCollider* edge, POINT& contactPoint);

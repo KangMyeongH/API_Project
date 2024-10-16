@@ -4,6 +4,7 @@
 #include "Animator.h"
 #include "BitMapManager.h"
 #include "IdleState.h"
+#include "JumpState.h"
 #include "KeyManager.h"
 #include "Player.h"
 #include "Rigidbody.h"
@@ -12,29 +13,31 @@
 
 void RunState::Enter()
 {
+	mPlayer->GetRigidbody()->SetUseGravity(false);
+	mPlayer->GetRigidbody()->Velocity().y = 0;
 	mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_RunningStart"));
 	mPlayer->GetAnimator()->SetNextMotion(mPlayer->FindAniInfo(L"SNB_Running"));
 }
 
 void RunState::HandleInput()
 {
-	if (mPlayer->GetKeyMgr()->Key_Down(VK_RIGHT))
+	if (mPlayer->GetKeyMgr()->Key_Down('D'))
 	{
 		mPlayer->GetAnimator()->Flip(false);
 	}
 
-	else if (mPlayer->GetKeyMgr()->Key_Down(VK_LEFT))
+	else if (mPlayer->GetKeyMgr()->Key_Down('A'))
 	{
 		mPlayer->GetAnimator()->Flip(true);
 	}
 
-	if (mPlayer->GetKeyMgr()->Key_Pressing(VK_RIGHT))
+	if (mPlayer->GetKeyMgr()->Key_Pressing('D'))
 	{
 		mPlayer->GetAnimator()->Flip(false);
 		mPlayer->GetRigidbody()->Velocity().x = mPlayer->Speed;
 	}
 
-	else if (mPlayer->GetKeyMgr()->Key_Pressing(VK_LEFT))
+	else if (mPlayer->GetKeyMgr()->Key_Pressing('A'))
 	{
 		mPlayer->GetAnimator()->Flip(true);
 		mPlayer->GetRigidbody()->Velocity().x = -mPlayer->Speed;
@@ -43,6 +46,11 @@ void RunState::HandleInput()
 	else
 	{
 		mStateMachine->ChangeState(mPlayer->Idle);
+	}
+
+	if (mPlayer->GetKeyMgr()->Key_Down(VK_SPACE))
+	{
+		mStateMachine->ChangeState(mPlayer->Jump);
 	}
 
 }

@@ -2,10 +2,11 @@
 #include "Behaviour.h"
 #include "GameObject.h"
 
+// 매게 변수로 hdc, width, height, layer를 받는다
 class SpriteRenderer : public Behaviour
 {
 public:
-	explicit SpriteRenderer(GameObject* owner);
+	explicit SpriteRenderer(GameObject* owner, int layer);
 	SpriteRenderer(GameObject* owner, HDC hdc, float width, float height, int layer);
 
 	void Render(HDC hdc) const
@@ -26,6 +27,8 @@ public:
 	void ChangeSprite(HDC hdc, float width, float height, int startFrame);
 
 	void SetFrame(int frame) { mFrame = frame; }
+
+	int		GetLayer() const { return mLayer; }
 
 	void Flip(bool flip) { mFlip = flip; }
 

@@ -115,6 +115,9 @@
     <Filter Include="02. Scripts\03. Player\01. State\01. Run">
       <UniqueIdentifier>{b94f860a-326a-4926-a821-4e7ce43e4293}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02. Scripts\04. MajorBossRoom">
+      <UniqueIdentifier>{5951fb8e-2f0f-4420-a499-f16af36b023e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="APIProject.h">
@@ -237,6 +240,21 @@
     <ClInclude Include="JumpState.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="MajorBossRoomScene.h">
+      <Filter>02. Scripts\04. MajorBossRoom</Filter>
+    </ClInclude>
+    <ClInclude Include="MajorBossRoomBG.h">
+      <Filter>02. Scripts\04. MajorBossRoom</Filter>
+    </ClInclude>
+    <ClInclude Include="MajorBossRoomClockIdle.h">
+      <Filter>02. Scripts\04. MajorBossRoom</Filter>
+    </ClInclude>
+    <ClInclude Include="MajorBossRoomFront.h">
+      <Filter>02. Scripts\04. MajorBossRoom</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -336,6 +354,21 @@
       <Filter>02. Scripts\03. Player\01. State</Filter>
     </ClCompile>
     <ClCompile Include="JumpState.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MajorBossRoomScene.cpp">
+      <Filter>02. Scripts\04. MajorBossRoom</Filter>
+    </ClCompile>
+    <ClCompile Include="MajorBossRoomFront.cpp">
+      <Filter>02. Scripts\04. MajorBossRoom</Filter>
+    </ClCompile>
+    <ClCompile Include="MajorBossRoomBG.cpp">
+      <Filter>02. Scripts\04. MajorBossRoom</Filter>
+    </ClCompile>
+    <ClCompile Include="MajorBossRoomClockIdle.cpp">
+      <Filter>02. Scripts\04. MajorBossRoom</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

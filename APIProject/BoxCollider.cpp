@@ -55,6 +55,22 @@ RECT* BoxCollider::GetRect()
 	return &mRect;
 }
 
+void BoxCollider::Debug(HDC hdc)
+{
+	HPEN hPen = CreatePen(PS_SOLID, 1, RGB(0, 255, 0));
+	HGDIOBJ hOldPen = SelectObject(hdc, hPen);
+
+	MoveToEx(hdc, mRect.left, mRect.top, nullptr);
+
+	LineTo(hdc, mRect.right, mRect.top);
+	LineTo(hdc, mRect.right, mRect.bottom);
+	LineTo(hdc, mRect.left, mRect.bottom);
+	LineTo(hdc, mRect.left, mRect.top);
+
+	SelectObject(hdc, hOldPen);
+	DeleteObject(hPen);
+}
+
 bool BoxCollider::CheckEdgeCollision(EdgeCollider* edge, POINT& contactPoint)
 {
 	POINT start = edge->GetStart();

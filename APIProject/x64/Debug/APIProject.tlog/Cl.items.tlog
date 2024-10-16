@@ -15,10 +15,15 @@ C:\APIProject\API_Project\APIProject\GameObjectManager.cpp;C:\APIProject\API_Pro
 C:\APIProject\API_Project\APIProject\IdleState.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\IdleState.obj
 C:\APIProject\API_Project\APIProject\JumpState.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\JumpState.obj
 C:\APIProject\API_Project\APIProject\KeyManager.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\KeyManager.obj
+C:\APIProject\API_Project\APIProject\MajorBossRoomBG.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\MajorBossRoomBG.obj
+C:\APIProject\API_Project\APIProject\MajorBossRoomClockIdle.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\MajorBossRoomClockIdle.obj
+C:\APIProject\API_Project\APIProject\MajorBossRoomFront.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\MajorBossRoomFront.obj
+C:\APIProject\API_Project\APIProject\MajorBossRoomScene.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\MajorBossRoomScene.obj
 C:\APIProject\API_Project\APIProject\MonoBehaviour.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\MonoBehaviour.obj
 C:\APIProject\API_Project\APIProject\MonoBehaviourManager.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\MonoBehaviourManager.obj
 C:\APIProject\API_Project\APIProject\pch.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\pch.obj
 C:\APIProject\API_Project\APIProject\PhysicsManager.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\PhysicsManager.obj
+C:\APIProject\API_Project\APIProject\Platform.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\Platform.obj
 C:\APIProject\API_Project\APIProject\Player.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\Player.obj
 C:\APIProject\API_Project\APIProject\PlayerObject.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\PlayerObject.obj
 C:\APIProject\API_Project\APIProject\RenderManager.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\RenderManager.obj

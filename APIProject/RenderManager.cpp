@@ -25,7 +25,7 @@ void RenderManager::RegisterForUpdate()
 		if (sprite->IsEnabled())
 		{
 			mSprites.push_back(sprite);
-
+			mLayerMultiMap.insert({ sprite->GetLayer(),sprite });
 			it = mPendingSpriteQueue.erase(it);
 		}
 
@@ -40,6 +40,15 @@ void RenderManager::ClearDestroyColliderQueue()
 	{
 		delete sprite;
 		mSprites.erase(std::remove(mSprites.begin(), mSprites.end(), sprite), mSprites.end());
+		for (auto it = mLayerMultiMap.begin(); it != mLayerMultiMap.end();)
+		{
+			if (it->second == sprite)
+			{
+				it = mLayerMultiMap.erase(it);
+			}
+
+			else ++it;
+		}
 	}
 
 	mDestroySpriteQueue.clear();
@@ -57,8 +66,8 @@ void RenderManager::RemoveSprite(SpriteRenderer* sprite)
 
 void RenderManager::Rendering(HDC hdc) const
 {
-	for (auto& sprite : mSprites)
+	for (auto& sprite : mLayerMultiMap)
 	{
-		sprite->Render(hdc);
+		sprite.second->Render(hdc);
 	}
 }

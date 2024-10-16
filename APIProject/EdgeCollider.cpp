@@ -27,6 +27,18 @@ RECT* EdgeCollider::GetRect()
     return &mRect;
 }
 
+void EdgeCollider::Debug(HDC hdc)
+{
+    HPEN hPen = CreatePen(PS_SOLID, 1, RGB(0, 255, 0));
+    HGDIOBJ hOldPen = SelectObject(hdc, hPen);
+
+    MoveToEx(hdc, mStart.x, mStart.y, nullptr);
+    LineTo(hdc, mEnd.x, mEnd.y);
+
+    SelectObject(hdc, hOldPen);
+    DeleteObject(hPen);
+}
+
 bool EdgeCollider::LineIntersectsRect(POINT start, POINT end, RECT rect)
 {
     return (LineIntersectsLine(start, end, { rect.left, rect.top }, { rect.right, rect.top }) ||

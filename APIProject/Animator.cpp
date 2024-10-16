@@ -36,7 +36,7 @@ void Animator::MoveFrame()
 	mTime += TimeManager::GetInstance().GetDeltaTime();
 }
 
-/*
+
 void Animator::MotionChange(HDC hdc, int start, int end, float width, float height, float speed)
 {
 	mFrameStart = start;
@@ -44,7 +44,7 @@ void Animator::MotionChange(HDC hdc, int start, int end, float width, float heig
 	mSpeed = speed;
 	mTime = TimeManager::GetInstance().GetDeltaTime();
 	mSprite->ChangeSprite(hdc, width, height, start);
-}*/
+}
 
 void Animator::MotionChange(AnimationInfo* nextMotion)
 {

@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "Collider.h"
+class Rigidbody;
 class Collider;
 
 class CollisionManager
@@ -38,7 +39,11 @@ public:
 
 	void CheckCollisions();
 
-	CollisionDirection DetectBoxCollisionDir(RECT objRect, RECT otherRect);
+	static CollisionDirection DetectBoxCollisionDir(RECT objRect, RECT otherRect);
+	static CollisionDirection DetectEdgeCollisionDir(Rigidbody* obj, RECT other);
+	static void AdjustRect(Collider* collider, Collider* other, CollisionDirection dir);
+
+	void Debug(HDC hdc);
 
 private:
 	// 둘 중 하나라도 rigidbody가 있어야지 collisionXXX 판정이 되므로 Collision 여부 판단

@@ -16,7 +16,7 @@ public:
 
     void SetSprite(SpriteRenderer* sprite) { mSprite = sprite; }
 
-   // void MotionChange(HDC hdc, int start, int end, float width, float height, float speed);
+    void MotionChange(HDC hdc, int start, int end, float width, float height, float speed);
     void MotionChange(AnimationInfo* nextMotion);
     void Loop(bool loop) { mLoop = loop; }
     void Pause(bool pause) { mPause = pause; }

@@ -82,14 +82,14 @@ void CollisionManager::CheckCollisions()
 				if (mCollisionMap[colliderA].find(colliderB) == mCollisionMap[colliderA].end())
 				{
 					mCollisionMap[colliderA].insert(colliderB);
-					colliderA->GetGameObject()->OnCollisionEnter(Collision(colliderB->GetGameObject(), contactPoint));
-					colliderB->GetGameObject()->OnCollisionEnter(Collision(colliderA->GetGameObject(), contactPoint));
+					colliderA->GetGameObject()->OnCollisionEnter(Collision(colliderB->GetGameObject(), colliderB, contactPoint));
+					colliderB->GetGameObject()->OnCollisionEnter(Collision(colliderA->GetGameObject(), colliderA ,contactPoint));
 				}
 
 				else
 				{
-					colliderA->GetGameObject()->OnCollisionStay(Collision(colliderB->GetGameObject(), contactPoint));
-					colliderB->GetGameObject()->OnCollisionStay(Collision(colliderA->GetGameObject(), contactPoint));
+					colliderA->GetGameObject()->OnCollisionStay(Collision(colliderB->GetGameObject(), colliderB, contactPoint));
+					colliderB->GetGameObject()->OnCollisionStay(Collision(colliderA->GetGameObject(), colliderA, contactPoint));
 				}
 			}
 
@@ -97,8 +97,8 @@ void CollisionManager::CheckCollisions()
 			{
 				if (mCollisionMap[colliderA].find(colliderB) != mCollisionMap[colliderA].end())
 				{
-					colliderA->GetGameObject()->OnCollisionExit(Collision(colliderB->GetGameObject(), contactPoint));
-					colliderB->GetGameObject()->OnCollisionExit(Collision(colliderA->GetGameObject(), contactPoint));
+					colliderA->GetGameObject()->OnCollisionExit(Collision(colliderB->GetGameObject(), colliderB, contactPoint));
+					colliderB->GetGameObject()->OnCollisionExit(Collision(colliderA->GetGameObject(), colliderA, contactPoint));
 					mCollisionMap[colliderA].erase(colliderB);
 				}
 			}
@@ -144,6 +144,74 @@ CollisionDirection CollisionManager::DetectBoxCollisionDir(RECT objRect, RECT ot
 	return collisionDir;
 }
 
+CollisionDirection CollisionManager::DetectEdgeCollisionDir(Rigidbody* obj, RECT other)
+{
+	CollisionDirection collisionDir = NONE;
+
+	// 좌우 충돌 체크 (선이 수직일 때)
+	if (other.left == other.right)
+	{
+		if (obj->GetPrevPosition().x < static_cast<float>(other.left))
+		{
+			collisionDir = static_cast<CollisionDirection>(collisionDir | LEFT);
+		}
+
+		else if (obj->GetPrevPosition().x > static_cast<float>(other.left))
+		{
+			collisionDir = static_cast<CollisionDirection>(collisionDir | RIGHT);
+		}
+	}
+
+	// 상하 충돌 체크 (선이 수평일 때)
+	if (other.top == other.bottom)
+	{
+		if (obj->GetPrevPosition().y < static_cast<float>(other.top))
+		{
+			collisionDir = static_cast<CollisionDirection>(collisionDir | TOP);
+		}
+
+		else if (obj->GetPrevPosition().y < static_cast<float>(other.top))
+		{
+			collisionDir = static_cast<CollisionDirection>(collisionDir | BOTTOM);
+		}
+	}
+
+	return collisionDir;
+}
+
+void CollisionManager::AdjustRect(Collider* collider, Collider* other, CollisionDirection dir)
+{
+	Vector2 adjustPosition = collider->GetTransform()->GetWorldPosition();
+
+	if (dir & LEFT)
+	{
+		adjustPosition.x = adjustPosition.x - static_cast<float>(collider->GetRect()->right - other->GetRect()->left);
+	}
+	else if (dir & RIGHT)
+	{
+		adjustPosition.x = adjustPosition.x + static_cast<float>(other->GetRect()->right - collider->GetRect()->left);
+	}
+
+	if (dir & TOP)
+	{
+		adjustPosition.y = adjustPosition.y - static_cast<float>(collider->GetRect()->bottom - other->GetRect()->top);
+	}
+
+	else if (dir & BOTTOM)
+	{
+		adjustPosition.y = adjustPosition.y + static_cast<float>(other->GetRect()->bottom - collider->GetRect()->top);
+	}
+
+	collider->GetTransform()->SetWorldPosition(adjustPosition);
+}
+
+void CollisionManager::Debug(HDC hdc)
+{
+	for (auto& collider : mColliders)
+	{
+		collider->Debug(hdc);
+	}
+}
 
 
 /*

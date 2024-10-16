@@ -5,6 +5,7 @@
 #include "CollisionManager.h"
 #include "GameObjectManager.h"
 #include "KeyManager.h"
+#include "MajorBossRoomScene.h"
 #include "MonoBehaviourManager.h"
 #include "PhysicsManager.h"
 #include "RenderManager.h"
@@ -38,7 +39,7 @@ void Core::Init(HWND hwnd)
 	mRenderMgr = &RenderManager::GetInstance();
 	mAnimatorMgr = &AnimatorManager::GetInstance();
 	mSceneMgr = &SceneManager::GetInstance();
-	mSceneMgr->Init(new TitleScene);
+	mSceneMgr->Init(new MajorBossRoomScene);
 }
 
 void Core::Progress()
@@ -61,7 +62,7 @@ void Core::Progress()
 	destroy();
 
 	mSceneMgr->RegisterScene();
-	mTimeMgr->FrameLimit();
+	//mTimeMgr->FrameLimit();
 }
 
 void Core::start()
@@ -107,6 +108,7 @@ void Core::render()
 	// TODO : 여기에 Render 할 것들 추가
 	// 예시 : mObjMgr->Render(mMemDC);
 	mRenderMgr->Rendering(mMemDC);
+	mCollisionMgr->Debug(mMemDC);
 	BitBlt(mDC, 0, 0, WIN_WIDTH, WIN_HEIGHT, mMemDC, 0, 0, SRCCOPY);
 }
 
@@ -124,5 +126,4 @@ void Core::destroy()
 	mRenderMgr->ClearDestroyColliderQueue();
 	mAnimatorMgr->ClearDestroyAnimatorQueue();
 	mMonoBehaviourMgr->ClearDestroyQueue();
-	
 }

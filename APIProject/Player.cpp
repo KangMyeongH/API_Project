@@ -2,6 +2,7 @@
 #include "Player.h"
 
 #include "BitMapManager.h"
+#include "BoxCollider.h"
 #include "GameObject.h"
 #include "IdleState.h"
 #include "JumpState.h"
@@ -30,6 +31,7 @@ void Player::Start()
 	// GetComponent
 	mRigidbody = mOwner->GetComponent<Rigidbody>();
 	mTransform = GetTransform();
+	mCollider = mOwner->GetComponent<BoxCollider>();
 	mAnimator = mOwner->GetComponent<Animator>();
 	mStateMachine = new StateMachine;
 
@@ -79,6 +81,37 @@ void Player::Update()
 
 void Player::LateUpdate()
 {
+}
+
+void Player::OnCollisionEnter(Collision other)
+{
+	// 충돌 방향 체크
+	
+	CollisionDirection dir = NONE; 
+
+	switch (other.GetCollider()->GetType())
+	{
+	case ColliderType::Box:
+		dir = CollisionManager::DetectBoxCollisionDir(*mCollider->GetRect(), *other.GetCollider()->GetRect());
+		break;
+
+	case ColliderType::Edge:
+		dir = CollisionManager::DetectEdgeCollisionDir(mRigidbody, *other.GetCollider()->GetRect());
+		break;
+	}
+
+
+	CollisionManager::AdjustRect(mCollider, other.GetCollider(), dir);
+
+	if (mRigidbody->GetVelocity().x != 0.f)
+	{
+		mStateMachine->ChangeState(Run);
+	}
+
+	else
+	{
+		mStateMachine->ChangeState(Idle);
+	}
 }
 
 AnimationInfo* Player::FindAniInfo(const TCHAR* key)

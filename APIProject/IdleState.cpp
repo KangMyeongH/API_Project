@@ -29,13 +29,13 @@ void IdleState::Enter()
 
 void IdleState::HandleInput()
 {
-	if (mPlayer->GetKeyMgr()->Key_Down(VK_RIGHT))
+	if (mPlayer->GetKeyMgr()->Key_Down('D'))
 	{
 		mPlayer->GetAnimator()->Flip(false);
 		mStateMachine->ChangeState(mPlayer->Run);
 	}
 
-	else if (mPlayer->GetKeyMgr()->Key_Down(VK_LEFT))
+	else if (mPlayer->GetKeyMgr()->Key_Down('A'))
 	{
 		mPlayer->GetAnimator()->Flip(true);
 		mStateMachine->ChangeState(mPlayer->Run);

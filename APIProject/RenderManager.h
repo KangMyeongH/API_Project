@@ -1,4 +1,5 @@
 #pragma once
+#include <map>
 #include <vector>
 class SpriteRenderer;
 
@@ -27,8 +28,9 @@ public:
 	void Rendering(HDC hdc) const;
 
 private:
-	std::vector<SpriteRenderer*> 	mSprites;
-	std::list<SpriteRenderer*>		mPendingSpriteQueue;
-	std::list<SpriteRenderer*>		mDestroySpriteQueue;
+	std::vector<SpriteRenderer*> 				mSprites;
+	std::multimap<int, SpriteRenderer*>			mLayerMultiMap;
+	std::list<SpriteRenderer*>					mPendingSpriteQueue;
+	std::list<SpriteRenderer*>					mDestroySpriteQueue;
 };
 

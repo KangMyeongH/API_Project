@@ -26,6 +26,8 @@ public:
 
 	void Destroy() final;
 
+	virtual void Debug(HDC hdc) = 0;
+
 protected:
 	ColliderType mType;
 	bool mIsTrigger;

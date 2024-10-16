@@ -10,10 +10,11 @@
 void PlayerObject::Init()
 {
 	mTransform.SetWorldPosition({ 300, 300 });
+	mTransform.SetLocalScale({ 24,42 });
 	AddComponent<Rigidbody>(0, true, 0, 0, DYNAMIC);
 	GetComponent<Rigidbody>()->SetUseGravity(false);
 	AddComponent<BoxCollider>();
-	AddComponent<SpriteRenderer>();
+	AddComponent<SpriteRenderer>(7);
 	AddComponent<Animator>();
 	AddComponent<Player>();
 	GetComponent<Animator>()->SetSprite(GetComponent<SpriteRenderer>());

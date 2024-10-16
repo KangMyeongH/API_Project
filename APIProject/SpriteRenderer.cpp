@@ -3,8 +3,8 @@
 
 #include "RenderManager.h"
 
-SpriteRenderer::SpriteRenderer(GameObject* owner) : Behaviour(owner), mTransform(nullptr), mDC(nullptr), mWidth(0),
-                                                    mHeight(0), mFrame(0), mFlip(false), mLayer(0)
+SpriteRenderer::SpriteRenderer(GameObject* owner, int layer) : Behaviour(owner), mTransform(nullptr), mDC(nullptr), mWidth(0),
+                                                    mHeight(0), mFrame(0), mFlip(false), mLayer(layer)
 {
 	mTransform = owner->GetTransform();
 }
