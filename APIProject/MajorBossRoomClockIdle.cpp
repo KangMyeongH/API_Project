@@ -2,6 +2,7 @@
 #include "MajorBossRoomClockIdle.h"
 
 #include "BitMapManager.h"
+#include "ImageManager.h"
 
 void MajorBossRoomClockIdle::Init()
 {
@@ -11,5 +12,5 @@ void MajorBossRoomClockIdle::Init()
 	AddComponent<Animator>();
 	GetComponent<Animator>()->SetSprite(GetComponent<SpriteRenderer>());
 	GetComponent<Animator>()->Loop(true);
-	GetComponent<Animator>()->MotionChange(BitMapManager::GetInstance().FindImage(L"MajorBossRoom_ClockIdle"), 0, 18, 701, 799, 0.2f);
+	GetComponent<Animator>()->MotionChange(ImageManager::GetInstance().FindImage(L"MajorBossRoom_ClockIdle"), 0, 18, 701, 799, 0.2f);
 }

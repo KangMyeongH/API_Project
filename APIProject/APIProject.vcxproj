@@ -153,6 +153,8 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectManager.h" />
     <ClInclude Include="IdleState.h" />
+    <ClInclude Include="Image.h" />
+    <ClInclude Include="ImageManager.h" />
     <ClInclude Include="JumpState.h" />
     <ClInclude Include="KeyManager.h" />
     <ClInclude Include="MajorBossRoomBG.h" />
@@ -197,6 +199,8 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />
     <ClCompile Include="IdleState.cpp" />
+    <ClCompile Include="Image.cpp" />
+    <ClCompile Include="ImageManager.cpp" />
     <ClCompile Include="JumpState.cpp" />
     <ClCompile Include="KeyManager.cpp" />
     <ClCompile Include="MajorBossRoomBG.cpp" />

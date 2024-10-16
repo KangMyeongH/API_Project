@@ -64,10 +64,19 @@ void RenderManager::RemoveSprite(SpriteRenderer* sprite)
 	mDestroySpriteQueue.push_back(sprite);
 }
 
+/*
 void RenderManager::Rendering(HDC hdc) const
 {
 	for (auto& sprite : mLayerMultiMap)
 	{
 		sprite.second->Render(hdc);
+	}
+}*/
+
+void RenderManager::Rendering(ID2D1HwndRenderTarget* render) const
+{
+	for (auto& sprite : mLayerMultiMap)
+	{
+		sprite.second->Render(render);
 	}
 }

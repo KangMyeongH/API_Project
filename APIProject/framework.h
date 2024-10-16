@@ -9,3 +9,7 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
+#include <d2d1.h>
+#include <wincodec.h>
+#pragma comment(lib, "D2D1.lib")
+using namespace D2D1;

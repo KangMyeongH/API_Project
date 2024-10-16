@@ -5,6 +5,7 @@
 #include "framework.h"
 #include "APIProject.h"
 #include "Core.h"
+#include "ImageManager.h"
 
 #define MAX_LOADSTRING 100
 
@@ -13,6 +14,8 @@ HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
 HWND gHwnd;                                     // 전역 윈도우 핸들
+ID2D1Factory* gFactory;
+ID2D1HwndRenderTarget* gRenderTarget;
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -31,6 +34,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(lpCmdLine);
 
     // TODO: 여기에 코드를 입력합니다.
+
+    CoInitializeEx(NULL, COINIT_APARTMENTTHREADED);
+
+    D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &gFactory);
 
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
@@ -76,6 +83,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             Core::GetInstance().Progress();
         }
     }
+
+    gFactory->Release();
+
+    CoUninitialize();
 
     return static_cast<int>(msg.wParam);
 }
@@ -165,6 +176,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
+    case WM_CREATE:
+        RECT r;
+        GetClientRect(hWnd, &r);
+        gFactory->CreateHwndRenderTarget(RenderTargetProperties(),
+            HwndRenderTargetProperties(hWnd, SizeU(r.right, r.bottom)),
+            &gRenderTarget);
+        break;
+
     case WM_KEYDOWN:
     {
         if (wParam == VK_ESCAPE)
@@ -200,6 +219,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         }
         break;
     case WM_DESTROY:
+        ImageManager::GetInstance().Release();
+        if (gRenderTarget != nullptr)
+        {
+            gRenderTarget->Release();
+            gRenderTarget = nullptr;
+        }
         PostQuitMessage(0);
         break;
     default:

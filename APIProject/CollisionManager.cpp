@@ -201,8 +201,9 @@ void CollisionManager::AdjustRect(Collider* collider, Collider* other, Collision
 	{
 		adjustPosition.y = adjustPosition.y + static_cast<float>(other->GetRect()->bottom - collider->GetRect()->top);
 	}
-
+	
 	collider->GetTransform()->SetWorldPosition(adjustPosition);
+	collider->UpdateRect();
 }
 
 void CollisionManager::Debug(HDC hdc)

@@ -32,12 +32,12 @@ enum PlayerState
 };
 struct AnimationInfo
 {
-	AnimationInfo(HDC hdc, int start, int end, float width, float height, float speed, bool loop)
-		: Hdc(hdc), Start(start), End(end), Width(width), Height(height), Speed(speed), Loop(loop)
+	AnimationInfo(ID2D1Bitmap* image, int start, int end, float width, float height, float speed, bool loop)
+		: Image(image), Start(start), End(end), Width(width), Height(height), Speed(speed), Loop(loop)
 	{
 	}
 
-	HDC Hdc;
+	ID2D1Bitmap* Image;
 	int Start;
 	int End;
 	float Width;
@@ -64,5 +64,7 @@ private:
 #define VK_MAX			0xff
 
 extern HWND gHwnd;
+extern ID2D1Factory* gFactory;
+extern ID2D1HwndRenderTarget* gRenderTarget;
 
 using GameObjectList = std::list<GameObject*>;

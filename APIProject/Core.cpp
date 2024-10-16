@@ -39,7 +39,7 @@ void Core::Init(HWND hwnd)
 	mRenderMgr = &RenderManager::GetInstance();
 	mAnimatorMgr = &AnimatorManager::GetInstance();
 	mSceneMgr = &SceneManager::GetInstance();
-	mSceneMgr->Init(new MajorBossRoomScene);
+	mSceneMgr->Init(new TitleScene);
 }
 
 void Core::Progress()
@@ -104,12 +104,16 @@ void Core::lateUpdate()
 
 void Core::render()
 {
+	/*
 	Rectangle(mMemDC, 0, 0, WIN_WIDTH, WIN_HEIGHT);
 	// TODO : 여기에 Render 할 것들 추가
 	// 예시 : mObjMgr->Render(mMemDC);
 	mRenderMgr->Rendering(mMemDC);
 	mCollisionMgr->Debug(mMemDC);
-	BitBlt(mDC, 0, 0, WIN_WIDTH, WIN_HEIGHT, mMemDC, 0, 0, SRCCOPY);
+	BitBlt(mDC, 0, 0, WIN_WIDTH, WIN_HEIGHT, mMemDC, 0, 0, SRCCOPY);*/
+	gRenderTarget->BeginDraw();
+	mRenderMgr->Rendering(gRenderTarget);
+	HRESULT hr = gRenderTarget->EndDraw();
 }
 
 void Core::onDestroy()

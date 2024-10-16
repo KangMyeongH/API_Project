@@ -37,13 +37,13 @@ void Animator::MoveFrame()
 }
 
 
-void Animator::MotionChange(HDC hdc, int start, int end, float width, float height, float speed)
+void Animator::MotionChange(ID2D1Bitmap* image, int start, int end, float width, float height, float speed)
 {
 	mFrameStart = start;
 	mFrameEnd = end;
 	mSpeed = speed;
 	mTime = TimeManager::GetInstance().GetDeltaTime();
-	mSprite->ChangeSprite(hdc, width, height, start);
+	mSprite->ChangeSprite(image, width, height, start);
 }
 
 void Animator::MotionChange(AnimationInfo* nextMotion)
@@ -52,7 +52,7 @@ void Animator::MotionChange(AnimationInfo* nextMotion)
 	mFrameEnd = nextMotion->End;
 	mSpeed = nextMotion->Speed;
 	mTime = TimeManager::GetInstance().GetDeltaTime();
-	mSprite->ChangeSprite(nextMotion->Hdc, nextMotion->Width, nextMotion->Height, nextMotion->Start);
+	mSprite->ChangeSprite(nextMotion->Image, nextMotion->Width, nextMotion->Height, nextMotion->Start);
 	mLoop = nextMotion->Loop;
 }
 

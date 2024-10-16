@@ -25,7 +25,9 @@ public:
 
 	void RemoveSprite(SpriteRenderer* sprite);
 
-	void Rendering(HDC hdc) const;
+	//void Rendering(HDC hdc) const;
+
+	void Rendering(ID2D1HwndRenderTarget* render) const;
 
 private:
 	std::vector<SpriteRenderer*> 				mSprites;
