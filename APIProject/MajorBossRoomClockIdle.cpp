@@ -7,7 +7,7 @@
 void MajorBossRoomClockIdle::Init()
 {
 	mTransform.SetWorldPosition({ 752, 496 });
-	BitMapManager::GetInstance().InsertBmp(L"./Sprite/BG/Chapter04Boss/Spr_Chap4_BossRoom_ClockIdle.bmp", L"MajorBossRoom_ClockIdle");
+	ImageManager::GetInstance().InsertBmp(L"Sprite/BG/Chapter04Boss/Spr_Chap4_BossRoom_ClockIdle.png", L"MajorBossRoom_ClockIdle");
 	AddComponent<SpriteRenderer>(3);
 	AddComponent<Animator>();
 	GetComponent<Animator>()->SetSprite(GetComponent<SpriteRenderer>());

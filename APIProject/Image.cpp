@@ -19,7 +19,7 @@ void Image::LoadMyImage(const wchar_t* filepath)
 	IWICBitmapFrameDecode* frame;
 	IWICFormatConverter* converter;
 
-	if (S_OK == wicFactory->CreateDecoderFromFilename(filepath, nullptr, GENERIC_READ, WICDecodeMetadataCacheOnLoad, &decoder))
+	if (S_OK == wicFactory->CreateDecoderFromFilename(filepath, nullptr, GENERIC_READ, WICDecodeMetadataCacheOnDemand, &decoder))
 	{
 		if (S_OK == decoder->GetFrame(0, &frame))
 		{

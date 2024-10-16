@@ -9,8 +9,8 @@
 
 void MajorBossRoomScene::Init()
 {
-	//GameObjectManager::GetInstance().AddGameObject<MajorBossRoomBG>();
+	GameObjectManager::GetInstance().AddGameObject<MajorBossRoomBG>();
 	//GameObjectManager::GetInstance().AddGameObject<MajorBossRoomClockIdle>();
-	//GameObjectManager::GetInstance().AddGameObject<MajorBossRoomFront>();
+	GameObjectManager::GetInstance().AddGameObject<MajorBossRoomFront>();
 	GameObjectManager::GetInstance().AddGameObject<PlayerObject>();
 }

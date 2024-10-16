@@ -6,6 +6,7 @@
 #include "APIProject.h"
 #include "Core.h"
 #include "ImageManager.h"
+#include "RenderManager.h"
 
 #define MAX_LOADSTRING 100
 
@@ -212,6 +213,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         break;
     case WM_PAINT:
         {
+
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...

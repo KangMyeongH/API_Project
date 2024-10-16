@@ -28,11 +28,9 @@ void Animator::MoveFrame()
 				}
 			}
 		}
-
-		mSprite->SetFrame(mFrameStart);
 		mTime = 0;
 	}
-
+	mSprite->SetFrame(mFrameStart);
 	mTime += TimeManager::GetInstance().GetDeltaTime();
 }
 
