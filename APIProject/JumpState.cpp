@@ -2,15 +2,22 @@
 #include "JumpState.h"
 
 #include "Animator.h"
+#include "ChargeDashState.h"
 #include "KeyManager.h"
 #include "Player.h"
 #include "Rigidbody.h"
+#include "StateMachine.h"
 
 void JumpState::Enter()
 {
-	mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_Jumping"));
-	mPlayer->GetRigidbody()->Velocity().y = -500.f;
+	mFalling = false;
 	mPlayer->GetRigidbody()->SetUseGravity(true);
+
+	if (mStateMachine->GetPrevState()->GetType() == IDLE || mStateMachine->GetPrevState()->GetType() == RUN)
+	{
+		mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_Jumping"));
+		mPlayer->GetRigidbody()->Velocity().y = -500.f;
+	}
 }
 
 void JumpState::HandleInput()
@@ -57,10 +64,33 @@ void JumpState::HandleInput()
 			}
 		}
 	}
+
+	if (mPlayer->GetKeyMgr()->Key_Pressing(VK_SHIFT))
+	{
+		mStateMachine->ChangeState(mPlayer->ChargeDash);
+	}
 }
 
 void JumpState::LogicUpdate()
 {
+	if (mStateMachine->GetPrevState()->GetType() == IDLE || mStateMachine->GetPrevState()->GetType() == RUN)
+	{
+		if (mPlayer->GetRigidbody()->Velocity().y > 0 && !mFalling)
+		{
+			mFalling = true;
+			mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_FallStart"));
+			mPlayer->GetAnimator()->SetNextMotion(mPlayer->FindAniInfo(L"SNB_Falling"));
+		}
+	}
+
+	else if (mStateMachine->GetPrevState()->GetType() == CHARGEDASH)
+	{
+		if (mPlayer->GetRigidbody()->Velocity().y > 0 && !mFalling)
+		{
+			mFalling = true;
+			mPlayer->GetAnimator()->SetNextMotion(mPlayer->FindAniInfo(L"SNB_Falling"));
+		}
+	}
 }
 
 void JumpState::PhysicsUpdate()

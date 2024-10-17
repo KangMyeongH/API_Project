@@ -19,7 +19,6 @@ void Animator::MoveFrame()
 				{
 					mFrameStart = 0;
 					MotionChange(mNextMotion);
-					mNextMotion = nullptr;
 				}
 
 				else
@@ -52,6 +51,7 @@ void Animator::MotionChange(AnimationInfo* nextMotion)
 	mTime = TimeManager::GetInstance().GetDeltaTime();
 	mSprite->ChangeSprite(nextMotion->Image, nextMotion->Width, nextMotion->Height, nextMotion->Start);
 	mLoop = nextMotion->Loop;
+	mNextMotion = nullptr;
 }
 
 void Animator::Flip(bool flip)

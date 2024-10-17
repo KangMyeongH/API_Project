@@ -112,7 +112,10 @@ void Core::render()
 	mCollisionMgr->Debug(mMemDC);
 	BitBlt(mDC, 0, 0, WIN_WIDTH, WIN_HEIGHT, mMemDC, 0, 0, SRCCOPY);*/
 	gRenderTarget->BeginDraw();
+
 	mRenderMgr->Rendering(gRenderTarget);
+	mCollisionMgr->Debug(gRenderTarget);
+
 	HRESULT hr = gRenderTarget->EndDraw();
 }
 

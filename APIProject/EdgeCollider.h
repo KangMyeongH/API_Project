@@ -25,7 +25,7 @@ public:
 	POINT 	GetEnd() const { return mEnd; }
 	void 	SetEnd(const POINT end) { mEnd = end; }
 
-	void Debug(HDC hdc) override;
+	//void Debug(HDC hdc) override;
 
 private:
 	bool 	LineIntersectsRect(POINT start, POINT end, RECT rect);
@@ -35,6 +35,7 @@ private:
 
 public:
 	void Init() override {}
+	void Debug(ID2D1HwndRenderTarget* render) override;
 
 private:
 	POINT 	mStart;

@@ -15,6 +15,7 @@ void PlayerObject::Init()
 	GetComponent<Rigidbody>()->SetUseGravity(false);
 	AddComponent<BoxCollider>();
 	AddComponent<SpriteRenderer>(7);
+	GetComponent<SpriteRenderer>()->IsPivotDown(true);
 	AddComponent<Animator>();
 	AddComponent<Player>();
 	GetComponent<Animator>()->SetSprite(GetComponent<SpriteRenderer>());

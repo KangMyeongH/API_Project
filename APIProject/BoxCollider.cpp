@@ -43,10 +43,10 @@ void BoxCollider::UpdateRect()
 {
 	Transform* transform = mOwner->GetTransform();
 
-	mRect.left = static_cast<LONG>(transform->GetWorldPosition().x - transform->GetWorldScale().x * 0.5f);
-	mRect.right = static_cast<LONG>(transform->GetWorldPosition().x + transform->GetWorldScale().x * 0.5f);
-	mRect.top = static_cast<LONG>(transform->GetWorldPosition().y - transform->GetWorldScale().y * 0.5f);
-	mRect.bottom = static_cast<LONG>(transform->GetWorldPosition().y + transform->GetWorldScale().y * 0.5f);
+	mRect.left = static_cast<LONG>(transform->GetWorldPosition().x - transform->GetWorldScale().x * 0.5f) + mOffset.x;
+	mRect.right = static_cast<LONG>(transform->GetWorldPosition().x + transform->GetWorldScale().x * 0.5f) + mOffset.x;
+	mRect.top = static_cast<LONG>(transform->GetWorldPosition().y - transform->GetWorldScale().y * 0.5f) + mOffset.y;
+	mRect.bottom = static_cast<LONG>(transform->GetWorldPosition().y + transform->GetWorldScale().y * 0.5f) + mOffset.y;
 }
 
 RECT* BoxCollider::GetRect()
@@ -55,6 +55,17 @@ RECT* BoxCollider::GetRect()
 	return &mRect;
 }
 
+void BoxCollider::Debug(ID2D1HwndRenderTarget* render)
+{
+	ID2D1SolidColorBrush* brush = nullptr;
+	render->CreateSolidColorBrush(ColorF(0.f, 1.f, 0.f), &brush);
+	render->DrawRectangle(RectF(mRect.left, mRect.top, mRect.right, mRect.bottom), brush, 1, nullptr);
+	brush->Release();
+	brush = nullptr;
+	
+}
+
+/*
 void BoxCollider::Debug(HDC hdc)
 {
 	HPEN hPen = CreatePen(PS_SOLID, 1, RGB(0, 255, 0));
@@ -69,7 +80,7 @@ void BoxCollider::Debug(HDC hdc)
 
 	SelectObject(hdc, hOldPen);
 	DeleteObject(hPen);
-}
+}*/
 
 bool BoxCollider::CheckEdgeCollision(EdgeCollider* edge, POINT& contactPoint)
 {

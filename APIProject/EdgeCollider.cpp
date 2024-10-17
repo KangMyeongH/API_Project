@@ -27,6 +27,7 @@ RECT* EdgeCollider::GetRect()
     return &mRect;
 }
 
+/*
 void EdgeCollider::Debug(HDC hdc)
 {
     HPEN hPen = CreatePen(PS_SOLID, 1, RGB(0, 255, 0));
@@ -37,7 +38,7 @@ void EdgeCollider::Debug(HDC hdc)
 
     SelectObject(hdc, hOldPen);
     DeleteObject(hPen);
-}
+}*/
 
 bool EdgeCollider::LineIntersectsRect(POINT start, POINT end, RECT rect)
 {
@@ -75,6 +76,10 @@ bool EdgeCollider::OnSegment(POINT start, POINT end, POINT target)
 {
     return (std::min)(start.x, end.x) <= target.x && target.x <= (std::max)(start.x, end.x) &&
         (std::min)(start.y, end.y) <= target.y && target.y <= (std::max)(start.y, end.y);
+}
+
+void EdgeCollider::Debug(ID2D1HwndRenderTarget* render)
+{
 }
 
 void EdgeCollider::UpdateRect()

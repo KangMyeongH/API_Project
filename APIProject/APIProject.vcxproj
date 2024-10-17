@@ -142,6 +142,7 @@
     <ClInclude Include="Bitmap.h" />
     <ClInclude Include="BitMapManager.h" />
     <ClInclude Include="BoxCollider.h" />
+    <ClInclude Include="ChargeDashState.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="CollisionManager.h" />
@@ -168,6 +169,7 @@
     <ClInclude Include="Platform.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerObject.h" />
+    <ClInclude Include="Ray.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Rigidbody.h" />
@@ -190,6 +192,7 @@
     <ClCompile Include="Bitmap.cpp" />
     <ClCompile Include="BitMapManager.cpp" />
     <ClCompile Include="BoxCollider.cpp" />
+    <ClCompile Include="ChargeDashState.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
@@ -219,6 +222,7 @@
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerObject.cpp" />
+    <ClCompile Include="Ray.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="Rigidbody.cpp" />
     <ClCompile Include="RunState.cpp" />

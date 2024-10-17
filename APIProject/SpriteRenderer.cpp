@@ -70,7 +70,7 @@ void SpriteRenderer::SetFrame(int frame)
 	{
 		mRenderRect = RectF(
 			mTransform->GetWorldPosition().x - (mWidth * 0.5f),
-			mHeight,
+			mTransform->GetWorldPosition().y - mHeight,
 			mTransform->GetWorldPosition().x + (mWidth * 0.5f),
 			mTransform->GetWorldPosition().y
 		);

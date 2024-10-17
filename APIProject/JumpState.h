@@ -4,7 +4,7 @@ class JumpState : public State
 {
 public:
 	JumpState(Player* player, StateMachine* stateMachine, PlayerState stateType)
-		: State(player, stateMachine, stateType)
+		: State(player, stateMachine, stateType), mFalling(false)
 	{
 	}
 
@@ -13,5 +13,8 @@ public:
 	void LogicUpdate() override;
 	void PhysicsUpdate() override;
 	void Exit() override;
+
+private:
+	bool mFalling;
 };
 

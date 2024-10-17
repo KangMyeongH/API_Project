@@ -5,14 +5,14 @@ class EdgeCollider;
 class BoxCollider : public Collider
 {
 public:
-	BoxCollider(GameObject* owner) : Collider(owner, ColliderType::Box), mRect() {}
+	BoxCollider(GameObject* owner) : Collider(owner, ColliderType::Box), mRect{0,0,0,0} {}
 
 	void Init() override;
 	bool CheckCollision(Collider* other, POINT& contactPoint) override;
 	void UpdateRect() override;
 
 	RECT* GetRect() override;
-	void Debug(HDC hdc) override;
+	void Debug(ID2D1HwndRenderTarget* render) override;
 
 private:
 	bool 		CheckEdgeCollision(EdgeCollider* edge, POINT& contactPoint);

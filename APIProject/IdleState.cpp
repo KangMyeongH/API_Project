@@ -3,6 +3,7 @@
 
 #include "Animator.h"
 #include "BitMapManager.h"
+#include "ChargeDashState.h"
 #include "JumpState.h"
 #include "KeyManager.h"
 #include "Player.h"
@@ -15,6 +16,12 @@ void IdleState::Enter()
 	if (mStateMachine->GetPrevState()->GetType() == RUN)
 	{
 		mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_RunningStop"));
+		mPlayer->GetAnimator()->SetNextMotion(mPlayer->FindAniInfo(L"SNB_Idle"));
+	}
+
+	else if (mStateMachine->GetPrevState()->GetType() == JUMP)
+	{
+		mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_Landing"));
 		mPlayer->GetAnimator()->SetNextMotion(mPlayer->FindAniInfo(L"SNB_Idle"));
 	}
 
@@ -44,6 +51,11 @@ void IdleState::HandleInput()
 	if (mPlayer->GetKeyMgr()->Key_Down(VK_SPACE))
 	{
 		mStateMachine->ChangeState(mPlayer->Jump);
+	}
+
+	if (mPlayer->GetKeyMgr()->Key_Down(VK_SHIFT))
+	{
+		mStateMachine->ChangeState(mPlayer->ChargeDash);
 	}
 }
 

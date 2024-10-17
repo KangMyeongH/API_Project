@@ -28,8 +28,10 @@ enum PlayerState
 {
 	IDLE,
 	RUN,
-	JUMP
+	JUMP,
+	CHARGEDASH
 };
+
 struct AnimationInfo
 {
 	AnimationInfo(ID2D1Bitmap* image, int start, int end, float width, float height, float speed, bool loop)

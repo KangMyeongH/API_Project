@@ -2,6 +2,7 @@
 #include <unordered_map>
 
 #include "MonoBehaviour.h"
+class ChargeDashState;
 class Collider;
 class JumpState;
 class RunState;
@@ -52,6 +53,8 @@ public:
 	IdleState* 	Idle;
 	RunState* 	Run;
 	JumpState* 	Jump;
+	ChargeDashState* ChargeDash;
+
 	float		Speed;
 };
 

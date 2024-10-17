@@ -10,7 +10,10 @@ enum class ColliderType
 class Collider : public Behaviour
 {
 public:
-	explicit Collider(GameObject* owner, ColliderType type) : Behaviour(owner), mType(type), mIsTrigger(false) {}
+	explicit Collider(GameObject* owner, ColliderType type) : Behaviour(owner), mType(type), mOffset({0,0}),
+	                                                          mIsTrigger(false)
+	{
+	}
 
 	~Collider() override = default;
 
@@ -23,13 +26,15 @@ public:
 
 	bool IsTrigger() const { return mIsTrigger; }
 	void SetTrigger(const bool trigger) { mIsTrigger = trigger; }
+	void SetOffset(const POINT& offset) { mOffset = offset; }
 
 	void Destroy() final;
 
-	virtual void Debug(HDC hdc) = 0;
+	virtual void Debug(ID2D1HwndRenderTarget* render) = 0;
 
 protected:
 	ColliderType mType;
+	POINT		mOffset;
 	bool mIsTrigger;
 };
 
