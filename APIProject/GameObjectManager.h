@@ -26,14 +26,19 @@ public:
 
 	void RemoveGameObject(GameObject* gameObject)
 	{
-		mGameObjects.erase(std::remove(mGameObjects.begin(), mGameObjects.end(), gameObject), mGameObjects.end());
 		mDestroyQueue.push_back(gameObject);
+	}
+
+	GameObjectList* GetGameObjectsForTag(Tag tag)
+	{
+		return &mGameObjects[tag];
 	}
 
 	void DestroyQueue()
 	{
 		for (auto& gameObject : mDestroyQueue)
 		{
+			mGameObjects[gameObject->GetTag()].erase(std::remove(mGameObjects[gameObject->GetTag()].begin(), mGameObjects[gameObject->GetTag()].end(), gameObject), mGameObjects[gameObject->GetTag()].end());
 			delete gameObject;
 		}
 		mDestroyQueue.clear();
@@ -43,7 +48,7 @@ public:
 	{
 		for (auto& gameObject : mPendingQueue)
 		{
-			mGameObjects.push_back(gameObject);
+			mGameObjects[gameObject->GetTag()].push_back(gameObject);
 		}
 		mPendingQueue.clear();
 	}
@@ -51,14 +56,12 @@ public:
 private:
 	void release()
 	{
-		for (auto& gameObject : mGameObjects)
+		for (auto& mGameObject : mGameObjects)
 		{
-			delete gameObject;
-		}
-
-		for (auto& gameObject : mDestroyQueue)
-		{
-			delete gameObject;
+			for (auto& gameObject : mGameObject)
+			{
+				delete gameObject;
+			}
 		}
 
 		for (auto& gameObject : mPendingQueue)
@@ -68,7 +71,7 @@ private:
 	}
 
 private:
-	GameObjectList mGameObjects;
+	GameObjectList mGameObjects[END_TAG];
 	GameObjectList mPendingQueue;
 	GameObjectList mDestroyQueue;
 };

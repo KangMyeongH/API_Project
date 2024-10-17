@@ -79,6 +79,14 @@ public:
 		}
 	}
 
+	void Debug(ID2D1HwndRenderTarget* render)
+	{
+		for (auto& obj : mMonoBehaviours)
+		{
+			obj->Debug(render);
+		}
+	}
+
 	void AddMonoBehaviour(MonoBehaviour* monoBehaviour)
 	{
 		mPendingQueue.push_back(monoBehaviour);

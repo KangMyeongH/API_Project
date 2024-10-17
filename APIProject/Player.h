@@ -19,7 +19,8 @@ public:
 	explicit Player(GameObject* owner) : MonoBehaviour(owner), mKeyMgr(nullptr), mRigidbody(nullptr),
 	                                     mTransform(nullptr), mCollider(nullptr),
 	                                     mAnimator(nullptr),
-	                                     mStateMachine(nullptr), mRay(nullptr),
+	                                     mStateMachine(nullptr), mRay(nullptr), mTarget(nullptr), mFovAngle(0),
+	                                     mFowLength(0),
 	                                     Idle(nullptr), Run(nullptr), Jump(nullptr), ChargeDash(nullptr), Speed(0)
 	{
 	}
@@ -32,14 +33,25 @@ public:
 	void LateUpdate() override;
 
 	void OnCollisionEnter(Collision other) override;
+	void Debug(ID2D1HwndRenderTarget* render) override;
+
+	// bool FindEnemy();
+
+	void FindEnemy();
+
+	bool IsEnemyInFOV(Vector2 playerDir, Vector2 enemyPosition);
+	bool IsEnemyVisible(Vector2 enemyPosition, GameObject* enemy);
 
 	KeyManager* GetKeyMgr() const { return mKeyMgr; }
-
 	Rigidbody* 	GetRigidbody() const { return mRigidbody; }
 	Animator* 	GetAnimator() const { return mAnimator; }
-
 	AnimationInfo* FindAniInfo(const TCHAR* key);
 
+private:
+	bool LineIntersectsRect(Vector2 p1, Vector2 direction, D2D1_RECT_F rect);
+	bool LineIntersectsLine(Vector2 p1, Vector2 p2, Vector2 q1, Vector2 q2);
+	float Direction(Vector2 pi, Vector2 pj, Vector2 pk);
+	bool OnSegment(Vector2 pi, Vector2 pj, Vector2 pk);
 
 private:
 	KeyManager* mKeyMgr;
@@ -50,6 +62,9 @@ private:
 	StateMachine* mStateMachine;
 
 	Ray* mRay;
+	GameObject* mTarget;
+	float mFovAngle;
+	float mFowLength;
 
 public:
 	std::unordered_map<const TCHAR*, AnimationInfo*> AnimationMap;

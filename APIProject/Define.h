@@ -10,7 +10,7 @@ enum Tag
 {
 	UNTAGGED,
 	PLAYER,
-	MONSTER,
+	ENEMY,
 	ITEM,
 	END_TAG
 };

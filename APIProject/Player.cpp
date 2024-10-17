@@ -3,6 +3,7 @@
 #include "BoxCollider.h"
 #include "ChargeDashState.h"
 #include "GameObject.h"
+#include "GameObjectManager.h"
 #include "IdleState.h"
 #include "ImageManager.h"
 #include "JumpState.h"
@@ -10,6 +11,7 @@
 #include "Ray.h"
 #include "RunState.h"
 #include "StateMachine.h"
+#include "EdgeCollider.h"
 
 Player::~Player()
 {
@@ -23,6 +25,11 @@ Player::~Player()
 	{
 		delete ani.second;
 	}
+}
+
+void Player::Awake()
+{
+	mUpdateType = static_cast<UpdateType>(mUpdateType | FIXED_UPDATE | UPDATE);
 }
 
 void Player::Start()
@@ -101,7 +108,8 @@ void Player::Start()
 
 	// Player stat
 	Speed = 500.f;
-
+	mFovAngle = 60.f;
+	mFowLength = 500.f;
 
 	// Init State
 	mStateMachine->Initialize(Idle);
@@ -115,7 +123,7 @@ void Player::FixedUpdate()
 
 void Player::Update()
 {
-	mRay->UpdateRay();
+	FindEnemy();
 	mStateMachine->GetCurrentState()->HandleInput();
 	mStateMachine->GetCurrentState()->LogicUpdate();
 }
@@ -156,6 +164,132 @@ void Player::OnCollisionEnter(Collision other)
 	}
 }
 
+void Player::Debug(ID2D1HwndRenderTarget* render)
+{
+	if (mTarget)
+	{
+		ID2D1SolidColorBrush* brush = nullptr;
+		render->CreateSolidColorBrush(ColorF(1.f, 0.f, 0.f), &brush);
+
+		render->DrawLine(
+			D2D1_POINT_2F{ mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y },
+			D2D1_POINT_2F{ mTarget->GetTransform()->GetWorldPosition().x,mTarget->GetTransform()->GetWorldPosition().y },
+			brush,
+			1.f,
+			nullptr
+		);
+
+		brush->Release();
+		brush = nullptr;
+	}
+}
+
+void Player::FindEnemy()
+{
+	GameObjectList* enemyList = GameObjectManager::GetInstance().GetGameObjectsForTag(ENEMY);
+
+	POINT mouse;
+	GetCursorPos(&mouse);
+	ScreenToClient(gHwnd, &mouse);
+	Vector2 mousePosition = { static_cast<float>(mouse.x), static_cast<float>(mouse.y) };
+	Vector2 playerDir = (mousePosition - mTransform->GetWorldPosition()).Normalized();
+
+	GameObject* closestEnemy = nullptr;
+	float minDistance = FLT_MAX;
+
+	for (const auto& enemy : *enemyList)
+	{
+		Vector2 enemyPosition = enemy->GetTransform()->GetWorldPosition();
+
+		if (IsEnemyInFOV(playerDir, enemyPosition))
+		{
+			if (IsEnemyVisible(enemyPosition, enemy))
+			{
+				float dx = enemyPosition.x - mTransform->GetWorldPosition().x;
+				float dy = enemyPosition.y - mTransform->GetWorldPosition().y;
+				float distanceToEnemy = sqrt(dx * dx + dy * dy);
+
+				if (distanceToEnemy < minDistance)
+				{
+					minDistance = distanceToEnemy;
+					closestEnemy = enemy;
+				}
+			}
+		}
+	}
+
+	mTarget = closestEnemy;
+}
+
+bool Player::IsEnemyInFOV(Vector2 playerDir, Vector2 enemyPosition)
+{
+	// 적과 캐릭터 사이의 벡터 계산
+	Vector2 toEnemy = {
+		enemyPosition.x - mTransform->GetWorldPosition().x,
+		enemyPosition.y - mTransform->GetWorldPosition().y
+	};
+
+	// 적까지의 거리 계산
+	float lengthToEnemy = toEnemy.Magnitude();
+	if (lengthToEnemy > mFowLength) return false;
+
+	toEnemy = toEnemy.Normalized();
+
+	float dotProduct = Vector2::Dot(playerDir, toEnemy);
+	float angleToEnemy = acos(dotProduct) * (180.f / 3.14159f);
+
+	return angleToEnemy <= (mFovAngle * 0.5f);
+}
+
+bool Player::IsEnemyVisible(Vector2 enemyPosition, GameObject* enemy)
+{
+	std::vector<Collider*>* colliders = CollisionManager::GetInstance().GetColliders();
+
+	Vector2 dir = {
+		enemyPosition.x - mTransform->GetWorldPosition().x,
+		enemyPosition.y - mTransform->GetWorldPosition().y
+	};
+
+	for (const auto& collider : *colliders)
+	{
+		if (collider == mCollider || collider->GetGameObject() == enemy) continue;
+		if (collider->GetType() == ColliderType::Box)
+		{
+			D2D1_RECT_F rect = {
+				static_cast<float>(collider->GetRect()->left),
+				static_cast<float>(collider->GetRect()->top),
+				static_cast<float>(collider->GetRect()->right),
+				static_cast<float>(collider->GetRect()->bottom)
+			};
+
+			if (LineIntersectsRect(mTransform->GetWorldPosition(), dir, rect))
+			{
+				return false;
+			}
+		}
+
+		else if (collider->GetType() == ColliderType::Edge)
+		{
+			EdgeCollider* edge = static_cast<EdgeCollider*>(collider);
+
+			Vector2 p1 = {
+				static_cast<float>(edge->GetStart().x),
+				static_cast<float>(edge->GetStart().y)
+			};
+
+			Vector2 p2 = {
+				static_cast<float>(edge->GetEnd().x),
+				static_cast<float>(edge->GetEnd().y)
+			};
+
+			if (LineIntersectsLine(mTransform->GetWorldPosition(), mTransform->GetWorldPosition() + dir, p1, p2))
+			{
+				return false;
+			}
+		}
+	}
+}
+
 AnimationInfo* Player::FindAniInfo(const TCHAR* key)
 {
 	auto iter = std::find_if(AnimationMap.begin(), AnimationMap.end(), tagFinder(key));
@@ -165,7 +299,48 @@ AnimationInfo* Player::FindAniInfo(const TCHAR* key)
 	return iter->second;
 }
 
-void Player::Awake()
+bool Player::LineIntersectsRect(Vector2 p1, Vector2 direction, D2D1_RECT_F rect)
 {
-	mUpdateType = static_cast<UpdateType>(mUpdateType | FIXED_UPDATE | UPDATE);
+	// 선분의 끝점을 계산
+	Vector2 p2 = {
+		p1.x + direction.x,
+		p1.y + direction.y
+	};
+
+	// 사각형의 각 모서리와 교차 여부 검사
+	return (LineIntersectsLine(p1, p2, { rect.left, rect.top }, { rect.right, rect.top }) ||
+		LineIntersectsLine(p1, p2, { rect.right, rect.top }, { rect.right, rect.bottom }) ||
+		LineIntersectsLine(p1, p2, { rect.right, rect.bottom }, { rect.left, rect.bottom }) ||
+		LineIntersectsLine(p1, p2, { rect.left, rect.bottom }, { rect.left, rect.top }));
+
+}
+
+bool Player::LineIntersectsLine(Vector2 p1, Vector2 p2, Vector2 q1, Vector2 q2)
+{
+	float d1 = Direction(q1, q2, p1);
+	float d2 = Direction(q1, q2, p2);
+	float d3 = Direction(p1, p2, q1);
+	float d4 = Direction(p1, p2, q2);
+
+	if (((d1 > 0 && d2 < 0) || (d1 < 0 && d2 > 0)) &&
+		((d3 > 0 && d4 < 0) || (d3 < 0 && d4 > 0)))
+	{
+		return true;
+	}
+
+	return (d1 == 0 && OnSegment(q1, q2, p1)) ||
+		(d2 == 0 && OnSegment(q1, q2, p2)) ||
+		(d3 == 0 && OnSegment(p1, p2, q1)) ||
+		(d4 == 0 && OnSegment(p1, p2, q2));
+}
+
+float Player::Direction(Vector2 pi, Vector2 pj, Vector2 pk)
+{
+	return (pk.x - pi.x) * (pj.y - pi.y) - (pj.x - pi.x) * (pk.y - pi.y);
+}
+
+bool Player::OnSegment(Vector2 pi, Vector2 pj, Vector2 pk)
+{
+	return (std::min)(pi.x, pj.x) <= pk.x && pk.x <= (std::max)(pi.x, pj.x) &&
+		(std::min)(pi.y, pj.y) <= pk.y && pk.y <= (std::max)(pi.y, pj.y);
 }

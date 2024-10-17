@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "MajorBossRoomScene.h"
 
+#include "EnemyObject.h"
 #include "GameObjectManager.h"
 #include "MajorBossRoomBG.h"
 #include "MajorBossRoomClockIdle.h"
@@ -13,4 +14,5 @@ void MajorBossRoomScene::Init()
 	//GameObjectManager::GetInstance().AddGameObject<MajorBossRoomClockIdle>();
 	GameObjectManager::GetInstance().AddGameObject<MajorBossRoomFront>();
 	GameObjectManager::GetInstance().AddGameObject<PlayerObject>();
+	GameObjectManager::GetInstance().AddGameObject<EnemyObject>();
 }

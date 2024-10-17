@@ -150,6 +150,7 @@
     <ClInclude Include="Core.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="EdgeCollider.h" />
+    <ClInclude Include="EnemyObject.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectManager.h" />
@@ -199,6 +200,7 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="EdgeCollider.cpp" />
+    <ClCompile Include="EnemyObject.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />
     <ClCompile Include="IdleState.cpp" />

@@ -39,6 +39,8 @@ public:
 
 	void CheckCollisions();
 
+	std::vector<Collider*>* GetColliders() { return &mColliders; }
+
 	static CollisionDirection DetectBoxCollisionDir(RECT objRect, RECT otherRect);
 	static CollisionDirection DetectEdgeCollisionDir(Rigidbody* obj, RECT other);
 	static void AdjustRect(Collider* collider, Collider* other, CollisionDirection dir);

@@ -116,6 +116,7 @@ void Core::render()
 
 	mRenderMgr->Rendering(gRenderTarget);
 	mCollisionMgr->Debug(gRenderTarget);
+	mMonoBehaviourMgr->Debug(gRenderTarget);
 	Ray::GetInstance().Debug(gRenderTarget);
 
 	HRESULT hr = gRenderTarget->EndDraw();
