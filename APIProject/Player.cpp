@@ -7,6 +7,7 @@
 #include "ImageManager.h"
 #include "JumpState.h"
 #include "KeyManager.h"
+#include "Ray.h"
 #include "RunState.h"
 #include "StateMachine.h"
 
@@ -16,6 +17,7 @@ Player::~Player()
 	delete Idle;
 	delete Run;
 	delete Jump;
+	delete ChargeDash;
 
 	for(auto& ani : AnimationMap)
 	{
@@ -43,6 +45,12 @@ void Player::Start()
 	Run = new RunState(this, mStateMachine, RUN);
 	Jump = new JumpState(this, mStateMachine, JUMP);
 	ChargeDash = new ChargeDashState(this, mStateMachine, CHARGEDASH);
+
+	// ray
+	mRay = &Ray::GetInstance();
+	mRay->Init(mTransform, 1000.f);
+	mRay->Enable(true);
+
 
 	// Player Sprite cashing
 	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_Idle.png", L"SNB_Idle");
@@ -107,6 +115,7 @@ void Player::FixedUpdate()
 
 void Player::Update()
 {
+	mRay->UpdateRay();
 	mStateMachine->GetCurrentState()->HandleInput();
 	mStateMachine->GetCurrentState()->LogicUpdate();
 }

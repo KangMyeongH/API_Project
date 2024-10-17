@@ -2,6 +2,7 @@
 #include <unordered_map>
 
 #include "MonoBehaviour.h"
+class Ray;
 class ChargeDashState;
 class Collider;
 class JumpState;
@@ -18,8 +19,8 @@ public:
 	explicit Player(GameObject* owner) : MonoBehaviour(owner), mKeyMgr(nullptr), mRigidbody(nullptr),
 	                                     mTransform(nullptr), mCollider(nullptr),
 	                                     mAnimator(nullptr),
-	                                     mStateMachine(nullptr),
-	                                     Idle(nullptr), Run(nullptr), Jump(nullptr), Speed(0)
+	                                     mStateMachine(nullptr), mRay(nullptr),
+	                                     Idle(nullptr), Run(nullptr), Jump(nullptr), ChargeDash(nullptr), Speed(0)
 	{
 	}
 
@@ -48,13 +49,14 @@ private:
 	Animator* mAnimator;
 	StateMachine* mStateMachine;
 
+	Ray* mRay;
+
 public:
 	std::unordered_map<const TCHAR*, AnimationInfo*> AnimationMap;
 	IdleState* 	Idle;
 	RunState* 	Run;
 	JumpState* 	Jump;
 	ChargeDashState* ChargeDash;
-
 	float		Speed;
 };
 

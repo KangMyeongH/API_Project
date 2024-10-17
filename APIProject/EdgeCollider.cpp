@@ -80,6 +80,12 @@ bool EdgeCollider::OnSegment(POINT start, POINT end, POINT target)
 
 void EdgeCollider::Debug(ID2D1HwndRenderTarget* render)
 {
+    ID2D1SolidColorBrush* brush = nullptr;
+    render->CreateSolidColorBrush(ColorF(0.f, 1.f, 0.f), &brush);
+
+	render->DrawRectangle(RectF(mRect.left, mRect.top, mRect.right, mRect.bottom), brush, 1, nullptr);
+    brush->Release();
+    brush = nullptr;
 }
 
 void EdgeCollider::UpdateRect()

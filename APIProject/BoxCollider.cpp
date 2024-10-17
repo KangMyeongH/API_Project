@@ -62,7 +62,6 @@ void BoxCollider::Debug(ID2D1HwndRenderTarget* render)
 	render->DrawRectangle(RectF(mRect.left, mRect.top, mRect.right, mRect.bottom), brush, 1, nullptr);
 	brush->Release();
 	brush = nullptr;
-	
 }
 
 /*
