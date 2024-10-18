@@ -7,8 +7,8 @@ using namespace std::chrono;
 TimeManager::TimeManager(): mFrequency(), mLastFrameTime(), mCurrentFrameTime(), mDeltaTime(0), mUnscaledDeltaTime(0),
                             mTimeScale(1.0f),
                             mUnscaledTime(0),
-                            mTargetFrameTime(0),
-                            mAccTime(0),
+                            mTargetFrameTime(0), mSlowMotionTime(0),
+                            mAccTime(0), mSlowTime(0),
                             mFPS(0)
 {
 	ZeroMemory(m_szFPS, sizeof(m_szFPS));
@@ -37,6 +37,7 @@ void TimeManager::Update()
 	mUnscaledTime += mUnscaledDeltaTime;
 
 	mAccTime += mUnscaledDeltaTime;
+	mSlowTime += mUnscaledDeltaTime;
 
 	++mFPS;
 
@@ -47,6 +48,13 @@ void TimeManager::Update()
 		// 1초마다 동기화 로직
 		mFPS = 0;
 		mAccTime = 0;
+	}
+
+	if (mSlowTime >= mSlowMotionTime)
+	{
+		mSlowTime = 0.f;
+		mTimeScale = 1.0f;
+		mSlowMotionTime = -1.f;
 	}
 
 	mLastFrameTime = mCurrentFrameTime;

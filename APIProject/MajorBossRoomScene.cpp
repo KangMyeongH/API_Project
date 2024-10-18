@@ -3,6 +3,7 @@
 
 #include "EnemyObject.h"
 #include "GameObjectManager.h"
+#include "GrabObject.h"
 #include "MajorBossRoomBG.h"
 #include "MajorBossRoomClockIdle.h"
 #include "MajorBossRoomFront.h"
@@ -15,4 +16,5 @@ void MajorBossRoomScene::Init()
 	GameObjectManager::GetInstance().AddGameObject<MajorBossRoomFront>();
 	GameObjectManager::GetInstance().AddGameObject<PlayerObject>();
 	GameObjectManager::GetInstance().AddGameObject<EnemyObject>();
+	GameObjectManager::GetInstance().AddGameObject<GrabObject>();
 }

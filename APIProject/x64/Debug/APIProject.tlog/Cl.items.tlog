@@ -14,6 +14,8 @@ D:\DDingHo\API_Project\APIProject\EdgeCollider.cpp;D:\DDingHo\API_Project\APIPro
 D:\DDingHo\API_Project\APIProject\EnemyObject.cpp;D:\DDingHo\API_Project\APIProject\x64\Debug\EnemyObject.obj
 D:\DDingHo\API_Project\APIProject\GameObject.cpp;D:\DDingHo\API_Project\APIProject\x64\Debug\GameObject.obj
 D:\DDingHo\API_Project\APIProject\GameObjectManager.cpp;D:\DDingHo\API_Project\APIProject\x64\Debug\GameObjectManager.obj
+D:\DDingHo\API_Project\APIProject\Grab.cpp;D:\DDingHo\API_Project\APIProject\x64\Debug\Grab.obj
+D:\DDingHo\API_Project\APIProject\GrabObject.cpp;D:\DDingHo\API_Project\APIProject\x64\Debug\GrabObject.obj
 D:\DDingHo\API_Project\APIProject\IdleState.cpp;D:\DDingHo\API_Project\APIProject\x64\Debug\IdleState.obj
 D:\DDingHo\API_Project\APIProject\Image.cpp;D:\DDingHo\API_Project\APIProject\x64\Debug\Image.obj
 D:\DDingHo\API_Project\APIProject\ImageManager.cpp;D:\DDingHo\API_Project\APIProject\x64\Debug\ImageManager.obj

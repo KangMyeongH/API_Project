@@ -12,6 +12,7 @@
 #include "RunState.h"
 #include "StateMachine.h"
 #include "EdgeCollider.h"
+#include "Grab.h"
 
 Player::~Player()
 {
@@ -124,6 +125,13 @@ void Player::FixedUpdate()
 void Player::Update()
 {
 	FindEnemy();
+	if (mKeyMgr->Key_Down(VK_LBUTTON))
+	{
+		if (mTarget)
+		{
+			mGrab->Shoot(mTarget->GetTransform());
+		}
+	}
 	mStateMachine->GetCurrentState()->HandleInput();
 	mStateMachine->GetCurrentState()->LogicUpdate();
 }

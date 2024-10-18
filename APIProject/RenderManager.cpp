@@ -77,6 +77,9 @@ void RenderManager::Rendering(ID2D1HwndRenderTarget* render) const
 {
 	for (auto& sprite : mLayerMultiMap)
 	{
-		sprite.second->Render(render);
+		if (sprite.second->IsEnabled())
+		{
+			sprite.second->Render(render);
+		}
 	}
 }

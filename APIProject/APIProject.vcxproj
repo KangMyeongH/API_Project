@@ -151,9 +151,12 @@
     <ClInclude Include="Define.h" />
     <ClInclude Include="EdgeCollider.h" />
     <ClInclude Include="EnemyObject.h" />
+    <ClInclude Include="ExcDashState.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectManager.h" />
+    <ClInclude Include="Grab.h" />
+    <ClInclude Include="GrabObject.h" />
     <ClInclude Include="IdleState.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="ImageManager.h" />
@@ -201,8 +204,11 @@
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="EdgeCollider.cpp" />
     <ClCompile Include="EnemyObject.cpp" />
+    <ClCompile Include="ExcDashState.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />
+    <ClCompile Include="Grab.cpp" />
+    <ClCompile Include="GrabObject.cpp" />
     <ClCompile Include="IdleState.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageManager.cpp" />

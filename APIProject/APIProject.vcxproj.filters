@@ -270,6 +270,15 @@
     <ClInclude Include="EnemyObject.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="GrabObject.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Grab.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ExcDashState.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -399,6 +408,15 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="EnemyObject.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GrabObject.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Grab.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ExcDashState.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -210,7 +210,10 @@ void CollisionManager::Debug(ID2D1HwndRenderTarget* render)
 {
 	for (auto& collider : mColliders)
 	{
-		collider->Debug(render);
+		if (collider->IsEnabled())
+		{
+			collider->Debug(render);
+		}
 	}
 }
 

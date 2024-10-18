@@ -89,6 +89,21 @@ public:
 	{
 		return a + (b - a) * t;
 	}
+	// A와 B의 좌표를 받아 A에서 B로 바라보는 각도(라디안 또는 도)를 반환
+	static float GetAngle(Vector2 A, Vector2 B)
+	{
+		// A에서 B로 가는 벡터의 차이
+		float dx = B.x - A.x;
+		float dy = B.y - A.y;
+
+		// atan2를 사용하여 각도 계산 (라디안)
+		float angle = atan2(dy, dx);
+
+		// 각도를 도(degree) 단위로 변환
+		float angleInDegrees = angle * (180.0f / 3.14159265f);
+
+		return angleInDegrees;  // 도(degree) 단위의 각도 반환
+	}
 
 public:
 	float x;

@@ -5,13 +5,13 @@
 
 SpriteRenderer::SpriteRenderer(GameObject* owner, int layer) : Behaviour(owner), mImage(nullptr),
                                                                mTargetRect({0, 0, 0, 0}),
-                                                               mRenderRect({0, 0, 0, 0}),
+                                                               mRenderRect({0, 0, 0, 0}), mAngle(0),
                                                                mOpacity(1.0f), mWidth(0),
                                                                mHeight(0),
                                                                mFrame(0),
                                                                mLayer(layer),
                                                                mFlip(false),
-																mPivotDown(false)
+                                                               mPivotDown(false)
 {
 	mTransform = owner->GetTransform();
 }
@@ -27,7 +27,7 @@ SpriteRenderer::SpriteRenderer(GameObject* owner, HDC hdc, float width, float he
 SpriteRenderer::SpriteRenderer(GameObject* owner, ID2D1Bitmap* image, float width, float height, int layer)
 	: Behaviour(owner), mTransform(nullptr), mImage(image),
 	  mTargetRect({0, 0, 0, 0}),
-	  mRenderRect({0, 0, 0, 0}),
+	  mRenderRect({0, 0, 0, 0}), mAngle(0),
 	  mOpacity(1.0f),
 	  mWidth(width),
 	  mHeight(height),

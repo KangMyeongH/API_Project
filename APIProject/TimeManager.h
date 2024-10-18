@@ -25,6 +25,8 @@ public:
 	float 	GetUnscaledTime() const { return mUnscaledTime; }
 	void 	SetTargetFrameRate(float fps) { mTargetFrameTime = 1.0f / fps; }
 
+	void	SlowMotion(float timeScale, float slowMotionTime) { mTimeScale = timeScale; mSlowMotionTime = slowMotionTime; }
+
 private:
 	LARGE_INTEGER 	mFrequency;
 	LARGE_INTEGER 	mLastFrameTime;
@@ -35,7 +37,10 @@ private:
 	float 			mUnscaledTime;
 	float 			mTargetFrameTime;
 
+
+	float			mSlowMotionTime;
 	double			mAccTime;
+	float			mSlowTime;
 	int				mFPS;
 	TCHAR			m_szFPS[16];
 };

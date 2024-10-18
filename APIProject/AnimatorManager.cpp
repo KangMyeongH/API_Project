@@ -58,6 +58,9 @@ void AnimatorManager::UpdateAnimator()
 {
 	for (auto& animator : mAnimators)
 	{
-		animator->MoveFrame();
+		if (animator->IsEnabled())
+		{
+			animator->MoveFrame();
+		}
 	}
 }
