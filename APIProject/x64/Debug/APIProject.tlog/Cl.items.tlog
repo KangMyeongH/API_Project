@@ -32,6 +32,7 @@ C:\APIProject\API_Project\APIProject\MonoBehaviourManager.cpp;C:\APIProject\API_
 C:\APIProject\API_Project\APIProject\pch.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\pch.obj
 C:\APIProject\API_Project\APIProject\PhysicsManager.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\PhysicsManager.obj
 C:\APIProject\API_Project\APIProject\Platform.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\Platform.obj
+C:\APIProject\API_Project\APIProject\PlatformObject.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\PlatformObject.obj
 C:\APIProject\API_Project\APIProject\Player.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\Player.obj
 C:\APIProject\API_Project\APIProject\PlayerObject.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\PlayerObject.obj
 C:\APIProject\API_Project\APIProject\Ray.cpp;C:\APIProject\API_Project\APIProject\x64\Debug\Ray.obj

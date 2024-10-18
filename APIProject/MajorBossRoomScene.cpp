@@ -7,6 +7,7 @@
 #include "MajorBossRoomBG.h"
 #include "MajorBossRoomClockIdle.h"
 #include "MajorBossRoomFront.h"
+#include "PlatformObject.h"
 #include "PlayerObject.h"
 
 void MajorBossRoomScene::Init()
@@ -17,4 +18,5 @@ void MajorBossRoomScene::Init()
 	GameObjectManager::GetInstance().AddGameObject<PlayerObject>();
 	GameObjectManager::GetInstance().AddGameObject<EnemyObject>();
 	GameObjectManager::GetInstance().AddGameObject<GrabObject>();
+	GameObjectManager::GetInstance().AddGameObject<PlatformObject>();
 }

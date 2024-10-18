@@ -15,6 +15,7 @@
 #include "ExcDashState.h"
 #include "ExcState.h"
 #include "Grab.h"
+#include "Platform.h"
 #include "TimeManager.h"
 
 Player::~Player()
@@ -116,7 +117,7 @@ void Player::Start()
 	// Player stat
 	Speed = 500.f;
 	mFovAngle = 60.f;
-	mFowLength = 500.f;
+	mFovLength = 500.f;
 
 	// Init State
 	mStateMachine->Initialize(Idle);
@@ -131,11 +132,14 @@ void Player::FixedUpdate()
 void Player::Update()
 {
 	FindEnemy();
+	if (mTargetEnemy == nullptr)
+		FindHanging();
+
 	if (mKeyMgr->Key_Down(VK_LBUTTON))
 	{
-		if (mTarget)
+		if (mTargetEnemy)
 		{
-			mGrab->Shoot(mTarget->GetTransform());
+			mGrab->Shoot(mTargetEnemy->GetTransform());
 		}
 	}
 	mStateMachine->GetCurrentState()->HandleInput();
@@ -153,35 +157,69 @@ void Player::OnCollisionEnter(Collision other)
 
 	CollisionDirection dir = NONE;
 
-	switch (other.GetCollider()->GetType())
+
+	if (other.GetGameObject()->CompareTag(PLATFORM))
 	{
-	case ColliderType::Box:
 		dir = CollisionManager::DetectBoxCollisionDir(*mCollider->GetRect(), *other.GetCollider()->GetRect());
-		break;
+		CollisionManager::AdjustRect(mCollider, other.GetCollider(), dir);
+		if (dir & TOP && GetRigidbody()->GetVelocity().y >= 0)
+		{
+			IsGrounded = true;
+		}
 
-	case ColliderType::Edge:
+		if (dir & BOTTOM && GetRigidbody()->GetVelocity().y < 0)
+		{
+			GetRigidbody()->Velocity().y = 0;
+		}
+
+	}
+
+	else if(other.GetCollider()->GetType() == ColliderType::Edge)
+	{
 		dir = CollisionManager::DetectEdgeCollisionDir(mRigidbody, *other.GetCollider()->GetRect());
-		break;
+		CollisionManager::AdjustRect(mCollider, other.GetCollider(), dir);
+		if (dir & TOP && GetRigidbody()->GetVelocity().y >= 0)
+		{
+			IsGrounded = true;
+		}
+
+		if (dir & BOTTOM && GetRigidbody()->GetVelocity().y < 0)
+		{
+			GetRigidbody()->Velocity().y = 0;
+		}
+	}
+}
+
+void Player::OnCollisionStay(Collision other)
+{
+	CollisionDirection dir = NONE;
+
+
+	if (other.GetGameObject()->CompareTag(PLATFORM))
+	{
+		dir = CollisionManager::DetectBoxCollisionDir(*mCollider->GetRect(), *other.GetCollider()->GetRect());
+		CollisionManager::AdjustRect(mCollider, other.GetCollider(), dir);
+		if (dir & TOP && GetRigidbody()->GetVelocity().y >= 0)
+		{
+			IsGrounded = true;
+		}
 	}
 
+}
 
-	CollisionManager::AdjustRect(mCollider, other.GetCollider(), dir);
-	
-
-	if (mRigidbody->GetVelocity().x != 0.f)
+void Player::OnCollisionExit(Collision other)
+{
+	if (other.GetGameObject()->CompareTag(PLATFORM))
 	{
-		mStateMachine->ChangeState(Run);
-	}
-
-	else
-	{
-		mStateMachine->ChangeState(Idle);
+		IsGrounded = false;
 	}
 }
 
 void Player::Debug(ID2D1HwndRenderTarget* render)
 {
-	if (mTarget)
+	if (mGrab->IsShoot()) return;
+
+	if (mTargetEnemy || mTargetPlatform)
 	{
 		mLineAnimationOffset -= 10.f * TimeManager::GetInstance().GetDeltaTime();
 		if (mLineAnimationOffset < -(3.0f + 3.0f))
@@ -203,7 +241,6 @@ void Player::Debug(ID2D1HwndRenderTarget* render)
 		);
 
 		strokeStyleProperties.dashOffset = mLineAnimationOffset;
-		// ID2D1RenderTarget* renderTarget = render;
 
 		HRESULT hr = gFactory->CreateStrokeStyle(
 			strokeStyleProperties,
@@ -212,31 +249,41 @@ void Player::Debug(ID2D1HwndRenderTarget* render)
 			&strokeStyle
 		);
 
+		if (mTargetEnemy)
+		{
+			render->CreateSolidColorBrush(ColorF(1.f, 0.f, 0.f), &brush);
 
-		//Vector2 dir = (mTarget->GetTransform()->GetWorldPosition() - mTransform->GetWorldPosition()).Normalized();
+			render->DrawLine(
+				D2D1_POINT_2F{ mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f) },
+				D2D1_POINT_2F{ mTargetEnemy->GetTransform()->GetWorldPosition().x,mTargetEnemy->GetTransform()->GetWorldPosition().y },
+				brush,
+				3.f,
+				strokeStyle
+			);
 
-		//D2D1_MATRIX_3X2_F translationMatrix = Matrix3x2F::Translation(dir.x * mLineAnimationOffset, dir.y * mLineAnimationOffset);
+			strokeStyle->Release();
+			brush->Release();
+			brush = nullptr;
 
-		//D2D1_MATRIX_3X2_F oldTransform;
-		//render->GetTransform(&oldTransform);
+			return;
+		}
 
-		//render->SetTransform(translationMatrix * oldTransform);
+		if (mTargetPlatform)
+		{
+			render->CreateSolidColorBrush(ColorF(0.f, 0.9725f, 1.f), &brush);
 
-		render->CreateSolidColorBrush(ColorF(1.f, 0.f, 0.f), &brush);
+			render->DrawLine(
+				D2D1_POINT_2F{ mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f) },
+				D2D1_POINT_2F{ mGrabPoint.x, mGrabPoint.y },
+				brush,
+				3.f,
+				strokeStyle
+			);
 
-		render->DrawLine(
-			D2D1_POINT_2F{ mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y },
-			D2D1_POINT_2F{ mTarget->GetTransform()->GetWorldPosition().x,mTarget->GetTransform()->GetWorldPosition().y },
-			brush,
-			3.f,
-			strokeStyle
-		);
-
-		//render->SetTransform(oldTransform);
-
-		strokeStyle->Release();
-		brush->Release();
-		brush = nullptr;
+			strokeStyle->Release();
+			brush->Release();
+			brush = nullptr;
+		}
 	}
 }
 
@@ -248,7 +295,8 @@ void Player::FindEnemy()
 	GetCursorPos(&mouse);
 	ScreenToClient(gHwnd, &mouse);
 	Vector2 mousePosition = { static_cast<float>(mouse.x), static_cast<float>(mouse.y) };
-	Vector2 playerDir = (mousePosition - mTransform->GetWorldPosition()).Normalized();
+	Vector2 playerPos = { mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f) };
+	Vector2 playerDir = (mousePosition - playerPos).Normalized();
 
 	GameObject* closestEnemy = nullptr;
 	float minDistance = FLT_MAX;
@@ -262,7 +310,7 @@ void Player::FindEnemy()
 			if (IsEnemyVisible(enemyPosition, enemy))
 			{
 				float dx = enemyPosition.x - mTransform->GetWorldPosition().x;
-				float dy = enemyPosition.y - mTransform->GetWorldPosition().y;
+				float dy = enemyPosition.y - mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f);
 				float distanceToEnemy = sqrt(dx * dx + dy * dy);
 
 				if (distanceToEnemy < minDistance)
@@ -274,7 +322,57 @@ void Player::FindEnemy()
 		}
 	}
 
-	mTarget = closestEnemy;
+	mTargetEnemy = closestEnemy;
+	if (mTargetEnemy) mTargetPlatform = nullptr;
+}
+
+void Player::FindHanging()
+{
+	GameObjectList* platformList = GameObjectManager::GetInstance().GetGameObjectsForTag(PLATFORM);
+
+	POINT mouse;
+	GetCursorPos(&mouse);
+	ScreenToClient(gHwnd, &mouse);
+	Vector2 mousePosition = { static_cast<float>(mouse.x), static_cast<float>(mouse.y) };
+	Vector2 rayStart = { mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f) };
+	Vector2 rayDir = (mousePosition - rayStart).Normalized();
+
+	GameObject* closestPlatform = nullptr;
+	Vector2 intersectionPoint = { 0,0 };
+	float minDistance = FLT_MAX;
+
+	for (const auto& platform : *platformList)
+	{
+		Vector2 hitPoint = { 0,0 };
+		if (platform->GetComponent<Platform>()->GetType() == RECT_PLATFORM)
+		{
+			RECT* rect = platform->GetComponent<BoxCollider>()->GetRect();
+			IntersectRayWithBox(rayStart, rayDir, *rect, hitPoint);
+		}
+
+		else if (platform->GetComponent<Platform>()->GetType() == LINE_PLATFORM)
+		{
+			POINT ps = platform->GetComponent<EdgeCollider>()->GetStart();
+			POINT pe = platform->GetComponent<EdgeCollider>()->GetEnd();
+			Vector2 lineStart = { static_cast<float>(ps.x),static_cast<float>(ps.y) };
+			Vector2 lineEnd = { static_cast<float>(pe.x), static_cast<float>(pe.y) };
+			IntersectRayWithLineSegment(rayStart, rayDir, lineStart, lineEnd, hitPoint);
+		}
+
+		float distance = Vector2::Distance(rayStart, hitPoint);
+		if (distance <= mFovLength)
+		{
+			if (distance < minDistance)
+			{
+				closestPlatform = platform;
+				minDistance = distance;
+				intersectionPoint = hitPoint;
+			}
+		}
+	}
+
+	mTargetPlatform = closestPlatform;
+	mGrabPoint = intersectionPoint;
 }
 
 bool Player::IsEnemyInFOV(Vector2 playerDir, Vector2 enemyPosition)
@@ -282,12 +380,12 @@ bool Player::IsEnemyInFOV(Vector2 playerDir, Vector2 enemyPosition)
 	// 적과 캐릭터 사이의 벡터 계산
 	Vector2 toEnemy = {
 		enemyPosition.x - mTransform->GetWorldPosition().x,
-		enemyPosition.y - mTransform->GetWorldPosition().y
+		enemyPosition.y - mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f)
 	};
 
 	// 적까지의 거리 계산
 	float lengthToEnemy = toEnemy.Magnitude();
-	if (lengthToEnemy > mFowLength) return false;
+	if (lengthToEnemy > mFovLength) return false;
 
 	toEnemy = toEnemy.Normalized();
 
@@ -303,7 +401,7 @@ bool Player::IsEnemyVisible(Vector2 enemyPosition, GameObject* enemy)
 
 	Vector2 dir = {
 		enemyPosition.x - mTransform->GetWorldPosition().x,
-		enemyPosition.y - mTransform->GetWorldPosition().y
+		enemyPosition.y - mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f)
 	};
 
 	for (const auto& collider : *colliders)
@@ -318,7 +416,7 @@ bool Player::IsEnemyVisible(Vector2 enemyPosition, GameObject* enemy)
 				static_cast<float>(collider->GetRect()->bottom)
 			};
 
-			if (LineIntersectsRect(mTransform->GetWorldPosition(), dir, rect))
+			if (LineIntersectsRect({mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f) }, dir, rect))
 			{
 				return false;
 			}
@@ -338,7 +436,12 @@ bool Player::IsEnemyVisible(Vector2 enemyPosition, GameObject* enemy)
 				static_cast<float>(edge->GetEnd().y)
 			};
 
-			if (LineIntersectsLine(mTransform->GetWorldPosition(), mTransform->GetWorldPosition() + dir, p1, p2))
+			Vector2 start = {
+				mTransform->GetWorldPosition().x,
+				mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f)
+			};
+
+			if (LineIntersectsLine(start, start + dir, p1, p2))
 			{
 				return false;
 			}
@@ -391,6 +494,68 @@ bool Player::LineIntersectsLine(Vector2 p1, Vector2 p2, Vector2 q1, Vector2 q2)
 		(d3 == 0 && OnSegment(p1, p2, q1)) ||
 		(d4 == 0 && OnSegment(p1, p2, q2));
 }
+
+bool Player::IntersectRayWithBox(const Vector2& rayStart, const Vector2& rayDir,const RECT& rect, Vector2& intersectionPoint)
+{
+	Vector2 intersection;
+	bool hasIntersection = false;
+	float closetDistance = FLT_MAX;
+
+	// 사각형의 네 변을 선분으로 간주하여 각각 검사
+	std::vector<std::pair<Vector2, Vector2>> edges = {
+		{{static_cast<float>(rect.left), static_cast<float>(rect.top)}, {static_cast<float>(rect.right), static_cast<float>(rect.top)}},   // 위쪽
+		{{static_cast<float>(rect.right), static_cast<float>(rect.top)}, {static_cast<float>(rect.right), static_cast<float>(rect.bottom)}}, // 오른쪽
+		{{static_cast<float>(rect.right), static_cast<float>(rect.bottom)}, {static_cast<float>(rect.left), static_cast<float>(rect.bottom)}}, // 아래쪽
+		{{static_cast<float>(rect.left), static_cast<float>(rect.bottom)}, {static_cast<float>(rect.left), static_cast<float>(rect.top)}}  // 왼쪽
+	};
+
+	for (const auto& edge : edges)
+	{
+		if (IntersectRayWithLineSegment(rayStart, rayDir, edge.first, edge.second, intersection))
+		{
+			float distance = Vector2::Distance(rayStart, intersection);
+			if (distance < closetDistance)
+			{
+				closetDistance = distance;
+				intersectionPoint = intersection;
+				hasIntersection = true;
+			}
+		}
+	}
+
+	return hasIntersection;
+}
+
+bool Player::IntersectRayWithLineSegment(const Vector2& rayStart, const Vector2& rayDir, const Vector2& lineStart, const Vector2& lineEnd, Vector2& intersection)
+{
+	float r_px = rayStart.x;
+	float r_py = rayStart.y;
+	float r_dx = rayDir.x;
+	float r_dy = rayDir.y;
+
+	float s_px = lineStart.x;
+	float s_py = lineStart.y;
+	float s_dx = lineEnd.x - lineStart.x;
+	float s_dy = lineEnd.y - lineStart.y;
+
+	// t2는 선분의 시작점부터 교차점까지의 상대적인 위치를 나타내는 값
+	// t2의 범위가 0~1 사이에 있어야 교차점이 선분의 범위 내에 있는 것을 의미
+	float t2 = (r_dx * (s_py - r_py) + r_dy * (r_px - s_px)) / (s_dx * r_dy - s_dy * r_dx);
+
+	// t1은 Ray의 시작점에서 교차점까지의 상대적인 위치를 나타내는 값.
+	// t1이 0이상이면 Ray의 시작점으로부터 앞으로 나아간 방향에서 교차가 발생한다는 것을 의미
+	float t1 = (s_px + s_dx * t2 - r_px) / r_dx;
+
+	if (t1 >= 0 && t2 >= 0 && t2 <= 1) {
+		// 교차 지점 계산
+		intersection.x = r_px + r_dx * t1;
+		intersection.y = r_py + r_dy * t1;
+		return true;
+	}
+
+	return false;
+}
+
 
 float Player::Direction(Vector2 pi, Vector2 pj, Vector2 pk)
 {

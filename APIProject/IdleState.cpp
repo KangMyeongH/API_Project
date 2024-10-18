@@ -50,6 +50,8 @@ void IdleState::HandleInput()
 
 	if (mPlayer->GetKeyMgr()->Key_Down(VK_SPACE))
 	{
+		mPlayer->GetRigidbody()->Velocity().y = -500.f;
+		mPlayer->IsGrounded = false;
 		mStateMachine->ChangeState(mPlayer->Jump);
 	}
 
@@ -61,7 +63,10 @@ void IdleState::HandleInput()
 
 void IdleState::LogicUpdate()
 {
-
+	if (!mPlayer->IsGrounded)
+	{
+		mStateMachine->ChangeState(mPlayer->Jump);
+	}
 }
 
 void IdleState::PhysicsUpdate()

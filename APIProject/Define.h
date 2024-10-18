@@ -11,6 +11,7 @@ enum Tag
 	UNTAGGED,
 	PLAYER,
 	ENEMY,
+	PLATFORM,
 	ITEM,
 	END_TAG
 };
@@ -32,6 +33,12 @@ enum PlayerState
 	CHARGEDASH,
 	EXC,
 	EXCDASH
+};
+
+enum PlatformType
+{
+	RECT_PLATFORM,
+	LINE_PLATFORM
 };
 
 struct AnimationInfo

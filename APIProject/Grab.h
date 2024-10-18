@@ -26,6 +26,10 @@ public:
 
 	void Shoot(Transform* target);
 
+	void SetIsShoot(bool isShoot) { mIsShoot = isShoot; }
+
+	bool IsShoot() const { return mIsShoot; }
+
 	Transform* GetTarget() const { return mTarget; }
 
 	void Debug(ID2D1HwndRenderTarget* render) override;

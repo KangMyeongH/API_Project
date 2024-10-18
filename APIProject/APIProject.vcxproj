@@ -172,6 +172,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="PhysicsManager.h" />
     <ClInclude Include="Platform.h" />
+    <ClInclude Include="PlatformObject.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerObject.h" />
     <ClInclude Include="Ray.h" />
@@ -230,6 +231,7 @@
     </ClCompile>
     <ClCompile Include="PhysicsManager.cpp" />
     <ClCompile Include="Platform.cpp" />
+    <ClCompile Include="PlatformObject.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerObject.cpp" />
     <ClCompile Include="Ray.cpp" />

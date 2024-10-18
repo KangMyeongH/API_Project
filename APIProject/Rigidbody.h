@@ -8,6 +8,7 @@ enum BodyType
 	STATIC = 1 << 2			// 100
 };
 
+// 매개변수로 float 무게, bool useGravity, float 공기저항, float angularDrag, BodyType type 을 가지고 있습니다.
 class Rigidbody final : public Behaviour
 {
 public:
@@ -38,7 +39,18 @@ public:
 	void 		SetAngularDrag(const float angularDrag) { mAngularDrag = angularDrag; }
 	float 		GetAngularDrag() const { return mAngularDrag; }
 
-	void		AddForce(const Vector2& force) { mVelocity += force / mMass; }
+	void		AddForce(const Vector2& force)
+	{
+		if (mMass != 0.f)
+		{
+			mVelocity += force / mMass;
+		}
+
+		else
+		{
+			mVelocity += force;
+		}
+	}
 
 	void		MovePosition(const Vector2& position);
 	void		MoveRotation(float rotation) const;

@@ -5,6 +5,7 @@
 #include "GameObject.h"
 #include "Grab.h"
 #include "IdleState.h"
+#include "JumpState.h"
 #include "KeyManager.h"
 #include "Player.h"
 #include "Rigidbody.h"
@@ -57,12 +58,13 @@ void ExcState::HandleInput()
 		mPlayer->GetRigidbody()->SetUseGravity(true);
 		mPlayer->GetRigidbody()->Velocity() = CalcDirToMouse() * 500.f;
 		TimeManager::GetInstance().SlowMotion(0.1f,0.1f);
-		//mStateMachine->ChangeState(mPlayer->Idle);
+		mPlayer->GetGrab()->SetIsShoot(false);
+		mStateMachine->ChangeState(mPlayer->Jump);
 	}
 
 	else
 	{
-		//mTarget->SetParent(nullptr);
+		//mTargetEnemy->SetParent(nullptr);
 		//mStateMachine->ChangeState(mPlayer->Idle);
 	}
 }

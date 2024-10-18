@@ -7,24 +7,7 @@ class SpriteRenderer : public Behaviour
 {
 public:
 	explicit SpriteRenderer(GameObject* owner, int layer);
-	//SpriteRenderer(GameObject* owner, HDC hdc, float width, float height, int layer);
 	SpriteRenderer(GameObject* owner, ID2D1Bitmap* image, float width, float height, int layer);
-
-	/*
-	void Render(HDC hdc) const
-	{
-		GdiTransparentBlt(hdc,
-			static_cast<int>(mTransform->GetWorldPosition().x - (mWidth * 0.5f)),
-			static_cast<int>(mTransform->GetWorldPosition().y - (mHeight * 0.5f)),
-			static_cast<int>(mWidth),
-			static_cast<int>(mHeight),
-			mDC,
-			static_cast<int>(mWidth) * mFrame, 
-			static_cast<int>(mHeight) * mFlip,
-			static_cast<int>(mWidth),
-			static_cast<int>(mHeight),
-			RGB(0, 0, 0));
-	}*/
 
 	void Render(ID2D1HwndRenderTarget* render) const
 	{
@@ -53,8 +36,6 @@ public:
 		render->SetTransform(oldTransform);
 	}
 
-	//void 	ChangeSprite(HDC hdc, float width, float height, int startFrame);
-
 	void 	ChangeSprite(ID2D1Bitmap* image, float width, float height, int startFrame);
 
 	void 	SetFrame(int frame);
@@ -69,9 +50,10 @@ public:
 
 	void	IsPivotDown(const bool down) { mPivotDown = down; }
 
+	ID2D1Bitmap* GetBitmap() const { return mImage; }
+
 private:
 	Transform* 		mTransform;
-	//HDC 			mDC;
 	ID2D1Bitmap* 	mImage;
 	D2D1_RECT_F		mTargetRect;	// 스프라이트 시트의 특정 영역
 	D2D1_RECT_F		mRenderRect;	// 화면의 그려줄 위치
