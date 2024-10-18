@@ -2,12 +2,22 @@
 #include "Grab.h"
 
 #include "BoxCollider.h"
+#include "ExcDashState.h"
 #include "GameObject.h"
 #include "GameObjectManager.h"
 #include "ImageManager.h"
 #include "Player.h"
+#include "StateMachine.h"
 #include "TimeManager.h"
 #include "Transform.h"
+
+Grab::~Grab()
+{
+	for (auto& ani : mAnimationMap)
+	{
+		delete ani.second;
+	}
+}
 
 void Grab::Awake()
 {
@@ -45,7 +55,8 @@ void Grab::OnCollisionEnter(Collision other)
 		mOwner->GetComponent<Animator>()->SetEnable(false);
 		mOwner->GetComponent<BoxCollider>()->SetEnable(false);
 		mIsShoot = false;
-		TimeManager::GetInstance().SlowMotion(0.05f, 0.4f);
+		//TimeManager::GetInstance().SlowMotion(0.05f, 0.4f);
+		mPlayer->GetStateMachine()->ChangeState(mPlayer->ExcDash);
 	}
 }
 
@@ -61,6 +72,14 @@ void Grab::Shoot(Transform* target)
 	mOwner->GetComponent<SpriteRenderer>()->SetAngle(Vector2::GetAngle(mStart, mTarget->GetWorldPosition()) + 90.f);
 	mOwner->GetComponent<Animator>()->MotionChange(FindAniInfo(L"Grab_Flying"));
 	mIsShoot = true;
+}
+
+void Grab::Debug(ID2D1HwndRenderTarget* render)
+{
+	if (mIsShoot)
+	{
+		
+	}
 }
 
 AnimationInfo* Grab::FindAniInfo(const TCHAR* key)

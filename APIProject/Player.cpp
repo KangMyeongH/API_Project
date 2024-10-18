@@ -12,7 +12,10 @@
 #include "RunState.h"
 #include "StateMachine.h"
 #include "EdgeCollider.h"
+#include "ExcDashState.h"
+#include "ExcState.h"
 #include "Grab.h"
+#include "TimeManager.h"
 
 Player::~Player()
 {
@@ -44,6 +47,7 @@ void Player::Start()
 	mCollider = mOwner->GetComponent<BoxCollider>();
 	mAnimator = mOwner->GetComponent<Animator>();
 	mStateMachine = new StateMachine;
+	
 
 	// Component setting
 	mCollider->SetOffset({ 0, -21 });
@@ -53,6 +57,8 @@ void Player::Start()
 	Run = new RunState(this, mStateMachine, RUN);
 	Jump = new JumpState(this, mStateMachine, JUMP);
 	ChargeDash = new ChargeDashState(this, mStateMachine, CHARGEDASH);
+	ExcDash = new ExcDashState(this, mStateMachine, EXCDASH);
+	Exc = new ExcState(this, mStateMachine, EXC);
 
 	// ray
 	mRay = &Ray::GetInstance();
@@ -143,8 +149,9 @@ void Player::LateUpdate()
 void Player::OnCollisionEnter(Collision other)
 {
 	// 충돌 방향 체크
-	
-	CollisionDirection dir = NONE; 
+	if (other.GetGameObject()->CompareTag(ENEMY)) return;
+
+	CollisionDirection dir = NONE;
 
 	switch (other.GetCollider()->GetType())
 	{
@@ -176,17 +183,58 @@ void Player::Debug(ID2D1HwndRenderTarget* render)
 {
 	if (mTarget)
 	{
+		mLineAnimationOffset -= 10.f * TimeManager::GetInstance().GetDeltaTime();
+		if (mLineAnimationOffset < -(3.0f + 3.0f))
+		{
+			mLineAnimationOffset = 0.0f;
+		}
+
+		std::vector<FLOAT> dashes = { 3.0f, 3.0f };
 		ID2D1SolidColorBrush* brush = nullptr;
+		ID2D1StrokeStyle* strokeStyle = nullptr;
+		D2D1_STROKE_STYLE_PROPERTIES strokeStyleProperties = StrokeStyleProperties(
+			D2D1_CAP_STYLE_FLAT,
+			D2D1_CAP_STYLE_FLAT,
+			D2D1_CAP_STYLE_ROUND,
+			D2D1_LINE_JOIN_MITER,
+			10.0f,
+			D2D1_DASH_STYLE_CUSTOM,
+			0.0f
+		);
+
+		strokeStyleProperties.dashOffset = mLineAnimationOffset;
+		// ID2D1RenderTarget* renderTarget = render;
+
+		HRESULT hr = gFactory->CreateStrokeStyle(
+			strokeStyleProperties,
+			dashes.data(),
+			static_cast<UINT>(dashes.size()),
+			&strokeStyle
+		);
+
+
+		//Vector2 dir = (mTarget->GetTransform()->GetWorldPosition() - mTransform->GetWorldPosition()).Normalized();
+
+		//D2D1_MATRIX_3X2_F translationMatrix = Matrix3x2F::Translation(dir.x * mLineAnimationOffset, dir.y * mLineAnimationOffset);
+
+		//D2D1_MATRIX_3X2_F oldTransform;
+		//render->GetTransform(&oldTransform);
+
+		//render->SetTransform(translationMatrix * oldTransform);
+
 		render->CreateSolidColorBrush(ColorF(1.f, 0.f, 0.f), &brush);
 
 		render->DrawLine(
 			D2D1_POINT_2F{ mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y },
 			D2D1_POINT_2F{ mTarget->GetTransform()->GetWorldPosition().x,mTarget->GetTransform()->GetWorldPosition().y },
 			brush,
-			1.f,
-			nullptr
+			3.f,
+			strokeStyle
 		);
 
+		//render->SetTransform(oldTransform);
+
+		strokeStyle->Release();
 		brush->Release();
 		brush = nullptr;
 	}
@@ -260,7 +308,7 @@ bool Player::IsEnemyVisible(Vector2 enemyPosition, GameObject* enemy)
 
 	for (const auto& collider : *colliders)
 	{
-		if (collider == mCollider || collider->GetGameObject() == enemy) continue;
+		if (collider == mCollider || collider->GetGameObject() == enemy || !collider->IsEnabled()) continue;
 		if (collider->GetType() == ColliderType::Box)
 		{
 			D2D1_RECT_F rect = {
@@ -296,6 +344,8 @@ bool Player::IsEnemyVisible(Vector2 enemyPosition, GameObject* enemy)
 			}
 		}
 	}
+
+	return true;
 }
 
 AnimationInfo* Player::FindAniInfo(const TCHAR* key)

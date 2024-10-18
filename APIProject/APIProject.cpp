@@ -35,8 +35,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(lpCmdLine);
 
     // TODO: 여기에 코드를 입력합니다.
-
-    CoInitializeEx(NULL, COINIT_APARTMENTTHREADED);
+    CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED);
 
     D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &gFactory);
 
@@ -183,6 +182,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         gFactory->CreateHwndRenderTarget(RenderTargetProperties(),
             HwndRenderTargetProperties(hWnd, SizeU(r.right, r.bottom)),
             &gRenderTarget);
+
         break;
 
     case WM_KEYDOWN:

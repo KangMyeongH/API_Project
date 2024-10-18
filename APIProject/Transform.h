@@ -84,11 +84,13 @@ public:
 
 			if (mParent != nullptr)
 			{
+				mLocalPosition -= mParent->GetLocalPosition();
 				mParent->AddChild(this);
 			}
 
 			else
 			{
+				mLocalPosition = mWorldPosition;
 				// Clear parent
 				UpdateWorldTransform();
 				UpdateChildrenTransforms();

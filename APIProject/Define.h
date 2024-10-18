@@ -29,7 +29,9 @@ enum PlayerState
 	IDLE,
 	RUN,
 	JUMP,
-	CHARGEDASH
+	CHARGEDASH,
+	EXC,
+	EXCDASH
 };
 
 struct AnimationInfo

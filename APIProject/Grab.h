@@ -13,6 +13,7 @@ public:
 	{
 	}
 
+	~Grab() override;
 	void Awake() override;
 
 	void Start() override;
@@ -24,6 +25,10 @@ public:
 	void SetOwner(Player* player) { mPlayer = player; }
 
 	void Shoot(Transform* target);
+
+	Transform* GetTarget() const { return mTarget; }
+
+	void Debug(ID2D1HwndRenderTarget* render) override;
 
 	AnimationInfo* FindAniInfo(const TCHAR* key);
 

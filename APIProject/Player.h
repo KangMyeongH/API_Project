@@ -2,6 +2,8 @@
 #include <unordered_map>
 
 #include "MonoBehaviour.h"
+class ExcState;
+class ExcDashState;
 class Grab;
 class GrabObject;
 class Ray;
@@ -23,8 +25,10 @@ public:
 	                                     mAnimator(nullptr),
 	                                     mStateMachine(nullptr), mRay(nullptr), mGrab(nullptr), mTarget(nullptr),
 	                                     mFovAngle(0),
-	                                     mFowLength(0),
-	                                     Idle(nullptr), Run(nullptr), Jump(nullptr), ChargeDash(nullptr), Speed(0)
+	                                     mFowLength(0), mLineAnimationOffset(0),
+	                                     Idle(nullptr), Run(nullptr), Jump(nullptr), ChargeDash(nullptr),
+	                                     ExcDash(nullptr), Exc(nullptr),
+	                                     Speed(0)
 	{
 	}
 
@@ -52,6 +56,8 @@ public:
 	Animator* 	GetAnimator() const { return mAnimator; }
 	AnimationInfo* FindAniInfo(const TCHAR* key);
 	GameObject* GetTarget() const { return mTarget; }
+	StateMachine* GetStateMachine() const { return  mStateMachine; }
+	Grab* GetGrab() const { return mGrab; }
 
 private:
 	bool LineIntersectsRect(Vector2 p1, Vector2 direction, D2D1_RECT_F rect);
@@ -73,12 +79,18 @@ private:
 	float mFovAngle;
 	float mFowLength;
 
+	float mLineAnimationOffset;
+
 public:
 	std::unordered_map<const TCHAR*, AnimationInfo*> AnimationMap;
-	IdleState* 	Idle;
-	RunState* 	Run;
-	JumpState* 	Jump;
-	ChargeDashState* ChargeDash;
+	IdleState* 			Idle;
+	RunState* 			Run;
+	JumpState* 			Jump;
+	ChargeDashState* 	ChargeDash;
+	ExcDashState* 		ExcDash;
+	ExcState* 			Exc;
+
+
 	float		Speed;
 };
 
