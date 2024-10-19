@@ -1,5 +1,6 @@
 #pragma once
 #include "Behaviour.h"
+#include "Camera.h"
 #include "GameObject.h"
 
 // 매게 변수로 hdc, width, height, layer를 받는다
@@ -11,10 +12,12 @@ public:
 
 	void Render(ID2D1HwndRenderTarget* render) const
 	{
+		D2D1_RECT_F screenRect = Camera::GetInstance().WorldToScreen(mRenderRect);
+
 		// 회전 중심 (mRenderRect의 중심을 기준으로 회전한다고 가정)
 		D2D1_POINT_2F center = D2D1::Point2F(
-			(mRenderRect.left + mRenderRect.right) / 2.0f,
-			(mRenderRect.top + mRenderRect.bottom) / 2.0f
+			(screenRect.left + screenRect.right) / 2.0f,
+			(screenRect.top + screenRect.bottom) / 2.0f
 		);
 
 		// 현재 변환 상태 저장
@@ -26,7 +29,7 @@ public:
 
 		render->DrawBitmap(
 			mImage,
-			mRenderRect,	// 화면에 그려질 목표 영역
+			screenRect,	// 화면에 그려질 목표 영역
 			mOpacity,			// 투명도
 			D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR, // 보간 모드
 			mTargetRect		// 원본 스프라이트 시트의 특정 영역

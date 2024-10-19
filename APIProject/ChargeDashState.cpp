@@ -42,3 +42,7 @@ void ChargeDashState::PhysicsUpdate()
 void ChargeDashState::Exit()
 {
 }
+
+void ChargeDashState::Debug(ID2D1HwndRenderTarget* render)
+{
+}

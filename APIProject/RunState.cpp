@@ -15,8 +15,17 @@ void RunState::Enter()
 {
 	mPlayer->GetRigidbody()->SetUseGravity(false);
 	mPlayer->GetRigidbody()->Velocity().y = 0;
-	mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_RunningStart"));
-	mPlayer->GetAnimator()->SetNextMotion(mPlayer->FindAniInfo(L"SNB_Running"));
+	if (mStateMachine->GetPrevState()->GetType() == IDLE)
+	{
+		mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_RunningStart"));
+		mPlayer->GetAnimator()->SetNextMotion(mPlayer->FindAniInfo(L"SNB_Running"));
+	}
+
+	if (mStateMachine->GetPrevState()->GetType() == JUMP)
+	{
+		mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_Land2Run"));
+		mPlayer->GetAnimator()->SetNextMotion(mPlayer->FindAniInfo(L"SNB_Running"));
+	}
 }
 
 void RunState::HandleInput()
@@ -50,7 +59,7 @@ void RunState::HandleInput()
 
 	if (mPlayer->GetKeyMgr()->Key_Down(VK_SPACE))
 	{
-		mPlayer->GetRigidbody()->Velocity().y = -500.f;
+		mPlayer->GetRigidbody()->Velocity().y = -mPlayer->JumpPower;
 		mPlayer->IsGrounded = false;
 		mStateMachine->ChangeState(mPlayer->Jump);
 	}
@@ -70,5 +79,9 @@ void RunState::PhysicsUpdate()
 }
 
 void RunState::Exit()
+{
+}
+
+void RunState::Debug(ID2D1HwndRenderTarget* render)
 {
 }

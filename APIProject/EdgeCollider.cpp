@@ -2,6 +2,7 @@
 #include "EdgeCollider.h"
 
 #include "BoxCollider.h"
+#include "Camera.h"
 
 bool EdgeCollider::CheckCollision(Collider* other, POINT& contactPoint)
 {
@@ -81,9 +82,11 @@ bool EdgeCollider::OnSegment(POINT start, POINT end, POINT target)
 void EdgeCollider::Debug(ID2D1HwndRenderTarget* render)
 {
     ID2D1SolidColorBrush* brush = nullptr;
+    D2D1_RECT_F rect = { static_cast<float>(mRect.left), static_cast<float>(mRect.top), static_cast<float>(mRect.right), static_cast<float>(mRect.bottom) };
+
     render->CreateSolidColorBrush(ColorF(0.f, 1.f, 0.f), &brush);
 
-	render->DrawRectangle(RectF(mRect.left, mRect.top, mRect.right, mRect.bottom), brush, 1, nullptr);
+	render->DrawRectangle(Camera::GetInstance().WorldToScreen(rect), brush, 1, nullptr);
     brush->Release();
     brush = nullptr;
 }

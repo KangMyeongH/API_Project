@@ -8,6 +8,7 @@
 #include "ImageManager.h"
 #include "Player.h"
 #include "StateMachine.h"
+#include "SwingState.h"
 #include "TimeManager.h"
 #include "Transform.h"
 
@@ -42,25 +43,36 @@ void Grab::FixedUpdate()
 	if (mIsShoot)
 	{
 		mCurrentTime += TimeManager::GetInstance().GetDeltaTime();
-		GetTransform()->SetWorldPosition(Vector2::Lerp(mStart, mTarget->GetWorldPosition(), mCurrentTime / mTime));
-		
+		if (mCurrentTime > mTime)
+		{
+			mCurrentTime = mTime;
+			if (mTarget->GetGameObject()->CompareTag(ENEMY))
+			{
+				mOwner->GetComponent<SpriteRenderer>()->SetEnable(false);
+				mOwner->GetComponent<Animator>()->SetEnable(false);
+				mOwner->GetComponent<BoxCollider>()->SetEnable(false);
+				Camera::GetInstance().Shake(0.05f, 10.f);
+				mPlayer->GetStateMachine()->ChangeState(mPlayer->ExcDash);
+			}
+
+			else if (mTarget->GetGameObject()->CompareTag(PLATFORM))
+			{
+				mOwner->GetComponent<SpriteRenderer>()->SetEnable(false);
+				mOwner->GetComponent<Animator>()->SetEnable(false);
+				mOwner->GetComponent<BoxCollider>()->SetEnable(false);
+				Camera::GetInstance().Shake(0.05f, 10.f);
+				mPlayer->GetStateMachine()->ChangeState(mPlayer->Swing);
+			}
+		}
+		GetTransform()->SetWorldPosition(Vector2::Lerp(mStart, mTargetPosition, mCurrentTime / mTime));
 	}
 }
 
 void Grab::OnCollisionEnter(Collision other)
 {
-	if (other.GetGameObject()->CompareTag(ENEMY))
-	{
-		mOwner->GetComponent<SpriteRenderer>()->SetEnable(false);
-		mOwner->GetComponent<Animator>()->SetEnable(false);
-		mOwner->GetComponent<BoxCollider>()->SetEnable(false);
-		//mIsShoot = false;
-		//TimeManager::GetInstance().SlowMotion(0.05f, 0.4f);
-		mPlayer->GetStateMachine()->ChangeState(mPlayer->ExcDash);
-	}
 }
 
-void Grab::Shoot(Transform* target)
+void Grab::Shoot()
 {
 	if (!mIsShoot)
 	{
@@ -70,8 +82,19 @@ void Grab::Shoot(Transform* target)
 		mCurrentTime = 0;
 		GetTransform()->SetWorldPosition(mPlayer->GetTransform()->GetWorldPosition());
 		mStart = GetTransform()->GetWorldPosition();
-		mTarget = mPlayer->GetTarget()->GetTransform();
-		mOwner->GetComponent<SpriteRenderer>()->SetAngle(Vector2::GetAngle(mStart, mTarget->GetWorldPosition()) + 90.f);
+		if (mPlayer->GetTarget())
+		{
+			mTarget = mPlayer->GetTarget()->GetTransform();
+			mTargetPosition = mTarget->GetWorldPosition();
+		}
+
+		else if(mPlayer->GetTargetPlatform())
+		{
+			mTarget = mPlayer->GetTargetPlatform()->GetTransform();
+			mTargetPosition = mPlayer->GetGrabPoint();
+		}
+
+		mOwner->GetComponent<SpriteRenderer>()->SetAngle(Vector2::GetAngle(mStart, mTargetPosition) + 90.f);
 		mOwner->GetComponent<Animator>()->MotionChange(FindAniInfo(L"Grab_Flying"));
 		mIsShoot = true;
 	}

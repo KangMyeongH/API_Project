@@ -58,6 +58,7 @@ void Core::Progress()
 	onCollision();
 	update();
 	lateUpdate();
+	Camera::GetInstance().Update(mTimeMgr->GetDeltaTime());
 	render();
 	onDestroy();
 	destroy();

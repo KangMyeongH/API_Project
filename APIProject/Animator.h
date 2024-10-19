@@ -26,6 +26,13 @@ public:
 
     void SetNextMotion(AnimationInfo* nextMotion);
 
+    bool IsNextMotionPending()
+    {
+        if (mNextMotion) return true;
+        
+        return false;
+    }
+
 private:
     SpriteRenderer* 	mSprite;
     AnimationInfo* 		mNextMotion;

@@ -2,6 +2,8 @@
 #include <unordered_map>
 
 #include "MonoBehaviour.h"
+class SwingState;
+class ClimbingState;
 class ExcState;
 class ExcDashState;
 class Grab;
@@ -28,8 +30,8 @@ public:
 	                                     mFovAngle(0),
 	                                     mFovLength(0), mLineAnimationOffset(0),
 	                                     Idle(nullptr), Run(nullptr), Jump(nullptr), ChargeDash(nullptr),
-	                                     ExcDash(nullptr), Exc(nullptr),
-	                                     Speed(0), IsGrounded(false)
+	                                     ExcDash(nullptr), Exc(nullptr), Climbing(nullptr), Swing(nullptr),
+	                                     Speed(0), JumpPower(0), IsGrounded(false), IsClimb(false)
 	{
 	}
 
@@ -60,8 +62,10 @@ public:
 	Animator* 	GetAnimator() const { return mAnimator; }
 	AnimationInfo* FindAniInfo(const TCHAR* key);
 	GameObject* GetTarget() const { return mTargetEnemy; }
+	GameObject* GetTargetPlatform() const { return mTargetPlatform; }
 	StateMachine* GetStateMachine() const { return  mStateMachine; }
 	Grab* GetGrab() const { return mGrab; }
+	const Vector2& GetGrabPoint() const { return mGrabPoint; }
 
 private:
 	bool LineIntersectsRect(Vector2 p1, Vector2 direction, D2D1_RECT_F rect);
@@ -98,8 +102,11 @@ public:
 	ChargeDashState* 	ChargeDash;
 	ExcDashState* 		ExcDash;
 	ExcState* 			Exc;
-
+	ClimbingState* 		Climbing;
+	SwingState* Swing;
 	
 	float		Speed;
+	float		JumpPower;
 	bool		IsGrounded;
+	bool		IsClimb;
 };

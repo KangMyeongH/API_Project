@@ -17,6 +17,7 @@ WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름�
 HWND gHwnd;                                     // 전역 윈도우 핸들
 ID2D1Factory* gFactory;
 ID2D1HwndRenderTarget* gRenderTarget;
+IDWriteFactory* gWriteFactory;
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -182,6 +183,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         gFactory->CreateHwndRenderTarget(RenderTargetProperties(),
             HwndRenderTargetProperties(hWnd, SizeU(r.right, r.bottom)),
             &gRenderTarget);
+        DWriteCreateFactory(
+            DWRITE_FACTORY_TYPE_SHARED,
+            __uuidof(IDWriteFactory),
+            reinterpret_cast<IUnknown**>(&gWriteFactory)
+        );
 
         break;
 

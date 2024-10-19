@@ -90,3 +90,7 @@ Vector2 ExcState::CalcDirToMouse()
 
 	return (mPlayer->GetTransform()->GetWorldPosition() - mousePosition).Normalized();
 }
+
+void ExcState::Debug(ID2D1HwndRenderTarget* render)
+{
+}

@@ -50,15 +50,15 @@ void IdleState::HandleInput()
 
 	if (mPlayer->GetKeyMgr()->Key_Down(VK_SPACE))
 	{
-		mPlayer->GetRigidbody()->Velocity().y = -500.f;
+		mPlayer->GetRigidbody()->Velocity().y = -mPlayer->JumpPower;
 		mPlayer->IsGrounded = false;
 		mStateMachine->ChangeState(mPlayer->Jump);
 	}
 
-	if (mPlayer->GetKeyMgr()->Key_Down(VK_SHIFT))
+	/*if (mPlayer->GetKeyMgr()->Key_Down(VK_SHIFT))
 	{
 		mStateMachine->ChangeState(mPlayer->ChargeDash);
-	}
+	}*/
 }
 
 void IdleState::LogicUpdate()
@@ -77,4 +77,8 @@ void IdleState::PhysicsUpdate()
 void IdleState::Exit()
 {
 
+}
+
+void IdleState::Debug(ID2D1HwndRenderTarget* render)
+{
 }

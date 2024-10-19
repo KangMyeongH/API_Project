@@ -30,7 +30,9 @@ enum PlayerState
 	IDLE,
 	RUN,
 	JUMP,
+	CLIMBING,
 	CHARGEDASH,
+	SWING,
 	EXC,
 	EXCDASH
 };
@@ -77,5 +79,6 @@ private:
 extern HWND gHwnd;
 extern ID2D1Factory* gFactory;
 extern ID2D1HwndRenderTarget* gRenderTarget;
+extern IDWriteFactory* gWriteFactory;
 
 using GameObjectList = std::list<GameObject*>;

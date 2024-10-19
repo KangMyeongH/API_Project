@@ -24,7 +24,7 @@ public:
 
 	void SetOwner(Player* player) { mPlayer = player; }
 
-	void Shoot(Transform* target);
+	void Shoot();
 
 	void SetIsShoot(bool isShoot) { mIsShoot = isShoot; }
 
@@ -41,6 +41,7 @@ private:
 	std::unordered_map<const TCHAR*, AnimationInfo*> mAnimationMap;
 	Player* 		mPlayer;
 	Transform* 		mTarget;
+	Vector2			mTargetPosition;
 	Vector2			mStart;
 	float 			mTime;
 	float 			mCurrentTime;

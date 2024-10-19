@@ -142,7 +142,9 @@
     <ClInclude Include="Bitmap.h" />
     <ClInclude Include="BitMapManager.h" />
     <ClInclude Include="BoxCollider.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="ChargeDashState.h" />
+    <ClInclude Include="ClimbingState.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="CollisionManager.h" />
@@ -185,6 +187,8 @@
     <ClInclude Include="SpriteRenderer.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />
+    <ClInclude Include="SwingJumpState.h" />
+    <ClInclude Include="SwingState.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="TitleScene.h" />
@@ -198,7 +202,9 @@
     <ClCompile Include="Bitmap.cpp" />
     <ClCompile Include="BitMapManager.cpp" />
     <ClCompile Include="BoxCollider.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ChargeDashState.cpp" />
+    <ClCompile Include="ClimbingState.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
@@ -243,6 +249,8 @@
     <ClCompile Include="SpriteRenderer.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateMachine.cpp" />
+    <ClCompile Include="SwingJumpState.cpp" />
+    <ClCompile Include="SwingState.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="TitleScene.cpp" />
   </ItemGroup>

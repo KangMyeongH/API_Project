@@ -11,5 +11,7 @@
 #include <tchar.h>
 #include <d2d1.h>
 #include <wincodec.h>
+#include <dwrite.h>
 #pragma comment(lib, "D2D1.lib")
+#pragma comment(lib, "dwrite")
 using namespace D2D1;

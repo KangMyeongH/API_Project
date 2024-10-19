@@ -3,6 +3,7 @@
 
 #include "Animator.h"
 #include "ChargeDashState.h"
+#include "ClimbingState.h"
 #include "IdleState.h"
 #include "KeyManager.h"
 #include "Player.h"
@@ -15,7 +16,8 @@ void JumpState::Enter()
 	mFalling = false;
 	mPlayer->GetRigidbody()->SetUseGravity(true);
 
-	if (mStateMachine->GetPrevState()->GetType() == IDLE || mStateMachine->GetPrevState()->GetType() == RUN)
+	if (mStateMachine->GetPrevState()->GetType() == IDLE || mStateMachine->GetPrevState()->GetType() == RUN
+		|| mStateMachine->GetPrevState()->GetType() == CLIMBING)
 	{
 		mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_Jumping"));
 	}
@@ -44,12 +46,12 @@ void JumpState::HandleInput()
 		mPlayer->GetAnimator()->Flip(true);
 		mPlayer->GetRigidbody()->Velocity().x = -mPlayer->Speed;
 	}
-
+	/*
 	else
 	{
 		if (mPlayer->GetRigidbody()->Velocity().x > 0)
 		{
-			mPlayer->GetRigidbody()->Velocity().x -= 50.f;
+			mPlayer->GetRigidbody()->Velocity().x -= 25.f;
 			if (mPlayer->GetRigidbody()->Velocity().x <= 0.f)
 			{
 				mPlayer->GetRigidbody()->Velocity().x = 0.f;
@@ -58,18 +60,18 @@ void JumpState::HandleInput()
 
 		else if (mPlayer->GetRigidbody()->Velocity().x < 0)
 		{
-			mPlayer->GetRigidbody()->Velocity().x += 50.f;
+			mPlayer->GetRigidbody()->Velocity().x += 25.f;
 			if (mPlayer->GetRigidbody()->Velocity().x >= 0.f)
 			{
 				mPlayer->GetRigidbody()->Velocity().x = 0.f;
 			}
 		}
-	}
+	}*/
 
-	if (mPlayer->GetKeyMgr()->Key_Pressing(VK_SHIFT))
+	/*if (mPlayer->GetKeyMgr()->Key_Down(VK_SHIFT))
 	{
 		mStateMachine->ChangeState(mPlayer->ChargeDash);
-	}
+	}*/
 }
 
 void JumpState::LogicUpdate()
@@ -105,6 +107,11 @@ void JumpState::LogicUpdate()
 			mStateMachine->ChangeState(mPlayer->Idle);
 		}
 	}
+
+	if (mPlayer->IsClimb)
+	{
+		mStateMachine->ChangeState(mPlayer->Climbing);
+	}
 }
 
 void JumpState::PhysicsUpdate()
@@ -112,5 +119,9 @@ void JumpState::PhysicsUpdate()
 }
 
 void JumpState::Exit()
+{
+}
+
+void JumpState::Debug(ID2D1HwndRenderTarget* render)
 {
 }

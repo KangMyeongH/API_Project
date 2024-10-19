@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "BoxCollider.h"
 #include "ChargeDashState.h"
+#include "ClimbingState.h"
 #include "GameObject.h"
 #include "GameObjectManager.h"
 #include "IdleState.h"
@@ -16,6 +17,7 @@
 #include "ExcState.h"
 #include "Grab.h"
 #include "Platform.h"
+#include "SwingState.h"
 #include "TimeManager.h"
 
 Player::~Player()
@@ -35,6 +37,7 @@ Player::~Player()
 void Player::Awake()
 {
 	mUpdateType = static_cast<UpdateType>(mUpdateType | FIXED_UPDATE | UPDATE);
+	
 }
 
 void Player::Start()
@@ -48,6 +51,10 @@ void Player::Start()
 	mCollider = mOwner->GetComponent<BoxCollider>();
 	mAnimator = mOwner->GetComponent<Animator>();
 	mStateMachine = new StateMachine;
+
+	Camera::GetInstance().SetTarget(mTransform);
+	Camera::GetInstance().SetOffset({ 0,-132 });
+	Camera::GetInstance().SetZoom(1.4f);
 	
 
 	// Component setting
@@ -57,9 +64,11 @@ void Player::Start()
 	Idle = new IdleState(this, mStateMachine, IDLE);
 	Run = new RunState(this, mStateMachine, RUN);
 	Jump = new JumpState(this, mStateMachine, JUMP);
+	Climbing = new ClimbingState(this, mStateMachine, CLIMBING);
 	ChargeDash = new ChargeDashState(this, mStateMachine, CHARGEDASH);
 	ExcDash = new ExcDashState(this, mStateMachine, EXCDASH);
 	Exc = new ExcState(this, mStateMachine, EXC);
+	Swing = new SwingState(this, mStateMachine, SWING);
 
 	// ray
 	mRay = &Ray::GetInstance();
@@ -79,17 +88,15 @@ void Player::Start()
 	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_ChargeDashChargeStart.png", L"SNB_ChargeDashChargeStart");
 	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_ChargeDashChargeLoop.png", L"SNB_ChargeDashChargeLoop");
 	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_ChargeDashChargeEnd.png", L"SNB_ChargeDashChargeEnd");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_Swing.png", L"SNB_Swing");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_Land2Run.png", L"SNB_Land2Run");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_WallSlideStart.png", L"SNB_WallStart");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_WallSliding.png", L"SNB_WallSliding");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_WallClimbDown.png", L"SNB_WallClimbDown");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_WallClimbUp.png", L"SNB_WallClimbUp");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_SwingJumpUp.png", L"SNB_SwingJumpUp");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_Rolling.png", L"SNB_Rolling");
 
-
-	/*
-	BitMapManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_Idle.bmp", L"SNB_Idle");
-	BitMapManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_Running.bmp", L"SNB_Running");
-	BitMapManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_RunningStart.bmp", L"SNB_RunningStart");
-	BitMapManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_RunningStop.bmp", L"SNB_RunningStop");
-	BitMapManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_Landing.bmp", L"SNB_Landing");
-	BitMapManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_Jumping.bmp", L"SNB_Jumping");
-	BitMapManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_Jumping.bmp", L"SNB_Jumping");
-	*/
 
 	// Player Animation cashing
 
@@ -104,18 +111,20 @@ void Player::Start()
 	AnimationMap.insert({ L"SNB_ChargeDashChargeStart" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ChargeDashChargeStart"), 0, 23, 56, 56, .08f, false) });
 	AnimationMap.insert({ L"SNB_ChargeDashChargeLoop" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ChargeDashChargeLoop"), 0, 8, 56, 56, .08f, true) });
 	AnimationMap.insert({ L"SNB_ChargeDashChargeEnd" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ChargeDashChargeEnd"), 0, 9, 56, 56, .08f, false) });
+	AnimationMap.insert({ L"SNB_Swing" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Swing"), 0, 29, 56, 56, .08f, true) });
+	AnimationMap.insert({ L"SNB_Land2Run" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Land2Run"), 0, 12, 56, 56, .1f, false) });
+	AnimationMap.insert({ L"SNB_WallStart" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_WallStart"), 0, 8, 56, 56, .1f, false) });
+	AnimationMap.insert({ L"SNB_WallSliding" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_WallSliding"), 0, 11, 56, 56, .1f, true) });
+	AnimationMap.insert({ L"SNB_WallClimbDown" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_WallClimbDown"), 0, 7, 56, 56, .1f, true) });
+	AnimationMap.insert({ L"SNB_WallClimbUp" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_WallClimbUp"), 0, 10, 56, 56, .08f, true) });
+	AnimationMap.insert({ L"SNB_SwingJumpUp" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_SwingJumpUp"), 0, 5, 56, 56, .05f, false) });
+	AnimationMap.insert({ L"SNB_Rolling" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Rolling"), 0, 12, 56, 56, .08f, true) });
 
-	/*
-	AnimationMap.insert({ L"SNB_Idle",new AnimationInfo(BitMapManager::GetInstance().FindImage(L"SNB_Idle"), 0, 8, 24, 44, 0.2f, true) });
-	AnimationMap.insert({ L"SNB_Running",new AnimationInfo(BitMapManager::GetInstance().FindImage(L"SNB_Running"), 0, 20, 44, 40, .1f, true) });
-	AnimationMap.insert({ L"SNB_RunningStart",new AnimationInfo(BitMapManager::GetInstance().FindImage(L"SNB_RunningStart"), 0, 2, 32, 42, .1f,false) });
-	AnimationMap.insert({ L"SNB_RunningStop" , new AnimationInfo(BitMapManager::GetInstance().FindImage(L"SNB_RunningStop"), 0, 6, 40, 44, .1f, false) });
-	AnimationMap.insert({ L"SNB_Landing" , new AnimationInfo(BitMapManager::GetInstance().FindImage(L"SNB_Landing"), 0, 3, 62, 42, .1f, false) });
-	AnimationMap.insert({ L"SNB_Jumping" , new AnimationInfo(BitMapManager::GetInstance().FindImage(L"SNB_Jumping"), 0, 6, 42, 50, .1f, true) });
-	*/
+
 
 	// Player stat
-	Speed = 500.f;
+	Speed = 275.f;
+	JumpPower = 400.f;
 	mFovAngle = 60.f;
 	mFovLength = 500.f;
 
@@ -139,8 +148,18 @@ void Player::Update()
 	{
 		if (mTargetEnemy)
 		{
-			mGrab->Shoot(mTargetEnemy->GetTransform());
+			mGrab->Shoot();
 		}
+
+		else if (mTargetPlatform && (mGrabPoint.x != 0 && mGrabPoint.y != 0))
+		{
+			mGrab->Shoot();
+		}
+	}
+
+	if (mKeyMgr->Key_Down('G'))
+	{
+		Camera::GetInstance().Shake(0.5f, 10.f);
 	}
 	mStateMachine->GetCurrentState()->HandleInput();
 	mStateMachine->GetCurrentState()->LogicUpdate();
@@ -172,6 +191,11 @@ void Player::OnCollisionEnter(Collision other)
 			GetRigidbody()->Velocity().y = 0;
 		}
 
+		if (dir & LEFT)
+		{
+			IsClimb = true;
+		}
+
 	}
 
 	else if(other.GetCollider()->GetType() == ColliderType::Edge)
@@ -186,6 +210,11 @@ void Player::OnCollisionEnter(Collision other)
 		if (dir & BOTTOM && GetRigidbody()->GetVelocity().y < 0)
 		{
 			GetRigidbody()->Velocity().y = 0;
+		}
+
+		if (dir & LEFT)
+		{
+			IsClimb = true;
 		}
 	}
 }
@@ -209,16 +238,24 @@ void Player::OnCollisionStay(Collision other)
 
 void Player::OnCollisionExit(Collision other)
 {
+	CollisionDirection dir = NONE;
 	if (other.GetGameObject()->CompareTag(PLATFORM))
 	{
-		IsGrounded = false;
+		dir = CollisionManager::DetectEdgeCollisionDir(mRigidbody, *other.GetCollider()->GetRect());
+		if (dir & TOP)
+		{
+			IsGrounded = false;
+		}
+		IsClimb = false;
 	}
 }
 
 void Player::Debug(ID2D1HwndRenderTarget* render)
 {
-	if (mGrab->IsShoot()) return;
+	mStateMachine->GetCurrentState()->Debug(render);
 
+	if (mGrab->IsShoot()) return;
+	if (mStateMachine->GetCurrentState()->GetType() == SWING) return;
 	if (mTargetEnemy || mTargetPlatform)
 	{
 		mLineAnimationOffset -= 10.f * TimeManager::GetInstance().GetDeltaTime();
@@ -251,11 +288,14 @@ void Player::Debug(ID2D1HwndRenderTarget* render)
 
 		if (mTargetEnemy)
 		{
+			D2D1_POINT_2F p1 = { mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f) };
+			D2D1_POINT_2F p2 = { mTargetEnemy->GetTransform()->GetWorldPosition().x,mTargetEnemy->GetTransform()->GetWorldPosition().y };
+
 			render->CreateSolidColorBrush(ColorF(1.f, 0.f, 0.f), &brush);
 
 			render->DrawLine(
-				D2D1_POINT_2F{ mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f) },
-				D2D1_POINT_2F{ mTargetEnemy->GetTransform()->GetWorldPosition().x,mTargetEnemy->GetTransform()->GetWorldPosition().y },
+				Camera::GetInstance().WorldToScreenVector(p1),
+				Camera::GetInstance().WorldToScreenVector(p2),
 				brush,
 				3.f,
 				strokeStyle
@@ -268,13 +308,17 @@ void Player::Debug(ID2D1HwndRenderTarget* render)
 			return;
 		}
 
+		
 		if (mTargetPlatform)
 		{
+			D2D1_POINT_2F p1 = { mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f) };
+			D2D1_POINT_2F p2 = { mGrabPoint.x, mGrabPoint.y };
+
 			render->CreateSolidColorBrush(ColorF(0.f, 0.9725f, 1.f), &brush);
 
 			render->DrawLine(
-				D2D1_POINT_2F{ mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f) },
-				D2D1_POINT_2F{ mGrabPoint.x, mGrabPoint.y },
+				Camera::GetInstance().WorldToScreenVector(p1),
+				Camera::GetInstance().WorldToScreenVector(p2),
 				brush,
 				3.f,
 				strokeStyle
@@ -285,6 +329,46 @@ void Player::Debug(ID2D1HwndRenderTarget* render)
 			brush = nullptr;
 		}
 	}
+
+	// 텍스트 서식 설정
+	IDWriteTextFormat* textFormat = nullptr;
+	ID2D1SolidColorBrush* brush = nullptr;
+
+	gWriteFactory->CreateTextFormat(
+		L"Arial",
+		NULL,
+		DWRITE_FONT_WEIGHT_NORMAL,
+		DWRITE_FONT_STYLE_NORMAL,
+		DWRITE_FONT_STRETCH_NORMAL,
+		20.0f,
+		L"en-us",
+		&textFormat
+	);
+
+	/*
+	render->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::White), &brush);
+
+	// 출력할 영역 설정
+	D2D1_RECT_F layoutRect = D2D1::RectF(10, 10, 400, 100);
+
+
+	POINT mouse;
+	GetCursorPos(&mouse);
+	ScreenToClient(gHwnd, &mouse);
+
+	wchar_t array[32];
+	swprintf_s(array, 32,L"%d, %d", mouse.x, mouse.y);
+
+	// 텍스트를 그리기
+	render->DrawText(
+		array,
+		wcslen(array),
+		textFormat,
+		layoutRect,
+		brush
+	);
+
+	textFormat->Release();*/
 }
 
 void Player::FindEnemy()
@@ -294,7 +378,7 @@ void Player::FindEnemy()
 	POINT mouse;
 	GetCursorPos(&mouse);
 	ScreenToClient(gHwnd, &mouse);
-	Vector2 mousePosition = { static_cast<float>(mouse.x), static_cast<float>(mouse.y) };
+	Vector2 mousePosition = Camera::GetInstance().WorldToScreenMouse({ static_cast<float>(mouse.x), static_cast<float>(mouse.y) });
 	Vector2 playerPos = { mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f) };
 	Vector2 playerDir = (mousePosition - playerPos).Normalized();
 
@@ -333,7 +417,7 @@ void Player::FindHanging()
 	POINT mouse;
 	GetCursorPos(&mouse);
 	ScreenToClient(gHwnd, &mouse);
-	Vector2 mousePosition = { static_cast<float>(mouse.x), static_cast<float>(mouse.y) };
+	Vector2 mousePosition = Camera::GetInstance().WorldToScreenMouse({ static_cast<float>(mouse.x), static_cast<float>(mouse.y) });
 	Vector2 rayStart = { mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f) };
 	Vector2 rayDir = (mousePosition - rayStart).Normalized();
 
@@ -343,11 +427,12 @@ void Player::FindHanging()
 
 	for (const auto& platform : *platformList)
 	{
+		bool isHit = false;
 		Vector2 hitPoint = { 0,0 };
 		if (platform->GetComponent<Platform>()->GetType() == RECT_PLATFORM)
 		{
 			RECT* rect = platform->GetComponent<BoxCollider>()->GetRect();
-			IntersectRayWithBox(rayStart, rayDir, *rect, hitPoint);
+			isHit = IntersectRayWithBox(rayStart, rayDir, *rect, hitPoint);
 		}
 
 		else if (platform->GetComponent<Platform>()->GetType() == LINE_PLATFORM)
@@ -356,17 +441,20 @@ void Player::FindHanging()
 			POINT pe = platform->GetComponent<EdgeCollider>()->GetEnd();
 			Vector2 lineStart = { static_cast<float>(ps.x),static_cast<float>(ps.y) };
 			Vector2 lineEnd = { static_cast<float>(pe.x), static_cast<float>(pe.y) };
-			IntersectRayWithLineSegment(rayStart, rayDir, lineStart, lineEnd, hitPoint);
+			isHit = IntersectRayWithLineSegment(rayStart, rayDir, lineStart, lineEnd, hitPoint);
 		}
 
-		float distance = Vector2::Distance(rayStart, hitPoint);
-		if (distance <= mFovLength)
+		if (isHit)
 		{
-			if (distance < minDistance)
+			float distance = Vector2::Distance(rayStart, hitPoint);
+			if (distance <= mFovLength)
 			{
-				closestPlatform = platform;
-				minDistance = distance;
-				intersectionPoint = hitPoint;
+				if (distance < minDistance)
+				{
+					closestPlatform = platform;
+					minDistance = distance;
+					intersectionPoint = hitPoint;
+				}
 			}
 		}
 	}
