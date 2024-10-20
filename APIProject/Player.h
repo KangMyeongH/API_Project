@@ -1,6 +1,7 @@
 #pragma once
 #include <unordered_map>
 
+#include "GameObject.h"
 #include "MonoBehaviour.h"
 class SwingState;
 class ClimbingState;
@@ -75,6 +76,26 @@ private:
 
 	float Direction(Vector2 pi, Vector2 pj, Vector2 pk);
 	bool OnSegment(Vector2 pi, Vector2 pj, Vector2 pk);
+
+	void ApplyDistortionEffect(ID2D1HwndRenderTarget* renderTarget)
+	{
+		ID2D1Bitmap* bitmap = mOwner->GetComponent<SpriteRenderer>()->GetBitmap();
+
+		// 원래 비트맵을 그릴 위치와 크기
+		D2D1_RECT_F originalRect = D2D1::RectF(0, 0, bitmap->GetSize().width, bitmap->GetSize().height);
+
+		// 변형된 비트맵을 그릴 위치와 크기 (여기서 왜곡이 적용됨)
+		D2D1_RECT_F distortedRect = D2D1::RectF(10, 10, bitmap->GetSize().width + 30, bitmap->GetSize().height - 20);
+
+		// 비트맵을 왜곡된 영역에 그리기
+		renderTarget->DrawBitmap(
+			bitmap,
+			distortedRect,
+			1.0f,  // 투명도
+			D2D1_BITMAP_INTERPOLATION_MODE_LINEAR,  // 선형 보간 모드
+			originalRect  // 원본 비트맵 영역
+		);
+	}
 
 private:
 	KeyManager* mKeyMgr;

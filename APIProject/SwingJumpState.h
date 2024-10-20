@@ -15,6 +15,6 @@ public:
 
 private:
 	float mCurrentTime;
-
+	float mDurationTime;
 };
 

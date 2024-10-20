@@ -135,6 +135,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AnimationCurve.h" />
     <ClInclude Include="Animator.h" />
     <ClInclude Include="AnimatorManager.h" />
     <ClInclude Include="APIProject.h" />

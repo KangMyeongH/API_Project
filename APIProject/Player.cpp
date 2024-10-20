@@ -159,7 +159,7 @@ void Player::Update()
 
 	if (mKeyMgr->Key_Down('G'))
 	{
-		Camera::GetInstance().Shake(0.5f, 10.f);
+		
 	}
 	mStateMachine->GetCurrentState()->HandleInput();
 	mStateMachine->GetCurrentState()->LogicUpdate();
