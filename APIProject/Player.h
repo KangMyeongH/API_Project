@@ -124,7 +124,7 @@ public:
 	ExcDashState* 		ExcDash;
 	ExcState* 			Exc;
 	ClimbingState* 		Climbing;
-	SwingState* Swing;
+	SwingState* 		Swing;
 	
 	float		Speed;
 	float		JumpPower;

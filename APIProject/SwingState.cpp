@@ -154,12 +154,12 @@ void SwingState::Swinging()
 		}
 	}
 
-	mOmega += (-mGravity / mLength * sin(mTheta)) * mTime;
+	mOmega += (-mGravity / mLength * sin(mTheta)) * mTime * 2;
 
 	float linearVelocity = mOmega * mLength;
 	Vector2 direction = { -sin(mTheta), cos(mTheta) };
 
-	mTheta += mOmega * mTime;
+	mTheta += mOmega * mTime * 2;
 
 	// 새로운 위치 계산
 	float newX = mPivot.x + mLength * sin(mTheta);

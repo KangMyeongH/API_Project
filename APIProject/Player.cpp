@@ -27,6 +27,10 @@ Player::~Player()
 	delete Run;
 	delete Jump;
 	delete ChargeDash;
+	delete ExcDash;
+	delete Exc;
+	delete Climbing;
+	delete Swing;
 
 	for(auto& ani : AnimationMap)
 	{

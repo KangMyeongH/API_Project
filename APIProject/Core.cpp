@@ -41,7 +41,7 @@ void Core::Init(HWND hwnd)
 	mRenderMgr = &RenderManager::GetInstance();
 	mAnimatorMgr = &AnimatorManager::GetInstance();
 	mSceneMgr = &SceneManager::GetInstance();
-	mSceneMgr->Init(new MajorBossRoomScene);
+	mSceneMgr->Init(new FireBirdScene);
 }
 
 void Core::Progress()

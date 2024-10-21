@@ -156,6 +156,7 @@
     <ClInclude Include="EnemyObject.h" />
     <ClInclude Include="ExcDashState.h" />
     <ClInclude Include="ExcState.h" />
+    <ClInclude Include="Fade.h" />
     <ClInclude Include="FireBirdBGMid01Object.h" />
     <ClInclude Include="FireBirdBGMid02Object.h" />
     <ClInclude Include="FireBirdBGObject.h" />
@@ -221,6 +222,7 @@
     <ClCompile Include="EnemyObject.cpp" />
     <ClCompile Include="ExcDashState.cpp" />
     <ClCompile Include="ExcState.cpp" />
+    <ClCompile Include="Fade.cpp" />
     <ClCompile Include="FireBirdBGMid01Object.cpp" />
     <ClCompile Include="FireBirdBGMid02Object.cpp" />
     <ClCompile Include="FireBirdBGObject.cpp" />
