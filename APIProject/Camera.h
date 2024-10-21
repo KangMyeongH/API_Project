@@ -22,7 +22,7 @@ public:
 	Camera& operator=(Camera&&) = delete;
 
 public:
-	static Camera& GetInstance() { static Camera sMgr(0, 0, WIN_WIDTH, WIN_HEIGHT); return sMgr; }
+	static Camera& GetInstance() { static Camera sMgr(990, 540, WIN_WIDTH, WIN_HEIGHT); return sMgr; }
 
 	void SetTarget(Transform* target) { mTarget = target; }
 	void DetachTarget() { mTarget = nullptr; }
@@ -45,6 +45,11 @@ public:
 	}
 	D2D1_POINT_2F GetPosition() const { return mPosition; }
 
+	void SetBoundary(float left, float top, float right, float bottom)
+	{
+		mBoundary = { left,top,right,bottom };
+	}
+
 	void SetZoom(float zoom)
 	{
 		mZoom = zoom;
@@ -53,6 +58,8 @@ public:
 		mHeight = mOriginalHeight / mZoom;
 	}
 	float GetZoom() const { return mZoom; }
+
+	float GetWidth() const { return mWidth; }
 
 	void Move(float dx, float dy) { mPosition.x += dx; mPosition.y += dy; }
 
@@ -142,7 +149,6 @@ public:
 			}
 		}
 	}
-
 
 private:
 	// 값이 범위를 벗어나지 않도록 클램프(제한)하는 함수

@@ -3,32 +3,168 @@
   "WorkspaceRootPath": "D:\\DDingHo\\API_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\AnimationCurve.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\AnimationCurve.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\FireBirdScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\FireBirdScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\SwingState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\SwingState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\SpriteRenderer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\SpriteRenderer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\ExcDashState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\ExcDashState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\SpriteRenderer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\SpriteRenderer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Vector2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Vector2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Core.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Core.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Core.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Core.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\framework.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\framework.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\FireBirdBGMid02Object.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\FireBirdBGMid02Object.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\FireBirdBGMid01Object.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\FireBirdBGMid01Object.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\FireBirdBGMid02Object.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\FireBirdBGMid02Object.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\ScrollBGObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\ScrollBGObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\FireBirdBGObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\FireBirdBGObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\FireBirdBGObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\FireBirdBGObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\ScrollBG.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\ScrollBG.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\ScrollBG.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\ScrollBG.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\SwingState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\SwingState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\PlayerObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\PlayerObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\RenderManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\RenderManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Define.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Define.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\PlayerObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\PlayerObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\ImageManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\ImageManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Component.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Component.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\GameObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\GameObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\JumpState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\JumpState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\MajorBossRoomScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\MajorBossRoomScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Grab.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Grab.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Transform.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Transform.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\GameObjectManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\GameObjectManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\ScrollBGObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\ScrollBGObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\ClimbingState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\ClimbingState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\ExcDashState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\ExcDashState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\SwingState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\SwingState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\ClimbingState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\ClimbingState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomBG.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\MajorBossRoomBG.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomBG.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\MajorBossRoomBG.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Ray.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Ray.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Vector2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Vector2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\SwingState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\SwingState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\PlatformObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -43,28 +179,8 @@
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\SwingJumpState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\SpriteRenderer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\SpriteRenderer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\SpriteRenderer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\SpriteRenderer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\JumpState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\JumpState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\IdleState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\IdleState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\ClimbingState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\ClimbingState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\ClimbingState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\ClimbingState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Animator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -75,10 +191,6 @@
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Animator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Define.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Define.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Platform.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Platform.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -87,16 +199,8 @@
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\RunState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\MajorBossRoomScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomClockIdle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\MajorBossRoomClockIdle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomBG.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\MajorBossRoomBG.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomClockIdle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -109,14 +213,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Grab.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Grab.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Component.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Component.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Grab.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Grab.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\RunState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -163,36 +259,12 @@
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\State.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Ray.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Ray.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Ray.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Ray.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\framework.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\framework.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\APIProject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\APIProject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\PlayerObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\PlayerObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\CollisionManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -203,10 +275,6 @@
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\CollisionManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\PlayerObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\PlayerObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\StateMachine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\StateMachine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -215,24 +283,8 @@
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Platform.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Core.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Core.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Transform.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Transform.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\MajorBossRoomScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\PlatformObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\PlatformObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\RenderManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\RenderManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\EdgeCollider.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -247,10 +299,6 @@
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\BoxCollider.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\Core.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\Core.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomFront.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\MajorBossRoomFront.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -261,10 +309,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomFront.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\MajorBossRoomFront.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomBG.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|solutionrelative:APIProject\\MajorBossRoomBG.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8890DBC4-7B68-4062-BD00-4D4D7407DB61}|APIProject\\APIProject.vcxproj|D:\\DDingHo\\API_Project\\APIProject\\BitMapManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -285,232 +329,235 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 181,
+          "DockedWidth": 217,
           "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "RenderManager.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\RenderManager.cpp",
-              "RelativeDocumentMoniker": "APIProject\\RenderManager.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\RenderManager.cpp",
-              "RelativeToolTip": "APIProject\\RenderManager.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-16T03:16:23.06Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "ClimbingState.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\ClimbingState.cpp",
-              "RelativeDocumentMoniker": "APIProject\\ClimbingState.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\ClimbingState.cpp",
-              "RelativeToolTip": "APIProject\\ClimbingState.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-19T00:52:40.237Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ClimbingState.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\ClimbingState.h",
-              "RelativeDocumentMoniker": "APIProject\\ClimbingState.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\ClimbingState.h",
-              "RelativeToolTip": "APIProject\\ClimbingState.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
+              "Title": "ScrollBG.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\ScrollBG.h",
+              "RelativeDocumentMoniker": "APIProject\\ScrollBG.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\ScrollBG.h",
+              "RelativeToolTip": "APIProject\\ScrollBG.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-19T00:52:25.996Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SwingState.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\SwingState.cpp",
-              "RelativeDocumentMoniker": "APIProject\\SwingState.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\SwingState.cpp",
-              "RelativeToolTip": "APIProject\\SwingState.cpp",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAAAEsAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-19T03:02:55.601Z",
+              "WhenOpened": "2024-10-20T12:48:33.295Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ExcDashState.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\ExcDashState.cpp",
-              "RelativeDocumentMoniker": "APIProject\\ExcDashState.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\ExcDashState.cpp",
-              "RelativeToolTip": "APIProject\\ExcDashState.cpp",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "ScrollBGObject.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\ScrollBGObject.cpp",
+              "RelativeDocumentMoniker": "APIProject\\ScrollBGObject.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\ScrollBGObject.cpp",
+              "RelativeToolTip": "APIProject\\ScrollBGObject.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-19T09:45:14.509Z",
+              "WhenOpened": "2024-10-21T00:54:18.664Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ScrollBG.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\ScrollBG.cpp",
+              "RelativeDocumentMoniker": "APIProject\\ScrollBG.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\ScrollBG.cpp",
+              "RelativeToolTip": "APIProject\\ScrollBG.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-20T13:35:45.464Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FireBirdScene.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\FireBirdScene.cpp",
+              "RelativeDocumentMoniker": "APIProject\\FireBirdScene.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\FireBirdScene.cpp",
+              "RelativeToolTip": "APIProject\\FireBirdScene.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-20T11:36:18.189Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "PlatformObject.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\PlatformObject.cpp",
-              "RelativeDocumentMoniker": "APIProject\\PlatformObject.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\PlatformObject.cpp",
-              "RelativeToolTip": "APIProject\\PlatformObject.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Title": "FireBirdBGMid01Object.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\FireBirdBGMid01Object.cpp",
+              "RelativeDocumentMoniker": "APIProject\\FireBirdBGMid01Object.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\FireBirdBGMid01Object.cpp",
+              "RelativeToolTip": "APIProject\\FireBirdBGMid01Object.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-18T14:04:43.126Z",
+              "WhenOpened": "2024-10-21T02:10:07.275Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "JumpState.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\JumpState.cpp",
-              "RelativeDocumentMoniker": "APIProject\\JumpState.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\JumpState.cpp",
-              "RelativeToolTip": "APIProject\\JumpState.cpp",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAFIAAAATAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "FireBirdBGMid02Object.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\FireBirdBGMid02Object.cpp",
+              "RelativeDocumentMoniker": "APIProject\\FireBirdBGMid02Object.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\FireBirdBGMid02Object.cpp",
+              "RelativeToolTip": "APIProject\\FireBirdBGMid02Object.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-19T00:53:20.276Z"
+              "WhenOpened": "2024-10-21T03:17:55.775Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Animator.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Animator.cpp",
-              "RelativeDocumentMoniker": "APIProject\\Animator.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Animator.cpp",
-              "RelativeToolTip": "APIProject\\Animator.cpp",
-              "ViewState": "AgIAACoAAAAAAAAAAAAvwEMAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-19T15:17:21.589Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Animator.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Animator.h",
-              "RelativeDocumentMoniker": "APIProject\\Animator.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Animator.h",
-              "RelativeToolTip": "APIProject\\Animator.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAARAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "FireBirdBGMid02Object.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\FireBirdBGMid02Object.h",
+              "RelativeDocumentMoniker": "APIProject\\FireBirdBGMid02Object.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\FireBirdBGMid02Object.h",
+              "RelativeToolTip": "APIProject\\FireBirdBGMid02Object.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-19T15:18:06.639Z"
+              "WhenOpened": "2024-10-21T03:17:30.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FireBirdBGObject.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\FireBirdBGObject.h",
+              "RelativeDocumentMoniker": "APIProject\\FireBirdBGObject.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\FireBirdBGObject.h",
+              "RelativeToolTip": "APIProject\\FireBirdBGObject.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-20T11:42:40.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FireBirdBGObject.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\FireBirdBGObject.cpp",
+              "RelativeDocumentMoniker": "APIProject\\FireBirdBGObject.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\FireBirdBGObject.cpp",
+              "RelativeToolTip": "APIProject\\FireBirdBGObject.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-20T11:42:57.202Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
-              "Title": "Platform.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Platform.cpp",
-              "RelativeDocumentMoniker": "APIProject\\Platform.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Platform.cpp",
-              "RelativeToolTip": "APIProject\\Platform.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "RenderManager.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\RenderManager.cpp",
+              "RelativeDocumentMoniker": "APIProject\\RenderManager.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\RenderManager.cpp",
+              "RelativeToolTip": "APIProject\\RenderManager.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-19T03:45:46.353Z"
+              "WhenOpened": "2024-10-16T03:16:23.06Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "RunState.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\RunState.cpp",
-              "RelativeDocumentMoniker": "APIProject\\RunState.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\RunState.cpp",
-              "RelativeToolTip": "APIProject\\RunState.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "DocumentIndex": 18,
+              "Title": "PlayerObject.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\PlayerObject.cpp",
+              "RelativeDocumentMoniker": "APIProject\\PlayerObject.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\PlayerObject.cpp",
+              "RelativeToolTip": "APIProject\\PlayerObject.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-16T06:00:50.681Z"
+              "WhenOpened": "2024-10-15T13:09:51.771Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "MajorBossRoomScene.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomScene.cpp",
-              "RelativeDocumentMoniker": "APIProject\\MajorBossRoomScene.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomScene.cpp",
-              "RelativeToolTip": "APIProject\\MajorBossRoomScene.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 22,
+              "Title": "ImageManager.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\ImageManager.cpp",
+              "RelativeDocumentMoniker": "APIProject\\ImageManager.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\ImageManager.cpp",
+              "RelativeToolTip": "APIProject\\ImageManager.cpp",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAvwBoAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-18T14:04:26.288Z"
+              "WhenOpened": "2024-10-21T02:39:21.704Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 23,
-              "Title": "MajorBossRoomBG.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomBG.cpp",
-              "RelativeDocumentMoniker": "APIProject\\MajorBossRoomBG.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomBG.cpp",
-              "RelativeToolTip": "APIProject\\MajorBossRoomBG.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-18T14:04:14.24Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "MajorBossRoomClockIdle.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomClockIdle.cpp",
-              "RelativeDocumentMoniker": "APIProject\\MajorBossRoomClockIdle.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomClockIdle.cpp",
-              "RelativeToolTip": "APIProject\\MajorBossRoomClockIdle.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-18T14:04:19.036Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "JumpState.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\JumpState.h",
-              "RelativeDocumentMoniker": "APIProject\\JumpState.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\JumpState.h",
-              "RelativeToolTip": "APIProject\\JumpState.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-19T00:53:16.48Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Grab.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Grab.cpp",
-              "RelativeDocumentMoniker": "APIProject\\Grab.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Grab.cpp",
-              "RelativeToolTip": "APIProject\\Grab.cpp",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAAEcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-18T14:03:19.85Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
               "Title": "Component.h",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Component.h",
               "RelativeDocumentMoniker": "APIProject\\Component.h",
               "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Component.h",
               "RelativeToolTip": "APIProject\\Component.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-19T11:10:35.671Z"
+              "WhenOpened": "2024-10-19T11:10:35.671Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "RunState.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\RunState.h",
-              "RelativeDocumentMoniker": "APIProject\\RunState.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\RunState.h",
-              "RelativeToolTip": "APIProject\\RunState.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "DocumentIndex": 24,
+              "Title": "GameObject.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\GameObject.cpp",
+              "RelativeDocumentMoniker": "APIProject\\GameObject.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\GameObject.cpp",
+              "RelativeToolTip": "APIProject\\GameObject.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-20T11:45:57.576Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "JumpState.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\JumpState.cpp",
+              "RelativeDocumentMoniker": "APIProject\\JumpState.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\JumpState.cpp",
+              "RelativeToolTip": "APIProject\\JumpState.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-19T00:53:20.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "MajorBossRoomScene.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomScene.cpp",
+              "RelativeDocumentMoniker": "APIProject\\MajorBossRoomScene.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomScene.cpp",
+              "RelativeToolTip": "APIProject\\MajorBossRoomScene.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-18T14:04:26.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "MajorBossRoomScene.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomScene.h",
+              "RelativeDocumentMoniker": "APIProject\\MajorBossRoomScene.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomScene.h",
+              "RelativeToolTip": "APIProject\\MajorBossRoomScene.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-16T06:00:51.591Z"
+              "WhenOpened": "2024-10-18T14:05:15.413Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -520,229 +567,116 @@
               "RelativeDocumentMoniker": "APIProject\\Grab.h",
               "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Grab.h",
               "RelativeToolTip": "APIProject\\Grab.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-18T14:01:08.544Z"
+              "WhenOpened": "2024-10-18T14:01:08.544Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "Rigidbody.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Rigidbody.cpp",
-              "RelativeDocumentMoniker": "APIProject\\Rigidbody.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Rigidbody.cpp",
-              "RelativeToolTip": "APIProject\\Rigidbody.cpp",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACwAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-15T03:40:36.767Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "Rigidbody.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Rigidbody.h",
-              "RelativeDocumentMoniker": "APIProject\\Rigidbody.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Rigidbody.h",
-              "RelativeToolTip": "APIProject\\Rigidbody.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAIAAAAAAAAAA==",
+              "DocumentIndex": 30,
+              "Title": "GameObjectManager.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\GameObjectManager.h",
+              "RelativeDocumentMoniker": "APIProject\\GameObjectManager.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\GameObjectManager.h",
+              "RelativeToolTip": "APIProject\\GameObjectManager.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-15T03:40:37.631Z"
+              "WhenOpened": "2024-10-20T15:45:58.867Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "ExcDashState.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\ExcDashState.h",
-              "RelativeDocumentMoniker": "APIProject\\ExcDashState.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\ExcDashState.h",
-              "RelativeToolTip": "APIProject\\ExcDashState.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-19T09:45:10.784Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "ChargeDashState.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\ChargeDashState.cpp",
-              "RelativeDocumentMoniker": "APIProject\\ChargeDashState.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\ChargeDashState.cpp",
-              "RelativeToolTip": "APIProject\\ChargeDashState.cpp",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAC4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-18T14:04:06.846Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "State.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\State.h",
-              "RelativeDocumentMoniker": "APIProject\\State.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\State.h",
-              "RelativeToolTip": "APIProject\\State.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-19T00:54:17.126Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "State.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\State.cpp",
-              "RelativeDocumentMoniker": "APIProject\\State.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\State.cpp",
-              "RelativeToolTip": "APIProject\\State.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-18T11:49:52.641Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "PlayerObject.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\PlayerObject.cpp",
-              "RelativeDocumentMoniker": "APIProject\\PlayerObject.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\PlayerObject.cpp",
-              "RelativeToolTip": "APIProject\\PlayerObject.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-15T13:09:51.771Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
-              "Title": "StateMachine.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\StateMachine.cpp",
-              "RelativeDocumentMoniker": "APIProject\\StateMachine.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\StateMachine.cpp",
-              "RelativeToolTip": "APIProject\\StateMachine.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-16T05:15:15.002Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 52,
-              "Title": "Platform.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Platform.h",
-              "RelativeDocumentMoniker": "APIProject\\Platform.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Platform.h",
-              "RelativeToolTip": "APIProject\\Platform.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-18T14:04:51.41Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 29,
               "Title": "Transform.h",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Transform.h",
               "RelativeDocumentMoniker": "APIProject\\Transform.h",
               "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Transform.h",
               "RelativeToolTip": "APIProject\\Transform.h",
-              "ViewState": "AgIAACUAAAAAAAAAAAAvwD4AAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-19T06:18:34.992Z"
+              "WhenOpened": "2024-10-19T06:18:34.992Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
-              "Title": "MajorBossRoomScene.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomScene.h",
-              "RelativeDocumentMoniker": "APIProject\\MajorBossRoomScene.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomScene.h",
-              "RelativeToolTip": "APIProject\\MajorBossRoomScene.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 31,
+              "Title": "ScrollBGObject.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\ScrollBGObject.h",
+              "RelativeDocumentMoniker": "APIProject\\ScrollBGObject.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\ScrollBGObject.h",
+              "RelativeToolTip": "APIProject\\ScrollBGObject.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-18T14:05:15.413Z"
+              "WhenOpened": "2024-10-21T00:54:10.955Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
-              "Title": "PlatformObject.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\PlatformObject.h",
-              "RelativeDocumentMoniker": "APIProject\\PlatformObject.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\PlatformObject.h",
-              "RelativeToolTip": "APIProject\\PlatformObject.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAGAAAAAAAAAA==",
+              "DocumentIndex": 32,
+              "Title": "ClimbingState.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\ClimbingState.h",
+              "RelativeDocumentMoniker": "APIProject\\ClimbingState.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\ClimbingState.h",
+              "RelativeToolTip": "APIProject\\ClimbingState.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-18T11:08:04.211Z"
+              "WhenOpened": "2024-10-19T00:52:25.996Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
-              "Title": "EdgeCollider.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\EdgeCollider.cpp",
-              "RelativeDocumentMoniker": "APIProject\\EdgeCollider.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\EdgeCollider.cpp",
-              "RelativeToolTip": "APIProject\\EdgeCollider.cpp",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAAAFEAAAA3AAAAAAAAAA==",
+              "DocumentIndex": 33,
+              "Title": "ExcDashState.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\ExcDashState.cpp",
+              "RelativeDocumentMoniker": "APIProject\\ExcDashState.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\ExcDashState.cpp",
+              "RelativeToolTip": "APIProject\\ExcDashState.cpp",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-19T02:52:55.525Z"
+              "WhenOpened": "2024-10-19T09:45:14.509Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
-              "Title": "BoxCollider.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\BoxCollider.cpp",
-              "RelativeDocumentMoniker": "APIProject\\BoxCollider.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\BoxCollider.cpp",
-              "RelativeToolTip": "APIProject\\BoxCollider.cpp",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAAD8AAAAXAAAAAAAAAA==",
+              "DocumentIndex": 34,
+              "Title": "SwingState.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\SwingState.cpp",
+              "RelativeDocumentMoniker": "APIProject\\SwingState.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\SwingState.cpp",
+              "RelativeToolTip": "APIProject\\SwingState.cpp",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAAAIwAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-19T02:50:53.176Z"
+              "WhenOpened": "2024-10-19T03:02:55.601Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
-              "Title": "BoxCollider.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\BoxCollider.h",
-              "RelativeDocumentMoniker": "APIProject\\BoxCollider.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\BoxCollider.h",
-              "RelativeToolTip": "APIProject\\BoxCollider.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-18T11:12:43.599Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 62,
-              "Title": "MajorBossRoomFront.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomFront.cpp",
-              "RelativeDocumentMoniker": "APIProject\\MajorBossRoomFront.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomFront.cpp",
-              "RelativeToolTip": "APIProject\\MajorBossRoomFront.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 35,
+              "Title": "ClimbingState.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\ClimbingState.cpp",
+              "RelativeDocumentMoniker": "APIProject\\ClimbingState.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\ClimbingState.cpp",
+              "RelativeToolTip": "APIProject\\ClimbingState.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-18T14:04:22.883Z"
+              "WhenOpened": "2024-10-19T00:52:40.237Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
-              "Title": "GrabObject.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\GrabObject.h",
-              "RelativeDocumentMoniker": "APIProject\\GrabObject.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\GrabObject.h",
-              "RelativeToolTip": "APIProject\\GrabObject.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-18T14:05:23.295Z"
+              "DocumentIndex": 36,
+              "Title": "MajorBossRoomBG.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomBG.cpp",
+              "RelativeDocumentMoniker": "APIProject\\MajorBossRoomBG.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomBG.cpp",
+              "RelativeToolTip": "APIProject\\MajorBossRoomBG.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-18T14:04:14.24Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
-              "Title": "MajorBossRoomFront.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomFront.h",
-              "RelativeDocumentMoniker": "APIProject\\MajorBossRoomFront.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomFront.h",
-              "RelativeToolTip": "APIProject\\MajorBossRoomFront.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-18T14:05:19.096Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 37,
               "Title": "MajorBossRoomBG.h",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomBG.h",
               "RelativeDocumentMoniker": "APIProject\\MajorBossRoomBG.h",
@@ -754,7 +688,295 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 41,
+              "Title": "PlatformObject.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\PlatformObject.cpp",
+              "RelativeDocumentMoniker": "APIProject\\PlatformObject.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\PlatformObject.cpp",
+              "RelativeToolTip": "APIProject\\PlatformObject.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-18T14:04:43.126Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "Animator.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Animator.cpp",
+              "RelativeDocumentMoniker": "APIProject\\Animator.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Animator.cpp",
+              "RelativeToolTip": "APIProject\\Animator.cpp",
+              "ViewState": "AgIAACoAAAAAAAAAAAAvwEMAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-19T15:17:21.589Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "Animator.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Animator.h",
+              "RelativeDocumentMoniker": "APIProject\\Animator.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Animator.h",
+              "RelativeToolTip": "APIProject\\Animator.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-19T15:18:06.639Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "Platform.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Platform.cpp",
+              "RelativeDocumentMoniker": "APIProject\\Platform.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Platform.cpp",
+              "RelativeToolTip": "APIProject\\Platform.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-19T03:45:46.353Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "RunState.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\RunState.cpp",
+              "RelativeDocumentMoniker": "APIProject\\RunState.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\RunState.cpp",
+              "RelativeToolTip": "APIProject\\RunState.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-16T06:00:50.681Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "MajorBossRoomClockIdle.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomClockIdle.cpp",
+              "RelativeDocumentMoniker": "APIProject\\MajorBossRoomClockIdle.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomClockIdle.cpp",
+              "RelativeToolTip": "APIProject\\MajorBossRoomClockIdle.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-18T14:04:19.036Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "JumpState.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\JumpState.h",
+              "RelativeDocumentMoniker": "APIProject\\JumpState.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\JumpState.h",
+              "RelativeToolTip": "APIProject\\JumpState.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-19T00:53:16.48Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "Grab.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Grab.cpp",
+              "RelativeDocumentMoniker": "APIProject\\Grab.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Grab.cpp",
+              "RelativeToolTip": "APIProject\\Grab.cpp",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAEcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-18T14:03:19.85Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "RunState.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\RunState.h",
+              "RelativeDocumentMoniker": "APIProject\\RunState.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\RunState.h",
+              "RelativeToolTip": "APIProject\\RunState.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-16T06:00:51.591Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "Rigidbody.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Rigidbody.cpp",
+              "RelativeDocumentMoniker": "APIProject\\Rigidbody.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Rigidbody.cpp",
+              "RelativeToolTip": "APIProject\\Rigidbody.cpp",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACwAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-15T03:40:36.767Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "Rigidbody.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Rigidbody.h",
+              "RelativeDocumentMoniker": "APIProject\\Rigidbody.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Rigidbody.h",
+              "RelativeToolTip": "APIProject\\Rigidbody.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-15T03:40:37.631Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "ExcDashState.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\ExcDashState.h",
+              "RelativeDocumentMoniker": "APIProject\\ExcDashState.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\ExcDashState.h",
+              "RelativeToolTip": "APIProject\\ExcDashState.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-19T09:45:10.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "ChargeDashState.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\ChargeDashState.cpp",
+              "RelativeDocumentMoniker": "APIProject\\ChargeDashState.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\ChargeDashState.cpp",
+              "RelativeToolTip": "APIProject\\ChargeDashState.cpp",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAC4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-18T14:04:06.846Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "State.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\State.h",
+              "RelativeDocumentMoniker": "APIProject\\State.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\State.h",
+              "RelativeToolTip": "APIProject\\State.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-19T00:54:17.126Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "State.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\State.cpp",
+              "RelativeDocumentMoniker": "APIProject\\State.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\State.cpp",
+              "RelativeToolTip": "APIProject\\State.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-18T11:49:52.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "StateMachine.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\StateMachine.cpp",
+              "RelativeDocumentMoniker": "APIProject\\StateMachine.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\StateMachine.cpp",
+              "RelativeToolTip": "APIProject\\StateMachine.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-16T05:15:15.002Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "Platform.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Platform.h",
+              "RelativeDocumentMoniker": "APIProject\\Platform.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Platform.h",
+              "RelativeToolTip": "APIProject\\Platform.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-18T14:04:51.41Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "PlatformObject.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\PlatformObject.h",
+              "RelativeDocumentMoniker": "APIProject\\PlatformObject.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\PlatformObject.h",
+              "RelativeToolTip": "APIProject\\PlatformObject.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-18T11:08:04.211Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "EdgeCollider.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\EdgeCollider.cpp",
+              "RelativeDocumentMoniker": "APIProject\\EdgeCollider.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\EdgeCollider.cpp",
+              "RelativeToolTip": "APIProject\\EdgeCollider.cpp",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAAAFEAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-19T02:52:55.525Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "BoxCollider.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\BoxCollider.cpp",
+              "RelativeDocumentMoniker": "APIProject\\BoxCollider.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\BoxCollider.cpp",
+              "RelativeToolTip": "APIProject\\BoxCollider.cpp",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAD8AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-19T02:50:53.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "BoxCollider.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\BoxCollider.h",
+              "RelativeDocumentMoniker": "APIProject\\BoxCollider.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\BoxCollider.h",
+              "RelativeToolTip": "APIProject\\BoxCollider.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-18T11:12:43.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "MajorBossRoomFront.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomFront.cpp",
+              "RelativeDocumentMoniker": "APIProject\\MajorBossRoomFront.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomFront.cpp",
+              "RelativeToolTip": "APIProject\\MajorBossRoomFront.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-18T14:04:22.883Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "GrabObject.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\GrabObject.h",
+              "RelativeDocumentMoniker": "APIProject\\GrabObject.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\GrabObject.h",
+              "RelativeToolTip": "APIProject\\GrabObject.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-18T14:05:23.295Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "MajorBossRoomFront.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomFront.h",
+              "RelativeDocumentMoniker": "APIProject\\MajorBossRoomFront.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomFront.h",
+              "RelativeToolTip": "APIProject\\MajorBossRoomFront.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-18T14:05:19.096Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
               "Title": "BitMapManager.cpp",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\BitMapManager.cpp",
               "RelativeDocumentMoniker": "APIProject\\BitMapManager.cpp",
@@ -766,7 +988,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 78,
               "Title": "SceneManager.cpp",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\SceneManager.cpp",
               "RelativeDocumentMoniker": "APIProject\\SceneManager.cpp",
@@ -778,7 +1000,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 79,
               "Title": "TitleScene.h",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\TitleScene.h",
               "RelativeDocumentMoniker": "APIProject\\TitleScene.h",
@@ -791,25 +1013,25 @@
           ]
         },
         {
-          "DockedWidth": 187,
-          "SelectedChildIndex": 6,
+          "DockedWidth": 151,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 38,
               "Title": "Ray.cpp",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Ray.cpp",
               "RelativeDocumentMoniker": "APIProject\\Ray.cpp",
               "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Ray.cpp",
               "RelativeToolTip": "APIProject\\Ray.cpp",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAAD0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-17T03:12:58.19Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 64,
               "Title": "Ray.h",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Ray.h",
               "RelativeDocumentMoniker": "APIProject\\Ray.h",
@@ -822,26 +1044,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "Define.h",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Define.h",
               "RelativeDocumentMoniker": "APIProject\\Define.h",
               "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Define.h",
               "RelativeToolTip": "APIProject\\Define.h",
-              "ViewState": "AgIAADgAAAAAAAAAAAAvwFEAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-19T00:54:47.863Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 15,
               "Title": "Player.cpp",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Player.cpp",
               "RelativeDocumentMoniker": "APIProject\\Player.cpp",
               "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Player.cpp",
               "RelativeToolTip": "APIProject\\Player.cpp",
-              "ViewState": "AgIAAKUAAAAAAAAAAAAAAMYAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAACABAAAAAAAAAAAAAC4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-15T12:49:56.184Z",
               "IsPinned": true,
@@ -849,7 +1072,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 40,
               "Title": "SwingState.h",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\SwingState.h",
               "RelativeDocumentMoniker": "APIProject\\SwingState.h",
@@ -858,18 +1081,17 @@
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAC4AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-19T03:02:36.802Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 16,
               "Title": "Player.h",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Player.h",
               "RelativeDocumentMoniker": "APIProject\\Player.h",
               "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Player.h",
               "RelativeToolTip": "APIProject\\Player.h",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAUwF4AAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACgAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-15T12:49:57.226Z",
               "IsPinned": true,
@@ -877,46 +1099,111 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AnimationCurve.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\AnimationCurve.h",
-              "RelativeDocumentMoniker": "APIProject\\AnimationCurve.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\AnimationCurve.h",
-              "RelativeToolTip": "APIProject\\AnimationCurve.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-20T03:57:38.207Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "SwingJumpState.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\SwingJumpState.h",
-              "RelativeDocumentMoniker": "APIProject\\SwingJumpState.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\SwingJumpState.h",
-              "RelativeToolTip": "APIProject\\SwingJumpState.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-19T13:12:01.396Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "SwingJumpState.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\SwingJumpState.cpp",
-              "RelativeDocumentMoniker": "APIProject\\SwingJumpState.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\SwingJumpState.cpp",
-              "RelativeToolTip": "APIProject\\SwingJumpState.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "SpriteRenderer.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\SpriteRenderer.cpp",
+              "RelativeDocumentMoniker": "APIProject\\SpriteRenderer.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\SpriteRenderer.cpp",
+              "RelativeToolTip": "APIProject\\SpriteRenderer.cpp",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAADoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-19T16:33:27.872Z",
+              "WhenOpened": "2024-10-19T01:14:47.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SpriteRenderer.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\SpriteRenderer.h",
+              "RelativeDocumentMoniker": "APIProject\\SpriteRenderer.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\SpriteRenderer.h",
+              "RelativeToolTip": "APIProject\\SpriteRenderer.h",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAC8AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-19T01:14:59.598Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Core.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Core.cpp",
+              "RelativeDocumentMoniker": "APIProject\\Core.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Core.cpp",
+              "RelativeToolTip": "APIProject\\Core.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-19T02:29:38.084Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Core.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Core.h",
+              "RelativeDocumentMoniker": "APIProject\\Core.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Core.h",
+              "RelativeToolTip": "APIProject\\Core.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-19T02:29:35.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "framework.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\framework.h",
+              "RelativeDocumentMoniker": "APIProject\\framework.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\framework.h",
+              "RelativeToolTip": "APIProject\\framework.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-19T09:27:48.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Camera.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Camera.cpp",
+              "RelativeDocumentMoniker": "APIProject\\Camera.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Camera.cpp",
+              "RelativeToolTip": "APIProject\\Camera.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-19T09:40:25.933Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Camera.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Camera.h",
+              "RelativeDocumentMoniker": "APIProject\\Camera.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Camera.h",
+              "RelativeToolTip": "APIProject\\Camera.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-19T01:09:52.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "PlayerObject.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\PlayerObject.h",
+              "RelativeDocumentMoniker": "APIProject\\PlayerObject.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\PlayerObject.h",
+              "RelativeToolTip": "APIProject\\PlayerObject.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-15T13:33:15.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
               "Title": "Vector2.h",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Vector2.h",
               "RelativeDocumentMoniker": "APIProject\\Vector2.h",
@@ -924,38 +1211,35 @@
               "RelativeToolTip": "APIProject\\Vector2.h",
               "ViewState": "AgIAAC0AAAAAAAAAAAAAAFMAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-19T03:26:25.512Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-19T03:26:25.512Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "SpriteRenderer.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\SpriteRenderer.cpp",
-              "RelativeDocumentMoniker": "APIProject\\SpriteRenderer.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\SpriteRenderer.cpp",
-              "RelativeToolTip": "APIProject\\SpriteRenderer.cpp",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAAABoAAAA8AAAAAAAAAA==",
+              "DocumentIndex": 43,
+              "Title": "SwingJumpState.cpp",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\SwingJumpState.cpp",
+              "RelativeDocumentMoniker": "APIProject\\SwingJumpState.cpp",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\SwingJumpState.cpp",
+              "RelativeToolTip": "APIProject\\SwingJumpState.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-19T01:14:47.469Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-19T16:33:27.872Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "SpriteRenderer.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\SpriteRenderer.h",
-              "RelativeDocumentMoniker": "APIProject\\SpriteRenderer.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\SpriteRenderer.h",
-              "RelativeToolTip": "APIProject\\SpriteRenderer.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 42,
+              "Title": "SwingJumpState.h",
+              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\SwingJumpState.h",
+              "RelativeDocumentMoniker": "APIProject\\SwingJumpState.h",
+              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\SwingJumpState.h",
+              "RelativeToolTip": "APIProject\\SwingJumpState.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-19T01:14:59.598Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-19T13:12:01.396Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 44,
               "Title": "IdleState.cpp",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\IdleState.cpp",
               "RelativeDocumentMoniker": "APIProject\\IdleState.cpp",
@@ -967,7 +1251,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 49,
               "Title": "MajorBossRoomClockIdle.h",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\MajorBossRoomClockIdle.h",
               "RelativeDocumentMoniker": "APIProject\\MajorBossRoomClockIdle.h",
@@ -979,7 +1263,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 61,
               "Title": "ChargeDashState.h",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\ChargeDashState.h",
               "RelativeDocumentMoniker": "APIProject\\ChargeDashState.h",
@@ -991,7 +1275,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 57,
               "Title": "ExcState.cpp",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\ExcState.cpp",
               "RelativeDocumentMoniker": "APIProject\\ExcState.cpp",
@@ -1003,7 +1287,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 54,
               "Title": "IdleState.h",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\IdleState.h",
               "RelativeDocumentMoniker": "APIProject\\IdleState.h",
@@ -1015,7 +1299,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 58,
               "Title": "ExcState.h",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\ExcState.h",
               "RelativeDocumentMoniker": "APIProject\\ExcState.h",
@@ -1027,31 +1311,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "Camera.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Camera.h",
-              "RelativeDocumentMoniker": "APIProject\\Camera.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Camera.h",
-              "RelativeToolTip": "APIProject\\Camera.h",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAAC8AAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-19T01:09:52.625Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "Camera.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Camera.cpp",
-              "RelativeDocumentMoniker": "APIProject\\Camera.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Camera.cpp",
-              "RelativeToolTip": "APIProject\\Camera.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-19T09:40:25.933Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 66,
               "Title": "CollisionManager.cpp",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\CollisionManager.cpp",
               "RelativeDocumentMoniker": "APIProject\\CollisionManager.cpp",
@@ -1063,19 +1323,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "APIProject.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\APIProject.cpp",
-              "RelativeDocumentMoniker": "APIProject\\APIProject.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\APIProject.cpp",
-              "RelativeToolTip": "APIProject\\APIProject.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-19T08:37:41.079Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 65,
               "Title": "pch.h",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\pch.h",
               "RelativeDocumentMoniker": "APIProject\\pch.h",
@@ -1087,19 +1335,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "framework.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\framework.h",
-              "RelativeDocumentMoniker": "APIProject\\framework.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\framework.h",
-              "RelativeToolTip": "APIProject\\framework.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-19T09:27:48.575Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 67,
               "Title": "CollisionManager.h",
               "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\CollisionManager.h",
               "RelativeDocumentMoniker": "APIProject\\CollisionManager.h",
@@ -1108,42 +1344,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-19T02:50:38.065Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 50,
-              "Title": "PlayerObject.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\PlayerObject.h",
-              "RelativeDocumentMoniker": "APIProject\\PlayerObject.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\PlayerObject.h",
-              "RelativeToolTip": "APIProject\\PlayerObject.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-15T13:33:15.245Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "Core.cpp",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Core.cpp",
-              "RelativeDocumentMoniker": "APIProject\\Core.cpp",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Core.cpp",
-              "RelativeToolTip": "APIProject\\Core.cpp",
-              "ViewState": "AgIAACIAAAAAAAAAAAAUwEMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-19T02:29:38.084Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 61,
-              "Title": "Core.h",
-              "DocumentMoniker": "D:\\DDingHo\\API_Project\\APIProject\\Core.h",
-              "RelativeDocumentMoniker": "APIProject\\Core.h",
-              "ToolTip": "D:\\DDingHo\\API_Project\\APIProject\\Core.h",
-              "RelativeToolTip": "APIProject\\Core.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-19T02:29:35.366Z"
             }
           ]
         }

@@ -17,11 +17,13 @@ public:
 	static GameObjectManager& GetInstance() { static GameObjectManager sMgr; return sMgr; }
 
 	template<typename T>
-	void AddGameObject()
+	GameObject* AddGameObject()
 	{
 		GameObject* gameObject = new T;
 		gameObject->Init();
 		mPendingQueue.push_back(gameObject);
+
+		return gameObject;
 	}
 
 	void RemoveGameObject(GameObject* gameObject)

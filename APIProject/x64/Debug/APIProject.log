@@ -1,5 +1,100 @@
-﻿  Player.cpp
+﻿  Animator.cpp
+  BoxCollider.cpp
+  ChargeDashState.cpp
+  ClimbingState.cpp
+  Collider.cpp
+  CollisionManager.cpp
+  Component.cpp
+  Core.cpp
+  EnemyObject.cpp
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
+  (소스 파일 '/EnemyObject.cpp'을(를) 컴파일하는 중)
+      D:\DDingHo\API_Project\APIProject\GameObject.h(39,48):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          D:\DDingHo\API_Project\APIProject\EnemyObject.cpp(11,2):
+          컴파일되는 함수 템플릿 인스턴스화 'T *GameObject::AddComponent<Rigidbody,int,bool,int,int,BodyType>(int &&,bool &&,int &&,int &&,BodyType &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              T=Rigidbody
+          ]
+  
+  ExcDashState.cpp
+  ExcState.cpp
+  FireBirdBGMid01Object.cpp
+  FireBirdBGMid02Object.cpp
+  FireBirdBGObject.cpp
+  FireBirdScene.cpp
+  GameObject.cpp
+  GameObjectManager.cpp
+  Grab.cpp
+D:\DDingHo\API_Project\APIProject\SwingState.h(48,13): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Grab.cpp'을(를) 컴파일하는 중)
+  
+  GrabObject.cpp
+  IdleState.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  JumpState.cpp
+  MajorBossRoomBG.cpp
+  MajorBossRoomClockIdle.cpp
+  MajorBossRoomFront.cpp
+  MajorBossRoomScene.cpp
+  MonoBehaviour.cpp
+  PhysicsManager.cpp
+  PlatformObject.cpp
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
+  (소스 파일 '/PlatformObject.cpp'을(를) 컴파일하는 중)
+      D:\DDingHo\API_Project\APIProject\GameObject.h(39,48):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          D:\DDingHo\API_Project\APIProject\PlatformObject.cpp(12,2):
+          컴파일되는 함수 템플릿 인스턴스화 'T *GameObject::AddComponent<Rigidbody,int,bool,float,int,BodyType>(int &&,bool &&,float &&,int &&,BodyType &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              T=Rigidbody
+          ]
+  
+  Player.cpp
 D:\DDingHo\API_Project\APIProject\SwingState.h(48,13): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/Player.cpp'을(를) 컴파일하는 중)
   
+  PlayerObject.cpp
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
+  (소스 파일 '/PlayerObject.cpp'을(를) 컴파일하는 중)
+      D:\DDingHo\API_Project\APIProject\GameObject.h(39,48):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          D:\DDingHo\API_Project\APIProject\PlayerObject.cpp(15,2):
+          컴파일되는 함수 템플릿 인스턴스화 'T *GameObject::AddComponent<Rigidbody,int,bool,int,int,BodyType>(int &&,bool &&,int &&,int &&,BodyType &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              T=Rigidbody
+          ]
+  
+  RenderManager.cpp
+  Rigidbody.cpp
+  RunState.cpp
+  ScrollBG.cpp
+  ScrollBGObject.cpp
+  SpriteRenderer.cpp
+  State.cpp
+  SwingState.cpp
+D:\DDingHo\API_Project\APIProject\SwingState.h(48,13): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/SwingState.cpp'을(를) 컴파일하는 중)
+  
+D:\DDingHo\API_Project\APIProject\SwingState.cpp(198,9): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/SwingState.cpp'을(를) 컴파일하는 중)
+  
+  TitleScene.cpp
+  코드를 생성하고 있습니다...
   APIProject.vcxproj -> D:\DDingHo\API_Project\x64\Debug\APIProject.exe

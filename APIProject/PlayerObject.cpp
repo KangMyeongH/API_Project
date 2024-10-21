@@ -9,7 +9,7 @@
 
 void PlayerObject::Init()
 {
-	mTransform.SetWorldPosition({ 300, 500 });
+	mTransform.SetWorldPosition({ 0, 0 });
 	mTransform.SetLocalScale({ 24,42 });
 	mTag = PLAYER;
 	AddComponent<Rigidbody>(0, true, 0, 0, DYNAMIC);

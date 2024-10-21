@@ -10,6 +10,7 @@
 #include <memory.h>
 #include <tchar.h>
 #include <d2d1.h>
+#include <d2d1_1.h>
 #include <wincodec.h>
 #include <dwrite.h>
 #pragma comment(lib, "D2D1.lib")

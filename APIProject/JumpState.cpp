@@ -68,10 +68,10 @@ void JumpState::HandleInput()
 		}
 	}*/
 
-	/*if (mPlayer->GetKeyMgr()->Key_Down(VK_SHIFT))
+	if (mPlayer->GetKeyMgr()->Key_Down(VK_SHIFT))
 	{
 		mStateMachine->ChangeState(mPlayer->ChargeDash);
-	}*/
+	}
 }
 
 void JumpState::LogicUpdate()

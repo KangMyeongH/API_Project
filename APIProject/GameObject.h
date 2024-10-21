@@ -84,6 +84,17 @@ public:
 		return nullptr;
 	}
 
+	template <typename T>
+	std::vector<T*>* GetComponents() const
+	{
+		auto it = mComponentMap.find(typeid(T));
+		if (it != mComponentMap.end() && !it->second.empty())
+		{
+			return &it->second;
+		}
+		return nullptr;
+	}
+
 	void RemoveComponent(Component* component)
 	{
 		mComponents.erase(remove(mComponents.begin(), mComponents.end(), component), mComponents.end());

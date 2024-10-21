@@ -3,6 +3,7 @@
 
 #include "AnimatorManager.h"
 #include "CollisionManager.h"
+#include "FireBirdScene.h"
 #include "GameObjectManager.h"
 #include "KeyManager.h"
 #include "MajorBossRoomScene.h"

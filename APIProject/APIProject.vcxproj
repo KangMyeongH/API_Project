@@ -156,6 +156,10 @@
     <ClInclude Include="EnemyObject.h" />
     <ClInclude Include="ExcDashState.h" />
     <ClInclude Include="ExcState.h" />
+    <ClInclude Include="FireBirdBGMid01Object.h" />
+    <ClInclude Include="FireBirdBGMid02Object.h" />
+    <ClInclude Include="FireBirdBGObject.h" />
+    <ClInclude Include="FireBirdScene.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectManager.h" />
@@ -185,6 +189,8 @@
     <ClInclude Include="RunState.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="ScrollBG.h" />
+    <ClInclude Include="ScrollBGObject.h" />
     <ClInclude Include="SpriteRenderer.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />
@@ -215,6 +221,10 @@
     <ClCompile Include="EnemyObject.cpp" />
     <ClCompile Include="ExcDashState.cpp" />
     <ClCompile Include="ExcState.cpp" />
+    <ClCompile Include="FireBirdBGMid01Object.cpp" />
+    <ClCompile Include="FireBirdBGMid02Object.cpp" />
+    <ClCompile Include="FireBirdBGObject.cpp" />
+    <ClCompile Include="FireBirdScene.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />
     <ClCompile Include="Grab.cpp" />
@@ -247,6 +257,8 @@
     <ClCompile Include="RunState.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="ScrollBG.cpp" />
+    <ClCompile Include="ScrollBGObject.cpp" />
     <ClCompile Include="SpriteRenderer.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateMachine.cpp" />

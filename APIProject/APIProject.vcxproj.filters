@@ -118,6 +118,9 @@
     <Filter Include="02. Scripts\04. MajorBossRoom">
       <UniqueIdentifier>{5951fb8e-2f0f-4420-a499-f16af36b023e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02. Scripts\05. FireBird">
+      <UniqueIdentifier>{c50dfe2a-9876-4404-8e23-d1d5f2fbb532}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="APIProject.h">
@@ -237,9 +240,6 @@
     <ClInclude Include="StateMachine.h">
       <Filter>02. Scripts\03. Player\01. State</Filter>
     </ClInclude>
-    <ClInclude Include="JumpState.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="MajorBossRoomScene.h">
       <Filter>02. Scripts\04. MajorBossRoom</Filter>
     </ClInclude>
@@ -261,9 +261,6 @@
     <ClInclude Include="Image.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="ChargeDashState.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Ray.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -276,28 +273,52 @@
     <ClInclude Include="Grab.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="ExcDashState.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="ExcState.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="PlatformObject.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="ClimbingState.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="SwingState.h">
+    <ClInclude Include="AnimationCurve.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBirdScene.h">
+      <Filter>02. Scripts\05. FireBird</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBirdBGObject.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrollBG.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrollBGObject.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="JumpState.h">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
+    </ClInclude>
+    <ClInclude Include="ClimbingState.h">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
+    </ClInclude>
+    <ClInclude Include="ChargeDashState.h">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
+    </ClInclude>
+    <ClInclude Include="ExcDashState.h">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
+    </ClInclude>
+    <ClInclude Include="ExcState.h">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
+    </ClInclude>
+    <ClInclude Include="SwingState.h">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
     </ClInclude>
     <ClInclude Include="SwingJumpState.h">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBirdBGMid01Object.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="AnimationCurve.h">
+    <ClInclude Include="FireBirdBGMid02Object.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -398,9 +419,6 @@
     <ClCompile Include="StateMachine.cpp">
       <Filter>02. Scripts\03. Player\01. State</Filter>
     </ClCompile>
-    <ClCompile Include="JumpState.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="MajorBossRoomScene.cpp">
       <Filter>02. Scripts\04. MajorBossRoom</Filter>
     </ClCompile>
@@ -422,9 +440,6 @@
     <ClCompile Include="Image.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ChargeDashState.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Ray.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -437,25 +452,49 @@
     <ClCompile Include="Grab.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ExcDashState.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="ExcState.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="PlatformObject.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="ClimbingState.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="SwingState.cpp">
+    <ClCompile Include="FireBirdScene.cpp">
+      <Filter>02. Scripts\05. FireBird</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBirdBGObject.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="ScrollBG.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ScrollBGObject.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="JumpState.cpp">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
+    </ClCompile>
+    <ClCompile Include="ClimbingState.cpp">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
+    </ClCompile>
+    <ClCompile Include="ChargeDashState.cpp">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
+    </ClCompile>
+    <ClCompile Include="ExcDashState.cpp">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
+    </ClCompile>
+    <ClCompile Include="ExcState.cpp">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
+    </ClCompile>
+    <ClCompile Include="SwingState.cpp">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
+    </ClCompile>
     <ClCompile Include="SwingJumpState.cpp">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBirdBGMid01Object.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBirdBGMid02Object.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
