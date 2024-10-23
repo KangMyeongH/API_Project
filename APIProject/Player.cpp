@@ -352,6 +352,7 @@ void Player::Debug(ID2D1HwndRenderTarget* render)
 		}
 	}
 
+	/*
 	// 텍스트 서식 설정
 	IDWriteTextFormat* textFormat = nullptr;
 	ID2D1SolidColorBrush* brush = nullptr;
@@ -366,7 +367,7 @@ void Player::Debug(ID2D1HwndRenderTarget* render)
 		L"en-us",
 		&textFormat
 	);
-
+	*/
 	/*
 	render->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::White), &brush);
 

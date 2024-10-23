@@ -339,6 +339,9 @@
     <ClInclude Include="FireBirdObj.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="WingObj.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -531,6 +534,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="FireBirdObj.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="WingObj.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

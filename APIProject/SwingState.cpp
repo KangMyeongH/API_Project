@@ -187,6 +187,7 @@ void SwingState::Swinging()
 
 void SwingState::Debug(ID2D1HwndRenderTarget* render)
 {
+	/*
 	IDWriteTextFormat* textFormat = nullptr;
 	ID2D1SolidColorBrush* brush = nullptr;
 
@@ -235,7 +236,7 @@ void SwingState::Debug(ID2D1HwndRenderTarget* render)
 	textFormat->Release();
 	brush->Release();
 
-
+	*/
 
 
 }
