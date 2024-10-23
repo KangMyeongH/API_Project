@@ -73,6 +73,11 @@ void FireBirdPlatform::OnCollisionEnter(Collision other)
 			Damaged();
 		}
 	}
+
+	if (other.GetGameObject()->GetTag() == BULLET)
+	{
+		Damaged();
+	}
 }
 
 void FireBirdPlatform::Damaged()

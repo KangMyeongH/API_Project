@@ -8,7 +8,7 @@ public:
     Animator(GameObject* owner) : Behaviour(owner), mSprite(nullptr), mNextMotion(nullptr), mFrameStart(0),
                                   mFrameEnd(0), mSpeed(0), mTime(0),
                                   mLoop(false),
-                                  mPause(false)
+                                  mPause(false), mFinish(false)
     {
     }
 
@@ -23,6 +23,7 @@ public:
     void Restart() { mFrameStart = 0; }
     void Flip(bool flip);
     void Destroy() override;
+    bool IsFinish() const { return mFinish; }
 
     void SetNextMotion(AnimationInfo* nextMotion);
 
@@ -42,5 +43,6 @@ private:
     float   			mTime;
     bool                mLoop;
     bool                mPause;
+    bool                mFinish;
 };
 

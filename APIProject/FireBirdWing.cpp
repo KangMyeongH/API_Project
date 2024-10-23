@@ -8,7 +8,6 @@ void FireBirdWing::Start()
 {
 	mBody = GameObjectManager::GetInstance().GetGameObjectsForTag(BOSS)->front();
 	mFireBird = mBody->GetComponent<FireBird>();
-	mAnimationMap = mFireBird->GetAnimationMap();
 
 	GetTransform()->SetWorldPosition(mBody->GetTransform()->GetWorldPosition());
 	GetTransform()->SetParent(mBody->GetTransform());

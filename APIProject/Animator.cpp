@@ -6,7 +6,7 @@
 
 void Animator::MoveFrame()
 {
-	if (mSpeed < mTime + TimeManager::GetInstance().GetDeltaTime() && !mPause)
+	if (!mPause && mSpeed < mTime + TimeManager::GetInstance().GetDeltaTime())
 	{
 		++mFrameStart;
 
@@ -23,6 +23,7 @@ void Animator::MoveFrame()
 
 				else
 				{
+					mFinish = true;
 					mFrameStart--;
 				}
 			}
@@ -41,6 +42,7 @@ void Animator::MotionChange(ID2D1Bitmap* image, int start, int end, float width,
 	mSpeed = speed;
 	mTime = TimeManager::GetInstance().GetDeltaTime();
 	mSprite->ChangeSprite(image, width, height, start);
+	mFinish = false;
 }
 
 void Animator::MotionChange(AnimationInfo* nextMotion)
@@ -52,6 +54,7 @@ void Animator::MotionChange(AnimationInfo* nextMotion)
 	mSprite->ChangeSprite(nextMotion->Image, nextMotion->Width, nextMotion->Height, nextMotion->Start);
 	mLoop = nextMotion->Loop;
 	mNextMotion = nullptr;
+	mFinish = false;
 }
 
 void Animator::Flip(bool flip)

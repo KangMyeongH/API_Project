@@ -1,0 +1,14 @@
+FireBirdVFX_BodyslapAlert.png,35,352,20
+FireBirdVFX_Bomb_Explode.png,256,256,12
+FireBirdVFX_Bomb_Appear.png,256,256,4
+FirebirdVFX_Bomb_Falling.png,256,256,4
+FirebirdAim_Incendiary_Aim.png,256,256,23
+FirebirdAim_Incendiary_Appear.png,256,256,5
+FirebirdAim_Incendiary_AttackLoop.png,256,256,6
+FirebirdVFX_ShootExplode.png,256,256,14
+FirebirdVFX_ClusterBomb_Appear.png,256,256,27
+FirebirdAim_Cluster_Aim.png,256,256,24
+FirebirdAim_Cluster_Shoot.png,256,256,8
+FirebirdVFX_ClusterBomb_Explode.png,256,256,12
+FirebirdVFX_ClusterBomblet_Idle.png,160,160,4
+FirebirdVFX_ClusterBomblet_Explode.png,160,160,12

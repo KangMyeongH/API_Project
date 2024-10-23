@@ -1,8 +1,11 @@
 #include "pch.h"
 #include "FireBird.h"
 
+#include "FireBirdAimObj.h"
+#include "FireBirdBomb.h"
 #include "GameObjectManager.h"
 #include "ImageManager.h"
+#include "TimeManager.h"
 
 FireBird::~FireBird()
 {
@@ -29,7 +32,7 @@ void FireBird::Start()
 	mAnimationMap.insert({ L"BOSS_Firebird_Wing_DownLoop01",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_Firebird_Wing_DownLoop01"), 0, 4, 1320, 400, 0.8f, true) });
 	mAnimationMap.insert({ L"BOSS_Firebird_Wing_DownLoop02",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_Firebird_Wing_DownLoop02"), 0, 4, 1320, 400, 0.8f, true) });
 	mAnimationMap.insert({ L"BOSS_Firebird_Wing_DownLoop03",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_Firebird_Wing_DownLoop03"), 0, 4, 1320, 400, 0.8f, true) });
-	mAnimationMap.insert({ L"BOSS_Firebird_Wing_DownLoop04",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_Firebird_Wing_DownLoop04"), 0, 4, 1320, 400, 0.8f, true) });
+	mAnimationMap.insert({ L"BOSS_Firebird_Wing_DownLoop04",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_Firebird_Wing_DownLoop04"), 0, 4, 1320, 400, 0.03f, true) });
 
 	mAnimationMap.insert({ L"BOSS_Firebird_Wing_UpLoop01",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_Firebird_Wing_UpLoop01"), 0, 4, 1320, 400, 0.8f, true) });
 	mAnimationMap.insert({ L"BOSS_Firebird_Wing_UpLoop02",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_Firebird_Wing_UpLoop02"), 0, 4, 1320, 400, 0.8f, true) });
@@ -39,7 +42,7 @@ void FireBird::Start()
 	mAnimationMap.insert({ L"BOSS_FirebirdBroken_Wing_DownLoop01",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_FirebirdBroken_Wing_DownLoop01"), 0, 4, 1320, 400, 0.8f, true) });
 	mAnimationMap.insert({ L"BOSS_FirebirdBroken_Wing_DownLoop02",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_FirebirdBroken_Wing_DownLoop02"), 0, 4, 1320, 400, 0.8f, true) });
 	mAnimationMap.insert({ L"BOSS_FirebirdBroken_Wing_DownLoop03",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_FirebirdBroken_Wing_DownLoop03"), 0, 4, 1320, 400, 0.8f, true) });
-	mAnimationMap.insert({ L"BOSS_FirebirdBroken_Wing_DownLoop04",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_FirebirdBroken_Wing_DownLoop04"), 0, 4, 1320, 400, 0.8f, true) });
+	mAnimationMap.insert({ L"BOSS_FirebirdBroken_Wing_DownLoop04",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_FirebirdBroken_Wing_DownLoop04"), 0, 4, 1320, 400, 0.03f, true) });
 
 	mAnimationMap.insert({ L"BOSS_FirebirdBroken_Wing_UpLoop01",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_FirebirdBroken_Wing_UpLoop01"), 0, 4, 1320, 400, 0.8f, true) });
 	mAnimationMap.insert({ L"BOSS_FirebirdBroken_Wing_UpLoop02",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_FirebirdBroken_Wing_UpLoop02"), 0, 4, 1320, 400, 0.8f, true) });
@@ -48,6 +51,10 @@ void FireBird::Start()
 
 	mAnimationMap.insert({ L"BOSS_Firebird_Wing_NeuLoop",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_Firebird_Wing_NeuLoop"), 0, 4, 1320, 400, 0.8f, true) });
 	mAnimationMap.insert({ L"BOSS_FirebirdBroken_Wing_NeuLoop",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_FirebirdBroken_Wing_NeuLoop"), 0, 4, 1320, 400, 0.8f, true) });
+
+	mAnimationMap.insert({ L"BOSS_BehindFirebird_Idle",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_BehindFirebird_Idle"), 0, 1, 396, 126, 0.8f, true) });
+	mAnimationMap.insert({ L"BOSS_BehindFirebird_Shoot",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_BehindFirebird_Shoot"), 0, 11, 396, 126, 0.08f, false) });
+
 
 	mWingAnimation[0] = FindAniInfo(L"BOSS_Firebird_Wing_UpLoop04");
 	mWingAnimation[1] = FindAniInfo(L"BOSS_Firebird_Wing_UpLoop03");
@@ -108,7 +115,18 @@ void FireBird::FixedUpdate()
 	}
 		break;
 	case BEHIND_FIRE:
+	{
+		dir = mTargetPosition - GetTransform()->GetWorldPosition();
 
+		float distance = dir.Magnitude();
+
+		float forceMagnitude = mBaseForce + (distance * mForceFactor);
+		forceMagnitude = clamp(forceMagnitude, 0, mMaxForce);
+
+		Vector2 force = dir.Normalized() * forceMagnitude / 25.f;
+		mAngle = force;
+		GetGameObject()->GetComponent<Rigidbody>()->AddForce(force);
+	}
 		break;
 	case BODY_ATTACK:
 
@@ -138,10 +156,13 @@ void FireBird::Update()
 	switch (mPattern)
 	{
 	case SHOOT:
+		ShootPattern();
 		break;
 	case BOMBER:
+		BomberPattern();
 		break;
 	case BEHIND_FIRE:
+		BehindFirePattern();
 		break;
 	case BODY_ATTACK:
 		break;
@@ -208,19 +229,64 @@ AnimationInfo* FireBird::FindAniInfo(const TCHAR* key)
 
 void FireBird::ShootPattern()
 {
-
+	GameObjectManager::GetInstance().AddGameObject<FireBirdAimObj>();
 }
 
 void FireBird::BomberPattern()
 {
+	if (GetTransform()->GetWorldPosition().y <= 150.f)
+	{
+		float offset = 150.f;
+		GetGameObject()->GetComponent<Rigidbody>()->SetVelocity({ GetGameObject()->GetComponent<Rigidbody>()->GetVelocity().x,0 });
+		mBombCurrentTime += TimeManager::GetInstance().GetDeltaTime();
+		if (mBombCurrentTime >= mBombDelay)
+		{
+			mBombCurrentTime = 0;
+			if(mBombIndex == 8)
+			{
+				SetRandomPattern();
+				mBombIndex = 0;
+				return;
+			}
+			mBomb[mBombIndex]->Fire({ GetTransform()->GetWorldPosition().x, GetTransform()->GetWorldPosition().y + offset });
+			mBombIndex++;
+		}
+	}
 }
 
 void FireBird::BehindFirePattern()
 {
+	if (GetTransform()->GetWorldPosition().y >= 2000.f && !mReadyBehind)
+	{
+		GetTransform()->SetWorldPosition({ mPlayer->GetTransform()->GetWorldPosition().x, -1000.f });
+		mTargetPosition = { mPlayer->GetTransform()->GetWorldPosition().x, 475.f };
+		GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"BOSS_BehindFirebird_Idle"));
+		mWing->GetComponent<SpriteRenderer>()->SetEnable(false);
+		mWing->GetComponent<Animator>()->SetEnable(false);
+		mReadyBehind = true;
+	}
+
+	else if(GetTransform()->GetWorldPosition().y <= -500.f && mOwner->GetComponent<Rigidbody>()->GetVelocity().y < 0)
+	{
+		
+	}
+
+	if (mReadyBehind)
+	{
+		mTargetPosition = mPlayer->GetTransform()->GetWorldPosition();
+		mCurrentTime += TimeManager::GetInstance().GetDeltaTime();
+		if (mCurrentTime >= 8.f)
+		{
+			GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"BOSS_BehindFirebird_Shoot"));
+			GetGameObject()->GetComponent<Animator>()->SetNextMotion(FindAniInfo(L"BOSS_BehindFirebird_Idle"));
+			mReadyBehind = false;
+		}
+	}
 }
 
 void FireBird::BodyAttackPattern()
 {
+
 }
 
 void FireBird::ReturnPattern()
@@ -229,8 +295,18 @@ void FireBird::ReturnPattern()
 	{
 		if (GetTransform()->GetWorldPosition().y >= 800.f)
 		{
-			mPattern = BOMBER;
+			mPattern = BEHIND_FIRE;
+			mTargetPosition = { 1400.f,2000.f };
+			//SetRandomPattern();
 		}
+	}
+}
+
+void FireBird::GoToBottom()
+{
+	if (GetTransform()->GetWorldPosition().y >= 2000.f)
+	{
+		
 	}
 }
 
@@ -247,7 +323,43 @@ void FireBird::ChangeWingIndex()
 	else if (4.5f <= mAngle.y && mAngle.y < 6.5f) 		index = 7;
 	else if (6.5f <= mAngle.y) 							index = 8;
 
+	if (index != mWingIndex)
+	{
+		mWingIndex = index;
+		mWing->GetComponent<Animator>()->MotionChange(mWingAnimation[mWingIndex]);
+	}
+}
 
-	mWing->GetComponent<Animator>()->MotionChange(mWingAnimation[index]);
+void FireBird::SetRandomPattern()
+{
+	int index = rand() % 4;
+	switch (index)
+	{
+	case 0:
+		mPattern = SHOOT;
+		break;
+	case 1:
+		mPattern = BOMBER;
+		break;
+	case 2:
+		mPattern = BEHIND_FIRE;
+		mTargetPosition = { 1400.f,2000.f };
+		break;
+	case 3:
+		mPattern = BODY_ATTACK;
+		break;
+	}
+}
+
+void FireBird::SetBomb(FireBirdBomb* bomb)
+{
+	for (auto& obj : mBomb)
+	{
+		if (obj == nullptr)
+		{
+			obj = bomb;
+			break;
+		}
+	}
 }
 

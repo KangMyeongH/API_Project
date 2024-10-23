@@ -13,6 +13,8 @@
 #include "RunState.h"
 #include "StateMachine.h"
 #include "EdgeCollider.h"
+#include "Effect.h"
+#include "EffectObj.h"
 #include "ExcDashState.h"
 #include "ExcState.h"
 #include "Grab.h"
@@ -155,7 +157,7 @@ void Player::Update()
 
 	if (mKeyMgr->Key_Down('G'))
 	{
-		
+		GameObjectManager::GetInstance().AddGameObject<EffectObj>()->GetComponent<Effect>()->SetEffect(mTransform->GetWorldPosition(), FindAniInfo(L"SNB_RunningStart"));
 	}
 	mStateMachine->GetCurrentState()->HandleInput();
 	mStateMachine->GetCurrentState()->LogicUpdate();

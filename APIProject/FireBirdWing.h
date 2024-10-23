@@ -8,7 +8,7 @@ class FireBirdWing final : public MonoBehaviour
 {
 public:
 	explicit FireBirdWing(GameObject* owner)
-		: MonoBehaviour(owner), mAnimationMap(nullptr), mBody(nullptr), mFireBird(nullptr)
+		: MonoBehaviour(owner), mBody(nullptr), mFireBird(nullptr)
 	{
 	}
 	void Start() override;
@@ -23,7 +23,6 @@ private:
 
 
 private:
-	std::unordered_map<const TCHAR*, AnimationInfo*>* mAnimationMap;
 	GameObject* mBody;
 	FireBird* mFireBird;
 };

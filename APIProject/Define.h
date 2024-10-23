@@ -13,6 +13,7 @@ enum Tag
 	ENEMY,
 	BOSS,
 	PLATFORM,
+	BULLET,
 	ITEM,
 	END_TAG
 };

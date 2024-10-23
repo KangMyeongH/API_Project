@@ -3,6 +3,8 @@
 
 #include "MonoBehaviour.h"
 
+class FireBirdBomb;
+
 enum AttackType
 {
 	SHOOT,
@@ -16,12 +18,15 @@ class FireBird final : public MonoBehaviour
 {
 public:
 	explicit FireBird(GameObject* owner)
-		: MonoBehaviour(owner), mWingAnimation{nullptr,}, mBrokenWingAnimation{nullptr,}, mPattern(RETURN), mPlayer(nullptr),
+		: MonoBehaviour(owner), mWingAnimation{nullptr,}, mBrokenWingAnimation{nullptr,}, mPattern(RETURN),
+		  mPlayer(nullptr),
 		  mWing(nullptr), mGun(nullptr),
-		  mBomber(nullptr),
+		  mBomber(nullptr), mBomb{nullptr,},
 		  mBaseForce(10.f),
 		  mForceFactor(2.f),
-		  mMaxForce(80.f), mMaxAngle(3.f)
+		  mMaxForce(80.f), mMaxAngle(3.f), mBombDelay(0.5f), mBombCurrentTime(0), mCurrentTime(0), mWingIndex(-1),
+		  mBombIndex(0),
+		  mReadyBehind(false)
 	{
 	}
 
@@ -39,12 +44,16 @@ public:
 	void BehindFirePattern();
 	void BodyAttackPattern();
 	void ReturnPattern();
+	void GoToBottom();
 
 	void ChangeWingIndex();
+
+	void SetRandomPattern();
 
 	void SetWing(GameObject* wing) { mWing = wing; }
 	void SetBomber(GameObject* bomber) { mBomber = bomber; }
 	void SetGun(GameObject* gun) { mGun = gun; }
+	void SetBomb(FireBirdBomb* bomb);
 
 	Vector2 GetAngle() const { return mAngle; }
 	std::unordered_map<const TCHAR*, AnimationInfo*>* GetAnimationMap() { return &mAnimationMap; }
@@ -59,8 +68,6 @@ private:
 		return value;
 	}
 
-
-
 private:
 	std::unordered_map<const TCHAR*, AnimationInfo*> mAnimationMap;
 	AnimationInfo* mWingAnimation[9];
@@ -72,11 +79,19 @@ private:
 	GameObject* mGun;
 	GameObject* mBomber;
 
+	FireBirdBomb* mBomb[8];
+
 	Vector2		mTargetPosition;
 	Vector2		mAngle;
 	float		mBaseForce;
 	float		mForceFactor;
 	float		mMaxForce;
 	float		mMaxAngle;
+	float		mBombDelay;
+	float		mBombCurrentTime;
+	float		mCurrentTime;
+	int			mWingIndex;
+	int			mBombIndex;
+	bool		mReadyBehind;
 };
 

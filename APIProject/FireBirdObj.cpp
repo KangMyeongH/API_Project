@@ -3,7 +3,11 @@
 
 #include "BoxCollider.h"
 #include "FireBird.h"
+#include "FireBirdAimObj.h"
+#include "GameObjectManager.h"
 #include "ImageManager.h"
+
+#include "FireBirdBombObj.h"
 
 void FireBirdObj::Init()
 {
@@ -34,6 +38,9 @@ void FireBirdObj::Init()
 	ImageManager::GetInstance().InsertBmp(L"Sprite/04. Boss/00. FireBird/wing/BOSS_FirebirdBroken_Wing_UpLoop03.png", L"BOSS_FirebirdBroken_Wing_UpLoop03");
 	ImageManager::GetInstance().InsertBmp(L"Sprite/04. Boss/00. FireBird/wing/BOSS_FirebirdBroken_Wing_UpLoop04.png", L"BOSS_FirebirdBroken_Wing_UpLoop04");
 
+	ImageManager::GetInstance().InsertBmp(L"Sprite/04. Boss/00. FireBird/behind/BOSS_BehindFirebird_Idle.png", L"BOSS_BehindFirebird_Idle");
+	ImageManager::GetInstance().InsertBmp(L"Sprite/04. Boss/00. FireBird/behind/BOSS_BehindFirebird_Shoot.png", L"BOSS_BehindFirebird_Shoot");
+
 
 	AddComponent<SpriteRenderer>(5);
 	AddComponent<Animator>();
@@ -42,6 +49,16 @@ void FireBirdObj::Init()
 	AddComponent<BoxCollider>();
 	AddComponent<Rigidbody>(0, false, 1.f, 0, DYNAMIC);
 	AddComponent<FireBird>();
+
+	GameObjectManager::GetInstance().AddGameObject<FireBirdBombObj>();
+	GameObjectManager::GetInstance().AddGameObject<FireBirdBombObj>();
+	GameObjectManager::GetInstance().AddGameObject<FireBirdBombObj>();
+	GameObjectManager::GetInstance().AddGameObject<FireBirdBombObj>();
+	GameObjectManager::GetInstance().AddGameObject<FireBirdBombObj>();
+	GameObjectManager::GetInstance().AddGameObject<FireBirdBombObj>();
+	GameObjectManager::GetInstance().AddGameObject<FireBirdBombObj>();
+	GameObjectManager::GetInstance().AddGameObject<FireBirdBombObj>();
+
 	mTag = BOSS;
 	mTransform.SetLocalScale({ 300,350 });
 }
