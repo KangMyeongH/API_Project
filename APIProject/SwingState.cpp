@@ -163,7 +163,7 @@ void SwingState::Swinging()
 		lengthRatio = mMaxLineLength / mLength;
 	}
 
-	mOmega += (-mGravity / mMaxLineLength * sin(mTheta)) * mTime;
+	mOmega += (-mGravity / mMaxLineLength * sin(mTheta)) * mTime * 2.f;
 
 
 
@@ -176,7 +176,7 @@ void SwingState::Swinging()
 
 	float adjustedOmega = mOmega * lengthRatio;
 
-	mTheta += adjustedOmega * mTime;
+	mTheta += adjustedOmega * mTime * 2.f;
 
 	// 새로운 위치 계산
 	float newX = mPivot.x + mLength * sin(mTheta);

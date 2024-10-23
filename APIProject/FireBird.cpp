@@ -49,6 +49,27 @@ void FireBird::Start()
 	mAnimationMap.insert({ L"BOSS_Firebird_Wing_NeuLoop",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_Firebird_Wing_NeuLoop"), 0, 4, 1320, 400, 0.8f, true) });
 	mAnimationMap.insert({ L"BOSS_FirebirdBroken_Wing_NeuLoop",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_FirebirdBroken_Wing_NeuLoop"), 0, 4, 1320, 400, 0.8f, true) });
 
+	mWingAnimation[0] = FindAniInfo(L"BOSS_Firebird_Wing_UpLoop04");
+	mWingAnimation[1] = FindAniInfo(L"BOSS_Firebird_Wing_UpLoop03");
+	mWingAnimation[2] = FindAniInfo(L"BOSS_Firebird_Wing_UpLoop02");
+	mWingAnimation[3] = FindAniInfo(L"BOSS_Firebird_Wing_UpLoop01");
+	mWingAnimation[4] = FindAniInfo(L"BOSS_Firebird_Wing_NeuLoop");
+	mWingAnimation[5] = FindAniInfo(L"BOSS_Firebird_Wing_DownLoop01");
+	mWingAnimation[6] = FindAniInfo(L"BOSS_Firebird_Wing_DownLoop02");
+	mWingAnimation[7] = FindAniInfo(L"BOSS_Firebird_Wing_DownLoop03");
+	mWingAnimation[8] = FindAniInfo(L"BOSS_Firebird_Wing_DownLoop04");
+
+	mBrokenWingAnimation[0] = FindAniInfo(L"BOSS_FirebirdBroken_Wing_UpLoop04");
+	mBrokenWingAnimation[1] = FindAniInfo(L"BOSS_FirebirdBroken_Wing_UpLoop03");
+	mBrokenWingAnimation[2] = FindAniInfo(L"BOSS_FirebirdBroken_Wing_UpLoop02");
+	mBrokenWingAnimation[3] = FindAniInfo(L"BOSS_FirebirdBroken_Wing_UpLoop01");
+	mBrokenWingAnimation[4] = FindAniInfo(L"BOSS_FirebirdBroken_Wing_NeuLoop");
+	mBrokenWingAnimation[5] = FindAniInfo(L"BOSS_FirebirdBroken_Wing_DownLoop01");
+	mBrokenWingAnimation[6] = FindAniInfo(L"BOSS_FirebirdBroken_Wing_DownLoop02");
+	mBrokenWingAnimation[7] = FindAniInfo(L"BOSS_FirebirdBroken_Wing_DownLoop03");
+	mBrokenWingAnimation[8] = FindAniInfo(L"BOSS_FirebirdBroken_Wing_DownLoop04");
+
+
 	GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"BOSS_Firebird_Body_Idle"));
 }
 
@@ -73,7 +94,7 @@ void FireBird::FixedUpdate()
 		break;
 	case BOMBER:
 	{
-		Vector2 bomberPosition = { mPlayer->GetTransform()->GetWorldPosition().x, 300.f };
+		Vector2 bomberPosition = { mPlayer->GetTransform()->GetWorldPosition().x, 150.f };
 		dir = bomberPosition - GetTransform()->GetWorldPosition();
 
 		float distance = dir.Magnitude();
@@ -129,8 +150,10 @@ void FireBird::Update()
 		break;
 	}
 
-	float angle = clamp(mAngle.x, -mMaxAngle, mMaxAngle);
-	GetGameObject()->GetComponent<SpriteRenderer>()->SetAngle(angle);
+	float xAngle = clamp(mAngle.x / 3.f, -mMaxAngle, mMaxAngle);
+	GetGameObject()->GetComponent<SpriteRenderer>()->SetAngle(xAngle);
+	mWing->GetComponent<SpriteRenderer>()->SetAngle(xAngle);
+	ChangeWingIndex();
 }
 
 void FireBird::Debug(ID2D1HwndRenderTarget* render)
@@ -206,8 +229,25 @@ void FireBird::ReturnPattern()
 	{
 		if (GetTransform()->GetWorldPosition().y >= 800.f)
 		{
-			mPattern = SHOOT;
+			mPattern = BOMBER;
 		}
 	}
+}
+
+void FireBird::ChangeWingIndex()
+{
+	int index = 4;
+	if (mAngle.y < -6.5f) 								index = 0;
+	else if (-6.5f <= mAngle.y && mAngle.y < -4.5f) 	index = 1;
+	else if (-4.5f <= mAngle.y && mAngle.y < -3.f) 		index = 2;
+	else if (-3.f <= mAngle.y && mAngle.y < -1.f) 		index = 3;
+	else if (-1.f <= mAngle.y && mAngle.y < 1.f) 		index = 4;
+	else if (1.f <= mAngle.y && mAngle.y < 3.f) 		index = 5;
+	else if (3.f <= mAngle.y && mAngle.y < 4.5f) 		index = 6;
+	else if (4.5f <= mAngle.y && mAngle.y < 6.5f) 		index = 7;
+	else if (6.5f <= mAngle.y) 							index = 8;
+
+
+	mWing->GetComponent<Animator>()->MotionChange(mWingAnimation[index]);
 }
 

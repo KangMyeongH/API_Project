@@ -11,6 +11,7 @@
 #include "PlayerObject.h"
 #include "ScrollBG.h"
 #include "ScrollBGObject.h"
+#include "WingObj.h"
 
 void FireBirdScene::Init()
 {
@@ -31,7 +32,7 @@ void FireBirdScene::Init()
 	bgScroll2->GetComponent<ScrollBG>()->Init(obj3->GetTransform(), obj4->GetTransform(), -0.75f);
 
 	GameObjectManager::GetInstance().AddGameObject<FireBirdObj>()->GetTransform()->SetWorldPosition({ 1400.f,1800.f });
-
+	GameObjectManager::GetInstance().AddGameObject<WingObj>();
 	// 불새 보스전의 플랫폼들의 간격은 x = 1000, y = 350 이다.
 	// 마름모 모양 두개로 배치
 	// 왼쪽 끝에서 x = 400 띄어서 배치
