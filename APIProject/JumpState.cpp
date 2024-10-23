@@ -86,7 +86,7 @@ void JumpState::LogicUpdate()
 		}
 	}
 
-	else if (mStateMachine->GetPrevState()->GetType() == CHARGEDASH)
+	else if (mStateMachine->GetPrevState()->GetType() == CHARGEDASH || mStateMachine->GetPrevState()->GetType() == CHARGEATTACK)
 	{
 		if (mPlayer->GetRigidbody()->Velocity().y > 0 && !mFalling)
 		{

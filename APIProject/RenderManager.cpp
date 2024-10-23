@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "RenderManager.h"
 
+#include "GameObjectManager.h"
 #include "SpriteRenderer.h"
 
 RenderManager::~RenderManager()
@@ -38,7 +39,22 @@ void RenderManager::ClearDestroyColliderQueue()
 {
 	for (auto& sprite : mDestroySpriteQueue)
 	{
+		GameObjectList* objList = GameObjectManager::GetInstance().GetGameObjectList();
+		for (int i = 0; i < END_TAG; ++i)
+		{
+			for (auto& go : objList[i])
+			{
+				if (go == sprite->GetGameObject())
+				{
+					sprite->GetGameObject()->RemoveComponent(sprite);
+					i = END_TAG;
+					break;
+				}
+			}
+		}
+
 		delete sprite;
+
 		mSprites.erase(std::remove(mSprites.begin(), mSprites.end(), sprite), mSprites.end());
 		for (auto it = mLayerMultiMap.begin(); it != mLayerMultiMap.end();)
 		{

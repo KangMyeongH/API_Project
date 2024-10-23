@@ -1,0 +1,9 @@
+HUD_HP4_2_Idle.png,80,80,7
+HUD_HP4_2_Restore.png,80,80,11
+HUD_HP4_3_Damaged.png,80,80,7
+HUD_HP4_3_Disappear.png,80,80,15
+HUD_HP4_3_Idle.png,80,80,7
+HUD_HP4_3_Restore.png,80,80,11
+HUD_HP4_4_Disappear.png,80,80,15
+HUD_HP4_4_Idle.png,80,80,8
+HUD_HP4_4_Restore.png,80,80,11

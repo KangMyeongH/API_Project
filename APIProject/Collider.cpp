@@ -7,5 +7,4 @@
 void Collider::Destroy()
 {
 	CollisionManager::GetInstance().RemoveCollider(this);
-	mOwner->RemoveComponent(this);
 }

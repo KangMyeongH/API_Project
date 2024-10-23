@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Player.h"
 #include "BoxCollider.h"
+#include "ChargeDashAttackState.h"
 #include "ChargeDashState.h"
 #include "ClimbingState.h"
 #include "GameObject.h"
@@ -9,7 +10,6 @@
 #include "ImageManager.h"
 #include "JumpState.h"
 #include "KeyManager.h"
-#include "Ray.h"
 #include "RunState.h"
 #include "StateMachine.h"
 #include "EdgeCollider.h"
@@ -31,6 +31,7 @@ Player::~Player()
 	delete Exc;
 	delete Climbing;
 	delete Swing;
+	delete ChargeAttack;
 
 	for(auto& ani : AnimationMap)
 	{
@@ -70,15 +71,10 @@ void Player::Start()
 	Jump = new JumpState(this, mStateMachine, JUMP);
 	Climbing = new ClimbingState(this, mStateMachine, CLIMBING);
 	ChargeDash = new ChargeDashState(this, mStateMachine, CHARGEDASH);
+	ChargeAttack = new ChargeDashAttackState(this, mStateMachine, CHARGEATTACK);
 	ExcDash = new ExcDashState(this, mStateMachine, EXCDASH);
 	Exc = new ExcState(this, mStateMachine, EXC);
 	Swing = new SwingState(this, mStateMachine, SWING);
-
-	// ray
-	mRay = &Ray::GetInstance();
-	mRay->Init(mTransform, 1000.f);
-	mRay->Enable(true);
-
 
 	// Player Sprite cashing
 	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_Idle.png", L"SNB_Idle");
@@ -100,10 +96,11 @@ void Player::Start()
 	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_WallClimbUp.png", L"SNB_WallClimbUp");
 	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_SwingJumpUp.png", L"SNB_SwingJumpUp");
 	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_Rolling.png", L"SNB_Rolling");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_ChargeAttack.png", L"SNB_ChargeAttack");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_ChargeDash.png", L"SNB_ChargeDash");
 
 
 	// Player Animation cashing
-
 	AnimationMap.insert({ L"SNB_Idle",new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Idle"), 0, 8, 56, 56, 0.2f, true) });
 	AnimationMap.insert({ L"SNB_Running",new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Running"), 0, 20, 56, 56, .1f, true) });
 	AnimationMap.insert({ L"SNB_RunningStart",new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_RunningStart"), 0, 2, 56, 56, .1f,false) });
@@ -123,8 +120,8 @@ void Player::Start()
 	AnimationMap.insert({ L"SNB_WallClimbUp" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_WallClimbUp"), 0, 10, 56, 56, .08f, true) });
 	AnimationMap.insert({ L"SNB_SwingJumpUp" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_SwingJumpUp"), 0, 5, 56, 56, .05f, false) });
 	AnimationMap.insert({ L"SNB_Rolling" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Rolling"), 0, 12, 56, 56, .08f, true) });
-
-
+	AnimationMap.insert({ L"SNB_ChargeDash" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ChargeDash"), 0, 10, 112, 56, .08f, false) });
+	AnimationMap.insert({ L"SNB_ChargeAttack" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ChargeAttack"), 0, 10, 56, 56, .08f, false) });
 
 	// Player stat
 	Speed = 275.f;
@@ -150,12 +147,7 @@ void Player::Update()
 
 	if (mKeyMgr->Key_Down(VK_LBUTTON))
 	{
-		if (mTargetEnemy)
-		{
-			mGrab->Shoot();
-		}
-
-		else if (mTargetPlatform && (mGrabPoint.x != 0 && mGrabPoint.y != 0))
+		if (mTargetEnemy || mTargetPlatform)
 		{
 			mGrab->Shoot();
 		}
@@ -175,15 +167,51 @@ void Player::LateUpdate()
 
 void Player::OnCollisionEnter(Collision other)
 {
-	// 面倒 规氢 眉农
-	if (other.GetGameObject()->CompareTag(ENEMY)) return;
-
 	CollisionDirection dir = NONE;
+	dir = CollisionManager::DetectBoxCollisionDir(*mCollider->GetRect(), *other.GetCollider()->GetRect());
+
+	switch (mStateMachine->GetCurrentState()->GetType())
+	{
+	case IDLE:
+
+		break;
+	case RUN:
+
+		break;
+	case JUMP:
+		if (other.GetGameObject()->CompareTag(PLATFORM) && dir & LEFT)
+		{
+			IsClimb = true;
+		}
+		break;
+	case CLIMBING:
+
+		break;
+	case CHARGEDASH:
+
+		break;
+	case CHARGEATTACK:
+		if (other.GetGameObject() == mChargeTarget)
+		{
+			mChargeTarget->GetComponent<Rigidbody>()->AddForce(mRigidbody->GetVelocity());
+			mStateMachine->ChangeState(Jump);
+		}
+		break;
+	case SWING:
+		break;
+	case EXC:
+		break;
+	case EXCDASH:
+		break;
+	}
+
+
+	// 面倒 规氢 眉农
+	if (other.GetGameObject()->CompareTag(ENEMY) || other.GetGameObject()->CompareTag(BOSS)) return;
 
 
 	if (other.GetGameObject()->CompareTag(PLATFORM))
 	{
-		dir = CollisionManager::DetectBoxCollisionDir(*mCollider->GetRect(), *other.GetCollider()->GetRect());
 		CollisionManager::AdjustRect(mCollider, other.GetCollider(), dir);
 		if (dir & TOP && GetRigidbody()->GetVelocity().y >= 0)
 		{
@@ -194,12 +222,6 @@ void Player::OnCollisionEnter(Collision other)
 		{
 			GetRigidbody()->Velocity().y = 0;
 		}
-
-		if (dir & LEFT)
-		{
-			IsClimb = true;
-		}
-
 	}
 
 	else if(other.GetCollider()->GetType() == ColliderType::Edge)
@@ -214,11 +236,6 @@ void Player::OnCollisionEnter(Collision other)
 		if (dir & BOTTOM && GetRigidbody()->GetVelocity().y < 0)
 		{
 			GetRigidbody()->Velocity().y = 0;
-		}
-
-		if (dir & LEFT)
-		{
-			IsClimb = true;
 		}
 	}
 }
@@ -260,6 +277,7 @@ void Player::Debug(ID2D1HwndRenderTarget* render)
 
 	if (mGrab->IsShoot()) return;
 	if (mStateMachine->GetCurrentState()->GetType() == SWING) return;
+	if (mStateMachine->GetCurrentState()->GetType() == CHARGEDASH || mStateMachine->GetCurrentState()->GetType() == CHARGEATTACK) return;
 	if (mTargetEnemy || mTargetPlatform)
 	{
 		mLineAnimationOffset -= 10.f * TimeManager::GetInstance().GetDeltaTime();
@@ -378,7 +396,7 @@ void Player::Debug(ID2D1HwndRenderTarget* render)
 void Player::FindEnemy()
 {
 	GameObjectList* enemyList = GameObjectManager::GetInstance().GetGameObjectsForTag(ENEMY);
-
+	mTargetPlatform = nullptr;
 	POINT mouse;
 	GetCursorPos(&mouse);
 	ScreenToClient(gHwnd, &mouse);
@@ -435,6 +453,7 @@ void Player::FindHanging()
 		Vector2 hitPoint = { 0,0 };
 		if (platform->GetComponent<Platform>()->GetType() == RECT_PLATFORM)
 		{
+			if (!platform->GetComponent<BoxCollider>()->IsEnabled()) continue;
 			RECT* rect = platform->GetComponent<BoxCollider>()->GetRect();
 			isHit = IntersectRayWithBox(rayStart, rayDir, *rect, hitPoint);
 		}
@@ -498,7 +517,7 @@ bool Player::IsEnemyVisible(Vector2 enemyPosition, GameObject* enemy)
 
 	for (const auto& collider : *colliders)
 	{
-		if (collider == mCollider || collider->GetGameObject() == enemy || !collider->IsEnabled()) continue;
+		if (!collider->IsEnabled() || collider == mCollider || collider->GetGameObject() == enemy) continue;
 		if (collider->GetType() == ColliderType::Box)
 		{
 			D2D1_RECT_F rect = {

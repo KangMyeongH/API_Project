@@ -98,16 +98,7 @@ public:
 		mDestroyQueue.push_back(monoBehaviour);
 	}
 
-	void ClearDestroyQueue()
-	{
-		for (auto& obj : mDestroyQueue)
-		{
-			delete obj;
-			mMonoBehaviours.erase(std::remove(mMonoBehaviours.begin(), mMonoBehaviours.end(), obj), mMonoBehaviours.end());
-		}
-
-		mDestroyQueue.clear();
-	}
+	void ClearDestroyQueue();
 
 private:
 	void registerForUpdates(MonoBehaviour* obj)

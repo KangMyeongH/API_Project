@@ -1,0 +1,3 @@
+HUD_Dashmark_Idle.png,112,112,12
+HUD_Dashmark_Off.png,112,112,3
+HUD_Dashmark_On.png,112,112,3

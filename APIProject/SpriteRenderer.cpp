@@ -90,5 +90,4 @@ void SpriteRenderer::SetFrame(int frame)
 void SpriteRenderer::Destroy()
 {
 	RenderManager::GetInstance().RemoveSprite(this);
-	mOwner->RemoveComponent(this);
 }

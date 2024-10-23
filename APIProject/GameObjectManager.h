@@ -31,6 +31,11 @@ public:
 		mDestroyQueue.push_back(gameObject);
 	}
 
+	GameObjectList* GetGameObjectList()
+	{
+		return mGameObjects;
+	}
+
 	GameObjectList* GetGameObjectsForTag(Tag tag)
 	{
 		return &mGameObjects[tag];

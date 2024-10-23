@@ -3,13 +3,13 @@
 
 #include "GameObject.h"
 #include "MonoBehaviour.h"
+class ChargeDashAttackState;
 class SwingState;
 class ClimbingState;
 class ExcState;
 class ExcDashState;
 class Grab;
 class GrabObject;
-class Ray;
 class ChargeDashState;
 class Collider;
 class JumpState;
@@ -26,11 +26,12 @@ public:
 	explicit Player(GameObject* owner) : MonoBehaviour(owner), mKeyMgr(nullptr), mRigidbody(nullptr),
 	                                     mTransform(nullptr), mCollider(nullptr),
 	                                     mAnimator(nullptr),
-	                                     mStateMachine(nullptr), mRay(nullptr), mGrab(nullptr), mTargetEnemy(nullptr),
-	                                     mTargetPlatform(nullptr),
+	                                     mStateMachine(nullptr), mGrab(nullptr), mTargetEnemy(nullptr),
+	                                     mTargetPlatform(nullptr), mChargeTarget(nullptr),
 	                                     mFovAngle(0),
 	                                     mFovLength(0), mLineAnimationOffset(0),
 	                                     Idle(nullptr), Run(nullptr), Jump(nullptr), ChargeDash(nullptr),
+	                                     ChargeAttack(nullptr),
 	                                     ExcDash(nullptr), Exc(nullptr), Climbing(nullptr), Swing(nullptr),
 	                                     Speed(0), JumpPower(0), IsGrounded(false), IsClimb(false)
 	{
@@ -57,16 +58,18 @@ public:
 	bool IsEnemyVisible(Vector2 enemyPosition, GameObject* enemy);
 
 	void SetGrab(Grab* grab) { mGrab = grab; }
+	void SetChargeTarget(GameObject* target) { mChargeTarget = target; }
 
-	KeyManager* GetKeyMgr() const { return mKeyMgr; }
-	Rigidbody* 	GetRigidbody() const { return mRigidbody; }
-	Animator* 	GetAnimator() const { return mAnimator; }
-	AnimationInfo* FindAniInfo(const TCHAR* key);
-	GameObject* GetTarget() const { return mTargetEnemy; }
-	GameObject* GetTargetPlatform() const { return mTargetPlatform; }
-	StateMachine* GetStateMachine() const { return  mStateMachine; }
-	Grab* GetGrab() const { return mGrab; }
-	const Vector2& GetGrabPoint() const { return mGrabPoint; }
+	KeyManager* 	GetKeyMgr() const { return mKeyMgr; }
+	Rigidbody* 		GetRigidbody() const { return mRigidbody; }
+	Animator* 		GetAnimator() const { return mAnimator; }
+	AnimationInfo* 	FindAniInfo(const TCHAR* key);
+	GameObject* 	GetTarget() const { return mTargetEnemy; }
+	GameObject* 	GetTargetPlatform() const { return mTargetPlatform; }
+	GameObject* 	GetChargeTarget() const { return  mChargeTarget; }
+	StateMachine* 	GetStateMachine() const { return  mStateMachine; }
+	Grab* 			GetGrab() const { return mGrab; }
+	const Vector2& 	GetGrabPoint() const { return mGrabPoint; }
 
 private:
 	bool LineIntersectsRect(Vector2 p1, Vector2 direction, D2D1_RECT_F rect);
@@ -105,10 +108,10 @@ private:
 	Animator* mAnimator;
 	StateMachine* mStateMachine;
 
-	Ray* mRay;
 	Grab* mGrab;
 	GameObject* mTargetEnemy;
 	GameObject* mTargetPlatform;
+	GameObject* mChargeTarget;
 	Vector2 mGrabPoint;
 	float mFovAngle;
 	float mFovLength;
@@ -117,14 +120,15 @@ private:
 
 public:
 	std::unordered_map<const TCHAR*, AnimationInfo*> AnimationMap;
-	IdleState* 			Idle;
-	RunState* 			Run;
-	JumpState* 			Jump;
-	ChargeDashState* 	ChargeDash;
-	ExcDashState* 		ExcDash;
-	ExcState* 			Exc;
-	ClimbingState* 		Climbing;
-	SwingState* 		Swing;
+	IdleState* 				Idle;
+	RunState* 				Run;
+	JumpState* 				Jump;
+	ChargeDashState* 		ChargeDash;
+	ChargeDashAttackState* 	ChargeAttack;
+	ExcDashState* 			ExcDash;
+	ExcState* 				Exc;
+	ClimbingState* 			Climbing;
+	SwingState* 			Swing;
 	
 	float		Speed;
 	float		JumpPower;

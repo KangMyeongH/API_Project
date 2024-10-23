@@ -32,6 +32,8 @@ public:
 
 	Transform* GetTarget() const { return mTarget; }
 
+	const Vector2& GetTargetPosition() const { return mTargetPosition; }
+
 	void Debug(ID2D1HwndRenderTarget* render) override;
 
 	AnimationInfo* FindAniInfo(const TCHAR* key);

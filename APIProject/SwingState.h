@@ -45,7 +45,8 @@ private:
 
 	float easeInOutQuint(float t)
 	{
-		return (t == 1.0f) ? 1.0f : 1 - pow(2, -10 * t);
+		return t < 0.5f ? 16.f * t * t * t * t * t : 1.f - pow(-2.f * t + 2.f, 5.f) / 2.f;
+		//return (t == 1.0f) ? 1.0f : 1 - pow(2, -10 * t);
 	}
 
 public:

@@ -7,5 +7,4 @@
 void MonoBehaviour::Destroy()
 {
 	MonoBehaviourManager::GetInstance().RemoveBehaviour(this);
-	mOwner->RemoveComponent(this);
 }

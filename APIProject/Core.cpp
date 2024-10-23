@@ -9,7 +9,6 @@
 #include "MajorBossRoomScene.h"
 #include "MonoBehaviourManager.h"
 #include "PhysicsManager.h"
-#include "Ray.h"
 #include "RenderManager.h"
 #include "SceneManager.h"
 #include "TimeManager.h"
@@ -119,7 +118,6 @@ void Core::render()
 	mRenderMgr->Rendering(gRenderTarget);
 	mCollisionMgr->Debug(gRenderTarget);
 	mMonoBehaviourMgr->Debug(gRenderTarget);
-	Ray::GetInstance().Debug(gRenderTarget);
 
 	HRESULT hr = gRenderTarget->EndDraw();
 }

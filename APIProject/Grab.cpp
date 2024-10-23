@@ -51,7 +51,6 @@ void Grab::FixedUpdate()
 				mOwner->GetComponent<SpriteRenderer>()->SetEnable(false);
 				mOwner->GetComponent<Animator>()->SetEnable(false);
 				mOwner->GetComponent<BoxCollider>()->SetEnable(false);
-				Camera::GetInstance().Shake(0.05f, 10.f);
 				mPlayer->GetStateMachine()->ChangeState(mPlayer->ExcDash);
 			}
 
@@ -60,7 +59,6 @@ void Grab::FixedUpdate()
 				mOwner->GetComponent<SpriteRenderer>()->SetEnable(false);
 				mOwner->GetComponent<Animator>()->SetEnable(false);
 				mOwner->GetComponent<BoxCollider>()->SetEnable(false);
-				Camera::GetInstance().Shake(0.05f, 10.f);
 				mPlayer->GetStateMachine()->ChangeState(mPlayer->Swing);
 			}
 		}
@@ -76,6 +74,7 @@ void Grab::Shoot()
 {
 	if (!mIsShoot)
 	{
+		Camera::GetInstance().Shake(0.05f, 10.f);
 		mOwner->GetComponent<SpriteRenderer>()->SetEnable(true);
 		mOwner->GetComponent<Animator>()->SetEnable(true);
 		mOwner->GetComponent<BoxCollider>()->SetEnable(true);
@@ -88,7 +87,7 @@ void Grab::Shoot()
 			mTargetPosition = mTarget->GetWorldPosition();
 		}
 
-		else if(mPlayer->GetTargetPlatform())
+		else if (mPlayer->GetTargetPlatform())
 		{
 			mTarget = mPlayer->GetTargetPlatform()->GetTransform();
 			mTargetPosition = mPlayer->GetGrabPoint();

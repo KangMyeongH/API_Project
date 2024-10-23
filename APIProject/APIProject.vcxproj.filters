@@ -261,9 +261,6 @@
     <ClInclude Include="Image.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Ray.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="EnemyObject.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -322,6 +319,24 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Fade.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBirdPlatformObj.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBirdManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ChargeDashAttackState.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBirdPlatform.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBird.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBirdObj.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -443,9 +458,6 @@
     <ClCompile Include="Image.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Ray.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="EnemyObject.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -501,6 +513,24 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Fade.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBirdPlatformObj.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBirdManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ChargeDashAttackState.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBirdPlatform.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBird.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBirdObj.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

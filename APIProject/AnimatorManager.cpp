@@ -2,6 +2,7 @@
 #include "AnimatorManager.h"
 
 #include "Animator.h"
+#include "GameObjectManager.h"
 
 AnimatorManager::~AnimatorManager()
 {
@@ -37,6 +38,20 @@ void AnimatorManager::ClearDestroyAnimatorQueue()
 {
 	for (auto& animator : mDestroyAnimatorQueue)
 	{
+		GameObjectList* objList = GameObjectManager::GetInstance().GetGameObjectList();
+		for (int i = 0; i < END_TAG; ++i)
+		{
+			for (auto& go : objList[i])
+			{
+				if (go == animator->GetGameObject())
+				{
+					animator->GetGameObject()->RemoveComponent(animator);
+					i = END_TAG;
+					break;
+				}
+			}
+		}
+
 		delete animator;
 		mAnimators.erase(std::remove(mAnimators.begin(), mAnimators.end(), animator), mAnimators.end());
 	}

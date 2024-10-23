@@ -26,6 +26,7 @@ void SceneManager::RegisterScene()
 		delete mCurrentScene;
 		mPendingScene->Init();
 		mCurrentScene = mPendingScene;
+		mPendingScene = nullptr;
 	}
 }
 

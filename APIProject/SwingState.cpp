@@ -44,6 +44,8 @@ void SwingState::HandleInput()
 	if (mPlayer->GetKeyMgr()->Key_Down(VK_SHIFT))
 	{
 		mIsDash = true;
+		if (mRight) mPlayer->GetAnimator()->Flip(false);
+		else mPlayer->GetAnimator()->Flip(true);
 	}
 
 	if (mPlayer->GetKeyMgr()->Key_Pressing(VK_SHIFT))
@@ -59,7 +61,8 @@ void SwingState::HandleInput()
 
 void SwingState::LogicUpdate()
 {
-	mPlayer->GetGameObject()->GetComponent<SpriteRenderer>()->SetAngle(Vector2::GetAngle(mPlayer->GetTransform()->GetWorldPosition(), mPivot) + 90.f);
+	Vector2 position = { mPlayer->GetTransform()->GetWorldPosition().x, mPlayer->GetTransform()->GetWorldPosition().y };
+	mPlayer->GetGameObject()->GetComponent<SpriteRenderer>()->SetAngle(Vector2::GetAngle(position, mPivot) + 90.f);
 }
 
 void SwingState::PhysicsUpdate()
@@ -83,7 +86,7 @@ void SwingState::Exit()
 void SwingState::StartSwinging()
 {
 	mPlayer->GetRigidbody()->SetUseGravity(false);
-	mPivot = mPlayer->GetGrabPoint();
+	mPivot = mPlayer->GetGrab()->GetTargetPosition();
 
 	Vector2 startPos = { mPlayer->GetTransform()->GetWorldPosition().x, mPlayer->GetTransform()->GetWorldPosition().y - mPlayer->GetTransform()->GetWorldScale().y * 0.5f };
 	mLength = Vector2::Distance(startPos, mPivot);
@@ -96,7 +99,7 @@ void SwingState::StartSwinging()
 	Vector2 initialVelocity = mPlayer->GetRigidbody()->GetVelocity();
 
 	float initialSpeed = sqrt(initialVelocity.x * initialVelocity.x + initialVelocity.y * initialVelocity.y);
-	mOmega = initialSpeed / mLength /10.f; // 초기 각 속도
+	mOmega = initialSpeed / mMaxLineLength /10.f; // 초기 각 속도
 	float directionSign = (initialVelocity.x * -sin(mTheta) + initialVelocity.y * cos(mTheta)) >= 0 ? 1.0f : -1.0f;
 	mOmega *= directionSign; // 각속도의 방향 반영
 
@@ -113,7 +116,7 @@ void SwingState::Swinging()
 {
 	if (mMaxLineLength < mLength)
 	{
-		mLength -= 25.f;
+		mLength -= 8.f;
 		if (mLength <= mMaxLineLength)
 		{
 			mLength = mMaxLineLength;
@@ -123,11 +126,11 @@ void SwingState::Swinging()
 	if (mIsDash && !mIsFinish)
 	{
 		mCurrentTime += TimeManager::GetInstance().GetDeltaTime();
-		float duration = 1.5f;
+		float duration = .5f;
 		float t = mCurrentTime / duration;
 		float easeFactor = easeInOutQuint(t);
 
-		if (easeFactor >= 1.5f)
+		if (mCurrentTime >= duration)
 		{
 			mCurrentTime = mTime;
 			mIsFinish = true;
@@ -154,12 +157,26 @@ void SwingState::Swinging()
 		}
 	}
 
-	mOmega += (-mGravity / mLength * sin(mTheta)) * mTime * 2;
+	float lengthRatio = 1.f;
+	if (mLength < mMaxLineLength)
+	{
+		lengthRatio = mMaxLineLength / mLength;
+	}
 
-	float linearVelocity = mOmega * mLength;
-	Vector2 direction = { -sin(mTheta), cos(mTheta) };
+	mOmega += (-mGravity / mMaxLineLength * sin(mTheta)) * mTime;
 
-	mTheta += mOmega * mTime * 2;
+
+
+
+	if (abs(mOmega) >= mMaxOmega + 0.05f)
+	{
+		if (mOmega < 0) mOmega = -(mMaxOmega + 0.05f);
+		else if (mOmega > 0) mOmega = mMaxOmega + 0.05f;
+	}
+
+	float adjustedOmega = mOmega * lengthRatio;
+
+	mTheta += adjustedOmega * mTime;
 
 	// 새로운 위치 계산
 	float newX = mPivot.x + mLength * sin(mTheta);
@@ -204,14 +221,14 @@ void SwingState::Debug(ID2D1HwndRenderTarget* render)
 	Vector2 startPos = { mPlayer->GetTransform()->GetWorldPosition().x, mPlayer->GetTransform()->GetWorldPosition().y - mPlayer->GetTransform()->GetWorldScale().y * 0.5f };
 
 
-	D2D1_POINT_2F p1 = Camera::GetInstance().WorldToScreenVector({ startPos.x, startPos.y });
+	D2D1_POINT_2F p1 = Camera::GetInstance().WorldToScreenVector({ startPos.x, startPos.y - 9.f });
 	D2D1_POINT_2F p2 = Camera::GetInstance().WorldToScreenVector({ mPivot.x, mPivot.y });
 
 	render->DrawLine(
 		p1,
 		p2,
 		brush,
-		1.0f,
+		5.0f,
 		nullptr
 	);
 

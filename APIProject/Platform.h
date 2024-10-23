@@ -6,6 +6,7 @@ class Platform : public MonoBehaviour
 {
 public:
 	Platform(GameObject* owner) : MonoBehaviour(owner), mType(), mCanHit(false), mIsGrab(false) {}
+	Platform(GameObject* owner, bool canHit, bool canGrab) : MonoBehaviour(owner), mType(), mCanHit(canHit), mIsGrab(canGrab) {}
 
 	void SetType(PlatformType type) { mType = type; }
 

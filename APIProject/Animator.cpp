@@ -62,7 +62,6 @@ void Animator::Flip(bool flip)
 void Animator::Destroy()
 {
 	AnimatorManager::GetInstance().RemoveAnimator(this);
-	mOwner->RemoveComponent(this);
 }
 
 void Animator::SetNextMotion(AnimationInfo* nextMotion)

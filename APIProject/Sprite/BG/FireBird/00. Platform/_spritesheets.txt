@@ -1,0 +1,7 @@
+FireBird_PlatformA_Booster.png,304,192,8
+FireBird_PlatformA_Damaged.png,304,192,4
+FireBird_PlatformA_DamagedWarning.png,304,192,4
+FireBird_PlatformA_Destory.png,304,192,2
+FireBird_PlatformA_Idle.png,304,192,4
+FireBird_PlatformA_IdleDoubleWarning.png,304,192,4
+FireBird_PlatformA_IdleWarning.png,304,192,4

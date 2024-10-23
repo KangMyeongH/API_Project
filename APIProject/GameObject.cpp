@@ -7,6 +7,11 @@
 void GameObject::Destroy()
 {
 	GameObjectManager::GetInstance().RemoveGameObject(this);
+	for (auto& component : mComponents)
+	{
+		component->Destroy();
+	}
+
 	for (auto it = mTransform.GetChildren().begin(); it != mTransform.GetChildren().end();)
 	{
 		(*it)->GetGameObject()->Destroy();

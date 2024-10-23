@@ -3,6 +3,7 @@
 
 #include "Collision.h"
 #include "GameObject.h"
+#include "GameObjectManager.h"
 #include "Rigidbody.h"
 
 CollisionManager::~CollisionManager()
@@ -40,6 +41,20 @@ void CollisionManager::ClearDestroyColliderQueue()
 {
 	for (auto& obj : mDestroyColliderQueue)
 	{
+		GameObjectList* objList = GameObjectManager::GetInstance().GetGameObjectList();
+		for (int i = 0; i < END_TAG; ++i)
+		{
+			for (auto& go : objList[i])
+			{
+				if (go == obj->GetGameObject())
+				{
+					obj->GetGameObject()->RemoveComponent(obj);
+					i = END_TAG;
+					break;
+				}
+			}
+		}
+
 		delete obj;
 		mColliders.erase(std::remove(mColliders.begin(), mColliders.end(), obj), mColliders.end());
 

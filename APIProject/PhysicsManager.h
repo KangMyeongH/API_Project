@@ -34,16 +34,7 @@ public:
 		mDestroyRigidbodyQueue.push_back(rigidbody);
 	}
 
-	void ClearDestroyRigidbodyQueue()
-	{
-		for (auto& obj : mDestroyRigidbodyQueue)
-		{
-			delete obj;
-			unregisterFromRigidbodyUpdates(obj);
-		}
-
-		mDestroyRigidbodyQueue.clear();
-	}
+	void ClearDestroyRigidbodyQueue();
 
 private:
 	void registerForRigidbodyUpdate(Rigidbody* rigidbody)

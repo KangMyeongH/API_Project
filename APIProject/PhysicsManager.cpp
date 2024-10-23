@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "PhysicsManager.h"
 #include "GameObject.h"
+#include "GameObjectManager.h"
 
 PhysicsManager::~PhysicsManager()
 {
@@ -42,4 +43,29 @@ void PhysicsManager::RigidbodyUpdate(const float deltaTime) const
 			rigidbody->Update(deltaTime);
 		}
 	}
+}
+
+void PhysicsManager::ClearDestroyRigidbodyQueue()
+{
+	for (auto& obj : mDestroyRigidbodyQueue)
+	{
+		GameObjectList* objList = GameObjectManager::GetInstance().GetGameObjectList();
+		for (int i = 0; i < END_TAG; ++i)
+		{
+			for (auto& go : objList[i])
+			{
+				if (go == obj->GetGameObject())
+				{
+					obj->GetGameObject()->RemoveComponent(obj);
+					i = END_TAG;
+					break;
+				}
+			}
+		}
+
+		delete obj;
+		unregisterFromRigidbodyUpdates(obj);
+	}
+
+	mDestroyRigidbodyQueue.clear();
 }

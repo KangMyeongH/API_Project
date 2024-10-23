@@ -144,6 +144,7 @@
     <ClInclude Include="BitMapManager.h" />
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="ChargeDashAttackState.h" />
     <ClInclude Include="ChargeDashState.h" />
     <ClInclude Include="ClimbingState.h" />
     <ClInclude Include="Collider.h" />
@@ -157,9 +158,14 @@
     <ClInclude Include="ExcDashState.h" />
     <ClInclude Include="ExcState.h" />
     <ClInclude Include="Fade.h" />
+    <ClInclude Include="FireBird.h" />
     <ClInclude Include="FireBirdBGMid01Object.h" />
     <ClInclude Include="FireBirdBGMid02Object.h" />
     <ClInclude Include="FireBirdBGObject.h" />
+    <ClInclude Include="FireBirdManager.h" />
+    <ClInclude Include="FireBirdObj.h" />
+    <ClInclude Include="FireBirdPlatform.h" />
+    <ClInclude Include="FireBirdPlatformObj.h" />
     <ClInclude Include="FireBirdScene.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameObject.h" />
@@ -183,7 +189,6 @@
     <ClInclude Include="PlatformObject.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerObject.h" />
-    <ClInclude Include="Ray.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Rigidbody.h" />
@@ -211,6 +216,7 @@
     <ClCompile Include="BitMapManager.cpp" />
     <ClCompile Include="BoxCollider.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="ChargeDashAttackState.cpp" />
     <ClCompile Include="ChargeDashState.cpp" />
     <ClCompile Include="ClimbingState.cpp" />
     <ClCompile Include="Collider.cpp" />
@@ -223,9 +229,14 @@
     <ClCompile Include="ExcDashState.cpp" />
     <ClCompile Include="ExcState.cpp" />
     <ClCompile Include="Fade.cpp" />
+    <ClCompile Include="FireBird.cpp" />
     <ClCompile Include="FireBirdBGMid01Object.cpp" />
     <ClCompile Include="FireBirdBGMid02Object.cpp" />
     <ClCompile Include="FireBirdBGObject.cpp" />
+    <ClCompile Include="FireBirdManager.cpp" />
+    <ClCompile Include="FireBirdObj.cpp" />
+    <ClCompile Include="FireBirdPlatform.cpp" />
+    <ClCompile Include="FireBirdPlatformObj.cpp" />
     <ClCompile Include="FireBirdScene.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />
@@ -253,7 +264,6 @@
     <ClCompile Include="PlatformObject.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerObject.cpp" />
-    <ClCompile Include="Ray.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="Rigidbody.cpp" />
     <ClCompile Include="RunState.cpp" />
