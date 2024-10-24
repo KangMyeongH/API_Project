@@ -5,7 +5,7 @@
 
 class GameObject;
 
-enum { WIN_WIDTH = 1980, WIN_HEIGHT = 1080 };
+enum { WIN_WIDTH = 1920, WIN_HEIGHT = 1080 };
 enum Tag
 {
 	UNTAGGED,

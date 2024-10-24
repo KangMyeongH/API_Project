@@ -6,12 +6,12 @@
 
 RenderManager::~RenderManager()
 {
-	for (auto& sprite : mSprites)
+	for (auto& sprite : mRenders)
 	{
 		delete sprite;
 	}
 
-	for (auto& sprite : mPendingSpriteQueue)
+	for (auto& sprite : mPendingRenderQueue)
 	{
 		delete sprite;
 	}
@@ -19,15 +19,15 @@ RenderManager::~RenderManager()
 
 void RenderManager::RegisterForUpdate()
 {
-	for (auto it = mPendingSpriteQueue.begin(); it != mPendingSpriteQueue.end();)
+	for (auto it = mPendingRenderQueue.begin(); it != mPendingRenderQueue.end();)
 	{
-		SpriteRenderer* sprite = *it;
+		Renderer* sprite = *it;
 
 		if (sprite->IsEnabled())
 		{
-			mSprites.push_back(sprite);
+			mRenders.push_back(sprite);
 			mLayerMultiMap.insert({ sprite->GetLayer(),sprite });
-			it = mPendingSpriteQueue.erase(it);
+			it = mPendingRenderQueue.erase(it);
 		}
 
 		else ++it;
@@ -37,7 +37,7 @@ void RenderManager::RegisterForUpdate()
 
 void RenderManager::ClearDestroyColliderQueue()
 {
-	for (auto& sprite : mDestroySpriteQueue)
+	for (auto& sprite : mDestroyRenderQueue)
 	{
 		GameObjectList* objList = GameObjectManager::GetInstance().GetGameObjectList();
 		for (int i = 0; i < END_TAG; ++i)
@@ -55,7 +55,7 @@ void RenderManager::ClearDestroyColliderQueue()
 
 		delete sprite;
 
-		mSprites.erase(std::remove(mSprites.begin(), mSprites.end(), sprite), mSprites.end());
+		mRenders.erase(std::remove(mRenders.begin(), mRenders.end(), sprite), mRenders.end());
 		for (auto it = mLayerMultiMap.begin(); it != mLayerMultiMap.end();)
 		{
 			if (it->second == sprite)
@@ -67,17 +67,17 @@ void RenderManager::ClearDestroyColliderQueue()
 		}
 	}
 
-	mDestroySpriteQueue.clear();
+	mDestroyRenderQueue.clear();
 }
 
-void RenderManager::AddSprite(SpriteRenderer* sprite)
+void RenderManager::AddRenderer(Renderer* sprite)
 {
-	mPendingSpriteQueue.push_back(sprite);
+	mPendingRenderQueue.push_back(sprite);
 }
 
-void RenderManager::RemoveSprite(SpriteRenderer* sprite)
+void RenderManager::RemoveRenderer(Renderer* sprite)
 {
-	mDestroySpriteQueue.push_back(sprite);
+	mDestroyRenderQueue.push_back(sprite);
 }
 
 /*
@@ -98,4 +98,21 @@ void RenderManager::Rendering(ID2D1HwndRenderTarget* render) const
 			sprite.second->Render(render);
 		}
 	}
+}
+
+void RenderManager::Release()
+{
+	for (auto& sprite : mRenders)
+	{
+		delete sprite;
+	}
+
+	for (auto& sprite : mPendingRenderQueue)
+	{
+		delete sprite;
+	}
+
+	mRenders.clear();
+	mPendingRenderQueue.clear();
+	mLayerMultiMap.clear();
 }

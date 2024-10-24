@@ -46,6 +46,8 @@ public:
 	static void AdjustRect(Collider* collider, Collider* other, CollisionDirection dir);
 
 	void Debug(ID2D1HwndRenderTarget* render);
+
+	void Release();
 	
 
 private:

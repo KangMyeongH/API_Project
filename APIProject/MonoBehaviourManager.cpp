@@ -45,3 +45,28 @@ void MonoBehaviourManager::ClearDestroyQueue()
 
 	mDestroyQueue.clear();
 }
+
+void MonoBehaviourManager::Release()
+{
+	for (auto& mb : mMonoBehaviours)
+	{
+		delete mb;
+	}
+
+	for (auto& mb : mPendingQueue)
+	{
+		delete mb;
+	}
+
+	for (auto& mb : mDestroyQueue)
+	{
+		delete mb;
+	}
+
+	mMonoBehaviours.clear();
+	mPendingQueue.clear();
+	mUpdateMonoBehaviours.clear();
+	mFixedUpdateMonoBehaviours.clear();
+	mLateUpdateMonoBehaviours.clear();
+	mDestroyQueue.clear();
+}

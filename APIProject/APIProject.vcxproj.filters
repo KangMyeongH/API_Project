@@ -121,6 +121,18 @@
     <Filter Include="02. Scripts\05. FireBird">
       <UniqueIdentifier>{c50dfe2a-9876-4404-8e23-d1d5f2fbb532}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02. Scripts\00. Scene\00. TitleScene">
+      <UniqueIdentifier>{575aaed7-317e-4185-b173-66964e6a42ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Core\03. Manager\10. Image">
+      <UniqueIdentifier>{12f05890-a4f4-464c-8580-5f3e0a45a947}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Scripts\06. Platform">
+      <UniqueIdentifier>{7871ae98-0276-4eb1-8d7c-a09994359710}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Scripts\07. VFX">
+      <UniqueIdentifier>{4cd90a05-b6b0-4757-808f-8b81cac1a3b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="APIProject.h">
@@ -198,9 +210,6 @@
     <ClInclude Include="SceneManager.h">
       <Filter>01. Core\03. Manager\05. Scene</Filter>
     </ClInclude>
-    <ClInclude Include="TitleScene.h">
-      <Filter>02. Scripts\00. Scene</Filter>
-    </ClInclude>
     <ClInclude Include="RenderManager.h">
       <Filter>01. Core\03. Manager\06. Render</Filter>
     </ClInclude>
@@ -252,41 +261,11 @@
     <ClInclude Include="MajorBossRoomFront.h">
       <Filter>02. Scripts\04. MajorBossRoom</Filter>
     </ClInclude>
-    <ClInclude Include="Platform.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="ImageManager.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Image.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="EnemyObject.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="GrabObject.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Grab.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="PlatformObject.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="AnimationCurve.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="FireBirdScene.h">
       <Filter>02. Scripts\05. FireBird</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollBG.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrollBGObject.h">
-      <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="JumpState.h">
       <Filter>02. Scripts\03. Player\01. State</Filter>
@@ -308,18 +287,6 @@
     </ClInclude>
     <ClInclude Include="SwingJumpState.h">
       <Filter>02. Scripts\03. Player\01. State</Filter>
-    </ClInclude>
-    <ClInclude Include="Fade.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="ChargeDashAttackState.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Effect.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="EffectObj.h">
-      <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="FireBirdWing.h">
       <Filter>02. Scripts\05. FireBird</Filter>
@@ -360,20 +327,113 @@
     <ClInclude Include="WingObj.h">
       <Filter>02. Scripts\05. FireBird</Filter>
     </ClInclude>
-    <ClInclude Include="FireBirdAimObj.h">
+    <ClInclude Include="Mouse.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseObj.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="MainSceneBG.h">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="MainSceneBGObj.h">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="MainTitleBG.h">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="MainTitleBGObj.h">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="MainTitleButton.h">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="MainTitleButtonObj.h">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBirdAimObj.h">
+      <Filter>02. Scripts\05. FireBird</Filter>
     </ClInclude>
     <ClInclude Include="FireBirdBodyVFX.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>02. Scripts\05. FireBird</Filter>
     </ClInclude>
     <ClInclude Include="FireBirdBodyVFXObj.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>02. Scripts\05. FireBird</Filter>
     </ClInclude>
     <ClInclude Include="FireBirdClusterAim.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>02. Scripts\05. FireBird</Filter>
     </ClInclude>
     <ClInclude Include="FireBirdClusterAimObj.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>02. Scripts\05. FireBird</Filter>
+    </ClInclude>
+    <ClInclude Include="SNBLogoObj.h">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="JusinLogo.h">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="JusinLogoObj.h">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="SNBLogo.h">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRenderer.h">
+      <Filter>01. Core\02. Component\05. Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>01. Core\02. Component\05. Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageManager.h">
+      <Filter>01. Core\03. Manager\10. Image</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>01. Core\03. Manager\10. Image</Filter>
+    </ClInclude>
+    <ClInclude Include="PlatformObject.h">
+      <Filter>02. Scripts\06. Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform.h">
+      <Filter>02. Scripts\06. Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="EffectObj.h">
+      <Filter>02. Scripts\07. VFX</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect.h">
+      <Filter>02. Scripts\07. VFX</Filter>
+    </ClInclude>
+    <ClInclude Include="Fade.h">
+      <Filter>02. Scripts\07. VFX</Filter>
+    </ClInclude>
+    <ClInclude Include="FadeObj.h">
+      <Filter>02. Scripts\07. VFX</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrollBGObject.h">
+      <Filter>02. Scripts\07. VFX</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrollBG.h">
+      <Filter>02. Scripts\07. VFX</Filter>
+    </ClInclude>
+    <ClInclude Include="BlackBGObj.h">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Grab.h">
+      <Filter>02. Scripts\03. Player</Filter>
+    </ClInclude>
+    <ClInclude Include="GrabObject.h">
+      <Filter>02. Scripts\03. Player</Filter>
+    </ClInclude>
+    <ClInclude Include="ChargeDashAttackState.h">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationCurve.h">
+      <Filter>01. Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>01. Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -431,9 +491,6 @@
     <ClCompile Include="SceneManager.cpp">
       <Filter>01. Core\03. Manager\05. Scene</Filter>
     </ClCompile>
-    <ClCompile Include="TitleScene.cpp">
-      <Filter>02. Scripts\00. Scene</Filter>
-    </ClCompile>
     <ClCompile Include="RenderManager.cpp">
       <Filter>01. Core\03. Manager\06. Render</Filter>
     </ClCompile>
@@ -485,38 +542,11 @@
     <ClCompile Include="MajorBossRoomClockIdle.cpp">
       <Filter>02. Scripts\04. MajorBossRoom</Filter>
     </ClCompile>
-    <ClCompile Include="Platform.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="ImageManager.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Image.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="EnemyObject.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="GrabObject.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Grab.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="PlatformObject.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="FireBirdScene.cpp">
       <Filter>02. Scripts\05. FireBird</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollBG.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrollBGObject.cpp">
-      <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="JumpState.cpp">
       <Filter>02. Scripts\03. Player\01. State</Filter>
@@ -538,18 +568,6 @@
     </ClCompile>
     <ClCompile Include="SwingJumpState.cpp">
       <Filter>02. Scripts\03. Player\01. State</Filter>
-    </ClCompile>
-    <ClCompile Include="Fade.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="ChargeDashAttackState.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Effect.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="EffectObj.cpp">
-      <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="FireBird.cpp">
       <Filter>02. Scripts\05. FireBird</Filter>
@@ -590,20 +608,110 @@
     <ClCompile Include="WingObj.cpp">
       <Filter>02. Scripts\05. FireBird</Filter>
     </ClCompile>
-    <ClCompile Include="FireBirdAimObj.cpp">
+    <ClCompile Include="Mouse.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseObj.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="BlackBGObj.cpp">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="MainSceneBG.cpp">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="MainSceneBGObj.cpp">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="MainTitleBG.cpp">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="MainTitleBGObj.cpp">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="MainTitleButton.cpp">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="MainTitleButtonObj.cpp">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBirdAimObj.cpp">
+      <Filter>02. Scripts\05. FireBird</Filter>
     </ClCompile>
     <ClCompile Include="FireBirdBodyVFX.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>02. Scripts\05. FireBird</Filter>
     </ClCompile>
     <ClCompile Include="FireBirdBodyVFXObj.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>02. Scripts\05. FireBird</Filter>
     </ClCompile>
     <ClCompile Include="FireBirdClusterAim.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>02. Scripts\05. FireBird</Filter>
     </ClCompile>
     <ClCompile Include="FireBirdClusterAimObj.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>02. Scripts\05. FireBird</Filter>
+    </ClCompile>
+    <ClCompile Include="JusinLogo.cpp">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="JusinLogoObj.cpp">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="SNBLogo.cpp">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="SNBLogoObj.cpp">
+      <Filter>02. Scripts\00. Scene\00. TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="TextRenderer.cpp">
+      <Filter>01. Core\02. Component\05. Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>01. Core\02. Component\05. Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageManager.cpp">
+      <Filter>01. Core\03. Manager\10. Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>01. Core\03. Manager\10. Image</Filter>
+    </ClCompile>
+    <ClCompile Include="PlatformObject.cpp">
+      <Filter>02. Scripts\06. Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform.cpp">
+      <Filter>02. Scripts\06. Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="EffectObj.cpp">
+      <Filter>02. Scripts\07. VFX</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect.cpp">
+      <Filter>02. Scripts\07. VFX</Filter>
+    </ClCompile>
+    <ClCompile Include="Fade.cpp">
+      <Filter>02. Scripts\07. VFX</Filter>
+    </ClCompile>
+    <ClCompile Include="FadeObj.cpp">
+      <Filter>02. Scripts\07. VFX</Filter>
+    </ClCompile>
+    <ClCompile Include="ScrollBGObject.cpp">
+      <Filter>02. Scripts\07. VFX</Filter>
+    </ClCompile>
+    <ClCompile Include="ScrollBG.cpp">
+      <Filter>02. Scripts\07. VFX</Filter>
+    </ClCompile>
+    <ClCompile Include="Grab.cpp">
+      <Filter>02. Scripts\03. Player</Filter>
+    </ClCompile>
+    <ClCompile Include="GrabObject.cpp">
+      <Filter>02. Scripts\03. Player</Filter>
+    </ClCompile>
+    <ClCompile Include="ChargeDashAttackState.cpp">
+      <Filter>02. Scripts\03. Player\01. State</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>01. Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

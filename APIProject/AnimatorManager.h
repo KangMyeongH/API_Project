@@ -27,6 +27,8 @@ public:
 
 	void UpdateAnimator();
 
+	void Release();
+
 private:
 	std::vector<Animator*> 		mAnimators;
 	std::list<Animator*>		mPendingAnimatorQueue;

@@ -232,6 +232,23 @@ void CollisionManager::Debug(ID2D1HwndRenderTarget* render)
 	}
 }
 
+void CollisionManager::Release()
+{
+	for (auto& collider : mColliders)
+	{
+		delete collider;
+	}
+
+	for (auto& collider : mPendingColliderQueue)
+	{
+		delete collider;
+	}
+
+	mColliders.clear();
+	mPendingColliderQueue.clear();
+	mCollisionMap.clear();
+}
+
 
 /*
 bool CollisionManager::CanCollide(const Collider* colliderA, const Collider* colliderB)

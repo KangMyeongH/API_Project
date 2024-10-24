@@ -1,6 +1,7 @@
 #pragma once
 #include <map>
 #include <vector>
+class Renderer;
 class SpriteRenderer;
 
 class RenderManager
@@ -21,18 +22,18 @@ public:
 
 	void ClearDestroyColliderQueue();
 
-	void AddSprite(SpriteRenderer* sprite);
+	void AddRenderer(Renderer* sprite);
 
-	void RemoveSprite(SpriteRenderer* sprite);
-
-	//void Rendering(HDC hdc) const;
+	void RemoveRenderer(Renderer* sprite);
 
 	void Rendering(ID2D1HwndRenderTarget* render) const;
 
+	void Release();
+
 private:
-	std::vector<SpriteRenderer*> 				mSprites;
-	std::multimap<int, SpriteRenderer*>			mLayerMultiMap;
-	std::list<SpriteRenderer*>					mPendingSpriteQueue;
-	std::list<SpriteRenderer*>					mDestroySpriteQueue;
+	std::vector<Renderer*> 					mRenders;
+	std::multimap<int, Renderer*>			mLayerMultiMap;
+	std::list<Renderer*>					mPendingRenderQueue;
+	std::list<Renderer*>					mDestroyRenderQueue;
 };
 

@@ -58,9 +58,9 @@ public:
 			return component;
 		}
 
-		if (dynamic_cast<SpriteRenderer*>(component))
+		if (dynamic_cast<Renderer*>(component))
 		{
-			RenderManager::GetInstance().AddSprite(dynamic_cast<SpriteRenderer*>(component));
+			RenderManager::GetInstance().AddRenderer(dynamic_cast<Renderer*>(component));
 			return component;
 		}
 

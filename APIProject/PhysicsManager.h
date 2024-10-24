@@ -36,6 +36,8 @@ public:
 
 	void ClearDestroyRigidbodyQueue();
 
+	void Release();
+
 private:
 	void registerForRigidbodyUpdate(Rigidbody* rigidbody)
 	{

@@ -22,7 +22,7 @@ public:
 	Camera& operator=(Camera&&) = delete;
 
 public:
-	static Camera& GetInstance() { static Camera sMgr(990, 540, WIN_WIDTH, WIN_HEIGHT); return sMgr; }
+	static Camera& GetInstance() { static Camera sMgr(960, 540, WIN_WIDTH, WIN_HEIGHT); return sMgr; }
 
 	void SetTarget(Transform* target) { mTarget = target; }
 	void DetachTarget() { mTarget = nullptr; }

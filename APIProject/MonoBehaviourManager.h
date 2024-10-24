@@ -100,6 +100,8 @@ public:
 
 	void ClearDestroyQueue();
 
+	void Release();
+
 private:
 	void registerForUpdates(MonoBehaviour* obj)
 	{

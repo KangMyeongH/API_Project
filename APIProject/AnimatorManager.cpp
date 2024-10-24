@@ -79,3 +79,19 @@ void AnimatorManager::UpdateAnimator()
 		}
 	}
 }
+
+void AnimatorManager::Release()
+{
+	for (auto& animator : mAnimators)
+	{
+		delete animator;
+	}
+
+	for (auto& animator : mPendingAnimatorQueue)
+	{
+		delete animator;
+	}
+
+	mAnimators.clear();
+	mPendingAnimatorQueue.clear();
+}

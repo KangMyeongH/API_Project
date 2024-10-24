@@ -1,16 +1,16 @@
 #pragma once
-#include "Behaviour.h"
 #include "Camera.h"
 #include "GameObject.h"
+#include "Renderer.h"
 
 // 매게 변수로 hdc, width, height, layer를 받는다
-class SpriteRenderer : public Behaviour
+class SpriteRenderer : public Renderer
 {
 public:
 	explicit SpriteRenderer(GameObject* owner, int layer);
 	SpriteRenderer(GameObject* owner, ID2D1Bitmap* image, float width, float height, int layer);
 
-	void Render(ID2D1HwndRenderTarget* render) const
+	void Render(ID2D1HwndRenderTarget* render) override
 	{
 		D2D1_RECT_F screenRect = Camera::GetInstance().WorldToScreen(mRenderRect);
 
@@ -60,9 +60,9 @@ public:
 
 	void	SetScale(float scale) { mScale = scale; }
 
-	void	SetParallaxFactor(const Vector2& vel) { mParallaxFactor = vel; }
+	void	SetOpacity(float opacity) { mOpacity = opacity; }
 
-	int		GetLayer() const { return mLayer; }
+	void	SetParallaxFactor(const Vector2& vel) { mParallaxFactor = vel; }
 
 	float	GetWidth() const { return mWidth; }
 
@@ -86,7 +86,7 @@ private:
 	float 			mHeight;
 	float			mScale;
 	int				mFrame;
-	int				mLayer;
+	//int				mLayer;
 	bool			mFlip;
 	bool			mPivotDown;
 };

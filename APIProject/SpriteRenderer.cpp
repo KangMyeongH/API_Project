@@ -3,14 +3,13 @@
 
 #include "RenderManager.h"
 
-SpriteRenderer::SpriteRenderer(GameObject* owner, int layer) : Behaviour(owner), mImage(nullptr),
+SpriteRenderer::SpriteRenderer(GameObject* owner, int layer) : Renderer(owner,layer), mImage(nullptr),
                                                                mTargetRect({0, 0, 0, 0}),
                                                                mRenderRect({0, 0, 0, 0}), mParallaxFactor({1.f, 1.f}),
                                                                mAngle(0),
                                                                mOpacity(1.0f), mWidth(0),
                                                                mHeight(0), mScale(1.f),
                                                                mFrame(0),
-                                                               mLayer(layer),
                                                                mFlip(false),
                                                                mPivotDown(false)
 {
@@ -26,14 +25,14 @@ SpriteRenderer::SpriteRenderer(GameObject* owner, HDC hdc, float width, float he
 }*/
 
 SpriteRenderer::SpriteRenderer(GameObject* owner, ID2D1Bitmap* image, float width, float height, int layer)
-	: Behaviour(owner), mTransform(nullptr), mImage(image),
+	: Renderer(owner, layer), mTransform(nullptr), mImage(image),
 	  mTargetRect({0, 0, 0, 0}),
 	  mRenderRect({0, 0, 0, 0}), mParallaxFactor({1.f,1.f}), mAngle(0),
 	  mOpacity(1.0f),
 	  mWidth(width),
 	  mHeight(height), mScale(1.f),
 	  mFrame(0),
-	  mLayer(layer), mFlip(false), mPivotDown(false)
+		mFlip(false), mPivotDown(false)
 {
 	mTransform = owner->GetTransform();
 }
@@ -89,5 +88,5 @@ void SpriteRenderer::SetFrame(int frame)
 
 void SpriteRenderer::Destroy()
 {
-	RenderManager::GetInstance().RemoveSprite(this);
+	RenderManager::GetInstance().RemoveRenderer(this);
 }

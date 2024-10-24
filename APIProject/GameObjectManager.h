@@ -5,7 +5,7 @@ class GameObjectManager
 {
 private:
 	GameObjectManager() {}
-	~GameObjectManager() { release(); }
+	~GameObjectManager() { Release(); }
 
 public:
 	GameObjectManager(const GameObjectManager&) = delete;
@@ -60,8 +60,7 @@ public:
 		mPendingQueue.clear();
 	}
 
-private:
-	void release()
+	void Release()
 	{
 		for (auto& mGameObject : mGameObjects)
 		{
@@ -75,6 +74,9 @@ private:
 		{
 			delete gameObject;
 		}
+
+		mGameObjects->clear();
+		mPendingQueue.clear();
 	}
 
 private:

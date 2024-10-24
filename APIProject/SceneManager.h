@@ -25,5 +25,6 @@ public:
 private:
 	Scene* mPendingScene;
 	Scene* mCurrentScene;
+	float	mCurrentTime = 0.f;
 };
 

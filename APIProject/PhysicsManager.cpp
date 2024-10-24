@@ -69,3 +69,19 @@ void PhysicsManager::ClearDestroyRigidbodyQueue()
 
 	mDestroyRigidbodyQueue.clear();
 }
+
+void PhysicsManager::Release()
+{
+	for (auto& rigidbody : mRigidbodies)
+	{
+		delete rigidbody;
+	}
+
+	for (auto& rigidbody : mPendingRigidbodyQueue)
+	{
+		delete rigidbody;
+	}
+
+	mRigidbodies.clear();
+	mPendingRigidbodyQueue.clear();
+}
