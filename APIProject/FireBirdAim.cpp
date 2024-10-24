@@ -8,6 +8,14 @@
 #include "ImageManager.h"
 #include "TimeManager.h"
 
+FireBirdAim::~FireBirdAim()
+{
+	for (auto& ani : mAnimationMap)
+	{
+		delete ani.second;
+	}
+}
+
 void FireBirdAim::Awake()
 {
 	mUpdateType = static_cast<UpdateType>(mUpdateType | FIXED_UPDATE | UPDATE);
@@ -19,7 +27,7 @@ void FireBirdAim::Start()
 	GetTransform()->SetWorldPosition(mPlayer->GetTransform()->GetWorldPosition());
 
 	mAnimationMap.insert({ L"FirebirdAim_Incendiary_Appear",new AnimationInfo(ImageManager::GetInstance().FindImage(L"FirebirdAim_Incendiary_Appear"), 0, 5, 256, 256, 0.2f, false) });
-	mAnimationMap.insert({ L"FirebirdAim_Incendiary_Aim",new AnimationInfo(ImageManager::GetInstance().FindImage(L"FirebirdAim_Incendiary_Aim"), 0, 23, 256, 256, 0.2f, false) });
+	mAnimationMap.insert({ L"FirebirdAim_Incendiary_Aim",new AnimationInfo(ImageManager::GetInstance().FindImage(L"FirebirdAim_Incendiary_Aim"), 0, 23, 256, 256, 0.1f, false) });
 	mAnimationMap.insert({ L"FirebirdAim_Incendiary_AttackLoop",new AnimationInfo(ImageManager::GetInstance().FindImage(L"FirebirdAim_Incendiary_AttackLoop"), 0, 6, 256, 256, 0.08f, true) });
 	mAnimationMap.insert({ L"FirebirdVFX_ShootExplode",new AnimationInfo(ImageManager::GetInstance().FindImage(L"FirebirdVFX_ShootExplode"), 0, 14, 256, 256, 0.08f, false) });
 
@@ -65,14 +73,21 @@ void FireBirdAim::Update()
 			mOwner->GetComponent<BoxCollider>()->SetEnable(false);
 		}
 	}
+
+	mDurationCurrentTime += TimeManager::GetInstance().GetDeltaTime();
+	if (mDurationCurrentTime >= 8.f)
+	{
+		mOwner->Destroy();
+	}
 }
 
 void FireBirdAim::OnEnable()
 {
+	
 	mPlayer = GameObjectManager::GetInstance().GetGameObjectsForTag(PLAYER)->front();
 	GetTransform()->SetWorldPosition(mPlayer->GetTransform()->GetWorldPosition());
-	mOwner->GetComponent<Animator>()->MotionChange(FindAniInfo(L"FirebirdAim_Incendiary_Appear"));
-	mOwner->GetComponent<Animator>()->SetNextMotion(FindAniInfo(L"FirebirdAim_Incendiary_Aim"));
+	//mOwner->GetComponent<Animator>()->MotionChange(FindAniInfo(L"FirebirdAim_Incendiary_Appear"));
+	//mOwner->GetComponent<Animator>()->SetNextMotion(FindAniInfo(L"FirebirdAim_Incendiary_Aim"));
 	mOwner->GetComponent<BoxCollider>()->SetEnable(false);
 	mIsShoot = false;
 	mCurrentTime = 0;

@@ -120,6 +120,47 @@ void FireBirdPlatform::Damaged()
 	}
 }
 
+void FireBirdPlatform::Damaged(int damage)
+{
+	mReturnSpeed = 100.f;
+	mReturnCurrentTime = 0;
+	mReturnDelayTime = 0;
+	mIsReturn = false;
+	mHp -= damage;
+
+	if (mHp == 3)
+	{
+		mOwner->GetComponent<Animator>()->MotionChange(FindAniInfo(L"FireBird_PlatformA_Damaged"));
+		mOwner->GetComponent<Animator>()->SetNextMotion(FindAniInfo(L"FireBird_PlatformA_Idle"));
+	}
+
+	if (mHp == 2)
+	{
+		// todo : hp = 2일때 이미지 출력
+		mOwner->GetComponent<Animator>()->MotionChange(FindAniInfo(L"FireBird_PlatformA_DamagedWarning"));
+		mOwner->GetComponent<Animator>()->SetNextMotion(FindAniInfo(L"FireBird_PlatformA_IdleWarning"));
+	}
+
+	else if (mHp == 1)
+	{
+		// todo : hp = 1일때 이미지 출력
+		mOwner->GetComponent<Animator>()->MotionChange(FindAniInfo(L"FireBird_PlatformA_DamagedWarning"));
+		mOwner->GetComponent<Animator>()->SetNextMotion(FindAniInfo(L"FireBird_PlatformA_IdleDoubleWarning"));
+	}
+
+
+	if (mHp <= 0)
+	{
+		mHp = 0;
+		// todo : 터지는로직
+		mOwner->GetComponent<Animator>()->MotionChange(FindAniInfo(L"FireBird_PlatformA_Destroy"));
+		mOwner->GetComponent<Animator>()->SetNextMotion(FindAniInfo(L"FireBird_PlatformA_Dead"));
+		mOwner->GetComponent<SpriteRenderer>()->SetAngle(30);
+		mOwner->GetComponent<BoxCollider>()->SetEnable(false);
+		mOwner->GetComponent<Rigidbody>()->SetUseGravity(true);
+	}
+}
+
 void FireBirdPlatform::Respawn()
 {
 	mReturnSpeed = 600.f;

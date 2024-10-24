@@ -2,7 +2,10 @@
 #include "FireBird.h"
 
 #include "FireBirdAimObj.h"
+#include "FireBirdBodyVFXObj.h"
 #include "FireBirdBomb.h"
+#include "FireBirdClusterAimObj.h"
+#include "FireBirdPlatform.h"
 #include "GameObjectManager.h"
 #include "ImageManager.h"
 #include "TimeManager.h"
@@ -54,6 +57,8 @@ void FireBird::Start()
 
 	mAnimationMap.insert({ L"BOSS_BehindFirebird_Idle",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_BehindFirebird_Idle"), 0, 1, 396, 126, 0.8f, true) });
 	mAnimationMap.insert({ L"BOSS_BehindFirebird_Shoot",new AnimationInfo(ImageManager::GetInstance().FindImage(L"BOSS_BehindFirebird_Shoot"), 0, 11, 396, 126, 0.08f, false) });
+
+	mAnimationMap.insert({ L"Firebird_Body_BodySlapLoop",new AnimationInfo(ImageManager::GetInstance().FindImage(L"Firebird_Body_BodySlapLoop"), 0, 1, 933, 445, 0.08f, true) });
 
 
 	mWingAnimation[0] = FindAniInfo(L"BOSS_Firebird_Wing_UpLoop04");
@@ -122,13 +127,34 @@ void FireBird::FixedUpdate()
 
 		float forceMagnitude = mBaseForce + (distance * mForceFactor);
 		forceMagnitude = clamp(forceMagnitude, 0, mMaxForce);
-
-		Vector2 force = dir.Normalized() * forceMagnitude / 25.f;
+		Vector2 force;
+			if(mReadyBehind) force = dir.Normalized() * forceMagnitude / 25.f;
+			else if(!mReadyBehind) force = dir.Normalized() * forceMagnitude / 10.f;
 		mAngle = force;
 		GetGameObject()->GetComponent<Rigidbody>()->AddForce(force);
 	}
 		break;
 	case BODY_ATTACK:
+		{
+			if (!mReadyBehind)
+			{
+				dir = mTargetPosition - GetTransform()->GetWorldPosition();
+
+				float distance = dir.Magnitude();
+
+				float forceMagnitude = mBaseForce + (distance * mForceFactor);
+				forceMagnitude = clamp(forceMagnitude, 0, mMaxForce);
+				Vector2 force;
+				if (!mReadyBehind) force = dir.Normalized() * forceMagnitude / 10.f;
+				mAngle = force;
+				GetGameObject()->GetComponent<Rigidbody>()->AddForce(force);
+			}
+
+			else if (mReadyBodyAttack)
+			{
+				GetGameObject()->GetTransform()->Translate({ 35.f, 0 });
+			}
+		}
 
 		break;
 	case RETURN:
@@ -165,6 +191,7 @@ void FireBird::Update()
 		BehindFirePattern();
 		break;
 	case BODY_ATTACK:
+		BodyAttackPattern();
 		break;
 	case RETURN:
 		ReturnPattern();
@@ -175,6 +202,14 @@ void FireBird::Update()
 	GetGameObject()->GetComponent<SpriteRenderer>()->SetAngle(xAngle);
 	mWing->GetComponent<SpriteRenderer>()->SetAngle(xAngle);
 	ChangeWingIndex();
+}
+
+void FireBird::OnCollisionEnter(Collision other)
+{
+	if (mReadyBodyAttack && other.GetGameObject()->CompareTag(PLATFORM))
+	{
+		other.GetGameObject()->GetComponent<FireBirdPlatform>()->Damaged(3);
+	}
 }
 
 void FireBird::Debug(ID2D1HwndRenderTarget* render)
@@ -229,7 +264,11 @@ AnimationInfo* FireBird::FindAniInfo(const TCHAR* key)
 
 void FireBird::ShootPattern()
 {
-	GameObjectManager::GetInstance().AddGameObject<FireBirdAimObj>();
+	mCurrentTime += TimeManager::GetInstance().GetDeltaTime();
+	if (mCurrentTime >= 8.f)
+	{
+		SetRandomPattern();
+	}
 }
 
 void FireBird::BomberPattern()
@@ -268,25 +307,71 @@ void FireBird::BehindFirePattern()
 
 	else if(GetTransform()->GetWorldPosition().y <= -500.f && mOwner->GetComponent<Rigidbody>()->GetVelocity().y < 0)
 	{
-		
+		GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"BOSS_Firebird_Body_Idle"));
+		mWing->GetComponent<SpriteRenderer>()->SetEnable(true);
+		mWing->GetComponent<Animator>()->SetEnable(true);
+		GetTransform()->SetWorldPosition({ 1400.f, 2000.f });
+		GetGameObject()->GetComponent<Rigidbody>()->Velocity() = { 0,0 };
+		mPattern = RETURN;
 	}
 
 	if (mReadyBehind)
 	{
 		mTargetPosition = mPlayer->GetTransform()->GetWorldPosition();
 		mCurrentTime += TimeManager::GetInstance().GetDeltaTime();
+		if (mCurrentTime >= 2.f && !mIsShoot)
+		{
+			mIsShoot = true;
+			GameObjectManager::GetInstance().AddGameObject<FireBirdClusterAimObj>();
+		}
+
 		if (mCurrentTime >= 8.f)
 		{
 			GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"BOSS_BehindFirebird_Shoot"));
 			GetGameObject()->GetComponent<Animator>()->SetNextMotion(FindAniInfo(L"BOSS_BehindFirebird_Idle"));
+			mIsShoot = false;
 			mReadyBehind = false;
+			mTargetPosition = { GetTransform()->GetWorldPosition().x, -600.f };
 		}
 	}
 }
 
 void FireBird::BodyAttackPattern()
 {
+	if (GetTransform()->GetWorldPosition().y >= 2000.f && !mReadyBehind)
+	{
+		mTargetPosition = { 3000.f, mPlayer->GetTransform()->GetWorldPosition().y };
+		GetTransform()->SetWorldPosition({ -300.f, mPlayer->GetTransform()->GetWorldPosition().y });
+		GameObjectManager::GetInstance().AddGameObject<FireBirdBodyVFXObj>();
+		mWing->GetComponent<SpriteRenderer>()->SetEnable(false);
+		mWing->GetComponent<Animator>()->SetEnable(false);
+		GetGameObject()->GetComponent<Rigidbody>()->Velocity() = { 0,0 };
+		GetGameObject()->GetComponent<Rigidbody>()->SetUseGravity(false);
+		mReadyBehind = true;
+	}
 
+	else if (mReadyBehind && !mReadyBodyAttack)
+	{
+		mCurrentTime += TimeManager::GetInstance().GetDeltaTime();
+		if (mCurrentTime >= 1.6f)
+		{
+			GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"Firebird_Body_BodySlapLoop"));
+			mReadyBehind = false;
+			mReadyBodyAttack = true;
+		}
+	}
+
+	else if (mReadyBodyAttack && GetTransform()->GetWorldPosition().x > 3100.f)
+	{
+		GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"BOSS_Firebird_Body_Idle"));
+		mWing->GetComponent<SpriteRenderer>()->SetEnable(true);
+		mWing->GetComponent<Animator>()->SetEnable(true);
+		GetTransform()->SetWorldPosition({ 1400.f, 2000.f });
+		GetGameObject()->GetComponent<Rigidbody>()->Velocity() = { 0,0 };
+		mReadyBehind = false;
+		mReadyBodyAttack = false;
+		mPattern = RETURN;
+	}
 }
 
 void FireBird::ReturnPattern()
@@ -295,9 +380,7 @@ void FireBird::ReturnPattern()
 	{
 		if (GetTransform()->GetWorldPosition().y >= 800.f)
 		{
-			mPattern = BEHIND_FIRE;
-			mTargetPosition = { 1400.f,2000.f };
-			//SetRandomPattern();
+			SetRandomPattern();
 		}
 	}
 }
@@ -337,6 +420,8 @@ void FireBird::SetRandomPattern()
 	{
 	case 0:
 		mPattern = SHOOT;
+		GameObjectManager::GetInstance().AddGameObject<FireBirdAimObj>();
+		mCurrentTime = 0;
 		break;
 	case 1:
 		mPattern = BOMBER;
@@ -344,9 +429,14 @@ void FireBird::SetRandomPattern()
 	case 2:
 		mPattern = BEHIND_FIRE;
 		mTargetPosition = { 1400.f,2000.f };
+		mCurrentTime = 0;
 		break;
 	case 3:
 		mPattern = BODY_ATTACK;
+		mTargetPosition = { 1400.f,2000.f };
+		mCurrentTime = 0;
+		mReadyBehind = false;
+		mReadyBodyAttack = false;
 		break;
 	}
 }

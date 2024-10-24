@@ -18,6 +18,7 @@ public:
 	void Update() override;
 	void OnCollisionEnter(Collision other) override;
 	void Damaged();
+	void Damaged(int damage);
 	void Respawn();
 	void Return2OriginPosition();
 	void StartReturn();

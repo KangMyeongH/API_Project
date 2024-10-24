@@ -166,8 +166,12 @@
     <ClInclude Include="FireBirdBGMid01Object.h" />
     <ClInclude Include="FireBirdBGMid02Object.h" />
     <ClInclude Include="FireBirdBGObject.h" />
+    <ClInclude Include="FireBirdBodyVFX.h" />
+    <ClInclude Include="FireBirdBodyVFXObj.h" />
     <ClInclude Include="FireBirdBomb.h" />
     <ClInclude Include="FireBirdBombObj.h" />
+    <ClInclude Include="FireBirdClusterAim.h" />
+    <ClInclude Include="FireBirdClusterAimObj.h" />
     <ClInclude Include="FireBirdManager.h" />
     <ClInclude Include="FireBirdObj.h" />
     <ClInclude Include="FireBirdPlatform.h" />
@@ -245,8 +249,12 @@
     <ClCompile Include="FireBirdBGMid01Object.cpp" />
     <ClCompile Include="FireBirdBGMid02Object.cpp" />
     <ClCompile Include="FireBirdBGObject.cpp" />
+    <ClCompile Include="FireBirdBodyVFX.cpp" />
+    <ClCompile Include="FireBirdBodyVFXObj.cpp" />
     <ClCompile Include="FireBirdBomb.cpp" />
     <ClCompile Include="FireBirdBombObj.cpp" />
+    <ClCompile Include="FireBirdClusterAim.cpp" />
+    <ClCompile Include="FireBirdClusterAimObj.cpp" />
     <ClCompile Include="FireBirdManager.cpp" />
     <ClCompile Include="FireBirdObj.cpp" />
     <ClCompile Include="FireBirdPlatform.cpp" />

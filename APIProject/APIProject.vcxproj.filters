@@ -363,6 +363,18 @@
     <ClInclude Include="FireBirdAimObj.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="FireBirdBodyVFX.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBirdBodyVFXObj.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBirdClusterAim.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBirdClusterAimObj.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -579,6 +591,18 @@
       <Filter>02. Scripts\05. FireBird</Filter>
     </ClCompile>
     <ClCompile Include="FireBirdAimObj.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBirdBodyVFX.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBirdBodyVFXObj.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBirdClusterAim.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBirdClusterAimObj.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

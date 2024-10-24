@@ -7,10 +7,12 @@ class FireBirdAim final :
 {
 public:
 	explicit FireBirdAim(GameObject* owner)
-		: MonoBehaviour(owner), mPlayer(nullptr), mCurrentTime(0), mDurationTime(0.1f), mIsShoot(false)
+		: MonoBehaviour(owner), mPlayer(nullptr), mCurrentTime(0), mDurationTime(0.1f), mDurationCurrentTime(0),
+		  mIsShoot(false)
 	{
 	}
 
+	~FireBirdAim() override;
 
 	void Awake() override;
 	void Start() override;
@@ -33,6 +35,7 @@ private:
 	std::unordered_map<const TCHAR*, AnimationInfo*> mAnimationMap;
 	float mCurrentTime;
 	float mDurationTime;
+	float mDurationCurrentTime;
 	bool mIsShoot;
 };
 

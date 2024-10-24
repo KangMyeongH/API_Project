@@ -26,7 +26,7 @@ public:
 		  mForceFactor(2.f),
 		  mMaxForce(80.f), mMaxAngle(3.f), mBombDelay(0.5f), mBombCurrentTime(0), mCurrentTime(0), mWingIndex(-1),
 		  mBombIndex(0),
-		  mReadyBehind(false)
+		  mReadyBehind(false), mIsShoot(false), mReadyBodyAttack(false)
 	{
 	}
 
@@ -36,6 +36,7 @@ public:
 	void Start() override;
 	void FixedUpdate() override;
 	void Update() override;
+	void OnCollisionEnter(Collision other) override;
 	void Debug(ID2D1HwndRenderTarget* render) override;
 
 	AnimationInfo* FindAniInfo(const TCHAR* key);
@@ -93,5 +94,7 @@ private:
 	int			mWingIndex;
 	int			mBombIndex;
 	bool		mReadyBehind;
+	bool		mIsShoot;
+	bool		mReadyBodyAttack;
 };
 

@@ -17,6 +17,7 @@
 #include "EffectObj.h"
 #include "ExcDashState.h"
 #include "ExcState.h"
+#include "FireBirdBodyVFXObj.h"
 #include "Grab.h"
 #include "Platform.h"
 #include "SwingState.h"
@@ -157,7 +158,8 @@ void Player::Update()
 
 	if (mKeyMgr->Key_Down('G'))
 	{
-		GameObjectManager::GetInstance().AddGameObject<EffectObj>()->GetComponent<Effect>()->SetEffect(mTransform->GetWorldPosition(), FindAniInfo(L"SNB_RunningStart"));
+		GameObjectManager::GetInstance().AddGameObject<FireBirdBodyVFXObj>();
+		//GameObjectManager::GetInstance().AddGameObject<EffectObj>()->GetComponent<Effect>()->SetEffect(mTransform->GetWorldPosition(), FindAniInfo(L"SNB_RunningStart"));
 	}
 	mStateMachine->GetCurrentState()->HandleInput();
 	mStateMachine->GetCurrentState()->LogicUpdate();
