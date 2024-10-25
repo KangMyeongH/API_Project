@@ -275,7 +275,7 @@ void Player::OnCollisionExit(Collision other)
 	}
 }
 
-void Player::Debug(ID2D1HwndRenderTarget* render)
+void Player::Debug(ID2D1DeviceContext* render)
 {
 	mStateMachine->GetCurrentState()->Debug(render);
 

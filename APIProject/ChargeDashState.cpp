@@ -68,7 +68,7 @@ void ChargeDashState::Exit()
 {
 }
 
-void ChargeDashState::Debug(ID2D1HwndRenderTarget* render)
+void ChargeDashState::Debug(ID2D1DeviceContext* render)
 {
 }
 

@@ -67,6 +67,7 @@ void MainTitleButton::Update()
 		case SETTING:
 			break;
 		case END_GAME:
+			PostQuitMessage(0);
 			break;
 		}
 	}

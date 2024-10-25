@@ -44,6 +44,6 @@ void ExcDashState::Exit()
 {
 }
 
-void ExcDashState::Debug(ID2D1HwndRenderTarget* render)
+void ExcDashState::Debug(ID2D1DeviceContext* render)
 {
 }

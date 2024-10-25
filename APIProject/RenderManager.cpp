@@ -89,7 +89,7 @@ void RenderManager::Rendering(HDC hdc) const
 	}
 }*/
 
-void RenderManager::Rendering(ID2D1HwndRenderTarget* render) const
+void RenderManager::Rendering(ID2D1DeviceContext* render) const
 {
 	for (auto& sprite : mLayerMultiMap)
 	{

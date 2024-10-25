@@ -185,7 +185,7 @@ void SwingState::Swinging()
 	mPlayer->GetTransform()->SetWorldPosition({ newX,newY });
 }
 
-void SwingState::Debug(ID2D1HwndRenderTarget* render)
+void SwingState::Debug(ID2D1DeviceContext* render)
 {
 	/*
 	IDWriteTextFormat* textFormat = nullptr;

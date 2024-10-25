@@ -59,20 +59,20 @@ void SpriteRenderer::SetFrame(int frame)
 	if (!mPivotDown)
 	{
 		mRenderRect = RectF(
-			mTransform->GetWorldPosition().x - (mWidth * 0.5f),
-			mTransform->GetWorldPosition().y - (mHeight * 0.5f),
-			mTransform->GetWorldPosition().x + (mWidth * 0.5f),
-			mTransform->GetWorldPosition().y + (mHeight * 0.5f)
+			mTransform->GetWorldPosition().x - (mWidth * 0.5f) + mOffset.x,
+			mTransform->GetWorldPosition().y - (mHeight * 0.5f) + mOffset.y,
+			mTransform->GetWorldPosition().x + (mWidth * 0.5f) + mOffset.x,
+			mTransform->GetWorldPosition().y + (mHeight * 0.5f) + mOffset.y
 		);
 	}
 
 	else if (mPivotDown)
 	{
 		mRenderRect = RectF(
-			mTransform->GetWorldPosition().x - (mWidth * 0.5f),
-			mTransform->GetWorldPosition().y - mHeight,
-			mTransform->GetWorldPosition().x + (mWidth * 0.5f),
-			mTransform->GetWorldPosition().y
+			mTransform->GetWorldPosition().x - (mWidth * 0.5f) + mOffset.x,
+			mTransform->GetWorldPosition().y - mHeight + mOffset.y,
+			mTransform->GetWorldPosition().x + (mWidth * 0.5f) + mOffset.x,
+			mTransform->GetWorldPosition().y + mOffset.y
 		);
 	}
 

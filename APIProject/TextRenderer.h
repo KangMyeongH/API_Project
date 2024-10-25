@@ -17,7 +17,7 @@ public:
 		swprintf_s(mFont, 64, font);
 	}
 
-	void Render(ID2D1HwndRenderTarget* render) override
+	void Render(ID2D1DeviceContext* render) override
 	{
 		mColor.a = mOpacity;
 		// 텍스트 서식 설정

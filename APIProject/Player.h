@@ -47,7 +47,7 @@ public:
 	void OnCollisionEnter(Collision other) override;
 	void OnCollisionStay(Collision other) override;
 	void OnCollisionExit(Collision other) override;
-	void Debug(ID2D1HwndRenderTarget* render) override;
+	void Debug(ID2D1DeviceContext* render) override;
 
 	// bool FindEnemy();
 

@@ -50,7 +50,7 @@ private:
 	}
 
 public:
-	void Debug(ID2D1HwndRenderTarget* render) override;
+	void Debug(ID2D1DeviceContext* render) override;
 
 private:
 	Vector2		mInitialVelocity;   // 처음 줄을 잡았을 때의 속도

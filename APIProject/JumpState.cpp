@@ -122,6 +122,6 @@ void JumpState::Exit()
 {
 }
 
-void JumpState::Debug(ID2D1HwndRenderTarget* render)
+void JumpState::Debug(ID2D1DeviceContext* render)
 {
 }

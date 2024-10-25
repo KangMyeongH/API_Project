@@ -55,7 +55,7 @@ RECT* BoxCollider::GetRect()
 	return &mRect;
 }
 
-void BoxCollider::Debug(ID2D1HwndRenderTarget* render)
+void BoxCollider::Debug(ID2D1DeviceContext* render)
 {
 	ID2D1SolidColorBrush* brush = nullptr;
 	D2D1_RECT_F rect = { static_cast<float>(mRect.left), static_cast<float>(mRect.top), static_cast<float>(mRect.right), static_cast<float>(mRect.bottom) };

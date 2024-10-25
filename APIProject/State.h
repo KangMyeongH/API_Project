@@ -14,7 +14,7 @@ public:
 	virtual void LogicUpdate() = 0;
 	virtual void PhysicsUpdate() = 0;
 	virtual void Exit() = 0;
-	virtual void Debug(ID2D1HwndRenderTarget* render) = 0;
+	virtual void Debug(ID2D1DeviceContext* render) = 0;
 
 	PlayerState GetType() const { return mType; }
 

@@ -3,10 +3,8 @@
 
 #include "AnimatorManager.h"
 #include "CollisionManager.h"
-#include "FireBirdScene.h"
 #include "GameObjectManager.h"
 #include "KeyManager.h"
-#include "MajorBossRoomScene.h"
 #include "MonoBehaviourManager.h"
 #include "PhysicsManager.h"
 #include "RenderManager.h"
@@ -64,7 +62,7 @@ void Core::Progress()
 	destroy();
 
 	mSceneMgr->RegisterScene();
-	//mTimeMgr->FrameLimit();
+	mTimeMgr->FrameLimit();
 }
 
 void Core::start()
@@ -113,13 +111,14 @@ void Core::render()
 	mRenderMgr->Rendering(mMemDC);
 	mCollisionMgr->Debug(mMemDC);
 	BitBlt(mDC, 0, 0, WIN_WIDTH, WIN_HEIGHT, mMemDC, 0, 0, SRCCOPY);*/
-	gRenderTarget->BeginDraw();
+	gDeviceContext->BeginDraw();
 
-	mRenderMgr->Rendering(gRenderTarget);
-	mCollisionMgr->Debug(gRenderTarget);
-	mMonoBehaviourMgr->Debug(gRenderTarget);
+	mRenderMgr->Rendering(gDeviceContext);
+	mCollisionMgr->Debug(gDeviceContext);
+	mMonoBehaviourMgr->Debug(gDeviceContext);
 
-	HRESULT hr = gRenderTarget->EndDraw();
+	HRESULT hr = gDeviceContext->EndDraw();
+	hr = gSwapChain->Present(0, 0);
 }
 
 void Core::onDestroy()

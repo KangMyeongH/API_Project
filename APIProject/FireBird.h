@@ -37,7 +37,7 @@ public:
 	void FixedUpdate() override;
 	void Update() override;
 	void OnCollisionEnter(Collision other) override;
-	void Debug(ID2D1HwndRenderTarget* render) override;
+	void Debug(ID2D1DeviceContext* render) override;
 
 	AnimationInfo* FindAniInfo(const TCHAR* key);
 	void ShootPattern();

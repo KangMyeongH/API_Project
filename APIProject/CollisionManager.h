@@ -45,7 +45,7 @@ public:
 	static CollisionDirection DetectEdgeCollisionDir(Rigidbody* obj, RECT other);
 	static void AdjustRect(Collider* collider, Collider* other, CollisionDirection dir);
 
-	void Debug(ID2D1HwndRenderTarget* render);
+	void Debug(ID2D1DeviceContext* render);
 
 	void Release();
 	

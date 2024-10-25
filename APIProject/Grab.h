@@ -34,7 +34,7 @@ public:
 
 	const Vector2& GetTargetPosition() const { return mTargetPosition; }
 
-	void Debug(ID2D1HwndRenderTarget* render) override;
+	void Debug(ID2D1DeviceContext* render) override;
 
 	AnimationInfo* FindAniInfo(const TCHAR* key);
 

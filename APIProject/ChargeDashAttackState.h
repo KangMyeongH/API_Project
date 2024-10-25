@@ -14,6 +14,6 @@ public:
 	void LogicUpdate() override;
 	void PhysicsUpdate() override;
 	void Exit() override;
-	void Debug(ID2D1HwndRenderTarget* render) override;
+	void Debug(ID2D1DeviceContext* render) override;
 };
 

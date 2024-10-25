@@ -31,7 +31,7 @@ public:
 	virtual void OnCollisionEnter(Collision other) {}
 	virtual void OnCollisionStay(Collision other) {}
 	virtual void OnCollisionExit(Collision other) {}
-	virtual void Debug(ID2D1HwndRenderTarget* render) {}
+	virtual void Debug(ID2D1DeviceContext* render) {}
 
 	UpdateType GetUpdateType() const { return mUpdateType; }
 	void  SetEnable(const bool enabled) final

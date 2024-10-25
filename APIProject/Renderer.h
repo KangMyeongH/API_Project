@@ -8,7 +8,7 @@ public:
 	{
 	}
 
-	virtual void Render(ID2D1HwndRenderTarget* render) = 0;
+	virtual void Render(ID2D1DeviceContext* render) = 0;
 	int		GetLayer() const { return mLayer; }
 	void	Destroy() override;
 

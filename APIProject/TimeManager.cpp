@@ -23,7 +23,7 @@ void TimeManager::Init()
 	mDeltaTime = 0.0f;
 	mTimeScale = 1.0f;
 	mUnscaledTime = 0.0f;
-	mTargetFrameTime = 1.0f / 60.0f;
+	mTargetFrameTime = 1.0f / 155.0f;
 }
 
 void TimeManager::Update()

@@ -80,8 +80,13 @@ private:
 #define VK_MAX			0xff
 
 extern HWND gHwnd;
-extern ID2D1Factory* gFactory;
-extern ID2D1HwndRenderTarget* gRenderTarget;
+extern ID2D1Factory1* gFactory;
+//extern ID2D1HwndRenderTarget* gRenderTarget;
 extern IDWriteFactory* gWriteFactory;
+
+extern IWICImagingFactory2* gWICFactory;
+extern ID2D1Device* gDevice;
+extern ID2D1DeviceContext* gDeviceContext;
+extern IDXGISwapChain* gSwapChain;
 
 using GameObjectList = std::list<GameObject*>;

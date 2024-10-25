@@ -27,7 +27,7 @@ void Image::LoadMyImage(const wchar_t* filepath)
 			{
 				if (S_OK == converter->Initialize(frame, GUID_WICPixelFormat32bppPBGRA, WICBitmapDitherTypeNone, nullptr, 0.0f, WICBitmapPaletteTypeCustom))
 				{
-					if (S_OK == gRenderTarget->CreateBitmapFromWicBitmap(converter,nullptr,&mImage))
+					if (S_OK == gDeviceContext->CreateBitmapFromWicBitmap(converter,nullptr,&mImage))
 					{
 						int result = 1;
 					}

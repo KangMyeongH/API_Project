@@ -26,7 +26,7 @@ public:
 
 	void RemoveRenderer(Renderer* sprite);
 
-	void Rendering(ID2D1HwndRenderTarget* render) const;
+	void Rendering(ID2D1DeviceContext* render) const;
 
 	void Release();
 

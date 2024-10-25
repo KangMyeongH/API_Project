@@ -30,7 +30,7 @@ public:
 
 	void Destroy() final;
 
-	virtual void Debug(ID2D1HwndRenderTarget* render) = 0;
+	virtual void Debug(ID2D1DeviceContext* render) = 0;
 
 protected:
 	ColliderType mType;

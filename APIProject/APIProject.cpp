@@ -15,9 +15,12 @@ HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
 HWND gHwnd;                                     // 전역 윈도우 핸들
-ID2D1Factory* gFactory;
-ID2D1HwndRenderTarget* gRenderTarget;
-IDWriteFactory* gWriteFactory;
+IDWriteFactory* gWriteFactory = nullptr;
+ID2D1Factory1* gFactory = nullptr;
+IWICImagingFactory2* gWICFactory = nullptr;
+ID2D1Device* gDevice = nullptr;
+ID2D1DeviceContext* gDeviceContext = nullptr;
+IDXGISwapChain* gSwapChain = nullptr;
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -178,17 +181,125 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     switch (message)
     {
     case WM_CREATE:
+    {
+        HRESULT hr = S_OK;
         RECT r;
         GetClientRect(hWnd, &r);
+        UINT createDeviceFlags = D3D11_CREATE_DEVICE_BGRA_SUPPORT;
+        D3D_DRIVER_TYPE driverTypes[] =
+        {
+            D3D_DRIVER_TYPE_HARDWARE,
+            D3D_DRIVER_TYPE_WARP,
+        };
+        UINT countOfDriverTypes = ARRAYSIZE(driverTypes);
+        DXGI_SWAP_CHAIN_DESC swapDescription;
+        ZeroMemory(&swapDescription, sizeof(swapDescription));
+        swapDescription.BufferDesc.Width = r.right - r.left;
+        swapDescription.BufferDesc.Height = r.bottom - r.top;
+        swapDescription.BufferDesc.Format = DXGI_FORMAT_B8G8R8A8_UNORM;
+        swapDescription.BufferDesc.RefreshRate.Numerator = 60;
+        swapDescription.BufferDesc.RefreshRate.Denominator = 1;
+        swapDescription.SampleDesc.Count = 1;
+        swapDescription.SampleDesc.Quality = 0;
+        swapDescription.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
+        swapDescription.BufferCount = 1;
+        swapDescription.OutputWindow = hWnd;
+        swapDescription.Windowed = TRUE;
+
+        ID3D11Device* d3dDevice = nullptr;
+        for (UINT driverTypeIndex = 0; driverTypeIndex < countOfDriverTypes; driverTypeIndex++) {
+            hr = D3D11CreateDeviceAndSwapChain(
+                nullptr,
+                driverTypes[driverTypeIndex],
+                nullptr,
+                createDeviceFlags,
+                nullptr,
+                0,
+                D3D11_SDK_VERSION,
+                &swapDescription,
+                &gSwapChain,
+                &d3dDevice,
+                nullptr,
+                nullptr
+            );
+
+            if (SUCCEEDED(hr)) {
+                break;
+            }
+            else if (d3dDevice) {
+                d3dDevice->Release();
+                d3dDevice = nullptr;
+            }
+        }
+
+        IDXGIDevice* dxgiDevice = nullptr;
+        if (SUCCEEDED(hr)) {
+            hr = d3dDevice->QueryInterface(IID_PPV_ARGS(&dxgiDevice));
+        }
+
+        if (SUCCEEDED(hr)) {
+            hr = gFactory->CreateDevice(
+                dxgiDevice,
+                &gDevice
+            );
+        }
+
+        /*
         gFactory->CreateHwndRenderTarget(RenderTargetProperties(),
             HwndRenderTargetProperties(hWnd, SizeU(r.right, r.bottom)),
-            &gRenderTarget);
+            &gRenderTarget);*/
         DWriteCreateFactory(
             DWRITE_FACTORY_TYPE_SHARED,
             __uuidof(IDWriteFactory),
             reinterpret_cast<IUnknown**>(&gWriteFactory)
         );
 
+        IDXGISurface* surface = nullptr;
+
+        if (SUCCEEDED(hr)) {
+            hr = gSwapChain->GetBuffer(
+                0,
+                IID_PPV_ARGS(&surface)
+            );
+        }
+
+        ID2D1Bitmap1* bitmap = nullptr;
+        if (SUCCEEDED(hr)) {
+            FLOAT dpiX, dpiY;
+            dpiX = (FLOAT)GetDpiForWindow(GetDesktopWindow());
+            dpiY = dpiX;
+
+            D2D1_BITMAP_PROPERTIES1 properties = D2D1::BitmapProperties1(
+                D2D1_BITMAP_OPTIONS_TARGET | D2D1_BITMAP_OPTIONS_CANNOT_DRAW,
+                D2D1::PixelFormat(
+                    DXGI_FORMAT_B8G8R8A8_UNORM,
+                    D2D1_ALPHA_MODE_IGNORE
+                ),
+                dpiX,
+                dpiY
+            );
+
+            if (SUCCEEDED(hr)) {
+                hr = gDevice->CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE, &gDeviceContext);
+            }
+
+            hr = gDeviceContext->CreateBitmapFromDxgiSurface(
+                surface,
+                &properties,
+                &bitmap
+            );
+        }
+
+
+        if (SUCCEEDED(hr)) {
+            gDeviceContext->SetTarget(bitmap);
+        }
+
+        if (dxgiDevice) dxgiDevice->Release();
+        if (surface) surface->Release();
+        if (bitmap) bitmap->Release();
+        if (d3dDevice) d3dDevice->Release();
+    }
         break;
 
     case WM_KEYDOWN:
@@ -228,11 +339,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         break;
     case WM_DESTROY:
         ImageManager::GetInstance().Release();
+
+        /*
         if (gRenderTarget != nullptr)
         {
             gRenderTarget->Release();
             gRenderTarget = nullptr;
-        }
+        }*/
         PostQuitMessage(0);
         break;
     default:
@@ -240,24 +353,3 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     }
     return 0;
 }
-
-// 정보 대화 상자의 메시지 처리기입니다.
-/*
-INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
-{
-    UNREFERENCED_PARAMETER(lParam);
-    switch (message)
-    {
-    case WM_INITDIALOG:
-        return (INT_PTR)TRUE;
-
-    case WM_COMMAND:
-        if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
-        {
-            EndDialog(hDlg, LOWORD(wParam));
-            return (INT_PTR)TRUE;
-        }
-        break;
-    }
-    return (INT_PTR)FALSE;
-}*/

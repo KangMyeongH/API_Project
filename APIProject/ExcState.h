@@ -17,7 +17,7 @@ public:
 	void Exit() override;
 
 	Vector2 CalcDirToMouse();
-	void Debug(ID2D1HwndRenderTarget* render) override;
+	void Debug(ID2D1DeviceContext* render) override;
 
 private:
 	Transform* mTarget;

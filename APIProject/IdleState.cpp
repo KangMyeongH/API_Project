@@ -79,6 +79,6 @@ void IdleState::Exit()
 
 }
 
-void IdleState::Debug(ID2D1HwndRenderTarget* render)
+void IdleState::Debug(ID2D1DeviceContext* render)
 {
 }

@@ -82,6 +82,6 @@ void RunState::Exit()
 {
 }
 
-void RunState::Debug(ID2D1HwndRenderTarget* render)
+void RunState::Debug(ID2D1DeviceContext* render)
 {
 }

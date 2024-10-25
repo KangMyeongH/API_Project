@@ -10,7 +10,7 @@ public:
 	explicit SpriteRenderer(GameObject* owner, int layer);
 	SpriteRenderer(GameObject* owner, ID2D1Bitmap* image, float width, float height, int layer);
 
-	void Render(ID2D1HwndRenderTarget* render) override
+	void Render(ID2D1DeviceContext* render) override
 	{
 		D2D1_RECT_F screenRect = Camera::GetInstance().WorldToScreen(mRenderRect);
 
@@ -62,7 +62,13 @@ public:
 
 	void	SetOpacity(float opacity) { mOpacity = opacity; }
 
+	void	SetOffset(const Vector2& offset) { mOffset = offset; }
+
 	void	SetParallaxFactor(const Vector2& vel) { mParallaxFactor = vel; }
+
+	D2D1_RECT_F GetRenderRect() const { return mRenderRect; }
+
+	D2D1_RECT_F GetTargetRect() const { return mTargetRect; }
 
 	float	GetWidth() const { return mWidth; }
 
@@ -80,6 +86,7 @@ private:
 	D2D1_RECT_F		mTargetRect;	// 스프라이트 시트의 특정 영역
 	D2D1_RECT_F		mRenderRect;	// 화면의 그려줄 위치
 	Vector2			mParallaxFactor; // 패럴랙스 비율, 기본값은 1.0 작으면 멀고 크면 가깝다
+	Vector2			mOffset;
 	float			mAngle;
 	float			mOpacity;
 	float 			mWidth;

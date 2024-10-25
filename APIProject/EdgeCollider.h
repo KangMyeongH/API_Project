@@ -35,7 +35,7 @@ private:
 
 public:
 	void Init() override {}
-	void Debug(ID2D1HwndRenderTarget* render) override;
+	void Debug(ID2D1DeviceContext* render) override;
 
 private:
 	POINT 	mStart;

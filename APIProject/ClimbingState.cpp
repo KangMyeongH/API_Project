@@ -74,6 +74,6 @@ void ClimbingState::Exit()
 {
 }
 
-void ClimbingState::Debug(ID2D1HwndRenderTarget* render)
+void ClimbingState::Debug(ID2D1DeviceContext* render)
 {
 }

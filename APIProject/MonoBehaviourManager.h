@@ -79,7 +79,7 @@ public:
 		}
 	}
 
-	void Debug(ID2D1HwndRenderTarget* render)
+	void Debug(ID2D1DeviceContext* render)
 	{
 		for (auto& obj : mMonoBehaviours)
 		{

@@ -221,7 +221,7 @@ void CollisionManager::AdjustRect(Collider* collider, Collider* other, Collision
 	collider->UpdateRect();
 }
 
-void CollisionManager::Debug(ID2D1HwndRenderTarget* render)
+void CollisionManager::Debug(ID2D1DeviceContext* render)
 {
 	for (auto& collider : mColliders)
 	{

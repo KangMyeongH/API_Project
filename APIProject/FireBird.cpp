@@ -212,7 +212,7 @@ void FireBird::OnCollisionEnter(Collision other)
 	}
 }
 
-void FireBird::Debug(ID2D1HwndRenderTarget* render)
+void FireBird::Debug(ID2D1DeviceContext* render)
 {
 	// 텍스트 서식 설정
 	IDWriteTextFormat* textFormat = nullptr;

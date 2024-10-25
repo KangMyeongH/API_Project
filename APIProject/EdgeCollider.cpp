@@ -79,7 +79,7 @@ bool EdgeCollider::OnSegment(POINT start, POINT end, POINT target)
         (std::min)(start.y, end.y) <= target.y && target.y <= (std::max)(start.y, end.y);
 }
 
-void EdgeCollider::Debug(ID2D1HwndRenderTarget* render)
+void EdgeCollider::Debug(ID2D1DeviceContext* render)
 {
     ID2D1SolidColorBrush* brush = nullptr;
     D2D1_RECT_F rect = { static_cast<float>(mRect.left), static_cast<float>(mRect.top), static_cast<float>(mRect.right), static_cast<float>(mRect.bottom) };

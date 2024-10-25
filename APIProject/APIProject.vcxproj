@@ -135,6 +135,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AfterImageEffect.h" />
     <ClInclude Include="AnimationCurve.h" />
     <ClInclude Include="Animator.h" />
     <ClInclude Include="AnimatorManager.h" />
@@ -237,6 +238,7 @@
     <ClInclude Include="WingObj.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AfterImageEffect.cpp" />
     <ClCompile Include="Animator.cpp" />
     <ClCompile Include="AnimatorManager.cpp" />
     <ClCompile Include="APIProject.cpp" />

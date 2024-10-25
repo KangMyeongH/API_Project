@@ -99,7 +99,7 @@ void Grab::Shoot()
 	}
 }
 
-void Grab::Debug(ID2D1HwndRenderTarget* render)
+void Grab::Debug(ID2D1DeviceContext* render)
 {
 	if (mIsShoot)
 	{

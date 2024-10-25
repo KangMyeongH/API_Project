@@ -12,7 +12,7 @@ public:
 	void UpdateRect() override;
 
 	RECT* GetRect() override;
-	void Debug(ID2D1HwndRenderTarget* render) override;
+	void Debug(ID2D1DeviceContext* render) override;
 
 private:
 	bool 		CheckEdgeCollision(EdgeCollider* edge, POINT& contactPoint);
