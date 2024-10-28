@@ -3,14 +3,14 @@
 class FireBirdManager final : public MonoBehaviour
 {
 public:
-	FireBirdManager(GameObject* owner) : MonoBehaviour(owner), mPlatforms{ nullptr, }
+	explicit FireBirdManager(GameObject* owner) : MonoBehaviour(owner), mIsBgmLoop(false)
 	{
 	}
 
 	void Awake() override;
-
+	void Update() override;
 
 private:
-	GameObject* mPlatforms[7];
+	bool mIsBgmLoop;
 };
 

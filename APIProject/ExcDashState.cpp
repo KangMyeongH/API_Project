@@ -23,6 +23,7 @@ void ExcDashState::Enter()
 
 void ExcDashState::HandleInput()
 {
+
 }
 
 void ExcDashState::LogicUpdate()
@@ -42,6 +43,7 @@ void ExcDashState::PhysicsUpdate()
 
 void ExcDashState::Exit()
 {
+
 }
 
 void ExcDashState::Debug(ID2D1DeviceContext* render)

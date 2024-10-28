@@ -7,6 +7,8 @@ D:\DDingHo\API_Project\APIProject\BitMapManager.cpp;D:\DDingHo\API_Project\APIPr
 D:\DDingHo\API_Project\APIProject\BlackBGObj.cpp;D:\DDingHo\API_Project\APIProject\Debug\BlackBGObj.obj
 D:\DDingHo\API_Project\APIProject\BoxCollider.cpp;D:\DDingHo\API_Project\APIProject\Debug\BoxCollider.obj
 D:\DDingHo\API_Project\APIProject\Camera.cpp;D:\DDingHo\API_Project\APIProject\Debug\Camera.obj
+D:\DDingHo\API_Project\APIProject\ChargeAim.cpp;D:\DDingHo\API_Project\APIProject\Debug\ChargeAim.obj
+D:\DDingHo\API_Project\APIProject\ChargeAimObj.cpp;D:\DDingHo\API_Project\APIProject\Debug\ChargeAimObj.obj
 D:\DDingHo\API_Project\APIProject\ChargeDashAttackState.cpp;D:\DDingHo\API_Project\APIProject\Debug\ChargeDashAttackState.obj
 D:\DDingHo\API_Project\APIProject\ChargeDashState.cpp;D:\DDingHo\API_Project\APIProject\Debug\ChargeDashState.obj
 D:\DDingHo\API_Project\APIProject\ClimbingState.cpp;D:\DDingHo\API_Project\APIProject\Debug\ClimbingState.obj
@@ -36,11 +38,14 @@ D:\DDingHo\API_Project\APIProject\FireBirdBombObj.cpp;D:\DDingHo\API_Project\API
 D:\DDingHo\API_Project\APIProject\FireBirdClusterAim.cpp;D:\DDingHo\API_Project\APIProject\Debug\FireBirdClusterAim.obj
 D:\DDingHo\API_Project\APIProject\FireBirdClusterAimObj.cpp;D:\DDingHo\API_Project\APIProject\Debug\FireBirdClusterAimObj.obj
 D:\DDingHo\API_Project\APIProject\FireBirdManager.cpp;D:\DDingHo\API_Project\APIProject\Debug\FireBirdManager.obj
+D:\DDingHo\API_Project\APIProject\FireBirdManagerObj.cpp;D:\DDingHo\API_Project\APIProject\Debug\FireBirdManagerObj.obj
 D:\DDingHo\API_Project\APIProject\FireBirdObj.cpp;D:\DDingHo\API_Project\APIProject\Debug\FireBirdObj.obj
 D:\DDingHo\API_Project\APIProject\FireBirdPlatform.cpp;D:\DDingHo\API_Project\APIProject\Debug\FireBirdPlatform.obj
 D:\DDingHo\API_Project\APIProject\FireBirdPlatformObj.cpp;D:\DDingHo\API_Project\APIProject\Debug\FireBirdPlatformObj.obj
 D:\DDingHo\API_Project\APIProject\FireBirdScene.cpp;D:\DDingHo\API_Project\APIProject\Debug\FireBirdScene.obj
 D:\DDingHo\API_Project\APIProject\FireBirdWing.cpp;D:\DDingHo\API_Project\APIProject\Debug\FireBirdWing.obj
+D:\DDingHo\API_Project\APIProject\FloatingBomb.cpp;D:\DDingHo\API_Project\APIProject\Debug\FloatingBomb.obj
+D:\DDingHo\API_Project\APIProject\FloatingBombObj.cpp;D:\DDingHo\API_Project\APIProject\Debug\FloatingBombObj.obj
 D:\DDingHo\API_Project\APIProject\GameObject.cpp;D:\DDingHo\API_Project\APIProject\Debug\GameObject.obj
 D:\DDingHo\API_Project\APIProject\GameObjectManager.cpp;D:\DDingHo\API_Project\APIProject\Debug\GameObjectManager.obj
 D:\DDingHo\API_Project\APIProject\Grab.cpp;D:\DDingHo\API_Project\APIProject\Debug\Grab.obj
@@ -82,6 +87,7 @@ D:\DDingHo\API_Project\APIProject\ScrollBG.cpp;D:\DDingHo\API_Project\APIProject
 D:\DDingHo\API_Project\APIProject\ScrollBGObject.cpp;D:\DDingHo\API_Project\APIProject\Debug\ScrollBGObject.obj
 D:\DDingHo\API_Project\APIProject\SNBLogo.cpp;D:\DDingHo\API_Project\APIProject\Debug\SNBLogo.obj
 D:\DDingHo\API_Project\APIProject\SNBLogoObj.cpp;D:\DDingHo\API_Project\APIProject\Debug\SNBLogoObj.obj
+D:\DDingHo\API_Project\APIProject\SoundMgr.cpp;D:\DDingHo\API_Project\APIProject\Debug\SoundMgr.obj
 D:\DDingHo\API_Project\APIProject\SpriteRenderer.cpp;D:\DDingHo\API_Project\APIProject\Debug\SpriteRenderer.obj
 D:\DDingHo\API_Project\APIProject\State.cpp;D:\DDingHo\API_Project\APIProject\Debug\State.obj
 D:\DDingHo\API_Project\APIProject\StateMachine.cpp;D:\DDingHo\API_Project\APIProject\Debug\StateMachine.obj

@@ -31,8 +31,18 @@ public:
 		D2D1_MATRIX_3X2_F oldTransform;
 		render->GetTransform(&oldTransform);
 
+		D2D1_MATRIX_3X2_F scaleMatrix;
+
 		// 스케일 변환 적용
-		D2D1_MATRIX_3X2_F scaleMatrix = Matrix3x2F::Scale(mScale, mScale, center);
+		if (mFlip)
+		{
+			scaleMatrix = Matrix3x2F::Scale(-mScale, mScale, center);
+		}
+
+		else
+		{
+			scaleMatrix = Matrix3x2F::Scale(mScale, mScale, center);
+		}
 
 		// 회전 변환 적용
 		D2D1_MATRIX_3X2_F rotationMatrix = Matrix3x2F::Rotation(mAngle, center);
@@ -72,7 +82,9 @@ public:
 
 	float	GetWidth() const { return mWidth; }
 
-	void 	Flip(bool flip) { mFlip = flip; }
+	void 	Flip(bool flip)	{mFlip = flip;}
+
+	bool	GetFlip() const { return mFlip; }
 
 	void 	Destroy() override;
 

@@ -18,8 +18,10 @@
 #include "ExcDashState.h"
 #include "ExcState.h"
 #include "FireBirdBodyVFXObj.h"
+#include "FloatingBombObj.h"
 #include "Grab.h"
 #include "Platform.h"
+#include "SwingJumpState.h"
 #include "SwingState.h"
 #include "TimeManager.h"
 
@@ -35,6 +37,7 @@ Player::~Player()
 	delete Climbing;
 	delete Swing;
 	delete ChargeAttack;
+	delete SwingJump;
 
 	for(auto& ani : AnimationMap)
 	{
@@ -66,7 +69,133 @@ void Player::Start()
 	
 
 	// Component setting
-	mCollider->SetOffset({ 0, -21 });
+	mCollider->SetOffset({ 0, 0});
+
+	// Player Sprite cashing
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_Idle.png", L"SNB_Idle");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_Running.png", L"SNB_Running");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_RunStart.png", L"SNB_RunStart");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_RunStop.png", L"SNB_RunStop");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_Landing.png", L"SNB_Landing");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_Jumping.png", L"SNB_Jumping");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_FallStart.png", L"SNB_FallStart");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_Falling.png", L"SNB_Falling");
+
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_ChargeDashChargeStart.png", L"SNB_ChargeDashChargeStart");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_ChargeDashChargeLoop.png", L"SNB_ChargeDashChargeLoop");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_ChargeDashChargeEnd.png", L"SNB_ChargeDashChargeEnd");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_ChargeAttack.png", L"SNB_ChargeAttack");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_ChargeDash.png", L"SNB_ChargeDash");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_ChargeDashEndGround.png", L"SNB_ChargeDashEndGround");
+
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_Damaged.png", L"SNB_Damaged");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_Dash.png", L"SNB_Dash");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_DashEndGround.png", L"SNB_DashEndGround");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_Death.png", L"SNB_Death");
+
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_ExcDash.png", L"SNB_ExcDash");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_ExcDashEndGround.png", L"SNB_ExcDashEndGround");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_ExcHolding_Back.png", L"SNB_ExcHolding_Back");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_ExcHolding_Front.png", L"SNB_ExcHolding_Front");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_ExcHolding_Neu.png", L"SNB_ExcHolding_Neu");
+
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_Swing.png", L"SNB_Swing");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_SwingJumpUp.png", L"SNB_SwingJumpUp");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_SwingJump.png", L"SNB_SwingJump");
+
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_Land2Run.png", L"SNB_Land2Run");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_WallSlideStart.png", L"SNB_WallStart");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_WallSliding.png", L"SNB_WallSliding");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_WallClimbDown.png", L"SNB_WallClimbDown");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_WallClimbUp.png", L"SNB_WallClimbUp");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_Rolling.png", L"SNB_Rolling");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_Roll2Fall.png", L"SNB_Roll2Fall");
+
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_ShotAIRDown.png", L"SNB_ShotAIRDown");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_ShotAIRFront.png", L"SNB_ShotAIRFront");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_ShotAIRUp.png", L"SNB_ShotAIRUp");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_ShotGNDDown.png", L"SNB_ShotGNDDown");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_ShotGNDFront.png", L"SNB_ShotGNDFront");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_ShotGNDUp.png", L"SNB_ShotGNDUp");
+
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_CeilingStick_Idle.png", L"SNB_CeilingStick_Idle");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_CeilingStick_Jump.png", L"SNB_CeilingStick_Jump");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_CeilingStick_MoveEnd.png", L"SNB_CeilingStick_MoveEnd");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_CeilingStick_MoveStart.png", L"SNB_CeilingStick_MoveStart");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_CeilingStick_Moving.png", L"SNB_CeilingStick_Moving");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_CeilingStick_Start.png", L"SNB_CeilingStick_Start");
+
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/Effect/ChargeAim_Appear.png", L"ChargeAim_Appear");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/Effect/ChargeAim_Idle_lp.png", L"ChargeAim_Idle_lp");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/Effect/ChargeTracker_Track.png", L"ChargeTracker_Track");
+
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/Effect/VfxSNB_ChargeAttack.png", L"VfxSNB_ChargeAttack");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/Effect/VfxSNB_ChargeComplete.png", L"VfxSNB_ChargeComplete");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/Effect/VfxSNB_ChargeDash.png", L"VfxSNB_ChargeDash");
+
+
+	AnimationMap.insert({ L"VfxSNB_ChargeAttack" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"VfxSNB_ChargeAttack"), 0, 8, 128, 128, .08f, false) });
+	AnimationMap.insert({ L"VfxSNB_ChargeComplete" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"VfxSNB_ChargeComplete"), 0, 10, 160, 160, .08f, false) });
+	AnimationMap.insert({ L"VfxSNB_ChargeDash" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"VfxSNB_ChargeDash"), 0, 10, 160, 160, .08f, false) });
+
+
+	// Player Animation cashing
+	AnimationMap.insert({ L"SNB_Idle",new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Idle"), 0, 8, 80, 80, 0.2f, true) });
+	AnimationMap.insert({ L"SNB_Running",new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Running"), 0, 20, 80, 80, .1f, true) });
+	AnimationMap.insert({ L"SNB_RunStart",new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_RunStart"), 0, 2, 80, 80, .1f,false) });
+	AnimationMap.insert({ L"SNB_RunStop" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_RunStop"), 0, 6, 80, 80, .1f, false) });
+	AnimationMap.insert({ L"SNB_Landing" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Landing"), 0, 3, 80, 80, .1f, false) });
+	AnimationMap.insert({ L"SNB_Jumping" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Jumping"), 0, 6, 80, 80, .1f, true) });
+	AnimationMap.insert({ L"SNB_FallStart" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_FallStart"), 0, 3, 80, 80, .1f, false) });
+	AnimationMap.insert({ L"SNB_Falling" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Falling"), 0, 3, 80, 80, .1f, true) });
+
+	AnimationMap.insert({ L"SNB_ChargeDashChargeStart" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ChargeDashChargeStart"), 0, 23, 128, 128, .08f, false) });
+	AnimationMap.insert({ L"SNB_ChargeDashChargeLoop" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ChargeDashChargeLoop"), 0, 8, 128, 128, .08f, true) });
+	AnimationMap.insert({ L"SNB_ChargeDashChargeEnd" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ChargeDashChargeEnd"), 0, 9, 128, 128, .08f, false) });
+	AnimationMap.insert({ L"SNB_ChargeDash" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ChargeDash"), 0, 10, 128, 128, .08f, false) });
+	AnimationMap.insert({ L"SNB_ChargeAttack" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ChargeAttack"), 0, 10, 128, 128, .08f, false) });
+	AnimationMap.insert({ L"SNB_ChargeDashEndGround" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ChargeDashEndGround"), 0, 8, 128, 128, .08f, false) });
+
+	AnimationMap.insert({ L"SNB_Damaged" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Damaged"), 0, 5, 80, 80, .1f, false) });
+	AnimationMap.insert({ L"SNB_Dash" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Dash"), 0, 4, 80, 80, .1f, false) });
+	AnimationMap.insert({ L"SNB_DashEndGround" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_DashEndGround"), 0, 8, 80, 80, .1f, false) });
+	AnimationMap.insert({ L"SNB_Death" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Death"), 0, 24, 80, 80, .1f, false) });
+
+	AnimationMap.insert({ L"SNB_ExcDash" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ExcDash"), 0, 17, 80, 80, .1f, false) });
+	AnimationMap.insert({ L"SNB_ExcDashEndGround" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ExcDashEndGround"), 0, 8, 80, 80, .1f, true) });
+	AnimationMap.insert({ L"SNB_ExcHolding_Back" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ExcHolding_Back"), 0, 8, 80, 80, .1f, true) });
+	AnimationMap.insert({ L"SNB_ExcHolding_Front" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ExcHolding_Front"), 0, 8, 80, 80, .1f, true) });
+	AnimationMap.insert({ L"SNB_ExcHolding_Neu" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ExcHolding_Neu"), 0, 4, 80, 80, .1f, true) });
+
+	AnimationMap.insert({ L"SNB_Swing" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Swing"), 0, 29, 56, 56, .08f, true) });
+	AnimationMap.insert({ L"SNB_SwingJumpUp" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_SwingJumpUp"), 0, 5, 80, 80, .05f, false) });
+	AnimationMap.insert({ L"SNB_SwingJump" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_SwingJump"), 0, 9, 80, 80, .05f, false) });
+
+	AnimationMap.insert({ L"SNB_Land2Run" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Land2Run"), 0, 12, 80, 80, .1f, false) });
+	AnimationMap.insert({ L"SNB_WallStart" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_WallStart"), 0, 8, 80, 80, .1f, false) });
+	AnimationMap.insert({ L"SNB_WallSliding" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_WallSliding"), 0, 11, 80, 80, .1f, true) });
+	AnimationMap.insert({ L"SNB_WallClimbDown" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_WallClimbDown"), 0, 7, 80, 80, .1f, true) });
+	AnimationMap.insert({ L"SNB_WallClimbUp" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_WallClimbUp"), 0, 10, 80, 80, .08f, true) });
+	AnimationMap.insert({ L"SNB_Rolling" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Rolling"), 0, 12, 80, 80, .08f, true) });
+	AnimationMap.insert({ L"SNB_Roll2Fall" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Roll2Fall"), 0, 8, 80, 80, .08f, false) });
+
+	AnimationMap.insert({ L"SNB_ShotAIRDown" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ShotAIRDown"), 0, 3, 80, 80, .1f, false) });
+	AnimationMap.insert({ L"SNB_ShotAIRFront" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ShotAIRFront"), 0, 3, 80, 80, .1f, false) });
+	AnimationMap.insert({ L"SNB_ShotAIRUp" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ShotAIRUp"), 0, 3, 80, 80, .1f, false) });
+	AnimationMap.insert({ L"SNB_ShotGNDDown" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ShotGNDDown"), 0, 4, 80, 80, .08f, false) });
+	AnimationMap.insert({ L"SNB_ShotGNDFront" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ShotGNDFront"), 0, 4, 80, 80, .08f, false) });
+	AnimationMap.insert({ L"SNB_ShotGNDUp" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ShotGNDUp"), 0, 4, 80, 80, .08f, false) });
+
+	AnimationMap.insert({ L"SNB_CeilingStick_Idle" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_CeilingStick_Idle"), 0, 12, 80, 80, .08f, true) });
+	AnimationMap.insert({ L"SNB_CeilingStick_Jump" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_CeilingStick_Jump"), 0, 9, 80, 80, .08f, false) });
+	AnimationMap.insert({ L"SNB_CeilingStick_MoveEnd" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_CeilingStick_MoveEnd"), 0, 3, 80, 80, .08f, false) });
+	AnimationMap.insert({ L"SNB_CeilingStick_MoveStart" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_CeilingStick_MoveStart"), 0, 3, 80, 80, .08f, false) });
+	AnimationMap.insert({ L"SNB_CeilingStick_Moving" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_CeilingStick_Moving"), 0, 16, 80, 80, .08f, true) });
+	AnimationMap.insert({ L"SNB_CeilingStick_Start" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_CeilingStick_Start"), 0, 5, 80, 80, .08f, false) });
+
+	AnimationMap.insert({ L"ChargeAim_Appear" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"ChargeAim_Appear"), 0, 10, 192, 192, .08f, false) });
+	AnimationMap.insert({ L"ChargeAim_Idle_lp" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"ChargeAim_Idle_lp"), 0, 12, 192, 192, .08f, true) });
+	AnimationMap.insert({ L"ChargeTracker_Track" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"ChargeTracker_Track"), 0, 20, 64, 171, .08f, false) });
 
 	// State
 	Idle = new IdleState(this, mStateMachine, IDLE);
@@ -78,53 +207,7 @@ void Player::Start()
 	ExcDash = new ExcDashState(this, mStateMachine, EXCDASH);
 	Exc = new ExcState(this, mStateMachine, EXC);
 	Swing = new SwingState(this, mStateMachine, SWING);
-
-	// Player Sprite cashing
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_Idle.png", L"SNB_Idle");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_Running.png", L"SNB_Running");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_RunningStart.png", L"SNB_RunningStart");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_RunningStop.png", L"SNB_RunningStop");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_Landing.png", L"SNB_Landing");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_Jumping.png", L"SNB_Jumping");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_FallStart.png", L"SNB_FallStart");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_Falling.png", L"SNB_Falling");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_ChargeDashChargeStart.png", L"SNB_ChargeDashChargeStart");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_ChargeDashChargeLoop.png", L"SNB_ChargeDashChargeLoop");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_ChargeDashChargeEnd.png", L"SNB_ChargeDashChargeEnd");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_Swing.png", L"SNB_Swing");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_Land2Run.png", L"SNB_Land2Run");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_WallSlideStart.png", L"SNB_WallStart");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_WallSliding.png", L"SNB_WallSliding");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_WallClimbDown.png", L"SNB_WallClimbDown");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_WallClimbUp.png", L"SNB_WallClimbUp");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_SwingJumpUp.png", L"SNB_SwingJumpUp");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_Rolling.png", L"SNB_Rolling");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_ChargeAttack.png", L"SNB_ChargeAttack");
-	ImageManager::GetInstance().InsertBmp(L"./Sprite/00. SNB/SNB_ChargeDash.png", L"SNB_ChargeDash");
-
-
-	// Player Animation cashing
-	AnimationMap.insert({ L"SNB_Idle",new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Idle"), 0, 8, 56, 56, 0.2f, true) });
-	AnimationMap.insert({ L"SNB_Running",new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Running"), 0, 20, 56, 56, .1f, true) });
-	AnimationMap.insert({ L"SNB_RunningStart",new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_RunningStart"), 0, 2, 56, 56, .1f,false) });
-	AnimationMap.insert({ L"SNB_RunningStop" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_RunningStop"), 0, 6, 56, 56, .1f, false) });
-	AnimationMap.insert({ L"SNB_Landing" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Landing"), 0, 3, 56, 56, .1f, false) });
-	AnimationMap.insert({ L"SNB_Jumping" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Jumping"), 0, 6, 56, 56, .1f, true) });
-	AnimationMap.insert({ L"SNB_FallStart" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_FallStart"), 0, 3, 56, 56, .1f, false) });
-	AnimationMap.insert({ L"SNB_Falling" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Falling"), 0, 3, 56, 56, .1f, true) });
-	AnimationMap.insert({ L"SNB_ChargeDashChargeStart" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ChargeDashChargeStart"), 0, 23, 56, 56, .08f, false) });
-	AnimationMap.insert({ L"SNB_ChargeDashChargeLoop" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ChargeDashChargeLoop"), 0, 8, 56, 56, .08f, true) });
-	AnimationMap.insert({ L"SNB_ChargeDashChargeEnd" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ChargeDashChargeEnd"), 0, 9, 56, 56, .08f, false) });
-	AnimationMap.insert({ L"SNB_Swing" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Swing"), 0, 29, 56, 56, .08f, true) });
-	AnimationMap.insert({ L"SNB_Land2Run" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Land2Run"), 0, 12, 56, 56, .1f, false) });
-	AnimationMap.insert({ L"SNB_WallStart" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_WallStart"), 0, 8, 56, 56, .1f, false) });
-	AnimationMap.insert({ L"SNB_WallSliding" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_WallSliding"), 0, 11, 56, 56, .1f, true) });
-	AnimationMap.insert({ L"SNB_WallClimbDown" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_WallClimbDown"), 0, 7, 56, 56, .1f, true) });
-	AnimationMap.insert({ L"SNB_WallClimbUp" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_WallClimbUp"), 0, 10, 56, 56, .08f, true) });
-	AnimationMap.insert({ L"SNB_SwingJumpUp" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_SwingJumpUp"), 0, 5, 56, 56, .05f, false) });
-	AnimationMap.insert({ L"SNB_Rolling" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Rolling"), 0, 12, 56, 56, .08f, true) });
-	AnimationMap.insert({ L"SNB_ChargeDash" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ChargeDash"), 0, 10, 112, 56, .08f, false) });
-	AnimationMap.insert({ L"SNB_ChargeAttack" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ChargeAttack"), 0, 10, 56, 56, .08f, false) });
+	SwingJump = new SwingJumpState(this, mStateMachine, SWINGJUMP);
 
 	// Player stat
 	Speed = 275.f;
@@ -158,7 +241,8 @@ void Player::Update()
 
 	if (mKeyMgr->Key_Down('G'))
 	{
-		GameObjectManager::GetInstance().AddGameObject<FireBirdBodyVFXObj>();
+		GameObjectManager::GetInstance().AddGameObject<FloatingBombObj>()->GetTransform()->SetWorldPosition(mTransform->GetWorldPosition());
+		//GameObjectManager::GetInstance().AddGameObject<FireBirdBodyVFXObj>();
 		//GameObjectManager::GetInstance().AddGameObject<EffectObj>()->GetComponent<Effect>()->SetEffect(mTransform->GetWorldPosition(), FindAniInfo(L"SNB_RunningStart"));
 	}
 	mStateMachine->GetCurrentState()->HandleInput();
@@ -177,14 +261,22 @@ void Player::OnCollisionEnter(Collision other)
 	switch (mStateMachine->GetCurrentState()->GetType())
 	{
 	case IDLE:
-
 		break;
 	case RUN:
 
 		break;
 	case JUMP:
-		if (other.GetGameObject()->CompareTag(PLATFORM) && dir & LEFT)
+		if (other.GetGameObject()->CompareTag(PLATFORM) && dir == LEFT)
 		{
+			mTransform->SetParent(other.GetGameObject()->GetTransform());
+			mAnimator->Flip(false);
+			IsClimb = true;
+		}
+
+		else if (other.GetGameObject()->CompareTag(PLATFORM) && dir == RIGHT)
+		{
+			mTransform->SetParent(other.GetGameObject()->GetTransform());
+			mAnimator->Flip(true);
 			IsClimb = true;
 		}
 		break;
@@ -197,11 +289,25 @@ void Player::OnCollisionEnter(Collision other)
 	case CHARGEATTACK:
 		if (other.GetGameObject() == mChargeTarget)
 		{
+			GameObjectManager::GetInstance().AddGameObject<EffectObj>()->GetComponent<Effect>()->SetEffect(other.GetContactPoint(), FindAniInfo(L"VfxSNB_ChargeAttack"));
 			mChargeTarget->GetComponent<Rigidbody>()->AddForce(mRigidbody->GetVelocity());
 			mStateMachine->ChangeState(Jump);
 		}
 		break;
 	case SWING:
+		if (other.GetGameObject()->CompareTag(PLATFORM) && dir == LEFT)
+		{
+			mTransform->SetParent(other.GetGameObject()->GetTransform());
+			mAnimator->Flip(false);
+			IsClimb = true;
+		}
+
+		else if (other.GetGameObject()->CompareTag(PLATFORM) && dir == RIGHT)
+		{
+			mTransform->SetParent(other.GetGameObject()->GetTransform());
+			mAnimator->Flip(true);
+			IsClimb = true;
+		}
 		break;
 	case EXC:
 		break;
@@ -219,6 +325,7 @@ void Player::OnCollisionEnter(Collision other)
 		CollisionManager::AdjustRect(mCollider, other.GetCollider(), dir);
 		if (dir & TOP && GetRigidbody()->GetVelocity().y >= 0)
 		{
+			mTransform->SetParent(other.GetGameObject()->GetTransform());
 			IsGrounded = true;
 		}
 
@@ -267,10 +374,9 @@ void Player::OnCollisionExit(Collision other)
 	if (other.GetGameObject()->CompareTag(PLATFORM))
 	{
 		dir = CollisionManager::DetectEdgeCollisionDir(mRigidbody, *other.GetCollider()->GetRect());
-		if (dir & TOP)
-		{
-			IsGrounded = false;
-		}
+
+		mTransform->SetParent(nullptr);
+		IsGrounded = false;
 		IsClimb = false;
 	}
 }
@@ -308,13 +414,13 @@ void Player::Debug(ID2D1DeviceContext* render)
 		HRESULT hr = gFactory->CreateStrokeStyle(
 			strokeStyleProperties,
 			dashes.data(),
-			static_cast<UINT>(dashes.size()),
+			dashes.size(),
 			&strokeStyle
 		);
 
 		if (mTargetEnemy)
 		{
-			D2D1_POINT_2F p1 = { mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f) };
+			D2D1_POINT_2F p1 = { mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y};
 			D2D1_POINT_2F p2 = { mTargetEnemy->GetTransform()->GetWorldPosition().x,mTargetEnemy->GetTransform()->GetWorldPosition().y };
 
 			render->CreateSolidColorBrush(ColorF(1.f, 0.f, 0.f), &brush);
@@ -337,7 +443,7 @@ void Player::Debug(ID2D1DeviceContext* render)
 		
 		if (mTargetPlatform)
 		{
-			D2D1_POINT_2F p1 = { mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f) };
+			D2D1_POINT_2F p1 = { mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y };
 			D2D1_POINT_2F p2 = { mGrabPoint.x, mGrabPoint.y };
 
 			render->CreateSolidColorBrush(ColorF(0.f, 0.9725f, 1.f), &brush);
@@ -406,7 +512,7 @@ void Player::FindEnemy()
 	GetCursorPos(&mouse);
 	ScreenToClient(gHwnd, &mouse);
 	Vector2 mousePosition = Camera::GetInstance().WorldToScreenMouse({ static_cast<float>(mouse.x), static_cast<float>(mouse.y) });
-	Vector2 playerPos = { mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f) };
+	Vector2 playerPos = { mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y };
 	Vector2 playerDir = (mousePosition - playerPos).Normalized();
 
 	GameObject* closestEnemy = nullptr;
@@ -421,7 +527,7 @@ void Player::FindEnemy()
 			if (IsEnemyVisible(enemyPosition, enemy))
 			{
 				float dx = enemyPosition.x - mTransform->GetWorldPosition().x;
-				float dy = enemyPosition.y - mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f);
+				float dy = enemyPosition.y - mTransform->GetWorldPosition().y;
 				float distanceToEnemy = sqrt(dx * dx + dy * dy);
 
 				if (distanceToEnemy < minDistance)
@@ -445,7 +551,7 @@ void Player::FindHanging()
 	GetCursorPos(&mouse);
 	ScreenToClient(gHwnd, &mouse);
 	Vector2 mousePosition = Camera::GetInstance().WorldToScreenMouse({ static_cast<float>(mouse.x), static_cast<float>(mouse.y) });
-	Vector2 rayStart = { mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f) };
+	Vector2 rayStart = { mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y };
 	Vector2 rayDir = (mousePosition - rayStart).Normalized();
 
 	GameObject* closestPlatform = nullptr;
@@ -459,16 +565,16 @@ void Player::FindHanging()
 		if (platform->GetComponent<Platform>()->GetType() == RECT_PLATFORM)
 		{
 			if (!platform->GetComponent<BoxCollider>()->IsEnabled()) continue;
-			RECT* rect = platform->GetComponent<BoxCollider>()->GetRect();
+			D2D1_RECT_F* rect = platform->GetComponent<BoxCollider>()->GetRect();
 			isHit = IntersectRayWithBox(rayStart, rayDir, *rect, hitPoint);
 		}
 
 		else if (platform->GetComponent<Platform>()->GetType() == LINE_PLATFORM)
 		{
-			POINT ps = platform->GetComponent<EdgeCollider>()->GetStart();
-			POINT pe = platform->GetComponent<EdgeCollider>()->GetEnd();
-			Vector2 lineStart = { static_cast<float>(ps.x),static_cast<float>(ps.y) };
-			Vector2 lineEnd = { static_cast<float>(pe.x), static_cast<float>(pe.y) };
+			Vector2 ps = platform->GetComponent<EdgeCollider>()->GetStart();
+			Vector2 pe = platform->GetComponent<EdgeCollider>()->GetEnd();
+			Vector2 lineStart = { (ps.x),(ps.y) };
+			Vector2 lineEnd = { (pe.x), (pe.y) };
 			isHit = IntersectRayWithLineSegment(rayStart, rayDir, lineStart, lineEnd, hitPoint);
 		}
 
@@ -496,7 +602,7 @@ bool Player::IsEnemyInFOV(Vector2 playerDir, Vector2 enemyPosition)
 	// 적과 캐릭터 사이의 벡터 계산
 	Vector2 toEnemy = {
 		enemyPosition.x - mTransform->GetWorldPosition().x,
-		enemyPosition.y - mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f)
+		enemyPosition.y - mTransform->GetWorldPosition().y
 	};
 
 	// 적까지의 거리 계산
@@ -517,7 +623,7 @@ bool Player::IsEnemyVisible(Vector2 enemyPosition, GameObject* enemy)
 
 	Vector2 dir = {
 		enemyPosition.x - mTransform->GetWorldPosition().x,
-		enemyPosition.y - mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f)
+		enemyPosition.y - mTransform->GetWorldPosition().y
 	};
 
 	for (const auto& collider : *colliders)
@@ -526,13 +632,13 @@ bool Player::IsEnemyVisible(Vector2 enemyPosition, GameObject* enemy)
 		if (collider->GetType() == ColliderType::Box)
 		{
 			D2D1_RECT_F rect = {
-				static_cast<float>(collider->GetRect()->left),
-				static_cast<float>(collider->GetRect()->top),
-				static_cast<float>(collider->GetRect()->right),
-				static_cast<float>(collider->GetRect()->bottom)
+				(collider->GetRect()->left),
+				(collider->GetRect()->top),
+				(collider->GetRect()->right),
+				(collider->GetRect()->bottom)
 			};
 
-			if (LineIntersectsRect({mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f) }, dir, rect))
+			if (LineIntersectsRect({mTransform->GetWorldPosition().x, mTransform->GetWorldPosition().y }, dir, rect))
 			{
 				return false;
 			}
@@ -543,18 +649,18 @@ bool Player::IsEnemyVisible(Vector2 enemyPosition, GameObject* enemy)
 			EdgeCollider* edge = static_cast<EdgeCollider*>(collider);
 
 			Vector2 p1 = {
-				static_cast<float>(edge->GetStart().x),
-				static_cast<float>(edge->GetStart().y)
+				(edge->GetStart().x),
+				(edge->GetStart().y)
 			};
 
 			Vector2 p2 = {
-				static_cast<float>(edge->GetEnd().x),
-				static_cast<float>(edge->GetEnd().y)
+				(edge->GetEnd().x),
+				(edge->GetEnd().y)
 			};
 
 			Vector2 start = {
 				mTransform->GetWorldPosition().x,
-				mTransform->GetWorldPosition().y - (mTransform->GetWorldScale().y * 0.5f)
+				mTransform->GetWorldPosition().y
 			};
 
 			if (LineIntersectsLine(start, start + dir, p1, p2))
@@ -611,7 +717,7 @@ bool Player::LineIntersectsLine(Vector2 p1, Vector2 p2, Vector2 q1, Vector2 q2)
 		(d4 == 0 && OnSegment(p1, p2, q2));
 }
 
-bool Player::IntersectRayWithBox(const Vector2& rayStart, const Vector2& rayDir,const RECT& rect, Vector2& intersectionPoint)
+bool Player::IntersectRayWithBox(const Vector2& rayStart, const Vector2& rayDir,const D2D1_RECT_F& rect, Vector2& intersectionPoint)
 {
 	Vector2 intersection;
 	bool hasIntersection = false;
@@ -671,7 +777,6 @@ bool Player::IntersectRayWithLineSegment(const Vector2& rayStart, const Vector2&
 
 	return false;
 }
-
 
 float Player::Direction(Vector2 pi, Vector2 pj, Vector2 pk)
 {

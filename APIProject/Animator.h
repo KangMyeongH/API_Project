@@ -24,7 +24,6 @@ public:
     void Flip(bool flip);
     void Destroy() override;
     bool IsFinish() const { return mFinish; }
-
     void SetNextMotion(AnimationInfo* nextMotion);
 
     bool IsNextMotionPending()

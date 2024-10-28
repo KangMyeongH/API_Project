@@ -13,6 +13,12 @@
 #include <d2d1_1.h>
 #include <wincodec.h>
 #include <dwrite.h>
+#include <io.h>
+
+// FMod 헤더 파일 추가
+#include "fmod.h"
+#include "fmod.hpp"
+#pragma comment(lib, "fmodex_vc.lib")
 
 // Direct3D 및 DXGI 헤더 파일 추가
 #include <d3d11.h>

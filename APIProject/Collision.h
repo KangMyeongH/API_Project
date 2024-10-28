@@ -4,15 +4,15 @@ class Collider;
 class Collision
 {
 public:
-	Collision(GameObject* other, Collider* collider, POINT contactPoint)
+	Collision(GameObject* other, Collider* collider, Vector2 contactPoint)
 	: mOther(other), mCollider(collider), mContactPoint(contactPoint) {}
 
 	GameObject* 	GetGameObject() const { return mOther; }
 	Collider* 		GetCollider() const { return mCollider; }
-	POINT			GetContactPoint() const { return mContactPoint; }
+	Vector2			GetContactPoint() const { return mContactPoint; }
 
 private:
 	GameObject* mOther;
 	Collider* mCollider;
-	POINT mContactPoint;
+	Vector2 mContactPoint;
 };

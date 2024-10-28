@@ -4,6 +4,7 @@
 #include "FireBirdBGMid01Object.h"
 #include "FireBirdBGMid02Object.h"
 #include "FireBirdBGObject.h"
+#include "FireBirdManagerObj.h"
 #include "FireBirdObj.h"
 #include "FireBirdPlatformObj.h"
 #include "GameObjectManager.h"
@@ -11,10 +12,15 @@
 #include "PlayerObject.h"
 #include "ScrollBG.h"
 #include "ScrollBGObject.h"
+#include "SoundMgr.h"
 #include "WingObj.h"
 
 void FireBirdScene::Init()
 {
+	CSoundMgr::Get_Instance()->StopSound(SOUND_BGM);
+	CSoundMgr::Get_Instance()->PlaySound(L"BGM_Chap4_MidBoss_Intro.wav", SOUND_INTRO_BGM, gBGMVolume);
+	GameObjectManager::GetInstance().AddGameObject<FireBirdManagerObj>();
+
 	// 보스 맵의 크기
 	Camera::GetInstance().SetBoundary(0, 0, 2800.f, 1600.f);
 	GameObjectManager::GetInstance().AddGameObject<FireBirdBGObject>();

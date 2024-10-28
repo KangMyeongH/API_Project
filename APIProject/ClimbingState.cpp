@@ -56,7 +56,14 @@ void ClimbingState::HandleInput()
 	if (mPlayer->GetKeyMgr()->Key_Down(VK_SPACE))
 	{
 		mPlayer->IsClimb = false;
-		mPlayer->GetRigidbody()->Velocity() = { -300.f, -200.f };
+		if (mPlayer->GetGameObject()->GetComponent<SpriteRenderer>()->GetFlip())
+		{
+			mPlayer->GetRigidbody()->Velocity() = { 300.f, -200.f };
+		}
+		else
+		{
+			mPlayer->GetRigidbody()->Velocity() = { -300.f, -200.f };
+		}
 		mStateMachine->ChangeState(mPlayer->Jump);
 	}
 
@@ -64,6 +71,10 @@ void ClimbingState::HandleInput()
 
 void ClimbingState::LogicUpdate()
 {
+	if (mPlayer->GetTransform()->GetParent() == nullptr)
+	{
+		mStateMachine->ChangeState(mPlayer->Jump);
+	}
 }
 
 void ClimbingState::PhysicsUpdate()
@@ -72,6 +83,8 @@ void ClimbingState::PhysicsUpdate()
 
 void ClimbingState::Exit()
 {
+	mPlayer->GetTransform()->SetParent(nullptr);
+	mPlayer->IsClimb = false;
 }
 
 void ClimbingState::Debug(ID2D1DeviceContext* render)

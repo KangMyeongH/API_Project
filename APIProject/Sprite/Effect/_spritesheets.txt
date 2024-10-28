@@ -1,0 +1,6 @@
+ChargeAim_Appear.png,192,192,10
+ChargeAim_Idle%20(lp).png,192,192,12
+ChargeTracker_Track.png,64,171,20
+VfxSNB_ChargeAttack.png,128,128,8
+VfxSNB_ChargeComplete.png,160,160,10
+VfxSNB_ChargeDash.png,160,160,10

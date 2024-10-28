@@ -34,6 +34,14 @@ public:
 
 	void RemoveCollider(Collider* collider)
 	{
+		for (auto& col : mDestroyColliderQueue)
+		{
+			if (col == collider)
+			{
+				return;
+			}
+		}
+
 		mDestroyColliderQueue.push_back(collider);
 	}
 
@@ -41,8 +49,8 @@ public:
 
 	std::vector<Collider*>* GetColliders() { return &mColliders; }
 
-	static CollisionDirection DetectBoxCollisionDir(RECT objRect, RECT otherRect);
-	static CollisionDirection DetectEdgeCollisionDir(Rigidbody* obj, RECT other);
+	static CollisionDirection DetectBoxCollisionDir(D2D1_RECT_F objRect, D2D1_RECT_F otherRect);
+	static CollisionDirection DetectEdgeCollisionDir(const Rigidbody* obj, const D2D1_RECT_F& other);
 	static void AdjustRect(Collider* collider, Collider* other, CollisionDirection dir);
 
 	void Debug(ID2D1DeviceContext* render);

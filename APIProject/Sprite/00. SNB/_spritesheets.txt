@@ -1,0 +1,2 @@
+SNB_ShotAIRDown.png,80,80,3
+SNB_ShotAIRUp.png,80,80,3

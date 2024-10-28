@@ -17,7 +17,7 @@ void RunState::Enter()
 	mPlayer->GetRigidbody()->Velocity().y = 0;
 	if (mStateMachine->GetPrevState()->GetType() == IDLE)
 	{
-		mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_RunningStart"));
+		mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_RunStart"));
 		mPlayer->GetAnimator()->SetNextMotion(mPlayer->FindAniInfo(L"SNB_Running"));
 	}
 

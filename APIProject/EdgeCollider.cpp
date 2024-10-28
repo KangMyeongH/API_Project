@@ -4,12 +4,12 @@
 #include "BoxCollider.h"
 #include "Camera.h"
 
-bool EdgeCollider::CheckCollision(Collider* other, POINT& contactPoint)
+bool EdgeCollider::CheckCollision(Collider* other, Vector2& contactPoint)
 {
     if (other->GetType() == ColliderType::Box)
     {
         BoxCollider* otherBox = static_cast<BoxCollider*>(other);
-        RECT bounds = *otherBox->GetRect();
+        D2D1_RECT_F bounds = *otherBox->GetRect();
         if (LineIntersectsRect(mStart, mEnd, bounds))
         {
             contactPoint = { (mStart.x + mEnd.x) / 2, (mStart.y + mEnd.y) / 2 };
@@ -19,7 +19,7 @@ bool EdgeCollider::CheckCollision(Collider* other, POINT& contactPoint)
     return false;
 }
 
-RECT* EdgeCollider::GetRect()
+D2D1_RECT_F* EdgeCollider::GetRect()
 {
     mRect.left = (std::min)(mStart.x, mEnd.x);
     mRect.right = (std::max)(mStart.x, mEnd.x);
@@ -41,7 +41,7 @@ void EdgeCollider::Debug(HDC hdc)
     DeleteObject(hPen);
 }*/
 
-bool EdgeCollider::LineIntersectsRect(POINT start, POINT end, RECT rect)
+bool EdgeCollider::LineIntersectsRect(const Vector2& start, const Vector2& end, D2D1_RECT_F rect)
 {
     return (LineIntersectsLine(start, end, { rect.left, rect.top }, { rect.right, rect.top }) ||
         LineIntersectsLine(start, end, { rect.right, rect.top }, { rect.right, rect.bottom }) ||
@@ -49,12 +49,12 @@ bool EdgeCollider::LineIntersectsRect(POINT start, POINT end, RECT rect)
         LineIntersectsLine(start, end, { rect.left, rect.bottom }, { rect.left, rect.top }));
 }
 
-bool EdgeCollider::LineIntersectsLine(POINT p1, POINT p2, POINT p3, POINT p4)
+bool EdgeCollider::LineIntersectsLine(const Vector2& p1, const Vector2& p2, const Vector2& p3, const Vector2& p4)
 {
-    int d1 = Direction(p3, p4, p1);
-    int d2 = Direction(p3, p4, p2);
-    int d3 = Direction(p1, p2, p3);
-    int d4 = Direction(p1, p2, p4);
+    float d1 = Direction(p3, p4, p1);
+    float d2 = Direction(p3, p4, p2);
+    float d3 = Direction(p1, p2, p3);
+    float d4 = Direction(p1, p2, p4);
 
     if (((d1 > 0 && d2 < 0) || (d1 < 0 && d2 > 0)) &&
         ((d3 > 0 && d4 < 0) || (d3 < 0 && d4 > 0)))
@@ -68,12 +68,12 @@ bool EdgeCollider::LineIntersectsLine(POINT p1, POINT p2, POINT p3, POINT p4)
         (d4 == 0 && OnSegment(p1, p2, p4));
 }
 
-int EdgeCollider::Direction(POINT start, POINT end, POINT target)
+float EdgeCollider::Direction(const Vector2& start, const Vector2& end, const Vector2& target)
 {
     return (target.x - start.x) * (end.y - start.y) - (end.x - start.x) * (target.y - start.y);
 }
 
-bool EdgeCollider::OnSegment(POINT start, POINT end, POINT target)
+bool EdgeCollider::OnSegment(const Vector2& start, const Vector2& end, const Vector2& target)
 {
     return (std::min)(start.x, end.x) <= target.x && target.x <= (std::max)(start.x, end.x) &&
         (std::min)(start.y, end.y) <= target.y && target.y <= (std::max)(start.y, end.y);
@@ -82,7 +82,7 @@ bool EdgeCollider::OnSegment(POINT start, POINT end, POINT target)
 void EdgeCollider::Debug(ID2D1DeviceContext* render)
 {
     ID2D1SolidColorBrush* brush = nullptr;
-    D2D1_RECT_F rect = { static_cast<float>(mRect.left), static_cast<float>(mRect.top), static_cast<float>(mRect.right), static_cast<float>(mRect.bottom) };
+    D2D1_RECT_F rect = { (mRect.left), (mRect.top), (mRect.right), (mRect.bottom) };
 
     render->CreateSolidColorBrush(ColorF(0.f, 1.f, 0.f), &brush);
 

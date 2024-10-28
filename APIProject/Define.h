@@ -18,6 +18,20 @@ enum Tag
 	END_TAG
 };
 
+enum CHANNELID
+{
+	SOUND_EFFECT,
+	SOUND_PLAYER,
+	SOUND_PLAYER_EFFECT,
+	SOUND_BUTTON_EFFECT,
+	SOUND_BOSS,
+	SOUND_BOSS_EFFECT,
+	SOUND_BGM,
+	SOUND_INTRO_BGM,
+	MAXCHANNEL
+};
+
+
 enum CollisionDirection
 {
 	NONE = 0,
@@ -36,6 +50,7 @@ enum PlayerState
 	CHARGEDASH,
 	CHARGEATTACK,
 	SWING,
+	SWINGJUMP,
 	EXC,
 	EXCDASH
 };
@@ -79,6 +94,8 @@ private:
 
 #define VK_MAX			0xff
 
+extern float gBGMVolume;
+extern float gEffectVolume;
 extern HWND gHwnd;
 extern ID2D1Factory1* gFactory;
 //extern ID2D1HwndRenderTarget* gRenderTarget;

@@ -7,7 +7,7 @@ class FireBirdAim final :
 {
 public:
 	explicit FireBirdAim(GameObject* owner)
-		: MonoBehaviour(owner), mPlayer(nullptr), mCurrentTime(0), mDurationTime(0.1f), mDurationCurrentTime(0),
+		: MonoBehaviour(owner), mPlayer(nullptr), mCurrentTime(0), mDurationTime(0.08f), mDurationCurrentTime(0),
 		  mIsShoot(false)
 	{
 	}

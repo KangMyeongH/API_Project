@@ -31,6 +31,14 @@ public:
 
 	void RemoveRigidbody(Rigidbody* rigidbody)
 	{
+		for (auto& rb : mDestroyRigidbodyQueue)
+		{
+			if (rb == rigidbody)
+			{
+				return;
+			}
+		}
+
 		mDestroyRigidbodyQueue.push_back(rigidbody);
 	}
 

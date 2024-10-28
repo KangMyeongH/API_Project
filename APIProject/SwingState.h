@@ -11,7 +11,9 @@ public:
 	SwingState(Player* player, StateMachine* stateMachine, PlayerState stateType)
 		: State(player, stateMachine, stateType), mLength(0), mGravity(0), mTheta(0), mOmega(0), mMaxAddOmega(0),
 		  mTime(0),
-		  mMaxLineLength(250.f), mIsDash(false), mIsFinish(false), mCurrentTime(0), mMaxOmega(0.5f)
+		  mMaxLineLength(250.f), mIsDash(false), mIsFinish(false), mIsRush(false), mCurrentTime(0), mMaxOmega(0.5f),
+		  mRight(false),
+		  mLeft(false)
 	{
 	}
 
@@ -65,6 +67,7 @@ private:
 	float		mMaxLineLength;		// 최대 줄 길이
 	bool		mIsDash;
 	bool		mIsFinish;
+	bool		mIsRush;
 	float		mCurrentTime;
 	float		mMaxOmega;
 	bool		mRight;

@@ -15,7 +15,7 @@ void IdleState::Enter()
 {
 	if (mStateMachine->GetPrevState()->GetType() == RUN)
 	{
-		mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_RunningStop"));
+		mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_RunStop"));
 		mPlayer->GetAnimator()->SetNextMotion(mPlayer->FindAniInfo(L"SNB_Idle"));
 	}
 

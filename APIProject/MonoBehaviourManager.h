@@ -95,6 +95,13 @@ public:
 
 	void RemoveBehaviour(MonoBehaviour* monoBehaviour)
 	{
+		for (auto& mono : mDestroyQueue)
+		{
+			if (mono == monoBehaviour)
+			{
+				return;
+			}
+		}
 		mDestroyQueue.push_back(monoBehaviour);
 	}
 

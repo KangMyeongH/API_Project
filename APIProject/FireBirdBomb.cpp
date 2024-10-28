@@ -6,6 +6,7 @@
 #include "GameObject.h"
 #include "GameObjectManager.h"
 #include "ImageManager.h"
+#include "SoundMgr.h"
 
 FireBirdBomb::~FireBirdBomb()
 {
@@ -18,7 +19,6 @@ FireBirdBomb::~FireBirdBomb()
 void FireBirdBomb::Awake()
 {
 	mUpdateType = UPDATE;
-
 	mAnimationMap.insert({ L"FireBirdVFX_Bomb_Appear",new AnimationInfo(ImageManager::GetInstance().FindImage(L"FireBirdVFX_Bomb_Appear"), 0, 4, 256, 256, 0.08f, false) });
 	mAnimationMap.insert({ L"FireBirdVFX_Bomb_Explode",new AnimationInfo(ImageManager::GetInstance().FindImage(L"FireBirdVFX_Bomb_Explode"), 0, 12, 256, 256, 0.2f, false) });
 	mAnimationMap.insert({ L"FirebirdVFX_Bomb_Falling",new AnimationInfo(ImageManager::GetInstance().FindImage(L"FirebirdVFX_Bomb_Falling"), 0, 4, 256, 256, 0.2f, true) });
@@ -81,6 +81,9 @@ void FireBirdBomb::Fire(Vector2 position)
 	if (mIsFire) return;
 	mIsFire = true;
 	mIsBoom = false;
+	CSoundMgr::Get_Instance()->StopSound(SOUND_BOSS_EFFECT);
+	CSoundMgr::Get_Instance()->PlaySound(L"SFX_Chap4_Firebird_BombingStart.wav", SOUND_BOSS_EFFECT, gEffectVolume);
+
 	GetTransform()->SetWorldPosition(position);
 	GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"FireBirdVFX_Bomb_Appear"));
 	GetGameObject()->GetComponent<Animator>()->Pause(false);
@@ -91,6 +94,9 @@ void FireBirdBomb::Boom()
 {
 	mIsFire = false;
 	mIsBoom = true;
+	CSoundMgr::Get_Instance()->StopSound(SOUND_BOSS_EFFECT);
+	CSoundMgr::Get_Instance()->PlaySound(L"SFX_Chap4_Firebird_BombingBombExplosion.wav", SOUND_BOSS_EFFECT, gEffectVolume);
+
 	GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"FireBirdVFX_Bomb_Explode"));
 	GetGameObject()->GetComponent<Rigidbody>()->Velocity() = { 0,0 };
 	GetGameObject()->GetComponent<BoxCollider>()->SetEnable(false);

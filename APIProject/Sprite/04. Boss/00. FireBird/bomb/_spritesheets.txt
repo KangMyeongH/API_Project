@@ -1,0 +1,7 @@
+FloatingBomb_Excholded_Back_lp.png,256,256,11
+FloatingBomb_Excholded_Front_lp.png,256,256,11
+FloatingBomb_Excholded_Neu_lp.png,256,256,11
+FloatingBomb_ExcholdedStart.png,256,256,11
+FloatingBomb_ExplodeHuge.png,512,512,21
+FloatingBomb_Idle_lp.png,256,256,22
+FloatingBomb_Knockback.png,256,256,16

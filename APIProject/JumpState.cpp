@@ -9,6 +9,7 @@
 #include "Player.h"
 #include "Rigidbody.h"
 #include "RunState.h"
+#include "SoundMgr.h"
 #include "StateMachine.h"
 
 void JumpState::Enter()
@@ -19,6 +20,8 @@ void JumpState::Enter()
 	if (mStateMachine->GetPrevState()->GetType() == IDLE || mStateMachine->GetPrevState()->GetType() == RUN
 		|| mStateMachine->GetPrevState()->GetType() == CLIMBING)
 	{
+		CSoundMgr::Get_Instance()->StopSound(SOUND_PLAYER_EFFECT);
+		CSoundMgr::Get_Instance()->PlaySound(L"SFX_SNB_Jump.wav", SOUND_PLAYER_EFFECT, gEffectVolume);
 		mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_Jumping"));
 	}
 }
@@ -92,6 +95,15 @@ void JumpState::LogicUpdate()
 		{
 			mFalling = true;
 			mPlayer->GetAnimator()->SetNextMotion(mPlayer->FindAniInfo(L"SNB_Falling"));
+		}
+	}
+
+	else if (mStateMachine->GetPrevState()->GetType() == SWING)
+	{
+		if (mPlayer->GetRigidbody()->Velocity().y > 0 && !mFalling)
+		{
+			mFalling = true;
+			//mPlayer->GetAnimator()->SetNextMotion(mPlayer->FindAniInfo(L"SNB_Falling"));
 		}
 	}
 

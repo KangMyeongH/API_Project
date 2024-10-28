@@ -89,7 +89,7 @@ void CollisionManager::CheckCollisions()
 				continue;
 			}*/
 
-			POINT contactPoint;
+			Vector2 contactPoint;
 			bool isColliding = colliderA->CheckCollision(colliderB, contactPoint);
 
 			if (isColliding)
@@ -121,16 +121,16 @@ void CollisionManager::CheckCollisions()
 	}
 }
 
-CollisionDirection CollisionManager::DetectBoxCollisionDir(RECT objRect, RECT otherRect)
+CollisionDirection CollisionManager::DetectBoxCollisionDir(D2D1_RECT_F objRect, D2D1_RECT_F otherRect)
 {
 	CollisionDirection collisionDir = NONE;
 
-	int overlapLeft = objRect.right - otherRect.left;
-	int overlapRight = otherRect.right - objRect.left;
-	int overlapTop = objRect.bottom - otherRect.top;
-	int overlapBottom = otherRect.bottom - objRect.top;
+	float overlapLeft = objRect.right - otherRect.left;
+	float overlapRight = otherRect.right - objRect.left;
+	float overlapTop = objRect.bottom - otherRect.top;
+	float overlapBottom = otherRect.bottom - objRect.top;
 
-	int minOverlap = (std::min)({ overlapLeft,overlapRight,overlapTop,overlapBottom });
+	float minOverlap = (std::min)({ overlapLeft,overlapRight,overlapTop,overlapBottom });
 
 	// obj가 other의 왼쪽에서 충돌
 	if (minOverlap == overlapLeft)
@@ -159,7 +159,7 @@ CollisionDirection CollisionManager::DetectBoxCollisionDir(RECT objRect, RECT ot
 	return collisionDir;
 }
 
-CollisionDirection CollisionManager::DetectEdgeCollisionDir(Rigidbody* obj, RECT other)
+CollisionDirection CollisionManager::DetectEdgeCollisionDir(const Rigidbody* obj, const D2D1_RECT_F& other)
 {
 	CollisionDirection collisionDir = NONE;
 
@@ -200,21 +200,21 @@ void CollisionManager::AdjustRect(Collider* collider, Collider* other, Collision
 
 	if (dir & LEFT)
 	{
-		adjustPosition.x = adjustPosition.x - static_cast<float>(collider->GetRect()->right - other->GetRect()->left);
+		adjustPosition.x = adjustPosition.x - (collider->GetRect()->right - other->GetRect()->left);
 	}
 	else if (dir & RIGHT)
 	{
-		adjustPosition.x = adjustPosition.x + static_cast<float>(other->GetRect()->right - collider->GetRect()->left);
+		adjustPosition.x = adjustPosition.x + (other->GetRect()->right - collider->GetRect()->left);
 	}
 
 	if (dir & TOP)
 	{
-		adjustPosition.y = adjustPosition.y - static_cast<float>(collider->GetRect()->bottom - other->GetRect()->top);
+		adjustPosition.y = adjustPosition.y - (collider->GetRect()->bottom - other->GetRect()->top);
 	}
 
 	else if (dir & BOTTOM)
 	{
-		adjustPosition.y = adjustPosition.y + static_cast<float>(other->GetRect()->bottom - collider->GetRect()->top);
+		adjustPosition.y = adjustPosition.y + (other->GetRect()->bottom - collider->GetRect()->top);
 	}
 	
 	collider->GetTransform()->SetWorldPosition(adjustPosition);

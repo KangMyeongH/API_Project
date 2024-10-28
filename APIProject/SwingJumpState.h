@@ -4,7 +4,9 @@ class SwingJumpState : public State
 {
 public:
 	SwingJumpState(Player* player, StateMachine* stateMachine, PlayerState stateType)
-		: State(player, stateMachine, stateType) {}
+		: State(player, stateMachine, stateType), mCurrentTime(0), mDurationTime(0)
+	{
+	}
 
 	void Enter() override;
 	void HandleInput() override;

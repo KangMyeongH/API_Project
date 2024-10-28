@@ -109,7 +109,7 @@ void FireBirdPlatform::Damaged()
 	}
 
 
-	if (mHp == 0)
+	if (mHp <= 0)
 	{
 		// todo : 터지는로직
 		mOwner->GetComponent<Animator>()->MotionChange(FindAniInfo(L"FireBird_PlatformA_Destroy"));
@@ -117,6 +117,10 @@ void FireBirdPlatform::Damaged()
 		mOwner->GetComponent<SpriteRenderer>()->SetAngle(30);
 		mOwner->GetComponent<BoxCollider>()->SetEnable(false);
 		mOwner->GetComponent<Rigidbody>()->SetUseGravity(true);
+		if (!mOwner->GetTransform()->GetChildren().empty())
+		{
+			mOwner->GetTransform()->GetChildren().front()->SetParent(nullptr);
+		}
 	}
 }
 

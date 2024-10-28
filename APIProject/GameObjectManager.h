@@ -28,6 +28,13 @@ public:
 
 	void RemoveGameObject(GameObject* gameObject)
 	{
+		for (auto& obj : mDestroyQueue)
+		{
+			if (obj == gameObject)
+			{
+				return;
+			}
+		}
 		mDestroyQueue.push_back(gameObject);
 	}
 

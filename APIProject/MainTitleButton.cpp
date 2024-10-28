@@ -7,6 +7,7 @@
 #include "ImageManager.h"
 #include "KeyManager.h"
 #include "SceneManager.h"
+#include "SoundMgr.h"
 #include "TextRenderer.h"
 #include "TimeManager.h"
 #include "TitleScene.h"
@@ -61,12 +62,20 @@ void MainTitleButton::Update()
 		{
 		case GAME_START:
 			SceneManager::GetInstance().ChangeScene(new FireBirdScene);
+			CSoundMgr::Get_Instance()->StopSound(SOUND_BUTTON_EFFECT);
+			CSoundMgr::Get_Instance()->PlaySound(L"SFX_UI_Select.wav", SOUND_BUTTON_EFFECT, gEffectVolume);
 			break;
 		case SPEED_RUN:
+			CSoundMgr::Get_Instance()->StopSound(SOUND_BUTTON_EFFECT);
+			CSoundMgr::Get_Instance()->PlaySound(L"SFX_UI_Select.wav", SOUND_BUTTON_EFFECT, gEffectVolume);
 			break;
 		case SETTING:
+			CSoundMgr::Get_Instance()->StopSound(SOUND_BUTTON_EFFECT);
+			CSoundMgr::Get_Instance()->PlaySound(L"SFX_UI_Select.wav", SOUND_BUTTON_EFFECT, gEffectVolume);
 			break;
 		case END_GAME:
+			CSoundMgr::Get_Instance()->StopSound(SOUND_BUTTON_EFFECT);
+			CSoundMgr::Get_Instance()->PlaySound(L"SFX_UI_Select.wav", SOUND_BUTTON_EFFECT, gEffectVolume);
 			PostQuitMessage(0);
 			break;
 		}
@@ -80,6 +89,8 @@ void MainTitleButton::OnCollisionEnter(Collision other)
 	mOwner->GetComponent<SpriteRenderer>()->SetFrame(0);
 	mColor = { 1.f, 1.f, 1.f, 1.f };
 	mOwner->GetComponent<TextRenderer>()->SetColor(mColor);
+	CSoundMgr::Get_Instance()->StopSound(SOUND_BUTTON_EFFECT);
+	CSoundMgr::Get_Instance()->PlaySound(L"SFX_UI_Hovering.wav", SOUND_BUTTON_EFFECT, gEffectVolume);
 	mSelected = true;
 }
 

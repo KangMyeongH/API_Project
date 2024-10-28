@@ -18,15 +18,15 @@ public:
 	~Collider() override = default;
 
 	virtual void Init() = 0;
-	virtual bool CheckCollision(Collider* other, POINT& contactPoint) = 0;
+	virtual bool CheckCollision(Collider* other, Vector2& contactPoint) = 0;
 	virtual void UpdateRect() = 0;
-	virtual RECT* GetRect() = 0;
+	virtual D2D1_RECT_F* GetRect() = 0;
 
 	ColliderType GetType() const { return mType; }
 
 	bool IsTrigger() const { return mIsTrigger; }
 	void SetTrigger(const bool trigger) { mIsTrigger = trigger; }
-	void SetOffset(const POINT& offset) { mOffset = offset; }
+	void SetOffset(const Vector2& offset) { mOffset = offset; }
 
 	void Destroy() final;
 
@@ -34,7 +34,7 @@ public:
 
 protected:
 	ColliderType mType;
-	POINT		mOffset;
+	Vector2		mOffset;
 	bool mIsTrigger;
 };
 

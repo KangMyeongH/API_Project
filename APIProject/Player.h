@@ -3,6 +3,8 @@
 
 #include "GameObject.h"
 #include "MonoBehaviour.h"
+
+class SwingJumpState;
 class ChargeDashAttackState;
 class SwingState;
 class ClimbingState;
@@ -74,7 +76,7 @@ public:
 private:
 	bool LineIntersectsRect(Vector2 p1, Vector2 direction, D2D1_RECT_F rect);
 	bool LineIntersectsLine(Vector2 p1, Vector2 p2, Vector2 q1, Vector2 q2);
-	bool IntersectRayWithBox(const Vector2& rayStart, const Vector2& rayDir, const RECT& rect, Vector2& intersectionPoint);
+	bool IntersectRayWithBox(const Vector2& rayStart, const Vector2& rayDir, const D2D1_RECT_F& rect, Vector2& intersectionPoint);
 	bool IntersectRayWithLineSegment(const Vector2& rayStart, const Vector2& rayDir, const Vector2& lineStart, const Vector2& lineEnd, Vector2& intersection);
 
 	float Direction(Vector2 pi, Vector2 pj, Vector2 pk);
@@ -129,6 +131,7 @@ public:
 	ExcState* 				Exc;
 	ClimbingState* 			Climbing;
 	SwingState* 			Swing;
+	SwingJumpState* 		SwingJump;
 	
 	float		Speed;
 	float		JumpPower;

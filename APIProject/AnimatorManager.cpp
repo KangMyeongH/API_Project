@@ -66,6 +66,13 @@ void AnimatorManager::AddAnimator(Animator* animator)
 
 void AnimatorManager::RemoveAnimator(Animator* animator)
 {
+	for (auto& ani : mDestroyAnimatorQueue)
+	{
+		if (ani == animator)
+		{
+			return;
+		}
+	}
 	mDestroyAnimatorQueue.push_back(animator);
 }
 

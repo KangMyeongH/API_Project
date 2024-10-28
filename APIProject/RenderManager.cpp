@@ -77,6 +77,13 @@ void RenderManager::AddRenderer(Renderer* sprite)
 
 void RenderManager::RemoveRenderer(Renderer* sprite)
 {
+	for (auto& sp : mDestroyRenderQueue)
+	{
+		if (sp == sprite)
+		{
+			return;
+		}
+	}
 	mDestroyRenderQueue.push_back(sprite);
 }
 

@@ -3,18 +3,22 @@
 
 #include "AnimatorManager.h"
 #include "CollisionManager.h"
+#include "FireBirdScene.h"
 #include "GameObjectManager.h"
 #include "KeyManager.h"
+#include "MajorBossRoomScene.h"
 #include "MonoBehaviourManager.h"
 #include "PhysicsManager.h"
 #include "RenderManager.h"
 #include "SceneManager.h"
+#include "SoundMgr.h"
 #include "TimeManager.h"
 #include "TitleScene.h"
 
 Core::~Core()
 {
 	KeyManager::Destroy_Instance();
+	CSoundMgr::Destroy_Instance();
 }
 
 void Core::Init(HWND hwnd)
@@ -29,6 +33,7 @@ void Core::Init(HWND hwnd)
 	DeleteObject(hPrevBit);
 
 	// TODO : 여기에 Manager들 바인딩
+	CSoundMgr::Get_Instance()->Initialize();
 	mTimeMgr = &TimeManager::GetInstance();
 	mTimeMgr->Init();
 	mObjMgr = &GameObjectManager::GetInstance();
@@ -38,7 +43,7 @@ void Core::Init(HWND hwnd)
 	mRenderMgr = &RenderManager::GetInstance();
 	mAnimatorMgr = &AnimatorManager::GetInstance();
 	mSceneMgr = &SceneManager::GetInstance();
-	mSceneMgr->Init(new TitleScene);
+	mSceneMgr->Init(new FireBirdScene);
 }
 
 void Core::Progress()

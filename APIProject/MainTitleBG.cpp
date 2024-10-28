@@ -9,6 +9,7 @@
 #include "MainTitleButton.h"
 #include "MainTitleButtonObj.h"
 #include "SNBLogoObj.h"
+#include "SoundMgr.h"
 #include "TimeManager.h"
 #include "Transform.h"
 
@@ -24,6 +25,7 @@ void MainTitleBG::Update()
 	if (mCurrentTime >= 9.0f)
 	{
 		mCurrentTime = 9.0f;
+		CSoundMgr::Get_Instance()->PlaySound(L"SFX_TitleLightOn.wav", SOUND_EFFECT, 1.f);
 		mOwner->GetComponent<SpriteRenderer>()->ChangeSprite(ImageManager::GetInstance().FindImage(L"Spr_MainTitle_LightOn"), 1920.f, 1080.f, 2);
 		mBlueLedFinish = true;
 		GameObjectManager::GetInstance().AddGameObject<MainSceneBGObj>();

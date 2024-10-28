@@ -8,6 +8,7 @@
 #include "FireBirdPlatform.h"
 #include "GameObjectManager.h"
 #include "ImageManager.h"
+#include "SoundMgr.h"
 #include "TimeManager.h"
 
 FireBird::~FireBird()
@@ -25,6 +26,9 @@ void FireBird::Awake()
 
 void FireBird::Start()
 {
+	CSoundMgr::Get_Instance()->StopSound(SOUND_BOSS);
+	CSoundMgr::Get_Instance()->PlaySound(L"SFX_Chap4_Firebird_Appear.wav", SOUND_BOSS, gEffectVolume);
+
 	mPlayer = GameObjectManager::GetInstance().GetGameObjectsForTag(PLAYER)->front();
 
 	// ¸öÅë
@@ -297,6 +301,8 @@ void FireBird::BehindFirePattern()
 {
 	if (GetTransform()->GetWorldPosition().y >= 2000.f && !mReadyBehind)
 	{
+		CSoundMgr::Get_Instance()->StopSound(SOUND_BOSS);
+		CSoundMgr::Get_Instance()->PlayLoopSound(L"SFX_Chap4_Firebird_BackLoop.wav", SOUND_BOSS, gEffectVolume);
 		GetTransform()->SetWorldPosition({ mPlayer->GetTransform()->GetWorldPosition().x, -1000.f });
 		mTargetPosition = { mPlayer->GetTransform()->GetWorldPosition().x, 475.f };
 		GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"BOSS_BehindFirebird_Idle"));
@@ -307,6 +313,8 @@ void FireBird::BehindFirePattern()
 
 	else if(GetTransform()->GetWorldPosition().y <= -500.f && mOwner->GetComponent<Rigidbody>()->GetVelocity().y < 0)
 	{
+		CSoundMgr::Get_Instance()->StopSound(SOUND_BOSS);
+		CSoundMgr::Get_Instance()->PlaySound(L"SFX_Chap4_Firebird_Appear.wav", SOUND_BOSS, gEffectVolume);
 		GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"BOSS_Firebird_Body_Idle"));
 		mWing->GetComponent<SpriteRenderer>()->SetEnable(true);
 		mWing->GetComponent<Animator>()->SetEnable(true);
@@ -325,7 +333,7 @@ void FireBird::BehindFirePattern()
 			GameObjectManager::GetInstance().AddGameObject<FireBirdClusterAimObj>();
 		}
 
-		if (mCurrentTime >= 8.f)
+		if (mCurrentTime >= 6.25f)
 		{
 			GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"BOSS_BehindFirebird_Shoot"));
 			GetGameObject()->GetComponent<Animator>()->SetNextMotion(FindAniInfo(L"BOSS_BehindFirebird_Idle"));
@@ -356,6 +364,9 @@ void FireBird::BodyAttackPattern()
 		if (mCurrentTime >= 1.6f)
 		{
 			GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"Firebird_Body_BodySlapLoop"));
+			CSoundMgr::Get_Instance()->StopSound(SOUND_BOSS);
+			CSoundMgr::Get_Instance()->PlaySound(L"SFX_Chap4_Firebird_BodySlap.wav", SOUND_BOSS, gEffectVolume);
+
 			mReadyBehind = false;
 			mReadyBodyAttack = true;
 		}
@@ -363,6 +374,8 @@ void FireBird::BodyAttackPattern()
 
 	else if (mReadyBodyAttack && GetTransform()->GetWorldPosition().x > 3100.f)
 	{
+		CSoundMgr::Get_Instance()->StopSound(SOUND_BOSS);
+		CSoundMgr::Get_Instance()->PlaySound(L"SFX_Chap4_Firebird_Appear.wav", SOUND_BOSS, gEffectVolume);
 		GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"BOSS_Firebird_Body_Idle"));
 		mWing->GetComponent<SpriteRenderer>()->SetEnable(true);
 		mWing->GetComponent<Animator>()->SetEnable(true);
@@ -419,21 +432,31 @@ void FireBird::SetRandomPattern()
 	switch (index)
 	{
 	case 0:
+		CSoundMgr::Get_Instance()->StopSound(SOUND_BOSS);
+		CSoundMgr::Get_Instance()->PlayLoopSound(L"SFX_Chap4_Firebird_Loop.wav", SOUND_BOSS, gEffectVolume);
+		CSoundMgr::Get_Instance()->StopSound(SOUND_BOSS_EFFECT);
+		CSoundMgr::Get_Instance()->PlaySound(L"SFX_Chap4_Firebird_Minigun_Start.wav", SOUND_BOSS_EFFECT, gEffectVolume);
 		mPattern = SHOOT;
 		GameObjectManager::GetInstance().AddGameObject<FireBirdAimObj>();
 		mCurrentTime = 0;
 		break;
 	case 1:
+		CSoundMgr::Get_Instance()->StopSound(SOUND_BOSS);
+		CSoundMgr::Get_Instance()->PlayLoopSound(L"SFX_Chap4_Firebird_Loop.wav", SOUND_BOSS, gEffectVolume);
 		mPattern = BOMBER;
 		break;
 	case 2:
 		mPattern = BEHIND_FIRE;
 		mTargetPosition = { 1400.f,2000.f };
+		CSoundMgr::Get_Instance()->StopSound(SOUND_BOSS);
+		CSoundMgr::Get_Instance()->PlaySound(L"SFX_Chap4_Firebird_Disappear.wav", SOUND_BOSS, gEffectVolume);
 		mCurrentTime = 0;
 		break;
 	case 3:
 		mPattern = BODY_ATTACK;
 		mTargetPosition = { 1400.f,2000.f };
+		CSoundMgr::Get_Instance()->StopSound(SOUND_BOSS);
+		CSoundMgr::Get_Instance()->PlaySound(L"SFX_Chap4_Firebird_Disappear.wav", SOUND_BOSS, gEffectVolume);
 		mCurrentTime = 0;
 		mReadyBehind = false;
 		mReadyBodyAttack = false;

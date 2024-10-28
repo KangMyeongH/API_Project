@@ -9,18 +9,18 @@ void BoxCollider::Init()
 	UpdateRect();
 }
 
-bool BoxCollider::CheckCollision(Collider* other, POINT& contactPoint)
+bool BoxCollider::CheckCollision(Collider* other, Vector2& contactPoint)
 {
 	UpdateRect();
 
 	if (other->GetType() == ColliderType::Box)
 	{
 		BoxCollider* otherBox = static_cast<BoxCollider*>(other);
-		RECT intersection;
-		if (IntersectRect(&intersection, &mRect, otherBox->GetRect()))
+		D2D1_RECT_F intersection;
+		if (IntersectBox(&intersection, &mRect, otherBox->GetRect()))
 		{
-			contactPoint.x = (intersection.left + intersection.right) / 2;
-			contactPoint.y = (intersection.top + intersection.bottom) / 2;
+			contactPoint.x = (intersection.left + intersection.right) * 0.5f;
+			contactPoint.y = (intersection.top + intersection.bottom) * 0.5f;
 			return true;
 		}
 
@@ -43,13 +43,13 @@ void BoxCollider::UpdateRect()
 {
 	Transform* transform = mOwner->GetTransform();
 
-	mRect.left = static_cast<LONG>(transform->GetWorldPosition().x - transform->GetWorldScale().x * 0.5f) + mOffset.x;
-	mRect.right = static_cast<LONG>(transform->GetWorldPosition().x + transform->GetWorldScale().x * 0.5f) + mOffset.x;
-	mRect.top = static_cast<LONG>(transform->GetWorldPosition().y - transform->GetWorldScale().y * 0.5f) + mOffset.y;
-	mRect.bottom = static_cast<LONG>(transform->GetWorldPosition().y + transform->GetWorldScale().y * 0.5f) + mOffset.y;
+	mRect.left = transform->GetWorldPosition().x - transform->GetWorldScale().x * 0.5f + mOffset.x;
+	mRect.right = transform->GetWorldPosition().x + transform->GetWorldScale().x * 0.5f + mOffset.x;
+	mRect.top = transform->GetWorldPosition().y - transform->GetWorldScale().y * 0.5f + mOffset.y;
+	mRect.bottom = transform->GetWorldPosition().y + transform->GetWorldScale().y * 0.5f + mOffset.y;
 }
 
-RECT* BoxCollider::GetRect()
+D2D1_RECT_F* BoxCollider::GetRect()
 {
 	UpdateRect();
 	return &mRect;
@@ -83,10 +83,10 @@ void BoxCollider::Debug(HDC hdc)
 	DeleteObject(hPen);
 }*/
 
-bool BoxCollider::CheckEdgeCollision(EdgeCollider* edge, POINT& contactPoint)
+bool BoxCollider::CheckEdgeCollision(EdgeCollider* edge, Vector2& contactPoint)
 {
-	POINT start = edge->GetStart();
-	POINT end = edge->GetEnd();
+	Vector2 start = edge->GetStart();
+	Vector2 end = edge->GetEnd();
 	if (LineIntersectsRect(start, end, mRect))
 	{
 		contactPoint = { (start.x + end.x) / 2, (start.y + end.y) / 2};
@@ -96,7 +96,7 @@ bool BoxCollider::CheckEdgeCollision(EdgeCollider* edge, POINT& contactPoint)
 	return false;
 }
 
-bool BoxCollider::LineIntersectsRect(POINT start, POINT end, RECT rect)
+bool BoxCollider::LineIntersectsRect(Vector2 start, Vector2 end, D2D1_RECT_F rect)
 {
 	return (LineIntersectsLine(start, end, { rect.left, rect.top }, { rect.right, rect.top }) ||
 		LineIntersectsLine(start, end, { rect.right, rect.top }, { rect.right, rect.bottom }) ||
@@ -104,12 +104,12 @@ bool BoxCollider::LineIntersectsRect(POINT start, POINT end, RECT rect)
 		LineIntersectsLine(start, end, { rect.left, rect.bottom }, { rect.left, rect.top }));
 }
 
-bool BoxCollider::LineIntersectsLine(POINT p1, POINT p2, POINT p3, POINT p4)
+bool BoxCollider::LineIntersectsLine(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4)
 {
-	int d1 = Direction(p3, p4, p1);
-	int d2 = Direction(p3, p4, p2);
-	int d3 = Direction(p1, p2, p3);
-	int d4 = Direction(p1, p2, p4);
+	float d1 = Direction(p3, p4, p1);
+	float d2 = Direction(p3, p4, p2);
+	float d3 = Direction(p1, p2, p3);
+	float d4 = Direction(p1, p2, p4);
 
 	if (((d1 > 0 && d2 < 0) || (d1 < 0 && d2 > 0)) &&
 		((d3 > 0 && d4 < 0) || (d3 < 0 && d4 > 0)))
@@ -123,19 +123,19 @@ bool BoxCollider::LineIntersectsLine(POINT p1, POINT p2, POINT p3, POINT p4)
 		(d4 == 0 && OnSegment(p1, p2, p4));
 }
 
-int BoxCollider::Direction(POINT start, POINT end, POINT target)
+float BoxCollider::Direction(Vector2 start, Vector2 end, Vector2 target)
 {
 	return (target.x - start.x) * (end.y - start.y) - (end.x - start.x) * (target.y - start.y);
 }
 
 
-bool BoxCollider::OnSegment(POINT start, POINT end, POINT target)
+bool BoxCollider::OnSegment(Vector2 start, Vector2 end, Vector2 target)
 {
 	return (std::min)(start.x, end.x) <= target.x && target.x <= (std::max)(start.x, end.x) &&
 		(std::min)(start.y, end.y) <= target.y && target.y <= (std::max)(start.y, end.y);
 }
 
-bool BoxCollider::AreRectsCollision(POINT& contactPoint ,RECT rectA, RECT rectB)
+bool BoxCollider::AreRectsCollision(Vector2& contactPoint , const D2D1_RECT_F& rectA, const D2D1_RECT_F& rectB)
 {
 	// 오른쪽 경계선과 왼쪽 경계선이 맞닿는 경우
 	bool isTouchingHorizontally =
@@ -144,8 +144,8 @@ bool BoxCollider::AreRectsCollision(POINT& contactPoint ,RECT rectA, RECT rectB)
 
 	if (isTouchingHorizontally)
 	{
-		int top = (std::min)(rectA.top, rectB.top);
-		int bottom = (std::max)(rectA.bottom, rectB.bottom);
+		float top = (std::min)(rectA.top, rectB.top);
+		float bottom = (std::max)(rectA.bottom, rectB.bottom);
 
 		if (rectA.right == rectB.left) contactPoint.x = rectA.right;
 		else contactPoint.x = rectA.left;
@@ -160,8 +160,8 @@ bool BoxCollider::AreRectsCollision(POINT& contactPoint ,RECT rectA, RECT rectB)
 
 	if (isTouchingVertically)
 	{
-		int left = (std::min)(rectA.left, rectB.left);
-		int right = (std::max)(rectA.left, rectB.left);
+		float left = (std::min)(rectA.left, rectB.left);
+		float right = (std::max)(rectA.left, rectB.left);
 
 		contactPoint.x = (left + right) / 2;
 		if (rectA.bottom == rectB.top) contactPoint.y = rectA.bottom;
@@ -169,4 +169,28 @@ bool BoxCollider::AreRectsCollision(POINT& contactPoint ,RECT rectA, RECT rectB)
 	}
 
 	return isTouchingHorizontally || isTouchingVertically;
+}
+
+bool BoxCollider::IntersectBox(D2D1_RECT_F* result, const D2D1_RECT_F* box1, const D2D1_RECT_F* box2)
+{
+	// 두 사각형의 교차 범위를 계산합니다.
+	float left = (std::max)(box1->left, box2->left);
+	float top = (std::max)(box1->top, box2->top);
+	float right = (std::min)(box1->right, box2->right);
+	float bottom = (std::min)(box1->bottom, box2->bottom);
+
+	// 교차가 있는지 확인합니다.
+	if (left < right && top < bottom) 
+	{
+		if (result) 
+		{
+			result->left = left;
+			result->top = top;
+			result->right = right;
+			result->bottom = bottom;
+		}
+		return true;
+	}
+
+	return false;
 }

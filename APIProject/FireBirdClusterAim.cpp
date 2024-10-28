@@ -5,6 +5,7 @@
 #include "GameObject.h"
 #include "GameObjectManager.h"
 #include "ImageManager.h"
+#include "SoundMgr.h"
 #include "TimeManager.h"
 #include "Transform.h"
 
@@ -17,13 +18,17 @@ void FireBirdClusterAim::Awake()
 
 void FireBirdClusterAim::Start()
 {
+	
 	mPlayer = GameObjectManager::GetInstance().GetGameObjectsForTag(PLAYER)->front();
 	GetTransform()->SetWorldPosition(mPlayer->GetTransform()->GetWorldPosition());
 
-	mAnimationMap.insert({ L"FirebirdAim_Cluster_Aim",new AnimationInfo(ImageManager::GetInstance().FindImage(L"FirebirdAim_Cluster_Aim"), 0, 24, 256, 256, 0.2f, false) });
+	mAnimationMap.insert({ L"FirebirdAim_Cluster_Aim",new AnimationInfo(ImageManager::GetInstance().FindImage(L"FirebirdAim_Cluster_Aim"), 0, 24, 256, 256, 0.1f, false) });
 	mAnimationMap.insert({ L"FirebirdAim_Cluster_Shoot",new AnimationInfo(ImageManager::GetInstance().FindImage(L"FirebirdAim_Cluster_Shoot"), 0, 8, 256, 256, 0.1f, false) });
-	mAnimationMap.insert({ L"FirebirdVFX_ClusterBomb_Appear",new AnimationInfo(ImageManager::GetInstance().FindImage(L"FirebirdVFX_ClusterBomb_Appear"), 0, 27, 256, 256, 0.08f, false) });
+	mAnimationMap.insert({ L"FirebirdVFX_ClusterBomb_Appear",new AnimationInfo(ImageManager::GetInstance().FindImage(L"FirebirdVFX_ClusterBomb_Appear"), 0, 27, 256, 256, 0.11f, false) });
 	mAnimationMap.insert({ L"FirebirdVFX_ClusterBomb_Explode",new AnimationInfo(ImageManager::GetInstance().FindImage(L"FirebirdVFX_ClusterBomb_Explode"), 0, 12, 256, 256, 0.08f, false) });
+
+	CSoundMgr::Get_Instance()->StopSound(SOUND_BOSS_EFFECT);
+	CSoundMgr::Get_Instance()->PlaySound(L"SFX_Chap4_Firebird_ClusterWarning.wav", SOUND_BOSS_EFFECT, gEffectVolume);
 
 	mOwner->GetComponent<Animator>()->MotionChange(FindAniInfo(L"FirebirdAim_Cluster_Aim"));
 	mOwner->GetComponent<Animator>()->SetNextMotion(FindAniInfo(L"FirebirdAim_Cluster_Shoot"));
@@ -33,7 +38,7 @@ void FireBirdClusterAim::Start()
 void FireBirdClusterAim::FixedUpdate()
 {
 	mCurrentTime += TimeManager::GetInstance().GetDeltaTime();
-	if (mCurrentTime < 3.f)
+	if (mCurrentTime < 2.f)
 	{
 		Vector2 dir = mPlayer->GetTransform()->GetWorldPosition() - GetTransform()->GetWorldPosition();
 
@@ -46,7 +51,7 @@ void FireBirdClusterAim::FixedUpdate()
 		GetGameObject()->GetComponent<Rigidbody>()->AddForce(force);
 	}
 
-	else if(mCurrentTime >= 3.f)
+	else if(mCurrentTime >= 2.f)
 	{
 		GetGameObject()->GetComponent<Rigidbody>()->Velocity() = { 0,0 };
 	}
@@ -58,6 +63,8 @@ void FireBirdClusterAim::Update()
 	{
 		mIsShoot = true;
 		GetGameObject()->GetComponent<Rigidbody>()->Velocity() = { 0,0 };
+		CSoundMgr::Get_Instance()->StopSound(SOUND_BOSS_EFFECT);
+		CSoundMgr::Get_Instance()->PlaySound(L"SFX_Chap4_Firebird_ClusterShoot.wav", SOUND_BOSS_EFFECT, gEffectVolume);
 		mOwner->GetComponent<Animator>()->MotionChange(FindAniInfo(L"FirebirdVFX_ClusterBomb_Appear"));
 		mOwner->GetComponent<Animator>()->SetNextMotion(FindAniInfo(L"FirebirdVFX_ClusterBomb_Explode"));
 	}

@@ -5,7 +5,7 @@
 class EdgeCollider : public Collider
 {
 public:
-	EdgeCollider(GameObject* owner, POINT start, POINT end) : Collider(owner, ColliderType::Edge), mStart(start), mEnd(end)
+	EdgeCollider(GameObject* owner, Vector2 start, Vector2 end) : Collider(owner, ColliderType::Edge), mStart(start), mEnd(end)
 	{
 		mRect.left = (std::min)(mStart.x, mEnd.x);
 		mRect.right = (std::max)(mStart.x, mEnd.x);
@@ -14,31 +14,31 @@ public:
 	}
 	~EdgeCollider() override = default;
 
-	bool 	CheckCollision(Collider* other, POINT& contactPoint) override;
+	bool 	CheckCollision(Collider* other, Vector2& contactPoint) override;
 
 	void 	UpdateRect() override;
-	RECT* 	GetRect() override;
+	D2D1_RECT_F* 	GetRect() override;
 
-	POINT 	GetStart() const { return mStart; }
-	void 	SetStart(const POINT start) { mStart = start; }
+	Vector2	GetStart() const { return mStart; }
+	void 	SetStart(const Vector2& start) { mStart = start; }
 
-	POINT 	GetEnd() const { return mEnd; }
-	void 	SetEnd(const POINT end) { mEnd = end; }
+	Vector2 	GetEnd() const { return mEnd; }
+	void 	SetEnd(const Vector2& end) { mEnd = end; }
 
 	//void Debug(HDC hdc) override;
 
 private:
-	bool 	LineIntersectsRect(POINT start, POINT end, RECT rect);
-	bool 	LineIntersectsLine(POINT p1, POINT p2, POINT p3, POINT p4);
-	int 	Direction(POINT start, POINT end, POINT target);
-	bool 	OnSegment(POINT start, POINT end, POINT target);
+	bool 	LineIntersectsRect(const Vector2& start, const Vector2& end, D2D1_RECT_F rect);
+	bool 	LineIntersectsLine(const Vector2& p1, const Vector2& p2, const Vector2& p3, const Vector2& p4);
+	float 	Direction(const Vector2& start, const Vector2& end, const Vector2& target);
+	bool 	OnSegment(const Vector2& start, const Vector2& end, const Vector2& target);
 
 public:
 	void Init() override {}
 	void Debug(ID2D1DeviceContext* render) override;
 
 private:
-	POINT 	mStart;
-	POINT 	mEnd;
-	RECT	mRect;
+	Vector2 	mStart;
+	Vector2 	mEnd;
+	D2D1_RECT_F	mRect;
 };

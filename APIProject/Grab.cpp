@@ -7,6 +7,7 @@
 #include "GameObjectManager.h"
 #include "ImageManager.h"
 #include "Player.h"
+#include "SoundMgr.h"
 #include "StateMachine.h"
 #include "SwingState.h"
 #include "TimeManager.h"
@@ -52,6 +53,7 @@ void Grab::FixedUpdate()
 				mOwner->GetComponent<Animator>()->SetEnable(false);
 				mOwner->GetComponent<BoxCollider>()->SetEnable(false);
 				mPlayer->GetStateMachine()->ChangeState(mPlayer->ExcDash);
+				mIsShoot = false;
 			}
 
 			else if (mTarget->GetGameObject()->CompareTag(PLATFORM))
@@ -74,6 +76,8 @@ void Grab::Shoot()
 {
 	if (!mIsShoot)
 	{
+		CSoundMgr::Get_Instance()->StopSound(SOUND_PLAYER_EFFECT);
+		CSoundMgr::Get_Instance()->PlaySound(L"SFX_SNB_Shoot.wav", SOUND_PLAYER_EFFECT, gEffectVolume);
 		Camera::GetInstance().Shake(0.05f, 10.f);
 		mOwner->GetComponent<SpriteRenderer>()->SetEnable(true);
 		mOwner->GetComponent<Animator>()->SetEnable(true);

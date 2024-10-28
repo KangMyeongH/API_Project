@@ -10,6 +10,14 @@ public:
 	{
 	}
 
+	~FireBirdClusterAim() override
+	{
+		for (auto& ani : mAnimationMap)
+		{
+			delete ani.second;
+		}
+	}
+
 
 	void Awake() override;
 	void Start() override;

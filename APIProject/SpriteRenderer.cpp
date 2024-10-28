@@ -78,9 +78,9 @@ void SpriteRenderer::SetFrame(int frame)
 
 	mTargetRect = RectF(
 		mWidth * static_cast<float>(frame), 
-		mHeight * static_cast<float>(mFlip),
+		0,
 		mWidth * static_cast<float>(frame + 1), 
-		mHeight * static_cast<float>(mFlip + 1)
+		mHeight
 	);
 
 	mFrame = frame;
