@@ -2,6 +2,7 @@
 #include "FloatingBombObj.h"
 
 #include "BoxCollider.h"
+#include "Enemy.h"
 #include "FloatingBomb.h"
 #include "ImageManager.h"
 
@@ -21,4 +22,5 @@ void FloatingBombObj::Init()
 	AddComponent<SpriteRenderer>(6);
 	AddComponent<Animator>()->SetSprite(GetComponent<SpriteRenderer>());
 	AddComponent<FloatingBomb>();
+	AddComponent<Enemy>(EXC_FLY);
 }

@@ -17,7 +17,6 @@
 #include "EffectObj.h"
 #include "ExcDashState.h"
 #include "ExcState.h"
-#include "FireBirdBodyVFXObj.h"
 #include "FloatingBombObj.h"
 #include "Grab.h"
 #include "Platform.h"
@@ -251,6 +250,7 @@ void Player::Update()
 
 void Player::LateUpdate()
 {
+	
 }
 
 void Player::OnCollisionEnter(Collision other)

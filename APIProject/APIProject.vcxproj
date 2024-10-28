@@ -160,6 +160,7 @@
     <ClInclude Include="EdgeCollider.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="EffectObj.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyObject.h" />
     <ClInclude Include="ExcDashState.h" />
     <ClInclude Include="ExcState.h" />
@@ -273,6 +274,7 @@
     <ClCompile Include="EdgeCollider.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="EffectObj.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyObject.cpp" />
     <ClCompile Include="ExcDashState.cpp" />
     <ClCompile Include="ExcState.cpp" />

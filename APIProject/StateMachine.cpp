@@ -12,6 +12,7 @@ void StateMachine::Initialize(State* startingState)
 
 void StateMachine::ChangeState(State* newState)
 {
+	if (newState == mCurrentState) return;
 	mCurrentState->Exit();
 	mPrevState = mCurrentState;
 	mCurrentState = newState;

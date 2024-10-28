@@ -55,6 +55,14 @@ enum PlayerState
 	EXCDASH
 };
 
+enum EnemyType
+{
+	EXC_GROUND,
+	EXC_FLY,
+	EXC_STATIC,
+	NORMAL
+};
+
 enum PlatformType
 {
 	RECT_PLATFORM,

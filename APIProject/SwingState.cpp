@@ -161,7 +161,6 @@ void SwingState::StartSwinging()
 	mCurrentTime = 0;
 	mIsDash = false;
 	mIsFinish = false;
-
 }
 
 void SwingState::Swinging()

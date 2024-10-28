@@ -2,6 +2,7 @@
 #include "ExcState.h"
 
 #include "Animator.h"
+#include "Enemy.h"
 #include "GameObject.h"
 #include "Grab.h"
 #include "IdleState.h"
@@ -17,6 +18,11 @@ void ExcState::Enter()
 {
 	mTarget = mPlayer->GetGrab()->GetTarget();
 	mTarget->SetParent(mPlayer->GetTransform());
+	if (mTarget->GetGameObject()->GetComponent<Enemy>()->GetType() == EXC_FLY)
+	{
+		mPlayer->GetRigidbody()->SetUseGravity(true);
+		mPlayer->GetRigidbody()->SetDrag(10.f);
+	}
 	mPlayer->GetGameObject()->GetComponent<SpriteRenderer>()->SetAngle(0);
 }
 
@@ -48,7 +54,10 @@ void ExcState::HandleInput()
 
 		else
 		{
-			mPlayer->GetRigidbody()->Velocity() = { 0,0 };
+			if (mTarget->GetGameObject()->GetComponent<Enemy>()->GetType() != EXC_FLY)
+			{
+				mPlayer->GetRigidbody()->Velocity() = { 0,0 };
+			}
 		}
 	}
 
@@ -56,8 +65,10 @@ void ExcState::HandleInput()
 	{
 		mTarget->SetParent(nullptr);
 		mPlayer->GetRigidbody()->SetUseGravity(true);
-		mPlayer->GetRigidbody()->Velocity() = CalcDirToMouse() * 500.f;
-		TimeManager::GetInstance().SlowMotion(0.1f,0.1f);
+		Vector2 test = CalcDirToMouse() * 500.f;
+		test.y *= 3.f;
+		mPlayer->GetRigidbody()->Velocity() = test;
+		TimeManager::GetInstance().SlowMotion(0.2f,0.2f);
 		mPlayer->GetGrab()->SetIsShoot(false);
 		mStateMachine->ChangeState(mPlayer->Jump);
 	}
@@ -79,6 +90,8 @@ void ExcState::PhysicsUpdate()
 
 void ExcState::Exit()
 {
+	mPlayer->GetRigidbody()->SetUseGravity(false);
+	mPlayer->GetRigidbody()->SetDrag(0.f);
 }
 
 Vector2 ExcState::CalcDirToMouse()
