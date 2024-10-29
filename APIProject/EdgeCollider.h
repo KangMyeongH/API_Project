@@ -5,7 +5,7 @@
 class EdgeCollider : public Collider
 {
 public:
-	EdgeCollider(GameObject* owner, Vector2 start, Vector2 end) : Collider(owner, ColliderType::Edge), mStart(start), mEnd(end)
+	EdgeCollider(GameObject* owner, const Vector2& start, const Vector2& end) : Collider(owner, ColliderType::Edge), mStart(start), mEnd(end)
 	{
 		mRect.left = (std::min)(mStart.x, mEnd.x);
 		mRect.right = (std::max)(mStart.x, mEnd.x);

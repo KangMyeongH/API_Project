@@ -3,12 +3,12 @@
 
 #include "AnimatorManager.h"
 #include "CollisionManager.h"
-#include "FireBirdScene.h"
 #include "GameObjectManager.h"
 #include "KeyManager.h"
 #include "MajorBossRoomScene.h"
 #include "MonoBehaviourManager.h"
 #include "PhysicsManager.h"
+#include "PrologueScene.h"
 #include "RenderManager.h"
 #include "SceneManager.h"
 #include "SoundMgr.h"
@@ -43,7 +43,7 @@ void Core::Init(HWND hwnd)
 	mRenderMgr = &RenderManager::GetInstance();
 	mAnimatorMgr = &AnimatorManager::GetInstance();
 	mSceneMgr = &SceneManager::GetInstance();
-	mSceneMgr->Init(new FireBirdScene);
+	mSceneMgr->Init(new PrologueScene);
 }
 
 void Core::Progress()
