@@ -7,8 +7,7 @@ class FloatingBomb final : public MonoBehaviour
 public:
 	explicit FloatingBomb(GameObject* owner)
 		: MonoBehaviour(owner), mBoundary({2800.f, 1600.f}), mSpeed(0), mIsExc(false),
-		  mIsKnockBack(false),
-		  mIsExplode(false)
+		  mIsKnockBack(false), mIsExplode(false)
 	{
 	}
 

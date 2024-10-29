@@ -162,6 +162,7 @@
     <ClInclude Include="EffectObj.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyObject.h" />
+    <ClInclude Include="ExcAttackState.h" />
     <ClInclude Include="ExcDashState.h" />
     <ClInclude Include="ExcState.h" />
     <ClInclude Include="Fade.h" />
@@ -276,6 +277,7 @@
     <ClCompile Include="EffectObj.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyObject.cpp" />
+    <ClCompile Include="ExcAttackState.cpp" />
     <ClCompile Include="ExcDashState.cpp" />
     <ClCompile Include="ExcState.cpp" />
     <ClCompile Include="Fade.cpp" />

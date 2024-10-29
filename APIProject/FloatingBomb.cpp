@@ -1,12 +1,20 @@
 #include "pch.h"
 #include "FloatingBomb.h"
 
+#include "BoxCollider.h"
+#include "Enemy.h"
+#include "FireBird.h"
 #include "GameObject.h"
 #include "ImageManager.h"
+#include "SoundMgr.h"
+#include "TimeManager.h"
 
 void FloatingBomb::Awake()
 {
 	mUpdateType = static_cast<UpdateType>(mUpdateType | FIXED_UPDATE | UPDATE);
+
+	// 이동 속도
+	mSpeed = 300.f;
 
 	int index = rand() % 4;
 	switch (index)
@@ -25,8 +33,7 @@ void FloatingBomb::Awake()
 		break;
 	}
 
-	// 이동 속도
-	mSpeed = 3.f;
+	mOwner->GetComponent<Rigidbody>()->Velocity() = mDir * mSpeed;
 }
 
 void FloatingBomb::Start()
@@ -44,10 +51,19 @@ void FloatingBomb::Start()
 
 void FloatingBomb::FixedUpdate()
 {
+}
+
+void FloatingBomb::Update()
+{
+	if (mIsExplode && mOwner->GetComponent<Animator>()->IsFinish())
+	{
+		mOwner->Destroy();
+	}
+
+	mDir = mOwner->GetComponent<Rigidbody>()->GetVelocity();
+
 	if (!GetTransform()->GetParent())
 	{
-		GetTransform()->Translate(mDir * mSpeed);
-
 		if (GetTransform()->GetWorldPosition().x <= 0.f)
 		{
 			GetTransform()->SetWorldPosition({ 0, GetTransform()->GetWorldPosition().y });
@@ -71,12 +87,14 @@ void FloatingBomb::FixedUpdate()
 			GetTransform()->SetWorldPosition({ GetTransform()->GetWorldPosition().x, mBoundary.y });
 			mDir.y *= -1;
 		}
-	}
-}
 
-void FloatingBomb::Update()
-{
-	
+		mOwner->GetComponent<Rigidbody>()->Velocity() = mDir;
+	}
+
+	else
+	{
+		mOwner->GetComponent<Rigidbody>()->Velocity() = { 0,0 };
+	}
 }
 
 void FloatingBomb::OnEnable()
@@ -92,7 +110,38 @@ void FloatingBomb::OnDisable()
 
 void FloatingBomb::OnCollisionEnter(Collision other)
 {
-	
+	if (other.GetGameObject()->CompareTag(PLATFORM))
+	{
+		CollisionDirection dir = CollisionManager::DetectBoxCollisionDir(*mOwner->GetComponent<BoxCollider>()->GetRect(), *other.GetCollider()->GetRect());
+		if (dir & LEFT || dir & RIGHT)
+		{
+			mDir.x *= -1;
+		}
+
+		if (dir & TOP || dir & BOTTOM)
+		{
+			mDir.y *= -1;
+		}
+
+		mOwner->GetComponent<Rigidbody>()->Velocity() = mDir;
+	}
+
+	if (other.GetGameObject()->CompareTag(BOSS))
+	{
+		if (mOwner->GetComponent<Enemy>()->GetKnockBack())
+		{
+			Vector2 dir = (other.GetGameObject()->GetTransform()->GetWorldPosition() - GetTransform()->GetWorldPosition()).Normalized();
+			other.GetGameObject()->GetComponent<Rigidbody>()->Velocity() = { 0,0 };
+			other.GetGameObject()->GetComponent<Rigidbody>()->AddForce(dir * 1000.f);
+			mOwner->GetComponent<Animator>()->MotionChange(FindAniInfo(L"FloatingBomb_ExplodeHuge"));
+			mOwner->GetComponent<Rigidbody>()->Velocity() = { 0,0 };
+			mOwner->GetComponent<BoxCollider>()->SetEnable(false);
+			other.GetGameObject()->GetComponent<FireBird>()->Damaged();
+			CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
+			CSoundMgr::Get_Instance()->PlaySound(L"Miniboss_FloatingBomb_Explosion.wav", SOUND_EFFECT, gEffectVolume);
+			mIsExplode = true;
+		}
+	}
 }
 
 AnimationInfo* FloatingBomb::FindAniInfo(const TCHAR* key)

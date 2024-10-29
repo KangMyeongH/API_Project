@@ -270,9 +270,6 @@
     <ClInclude Include="EnemyObject.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="FireBirdScene.h">
-      <Filter>02. Scripts\05. FireBird</Filter>
-    </ClInclude>
     <ClInclude Include="JumpState.h">
       <Filter>02. Scripts\03. Player\01. State</Filter>
     </ClInclude>
@@ -486,6 +483,12 @@
     <ClInclude Include="Enemy.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="FireBirdScene.h">
+      <Filter>02. Scripts\00. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ExcAttackState.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -595,9 +598,6 @@
     </ClCompile>
     <ClCompile Include="EnemyObject.cpp">
       <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="FireBirdScene.cpp">
-      <Filter>02. Scripts\05. FireBird</Filter>
     </ClCompile>
     <ClCompile Include="JumpState.cpp">
       <Filter>02. Scripts\03. Player\01. State</Filter>
@@ -786,6 +786,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBirdScene.cpp">
+      <Filter>02. Scripts\00. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ExcAttackState.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

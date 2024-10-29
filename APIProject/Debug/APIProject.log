@@ -1,2 +1,17 @@
-﻿  ExcState.cpp
-  APIProject.vcxproj -> C:\APIProject\API_Project\Debug\APIProject.exe
+﻿  FireBirdObj.cpp
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
+D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
+  (소스 파일 '/FireBirdObj.cpp'을(를) 컴파일하는 중)
+      D:\DDingHo\API_Project\APIProject\GameObject.h(39,48):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          D:\DDingHo\API_Project\APIProject\FireBirdObj.cpp(55,2):
+          컴파일되는 함수 템플릿 인스턴스화 'T *GameObject::AddComponent<Rigidbody,int,bool,float,int,BodyType>(int &&,bool &&,float &&,int &&,BodyType &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              T=Rigidbody
+          ]
+  
+  APIProject.vcxproj -> D:\DDingHo\API_Project\Debug\APIProject.exe

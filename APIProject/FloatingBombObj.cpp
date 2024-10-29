@@ -19,6 +19,7 @@ void FloatingBombObj::Init()
 
 	mTransform.SetLocalScale({ 44.f,36.f });
 	AddComponent<BoxCollider>();
+	AddComponent<Rigidbody>(0, false, 0, 0, DYNAMIC);
 	AddComponent<SpriteRenderer>(6);
 	AddComponent<Animator>()->SetSprite(GetComponent<SpriteRenderer>());
 	AddComponent<FloatingBomb>();

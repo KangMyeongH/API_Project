@@ -11,7 +11,8 @@ enum AttackType
 	BOMBER,
 	BEHIND_FIRE,
 	BODY_ATTACK,
-	RETURN
+	RETURN,
+	DAMAGED
 };
 
 class FireBird final : public MonoBehaviour
@@ -21,7 +22,7 @@ public:
 		: MonoBehaviour(owner), mWingAnimation{nullptr,}, mBrokenWingAnimation{nullptr,}, mPattern(RETURN),
 		  mPlayer(nullptr),
 		  mWing(nullptr), mGun(nullptr),
-		  mBomber(nullptr), mBomb{nullptr,},
+		  mBomber(nullptr), mShootAim(nullptr), mBomb{nullptr,}, mHp(8),
 		  mBaseForce(10.f),
 		  mForceFactor(2.f),
 		  mMaxForce(80.f), mMaxAngle(3.f), mBombDelay(0.5f), mBombCurrentTime(0), mCurrentTime(0), mWingIndex(-1),
@@ -45,7 +46,9 @@ public:
 	void BehindFirePattern();
 	void BodyAttackPattern();
 	void ReturnPattern();
-	void GoToBottom();
+	void DamagedPattern();
+
+	void Damaged();
 
 	void ChangeWingIndex();
 
@@ -79,11 +82,13 @@ private:
 	GameObject* mWing;
 	GameObject* mGun;
 	GameObject* mBomber;
+	GameObject* mShootAim;
 
 	FireBirdBomb* mBomb[8];
 
 	Vector2		mTargetPosition;
 	Vector2		mAngle;
+	int			mHp;
 	float		mBaseForce;
 	float		mForceFactor;
 	float		mMaxForce;

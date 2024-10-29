@@ -52,7 +52,8 @@ enum PlayerState
 	SWING,
 	SWINGJUMP,
 	EXC,
-	EXCDASH
+	EXCDASH,
+	EXCATTACK
 };
 
 enum EnemyType

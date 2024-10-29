@@ -3,10 +3,9 @@
 
 #include "Animator.h"
 #include "Enemy.h"
+#include "ExcAttackState.h"
 #include "GameObject.h"
 #include "Grab.h"
-#include "IdleState.h"
-#include "JumpState.h"
 #include "KeyManager.h"
 #include "Player.h"
 #include "Rigidbody.h"
@@ -16,6 +15,8 @@
 
 void ExcState::Enter()
 {
+	mPlayer->GetAnimator()->Flip(false);
+	mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_ExcHolding_Neu"));
 	mTarget = mPlayer->GetGrab()->GetTarget();
 	mTarget->SetParent(mPlayer->GetTransform());
 	if (mTarget->GetGameObject()->GetComponent<Enemy>()->GetType() == EXC_FLY)
@@ -32,23 +33,21 @@ void ExcState::HandleInput()
 	{
 		if (mPlayer->GetKeyMgr()->Key_Down('D'))
 		{
-			mPlayer->GetAnimator()->Flip(false);
+			mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_ExcHolding_Front"));
 		}
 
 		else if (mPlayer->GetKeyMgr()->Key_Down('A'))
 		{
-			mPlayer->GetAnimator()->Flip(true);
+			mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_ExcHolding_Back"));
 		}
 
 		if (mPlayer->GetKeyMgr()->Key_Pressing('D'))
 		{
-			mPlayer->GetAnimator()->Flip(false);
 			mPlayer->GetRigidbody()->Velocity().x = 500.f;
 		}
 
 		else if (mPlayer->GetKeyMgr()->Key_Pressing('A'))
 		{
-			mPlayer->GetAnimator()->Flip(true);
 			mPlayer->GetRigidbody()->Velocity().x = -500.f;
 		}
 
@@ -63,14 +62,22 @@ void ExcState::HandleInput()
 
 	else if (mPlayer->GetKeyMgr()->Key_Up(VK_LBUTTON))
 	{
+		POINT mouse;
+		GetCursorPos(&mouse);
+		ScreenToClient(gHwnd, &mouse);
+		Vector2 mousePosition = Camera::GetInstance().WorldToScreenMouse({ static_cast<float>(mouse.x), static_cast<float>(mouse.y) });
+
 		mTarget->SetParent(nullptr);
-		mPlayer->GetRigidbody()->SetUseGravity(true);
-		Vector2 test = CalcDirToMouse() * 500.f;
-		test.y *= 3.f;
-		mPlayer->GetRigidbody()->Velocity() = test;
-		TimeManager::GetInstance().SlowMotion(0.2f,0.2f);
+		mPlayer->GetRigidbody()->SetUseGravity(false);
+		Vector2 test = CalcDirToMouse();
+		mPlayer->GetRigidbody()->SetDrag(0.0f);
+		mPlayer->GetRigidbody()->Velocity() = test * 500.f;
+		mTarget->GetGameObject()->GetComponent<Rigidbody>()->Velocity() = test * -500.f;
+		TimeManager::GetInstance().SlowMotion(0.1f,0.2f);
+		mPlayer->GetGameObject()->GetComponent<SpriteRenderer>()->SetAngle(Vector2::GetAngle(mPlayer->GetTransform()->GetWorldPosition(), mousePosition));
 		mPlayer->GetGrab()->SetIsShoot(false);
-		mStateMachine->ChangeState(mPlayer->Jump);
+		mStateMachine->ChangeState(mPlayer->ExcAttack);
+		mTarget->GetGameObject()->GetComponent<Enemy>()->SetKnockBack(true);
 	}
 
 	else
@@ -99,9 +106,9 @@ Vector2 ExcState::CalcDirToMouse()
 	POINT mouse;
 	GetCursorPos(&mouse);
 	ScreenToClient(gHwnd, &mouse);
-	Vector2 mousePosition = { static_cast<float>(mouse.x), static_cast<float>(mouse.y) };
+	Vector2 mousePosition = Camera::GetInstance().WorldToScreenMouse({ static_cast<float>(mouse.x), static_cast<float>(mouse.y) });
 
-	return (mPlayer->GetTransform()->GetWorldPosition() - mousePosition).Normalized();
+	return (mousePosition - mPlayer->GetTransform()->GetWorldPosition()).Normalized();
 }
 
 void ExcState::Debug(ID2D1DeviceContext* render)

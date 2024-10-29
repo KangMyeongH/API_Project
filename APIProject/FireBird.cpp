@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "FireBird.h"
 
+#include "BoxCollider.h"
 #include "FireBirdAimObj.h"
 #include "FireBirdBodyVFXObj.h"
 #include "FireBirdBomb.h"
@@ -200,6 +201,9 @@ void FireBird::Update()
 	case RETURN:
 		ReturnPattern();
 		break;
+	case DAMAGED:
+		DamagedPattern();
+		break;
 	}
 
 	float xAngle = clamp(mAngle.x / 3.f, -mMaxAngle, mMaxAngle);
@@ -271,6 +275,7 @@ void FireBird::ShootPattern()
 	mCurrentTime += TimeManager::GetInstance().GetDeltaTime();
 	if (mCurrentTime >= 8.f)
 	{
+		mShootAim = nullptr;
 		SetRandomPattern();
 	}
 }
@@ -320,6 +325,7 @@ void FireBird::BehindFirePattern()
 		mWing->GetComponent<Animator>()->SetEnable(true);
 		GetTransform()->SetWorldPosition({ 1400.f, 2000.f });
 		GetGameObject()->GetComponent<Rigidbody>()->Velocity() = { 0,0 };
+		mOwner->GetComponent<BoxCollider>()->SetEnable(true);
 		mPattern = RETURN;
 	}
 
@@ -398,13 +404,28 @@ void FireBird::ReturnPattern()
 	}
 }
 
-void FireBird::GoToBottom()
+void FireBird::DamagedPattern()
 {
-	if (GetTransform()->GetWorldPosition().y >= 2000.f)
+	mCurrentTime += TimeManager::GetInstance().GetDeltaTime();
+	if (mCurrentTime >= 1.5f)
 	{
-		
+		SetRandomPattern();
 	}
 }
+
+
+void FireBird::Damaged()
+{
+	mHp--;
+	if (mShootAim)
+	{
+		mShootAim->Destroy();
+		mShootAim = nullptr;
+	}
+	mCurrentTime = 0;
+	mPattern = DAMAGED;
+}
+
 
 void FireBird::ChangeWingIndex()
 {
@@ -437,7 +458,7 @@ void FireBird::SetRandomPattern()
 		CSoundMgr::Get_Instance()->StopSound(SOUND_BOSS_EFFECT);
 		CSoundMgr::Get_Instance()->PlaySound(L"SFX_Chap4_Firebird_Minigun_Start.wav", SOUND_BOSS_EFFECT, gEffectVolume);
 		mPattern = SHOOT;
-		GameObjectManager::GetInstance().AddGameObject<FireBirdAimObj>();
+		mShootAim = GameObjectManager::GetInstance().AddGameObject<FireBirdAimObj>();
 		mCurrentTime = 0;
 		break;
 	case 1:
@@ -447,6 +468,7 @@ void FireBird::SetRandomPattern()
 		break;
 	case 2:
 		mPattern = BEHIND_FIRE;
+		mOwner->GetComponent<BoxCollider>()->SetEnable(false);
 		mTargetPosition = { 1400.f,2000.f };
 		CSoundMgr::Get_Instance()->StopSound(SOUND_BOSS);
 		CSoundMgr::Get_Instance()->PlaySound(L"SFX_Chap4_Firebird_Disappear.wav", SOUND_BOSS, gEffectVolume);

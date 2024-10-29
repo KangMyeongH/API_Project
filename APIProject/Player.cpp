@@ -15,6 +15,7 @@
 #include "EdgeCollider.h"
 #include "Effect.h"
 #include "EffectObj.h"
+#include "ExcAttackState.h"
 #include "ExcDashState.h"
 #include "ExcState.h"
 #include "FloatingBombObj.h"
@@ -33,6 +34,7 @@ Player::~Player()
 	delete ChargeDash;
 	delete ExcDash;
 	delete Exc;
+	delete ExcAttack;
 	delete Climbing;
 	delete Swing;
 	delete ChargeAttack;
@@ -160,11 +162,11 @@ void Player::Start()
 	AnimationMap.insert({ L"SNB_DashEndGround" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_DashEndGround"), 0, 8, 80, 80, .1f, false) });
 	AnimationMap.insert({ L"SNB_Death" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Death"), 0, 24, 80, 80, .1f, false) });
 
-	AnimationMap.insert({ L"SNB_ExcDash" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ExcDash"), 0, 17, 80, 80, .1f, false) });
-	AnimationMap.insert({ L"SNB_ExcDashEndGround" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ExcDashEndGround"), 0, 8, 80, 80, .1f, true) });
-	AnimationMap.insert({ L"SNB_ExcHolding_Back" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ExcHolding_Back"), 0, 8, 80, 80, .1f, true) });
-	AnimationMap.insert({ L"SNB_ExcHolding_Front" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ExcHolding_Front"), 0, 8, 80, 80, .1f, true) });
-	AnimationMap.insert({ L"SNB_ExcHolding_Neu" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ExcHolding_Neu"), 0, 4, 80, 80, .1f, true) });
+	AnimationMap.insert({ L"SNB_ExcDash" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ExcDash"), 0, 17, 80, 80, .08f, false) });
+	AnimationMap.insert({ L"SNB_ExcDashEndGround" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ExcDashEndGround"), 0, 8, 80, 80, .08f, true) });
+	AnimationMap.insert({ L"SNB_ExcHolding_Back" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ExcHolding_Back"), 0, 8, 80, 80, .08f, true) });
+	AnimationMap.insert({ L"SNB_ExcHolding_Front" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ExcHolding_Front"), 0, 8, 80, 80, .08f, true) });
+	AnimationMap.insert({ L"SNB_ExcHolding_Neu" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_ExcHolding_Neu"), 0, 4, 80, 80, .08f, true) });
 
 	AnimationMap.insert({ L"SNB_Swing" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Swing"), 0, 29, 56, 56, .08f, true) });
 	AnimationMap.insert({ L"SNB_SwingJumpUp" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_SwingJumpUp"), 0, 5, 80, 80, .05f, false) });
@@ -205,6 +207,7 @@ void Player::Start()
 	ChargeAttack = new ChargeDashAttackState(this, mStateMachine, CHARGEATTACK);
 	ExcDash = new ExcDashState(this, mStateMachine, EXCDASH);
 	Exc = new ExcState(this, mStateMachine, EXC);
+	ExcAttack = new ExcAttackState(this, mStateMachine, EXCATTACK);
 	Swing = new SwingState(this, mStateMachine, SWING);
 	SwingJump = new SwingJumpState(this, mStateMachine, SWINGJUMP);
 
@@ -629,6 +632,7 @@ bool Player::IsEnemyVisible(Vector2 enemyPosition, GameObject* enemy)
 	for (const auto& collider : *colliders)
 	{
 		if (!collider->IsEnabled() || collider == mCollider || collider->GetGameObject() == enemy) continue;
+		if (!(collider->GetGameObject()->CompareTag(ENEMY) || collider->GetGameObject()->CompareTag(PLATFORM))) continue;
 		if (collider->GetType() == ColliderType::Box)
 		{
 			D2D1_RECT_F rect = {

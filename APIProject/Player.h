@@ -4,6 +4,7 @@
 #include "GameObject.h"
 #include "MonoBehaviour.h"
 
+class ExcAttackState;
 class SwingJumpState;
 class ChargeDashAttackState;
 class SwingState;
@@ -129,6 +130,7 @@ public:
 	ChargeDashAttackState* 	ChargeAttack;
 	ExcDashState* 			ExcDash;
 	ExcState* 				Exc;
+	ExcAttackState* 		ExcAttack;
 	ClimbingState* 			Climbing;
 	SwingState* 			Swing;
 	SwingJumpState* 		SwingJump;

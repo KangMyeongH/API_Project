@@ -4,6 +4,7 @@
 #include "BoxCollider.h"
 #include "Effect.h"
 #include "EffectObj.h"
+#include "FireBird.h"
 #include "GameObjectManager.h"
 #include "ImageManager.h"
 #include "SoundMgr.h"
