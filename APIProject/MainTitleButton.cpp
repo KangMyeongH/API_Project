@@ -6,6 +6,7 @@
 #include "GameObject.h"
 #include "ImageManager.h"
 #include "KeyManager.h"
+#include "PrologueScene.h"
 #include "SceneManager.h"
 #include "SoundMgr.h"
 #include "TextRenderer.h"
@@ -41,7 +42,7 @@ void MainTitleButton::Start()
 		break;
 	}
 	mOwner->GetComponent<SpriteRenderer>()->SetFrame(0);
-	mOwner->AddComponent<TextRenderer>(8, offset, GetTransform()->GetWorldScale(), mColor, mArray, L"LiberationSans", 28.f);
+	mOwner->AddComponent<TextRenderer>(8, offset, GetTransform()->GetWorldScale(), mColor, mArray, L"LiberationSans", 28.f); // LiberationSans
 }
 
 void MainTitleButton::Update()

@@ -438,9 +438,6 @@
     <ClInclude Include="Camera.h">
       <Filter>01. Core</Filter>
     </ClInclude>
-    <ClInclude Include="AfterImageEffect.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="SoundMgr.h">
       <Filter>01. Core\03. Manager\11. Sound</Filter>
     </ClInclude>
@@ -492,9 +489,6 @@
     <ClInclude Include="PrologueMapObj.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="PrologueScene.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="PrologueCloud.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -502,6 +496,51 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="PrologueSky.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PrologueScene.h">
+      <Filter>02. Scripts\00. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Bubble.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BubbleObj.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BubbleLeft.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BubbleRight.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PRLG.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PRLGMgr.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SNBDummy.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SNBDummyObj.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Tuto.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TutoObj.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CeilingState.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PrologueCloudObj.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Potal.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PotalObj.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -779,9 +818,6 @@
     <ClCompile Include="Camera.cpp">
       <Filter>01. Core</Filter>
     </ClCompile>
-    <ClCompile Include="AfterImageEffect.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="SoundMgr.cpp">
       <Filter>01. Core\03. Manager\11. Sound</Filter>
     </ClCompile>
@@ -812,9 +848,6 @@
     <ClCompile Include="PrologueMapObj.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="PrologueScene.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="PrologueCloud.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -822,6 +855,51 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="PrologueSky.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PrologueScene.cpp">
+      <Filter>02. Scripts\00. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Bubble.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BubbleObj.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BubbleLeft.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BubbleRight.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PRLG.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PRLGMgr.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SNBDummy.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SNBDummyObj.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Tuto.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TutoObj.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CeilingState.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PrologueCloudObj.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Potal.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PotalObj.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

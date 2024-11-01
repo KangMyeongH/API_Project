@@ -2,6 +2,7 @@
 #include "TitleScene.h"
 
 #include "BlackBGObj.h"
+#include "BubbleObj.h"
 #include "GameObjectManager.h"
 #include "JusinLogoObj.h"
 #include "MainTitleBGObj.h"
@@ -15,4 +16,5 @@ void TitleScene::Init()
 	GameObjectManager::GetInstance().AddGameObject<BlackBGObj>();
 	GameObjectManager::GetInstance().AddGameObject<JusinLogoObj>();
 	GameObjectManager::GetInstance().AddGameObject<MainTitleBGObj>();
+
 }

@@ -12,7 +12,9 @@ enum AttackType
 	BEHIND_FIRE,
 	BODY_ATTACK,
 	RETURN,
-	DAMAGED
+	DAMAGED,
+	PHASE02,
+	ENDDING
 };
 
 class FireBird final : public MonoBehaviour

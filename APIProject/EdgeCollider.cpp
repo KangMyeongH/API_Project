@@ -81,6 +81,7 @@ bool EdgeCollider::OnSegment(const Vector2& start, const Vector2& end, const Vec
 
 void EdgeCollider::Debug(ID2D1DeviceContext* render)
 {
+    /*
     ID2D1SolidColorBrush* brush = nullptr;
     D2D1_RECT_F rect = { (mRect.left), (mRect.top), (mRect.right), (mRect.bottom) };
 
@@ -88,7 +89,7 @@ void EdgeCollider::Debug(ID2D1DeviceContext* render)
 
 	render->DrawRectangle(Camera::GetInstance().WorldToScreen(rect), brush, 1, nullptr);
     brush->Release();
-    brush = nullptr;
+    brush = nullptr;*/
 }
 
 void EdgeCollider::UpdateRect()

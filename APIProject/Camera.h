@@ -27,7 +27,11 @@ public:
 	void SetTarget(Transform* target) { mTarget = target; }
 	void DetachTarget() { mTarget = nullptr; }
 
-	void SetOffset(const Vector2& offset) { mOffset = offset; }
+	void SetOffset(const Vector2& offset)
+	{
+		mOriginalOffset = offset;
+		mOffset = offset / mZoom;
+	}
 
 	void SetPosition(float x, float y)
 	{
@@ -54,12 +58,15 @@ public:
 	{
 		mZoom = zoom;
 
+		mOffset = mOriginalOffset / mZoom;
 		mWidth = mOriginalWidth / mZoom;
 		mHeight = mOriginalHeight / mZoom;
 	}
 	float GetZoom() const { return mZoom; }
 
 	float GetWidth() const { return mWidth; }
+
+	D2D1_RECT_F GetBoundary() const { return mBoundary; }
 
 	void Move(float dx, float dy) { mPosition.x += dx; mPosition.y += dy; }
 
@@ -161,6 +168,7 @@ private:
 
 private:
 	Transform* mTarget;
+	Vector2 mOriginalOffset;
 	Vector2 mOffset;
 	D2D1_RECT_F mBoundary;
 	D2D1_POINT_2F mPosition;

@@ -107,6 +107,16 @@ void JumpState::LogicUpdate()
 		}
 	}
 
+	else if (mStateMachine->GetPrevState()->GetType() == CEILING)
+	{
+		if (mPlayer->GetRigidbody()->Velocity().y > 0 && !mFalling)
+		{
+			mFalling = true;
+			mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_FallStart"));
+			mPlayer->GetAnimator()->SetNextMotion(mPlayer->FindAniInfo(L"SNB_Falling"));
+		}
+	}
+
 	if (mPlayer->IsGrounded)
 	{
 		if (mPlayer->GetRigidbody()->GetVelocity().x != 0)

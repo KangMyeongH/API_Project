@@ -45,6 +45,7 @@ void FireBirdObj::Init()
 
 
 	ImageManager::GetInstance().InsertBmp(L"Sprite/04. Boss/00. FireBird/Spr_BackHeliMove2Phase_Loop.png", L"Spr_BackHeliMove2Phase_Loop");
+	ImageManager::GetInstance().InsertBmp(L"Sprite/04. Boss/00. FireBird/Endding.png", L"Endding");
 
 
 	AddComponent<SpriteRenderer>(5);

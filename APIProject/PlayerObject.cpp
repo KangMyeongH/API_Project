@@ -10,7 +10,7 @@
 void PlayerObject::Init()
 {
 	mTransform.SetWorldPosition({ 0, 0 });
-	mTransform.SetLocalScale({ 24,42 });
+	mTransform.SetLocalScale({ 24,38 });
 	mTag = PLAYER;
 	AddComponent<Rigidbody>(0, true, 0, 0, DYNAMIC);
 	GetComponent<Rigidbody>()->SetUseGravity(false);
@@ -21,4 +21,5 @@ void PlayerObject::Init()
 	AddComponent<Player>();
 	GetComponent<Animator>()->SetSprite(GetComponent<SpriteRenderer>());
 	GetComponent<Animator>()->Loop(true);
+
 }

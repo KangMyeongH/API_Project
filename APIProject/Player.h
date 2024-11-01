@@ -4,6 +4,7 @@
 #include "GameObject.h"
 #include "MonoBehaviour.h"
 
+class CeilingState;
 class ExcAttackState;
 class SwingJumpState;
 class ChargeDashAttackState;
@@ -35,7 +36,10 @@ public:
 	                                     mFovLength(0), mLineAnimationOffset(0),
 	                                     Idle(nullptr), Run(nullptr), Jump(nullptr), ChargeDash(nullptr),
 	                                     ChargeAttack(nullptr),
-	                                     ExcDash(nullptr), Exc(nullptr), Climbing(nullptr), Swing(nullptr),
+	                                     ExcDash(nullptr), Exc(nullptr), ExcAttack(nullptr), Climbing(nullptr),
+	                                     Swing(nullptr),
+	                                     SwingJump(nullptr),
+	                                     Ceiling(nullptr),
 	                                     Speed(0), JumpPower(0), IsGrounded(false), IsClimb(false)
 	{
 	}
@@ -134,6 +138,7 @@ public:
 	ClimbingState* 			Climbing;
 	SwingState* 			Swing;
 	SwingJumpState* 		SwingJump;
+	CeilingState* 			Ceiling;
 	
 	float		Speed;
 	float		JumpPower;

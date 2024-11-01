@@ -152,6 +152,7 @@ void ChargeDashState::FindTarget()
 
 	for (auto& platform : *platFormList)
 	{
+		if (!platform->GetComponent<BoxCollider>()) continue;
 		if (!platform->GetComponent<BoxCollider>()->IsEnabled()) continue;
 		Vector2 position = platform->GetTransform()->GetWorldPosition();
 		float distance = Vector2::Distance(startPosition, position);

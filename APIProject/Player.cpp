@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Player.h"
+
 #include "BoxCollider.h"
+#include "CeilingState.h"
 #include "ChargeDashAttackState.h"
 #include "ChargeDashState.h"
 #include "ClimbingState.h"
@@ -18,12 +20,15 @@
 #include "ExcAttackState.h"
 #include "ExcDashState.h"
 #include "ExcState.h"
+#include "FireBirdScene.h"
 #include "FloatingBombObj.h"
 #include "Grab.h"
 #include "Platform.h"
+#include "SceneManager.h"
 #include "SwingJumpState.h"
 #include "SwingState.h"
 #include "TimeManager.h"
+#include "TitleScene.h"
 
 Player::~Player()
 {
@@ -48,7 +53,7 @@ Player::~Player()
 
 void Player::Awake()
 {
-	mUpdateType = static_cast<UpdateType>(mUpdateType | FIXED_UPDATE | UPDATE);
+	mUpdateType = static_cast<UpdateType>(mUpdateType | FIXED_UPDATE | UPDATE | LATE_UPDATE);
 	
 }
 
@@ -65,12 +70,12 @@ void Player::Start()
 	mStateMachine = new StateMachine;
 
 	Camera::GetInstance().SetTarget(mTransform);
-	Camera::GetInstance().SetOffset({ 0,-132 });
-	Camera::GetInstance().SetZoom(1.4f);
+	Camera::GetInstance().SetOffset({ 0,-184.8f });
+	//Camera::GetInstance().SetZoom(1.4f);
 	
 
 	// Component setting
-	mCollider->SetOffset({ 0, 0});
+	mCollider->SetOffset({ 0, 2.f});
 
 	// Player Sprite cashing
 	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB/SNB_Idle.png", L"SNB_Idle");
@@ -134,10 +139,21 @@ void Player::Start()
 	ImageManager::GetInstance().InsertBmp(L"./Sprite/Effect/VfxSNB_ChargeComplete.png", L"VfxSNB_ChargeComplete");
 	ImageManager::GetInstance().InsertBmp(L"./Sprite/Effect/VfxSNB_ChargeDash.png", L"VfxSNB_ChargeDash");
 
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB_Chain.png", L"SNB_Chain");
 
 	AnimationMap.insert({ L"VfxSNB_ChargeAttack" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"VfxSNB_ChargeAttack"), 0, 8, 128, 128, .08f, false) });
 	AnimationMap.insert({ L"VfxSNB_ChargeComplete" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"VfxSNB_ChargeComplete"), 0, 10, 160, 160, .08f, false) });
 	AnimationMap.insert({ L"VfxSNB_ChargeDash" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"VfxSNB_ChargeDash"), 0, 10, 160, 160, .08f, false) });
+
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB_Sleep.png", L"SNB_Sleep");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB_Awake1.png", L"SNB_Awake1");
+	ImageManager::GetInstance().InsertBmp(L"./Sprite/SNB_Awake2.png", L"SNB_Awake2");
+
+	AnimationMap.insert({ L"SNB_Sleep" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Sleep"), 0, 8, 80, 80, .08f, true) });
+	AnimationMap.insert({ L"SNB_Awake1" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Awake1"), 0, 5, 80, 80, .08f, false) });
+	AnimationMap.insert({ L"SNB_Awake2" , new AnimationInfo(ImageManager::GetInstance().FindImage(L"SNB_Awake2"), 0, 5, 80, 80, .08f, false) });
+
+
 
 
 	// Player Animation cashing
@@ -210,6 +226,7 @@ void Player::Start()
 	ExcAttack = new ExcAttackState(this, mStateMachine, EXCATTACK);
 	Swing = new SwingState(this, mStateMachine, SWING);
 	SwingJump = new SwingJumpState(this, mStateMachine, SWINGJUMP);
+	Ceiling = new CeilingState(this, mStateMachine, CEILING);
 
 	// Player stat
 	Speed = 275.f;
@@ -243,7 +260,7 @@ void Player::Update()
 
 	if (mKeyMgr->Key_Down('G'))
 	{
-		GameObjectManager::GetInstance().AddGameObject<FloatingBombObj>()->GetTransform()->SetWorldPosition(mTransform->GetWorldPosition());
+		SceneManager::GetInstance().ChangeScene(new FireBirdScene);
 		//GameObjectManager::GetInstance().AddGameObject<FireBirdBodyVFXObj>();
 		//GameObjectManager::GetInstance().AddGameObject<EffectObj>()->GetComponent<Effect>()->SetEffect(mTransform->GetWorldPosition(), FindAniInfo(L"SNB_RunningStart"));
 	}
@@ -253,7 +270,8 @@ void Player::Update()
 
 void Player::LateUpdate()
 {
-	
+	SpriteRenderer* sprite = mOwner->GetComponent<SpriteRenderer>();
+
 }
 
 void Player::OnCollisionEnter(Collision other)
@@ -271,16 +289,22 @@ void Player::OnCollisionEnter(Collision other)
 	case JUMP:
 		if (other.GetGameObject()->CompareTag(PLATFORM) && dir == LEFT)
 		{
-			mTransform->SetParent(other.GetGameObject()->GetTransform());
-			mAnimator->Flip(false);
-			IsClimb = true;
+			if (other.GetGameObject()->GetComponent<Platform>()->GetGrab())
+			{
+				mTransform->SetParent(other.GetGameObject()->GetTransform());
+				mAnimator->Flip(false);
+				IsClimb = true;
+			}
 		}
 
 		else if (other.GetGameObject()->CompareTag(PLATFORM) && dir == RIGHT)
 		{
-			mTransform->SetParent(other.GetGameObject()->GetTransform());
-			mAnimator->Flip(true);
-			IsClimb = true;
+			if (other.GetGameObject()->GetComponent<Platform>()->GetGrab())
+			{
+				mTransform->SetParent(other.GetGameObject()->GetTransform());
+				mAnimator->Flip(true);
+				IsClimb = true;
+			}
 		}
 		break;
 	case CLIMBING:
@@ -300,17 +324,38 @@ void Player::OnCollisionEnter(Collision other)
 	case SWING:
 		if (other.GetGameObject()->CompareTag(PLATFORM) && dir == LEFT)
 		{
-			mTransform->SetParent(other.GetGameObject()->GetTransform());
-			mAnimator->Flip(false);
-			IsClimb = true;
+			if (other.GetGameObject()->GetComponent<Platform>()->GetGrab())
+			{
+				mTransform->SetParent(other.GetGameObject()->GetTransform());
+				mAnimator->Flip(false);
+				IsClimb = true;
+			}
+			Swing->CollisionPlatform();
 		}
 
 		else if (other.GetGameObject()->CompareTag(PLATFORM) && dir == RIGHT)
 		{
-			mTransform->SetParent(other.GetGameObject()->GetTransform());
-			mAnimator->Flip(true);
-			IsClimb = true;
+			if (other.GetGameObject()->GetComponent<Platform>()->GetGrab())
+			{
+				mTransform->SetParent(other.GetGameObject()->GetTransform());
+				mAnimator->Flip(true);
+				IsClimb = true;
+			}
+			Swing->CollisionPlatform();
 		}
+
+		if (other.GetGameObject()->CompareTag(PLATFORM) && dir == TOP)
+		{
+			Swing->CollisionPlatform();
+		}
+
+		else if (other.GetGameObject()->CompareTag(PLATFORM) && dir == BOTTOM)
+		{
+			Swing->CollisionPlatform();
+			mStateMachine->ChangeState(Ceiling);
+		}
+
+
 		break;
 	case EXC:
 		break;
@@ -318,8 +363,6 @@ void Player::OnCollisionEnter(Collision other)
 		break;
 	}
 
-
-	// 충돌 방향 체크
 	if (other.GetGameObject()->CompareTag(ENEMY) || other.GetGameObject()->CompareTag(BOSS)) return;
 
 
@@ -351,6 +394,7 @@ void Player::OnCollisionEnter(Collision other)
 		{
 			GetRigidbody()->Velocity().y = 0;
 		}
+
 	}
 }
 
@@ -387,7 +431,7 @@ void Player::OnCollisionExit(Collision other)
 void Player::Debug(ID2D1DeviceContext* render)
 {
 	mStateMachine->GetCurrentState()->Debug(render);
-
+	if (mGrab == nullptr) return;
 	if (mGrab->IsShoot()) return;
 	if (mStateMachine->GetCurrentState()->GetType() == SWING) return;
 	if (mStateMachine->GetCurrentState()->GetType() == CHARGEDASH || mStateMachine->GetCurrentState()->GetType() == CHARGEATTACK) return;
@@ -567,6 +611,7 @@ void Player::FindHanging()
 		Vector2 hitPoint = { 0,0 };
 		if (platform->GetComponent<Platform>()->GetType() == RECT_PLATFORM)
 		{
+			if (platform->GetComponent<BoxCollider>() == nullptr) continue;
 			if (!platform->GetComponent<BoxCollider>()->IsEnabled()) continue;
 			D2D1_RECT_F* rect = platform->GetComponent<BoxCollider>()->GetRect();
 			isHit = IntersectRayWithBox(rayStart, rayDir, *rect, hitPoint);
@@ -593,6 +638,16 @@ void Player::FindHanging()
 					intersectionPoint = hitPoint;
 				}
 			}
+		}
+	}
+
+	if (closestPlatform)
+	{
+		if (!closestPlatform->GetComponent<Platform>()->GetGrab())
+		{
+			mTargetPlatform = nullptr;
+			mGrabPoint = { 0,0 };
+			return;
 		}
 	}
 

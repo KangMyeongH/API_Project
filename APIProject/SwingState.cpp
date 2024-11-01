@@ -7,6 +7,7 @@
 #include "GameObject.h"
 #include "Grab.h"
 #include "IdleState.h"
+#include "ImageManager.h"
 #include "JumpState.h"
 #include "KeyManager.h"
 #include "StateMachine.h"
@@ -99,6 +100,18 @@ void SwingState::LogicUpdate()
 void SwingState::PhysicsUpdate()
 {
 	Swinging();
+
+	if (mIsRush && mPlayer->IsClimb)
+	{
+		mStateMachine->ChangeState(mPlayer->Climbing);
+	}
+
+	if (mIsRush && mPlayer->IsGrounded)
+	{
+		mStateMachine->ChangeState(mPlayer->Jump);
+	}
+
+	
 	if (mLength == 0.f)
 	{
 		if (mPlayer->IsClimb)
@@ -243,56 +256,12 @@ void SwingState::Swinging()
 	mPlayer->GetTransform()->SetWorldPosition({ newX,newY });
 }
 
+void SwingState::CollisionPlatform()
+{
+	mOmega = 0;
+}
+
 void SwingState::Debug(ID2D1DeviceContext* render)
 {
-	
-	IDWriteTextFormat* textFormat = nullptr;
-	ID2D1SolidColorBrush* brush = nullptr;
-
-	gWriteFactory->CreateTextFormat(
-		L"Arial",
-		NULL,
-		DWRITE_FONT_WEIGHT_NORMAL,
-		DWRITE_FONT_STYLE_NORMAL,
-		DWRITE_FONT_STRETCH_NORMAL,
-		20.0f,
-		L"en-us",
-		&textFormat
-	);
-
-	render->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::White), &brush);
-
-	// 출력할 영역 설정
-	D2D1_RECT_F layoutRect = D2D1::RectF(10, 10, 400, 100);
-
-	wchar_t array[32];
-	swprintf_s(array, 32, L"%f", mOmega);
-
-	// 텍스트를 그리기
-	render->DrawText(
-		array,
-		wcslen(array),
-		textFormat,
-		layoutRect,
-		brush
-	);
-
-	Vector2 startPos = { mPlayer->GetTransform()->GetWorldPosition().x, mPlayer->GetTransform()->GetWorldPosition().y};
-
-
-	D2D1_POINT_2F p1 = Camera::GetInstance().WorldToScreenVector({ startPos.x, startPos.y});
-	D2D1_POINT_2F p2 = Camera::GetInstance().WorldToScreenVector({ mPivot.x, mPivot.y });
-
-	render->DrawLine(
-		p1,
-		p2,
-		brush,
-		5.0f,
-		nullptr
-	);
-
-	textFormat->Release();
-	brush->Release();
-
 
 }

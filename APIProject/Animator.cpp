@@ -72,3 +72,4 @@ void Animator::SetNextMotion(AnimationInfo* nextMotion)
 	mNextMotion = nextMotion;
 }
 
+

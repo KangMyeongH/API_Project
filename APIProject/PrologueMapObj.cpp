@@ -14,8 +14,4 @@ void PrologueMapObj::Init()
 		3696.f,
 		3)->SetFrame(0);
 
-	Vector2 start = { 0.f,3566.f };
-	Vector2 end = { 10000.f, 3566.f };
-	AddComponent<EdgeCollider>(start, end);
-
 }

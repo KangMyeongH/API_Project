@@ -65,6 +65,9 @@ void FireBird::Start()
 
 	mAnimationMap.insert({ L"Firebird_Body_BodySlapLoop",new AnimationInfo(ImageManager::GetInstance().FindImage(L"Firebird_Body_BodySlapLoop"), 0, 1, 933, 445, 0.08f, true) });
 
+	mAnimationMap.insert({ L"Spr_BackHeliMove2Phase_Loop",new AnimationInfo(ImageManager::GetInstance().FindImage(L"Spr_BackHeliMove2Phase_Loop"), 0, 1, 153, 74, 0.08f, true) });
+	mAnimationMap.insert({ L"Endding",new AnimationInfo(ImageManager::GetInstance().FindImage(L"Endding"), 0, 58, 176, 96, 0.08f, true) });
+
 
 	mWingAnimation[0] = FindAniInfo(L"BOSS_Firebird_Wing_UpLoop04");
 	mWingAnimation[1] = FindAniInfo(L"BOSS_Firebird_Wing_UpLoop03");
@@ -176,6 +179,20 @@ void FireBird::FixedUpdate()
 		GetGameObject()->GetComponent<Rigidbody>()->AddForce(force);
 	}
 		break;
+	case PHASE02:
+	{
+		dir = mTargetPosition - Vector2{ -200.f, 500.f };
+		Vector2 temp = dir.Normalized();
+		GetGameObject()->GetTransform()->Translate(temp * 2.f);
+	}
+		break;
+	case ENDDING:
+	{
+		dir = mTargetPosition - Vector2{ -200.f,700.f };
+		Vector2 temp = dir.Normalized();
+		GetGameObject()->GetTransform()->Translate(temp);
+	}
+		break;
 	default: 
 		break;
 	}
@@ -203,6 +220,16 @@ void FireBird::Update()
 		break;
 	case DAMAGED:
 		DamagedPattern();
+		break;
+	case PHASE02:
+		if (GetTransform()->GetWorldPosition().x >=3200.f)
+		{
+			mWing->GetComponent<SpriteRenderer>()->SetEnable(true);
+			mWing->GetComponent<Animator>()->SetEnable(true);
+			GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"BOSS_FirebirdBroken_Body_Idle"));
+			GetTransform()->SetWorldPosition({ 1400.f, 2000.f });
+			mPattern = RETURN;
+		}
 		break;
 	}
 
@@ -293,6 +320,7 @@ void FireBird::BomberPattern()
 			if(mBombIndex == 8)
 			{
 				SetRandomPattern();
+
 				mBombIndex = 0;
 				return;
 			}
@@ -320,7 +348,15 @@ void FireBird::BehindFirePattern()
 	{
 		CSoundMgr::Get_Instance()->StopSound(SOUND_BOSS);
 		CSoundMgr::Get_Instance()->PlaySound(L"SFX_Chap4_Firebird_Appear.wav", SOUND_BOSS, gEffectVolume);
-		GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"BOSS_Firebird_Body_Idle"));
+		if (mHp <= 4)
+		{
+			GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"BOSS_FirebirdBroken_Body_Idle"));
+
+		}
+		else
+		{
+			GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"BOSS_Firebird_Body_Idle"));
+		}
 		mWing->GetComponent<SpriteRenderer>()->SetEnable(true);
 		mWing->GetComponent<Animator>()->SetEnable(true);
 		GetTransform()->SetWorldPosition({ 1400.f, 2000.f });
@@ -382,7 +418,15 @@ void FireBird::BodyAttackPattern()
 	{
 		CSoundMgr::Get_Instance()->StopSound(SOUND_BOSS);
 		CSoundMgr::Get_Instance()->PlaySound(L"SFX_Chap4_Firebird_Appear.wav", SOUND_BOSS, gEffectVolume);
-		GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"BOSS_Firebird_Body_Idle"));
+		if (mHp <= 4)
+		{
+			GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"BOSS_FirebirdBroken_Body_Idle"));
+
+		}
+		else
+		{
+			GetGameObject()->GetComponent<Animator>()->MotionChange(FindAniInfo(L"BOSS_Firebird_Body_Idle"));
+		}
 		mWing->GetComponent<SpriteRenderer>()->SetEnable(true);
 		mWing->GetComponent<Animator>()->SetEnable(true);
 		GetTransform()->SetWorldPosition({ 1400.f, 2000.f });
@@ -409,6 +453,33 @@ void FireBird::DamagedPattern()
 	mCurrentTime += TimeManager::GetInstance().GetDeltaTime();
 	if (mCurrentTime >= 1.5f)
 	{
+		if (mHp == 4)
+		{
+			mOwner->GetComponent<Animator>()->MotionChange(FindAniInfo(L"Spr_BackHeliMove2Phase_Loop"));
+			mOwner->GetComponent<Animator>()->Flip(true);
+			mWing->GetComponent<SpriteRenderer>()->SetEnable(false);
+			mWing->GetComponent<Animator>()->SetEnable(false);
+			mOwner->GetComponent<Rigidbody>()->Velocity() = { 0,0 };
+			mOwner->GetComponent<Rigidbody>()->SetUseGravity(false);
+			GetTransform()->SetWorldPosition({ -200.f,500.f });
+			mTargetPosition = { 3000.f, 900.f };
+			mPattern = PHASE02;
+			return;
+		}
+
+		if (mHp <=0)
+		{
+			mOwner->GetComponent<Animator>()->MotionChange(FindAniInfo(L"Endding"));
+			mOwner->GetComponent<Animator>()->Flip(true);
+			mWing->GetComponent<SpriteRenderer>()->SetEnable(false);
+			mWing->GetComponent<Animator>()->SetEnable(false);
+			mOwner->GetComponent<Rigidbody>()->Velocity() = { 0,0 };
+			mOwner->GetComponent<Rigidbody>()->SetUseGravity(false);
+			GetTransform()->SetWorldPosition({ -200.f,700.f });
+			mTargetPosition = { 3000.f, 900.f };
+			mPattern = ENDDING;
+			return;
+		}
 		SetRandomPattern();
 	}
 }
@@ -443,7 +514,14 @@ void FireBird::ChangeWingIndex()
 	if (index != mWingIndex)
 	{
 		mWingIndex = index;
-		mWing->GetComponent<Animator>()->MotionChange(mWingAnimation[mWingIndex]);
+		if (mHp <= 4)
+		{
+			mWing->GetComponent<Animator>()->MotionChange(mBrokenWingAnimation[mWingIndex]);
+		}
+		else
+		{
+			mWing->GetComponent<Animator>()->MotionChange(mWingAnimation[mWingIndex]);
+		}
 	}
 }
 

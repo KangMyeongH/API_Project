@@ -8,6 +8,7 @@
 #include "KeyManager.h"
 #include "Player.h"
 #include "Rigidbody.h"
+#include "SoundMgr.h"
 #include "StateMachine.h"
 #include "Transform.h"
 
@@ -26,6 +27,9 @@ void RunState::Enter()
 		mPlayer->GetAnimator()->MotionChange(mPlayer->FindAniInfo(L"SNB_Land2Run"));
 		mPlayer->GetAnimator()->SetNextMotion(mPlayer->FindAniInfo(L"SNB_Running"));
 	}
+
+	CSoundMgr::Get_Instance()->StopSound(SOUND_PLAYER);
+	CSoundMgr::Get_Instance()->PlayLoopSound(L"SFX_SNB_Footstep_B.wav", SOUND_PLAYER, gEffectVolume);
 }
 
 void RunState::HandleInput()
@@ -80,8 +84,10 @@ void RunState::PhysicsUpdate()
 
 void RunState::Exit()
 {
+	CSoundMgr::Get_Instance()->StopSound(SOUND_PLAYER);
 }
 
 void RunState::Debug(ID2D1DeviceContext* render)
 {
 }
+ 

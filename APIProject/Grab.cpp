@@ -6,6 +6,7 @@
 #include "GameObject.h"
 #include "GameObjectManager.h"
 #include "ImageManager.h"
+#include "MouseObj.h"
 #include "Player.h"
 #include "SoundMgr.h"
 #include "StateMachine.h"
@@ -107,7 +108,67 @@ void Grab::Debug(ID2D1DeviceContext* render)
 {
 	if (mIsShoot)
 	{
-		
+		Vector2 startPos = { mPlayer->GetTransform()->GetWorldPosition().x, mPlayer->GetTransform()->GetWorldPosition().y };
+
+		Vector2 mPivot = mOwner->GetTransform()->GetWorldPosition();
+
+		float dx = mPivot.x - startPos.x;
+		float dy = mPivot.y - startPos.y;
+
+		float lineLength = sqrtf(dx * dx + dy * dy);
+
+		D2D1_POINT_2F direction = { dx / lineLength, dy / lineLength };
+
+		float currentDistance = 0.0f;
+
+		float angle = Vector2::GetAngle(startPos, mPivot);
+
+		ID2D1Bitmap* pBitmap = ImageManager::GetInstance().FindImage(L"SNB_Chain");
+
+		// 선을 따라 이미지를 반복적으로 그림
+		while (currentDistance <= lineLength)
+		{
+			// 현재 위치에서 이미지를 그릴 좌표 계산
+			D2D1_POINT_2F imagePosition = {
+				startPos.x + direction.x * currentDistance,
+				startPos.y + direction.y * currentDistance
+			};
+
+			// 원래 변환 상태 저장
+			D2D1_MATRIX_3X2_F originalTransform;
+			render->GetTransform(&originalTransform);
+
+			// 이미지 그리기 영역 설정 (중앙을 기준으로 이미지 배치)
+			D2D1_RECT_F destRect = D2D1::RectF(
+				imagePosition.x - pBitmap->GetSize().width / 2,
+				imagePosition.y - pBitmap->GetSize().height / 2,
+				imagePosition.x + pBitmap->GetSize().width / 2,
+				imagePosition.y + pBitmap->GetSize().height / 2
+			);
+
+			D2D1_RECT_F screenRect = Camera::GetInstance().WorldToScreen(destRect);
+
+			// 회전 중심 (mRenderRect의 중심을 기준으로 회전한다고 가정)
+			D2D1_POINT_2F center = D2D1::Point2F(
+				(screenRect.left + screenRect.right) / 2.0f,
+				(screenRect.top + screenRect.bottom) / 2.0f
+			);
+
+			// 회전 변환 적용
+			D2D1_MATRIX_3X2_F rotationMatrix = Matrix3x2F::Rotation(angle + 90.f, center);
+
+			// 변환 적용
+			render->SetTransform(rotationMatrix);
+
+			// 이미지 그리기
+			render->DrawBitmap(pBitmap, screenRect);
+
+			// 원래 변환 상태 복원
+			render->SetTransform(originalTransform);
+
+			// 다음 이미지를 그리기 위해 이동할 거리 증가
+			currentDistance += 8.f;
+		}
 	}
 }
 

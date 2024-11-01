@@ -2,7 +2,9 @@
 #include "FireBirdPlatform.h"
 
 #include "BoxCollider.h"
+#include "FloatingBombObj.h"
 #include "GameObject.h"
+#include "GameObjectManager.h"
 #include "ImageManager.h"
 #include "Player.h"
 #include "State.h"
@@ -121,6 +123,7 @@ void FireBirdPlatform::Damaged()
 		{
 			mOwner->GetTransform()->GetChildren().front()->SetParent(nullptr);
 		}
+		GameObjectManager::GetInstance().AddGameObject<FloatingBombObj>()->GetTransform()->SetWorldPosition(GetTransform()->GetWorldPosition());
 	}
 }
 
@@ -162,6 +165,7 @@ void FireBirdPlatform::Damaged(int damage)
 		mOwner->GetComponent<SpriteRenderer>()->SetAngle(30);
 		mOwner->GetComponent<BoxCollider>()->SetEnable(false);
 		mOwner->GetComponent<Rigidbody>()->SetUseGravity(true);
+		GameObjectManager::GetInstance().AddGameObject<FloatingBombObj>()->GetTransform()->SetWorldPosition(GetTransform()->GetWorldPosition());
 	}
 }
 

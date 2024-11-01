@@ -2,6 +2,7 @@
 #include "ScrollBG.h"
 
 #include "GameObject.h"
+#include "GameObjectManager.h"
 
 void ScrollBG::Init(Transform* bg1, Transform* bg2, float speed)
 {
@@ -17,15 +18,18 @@ void ScrollBG::Awake()
 
 void ScrollBG::Start()
 {
+	mPlayer = GameObjectManager::GetInstance().GetGameObjectsForTag(PLAYER)->front();
 	mWidth = mLinkBG[0]->GetGameObject()->GetComponent<SpriteRenderer>()->GetWidth();
 	mLinkBG[1]->SetWorldPosition({ mLinkBG[0]->GetWorldPosition().x + mWidth, mLinkBG[0]->GetWorldPosition().y });
 }
 
 void ScrollBG::LateUpdate()
 {
+	D2D1_RECT_F boundary = Camera::GetInstance().GetBoundary();
 	for (auto& transform : mLinkBG)
 	{
 		transform->Translate({ mSpeed,0 });
+		transform->SetWorldPosition({ transform->GetWorldPosition().x, mPlayer->GetTransform()->GetWorldPosition().y * 0.3f + 800.f });
 	}
 
 	for (int i = 0; i < 2; ++i)

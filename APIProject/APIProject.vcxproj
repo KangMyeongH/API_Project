@@ -82,6 +82,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d11.lib;d2d1.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -135,7 +136,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="AfterImageEffect.h" />
     <ClInclude Include="AnimationCurve.h" />
     <ClInclude Include="Animator.h" />
     <ClInclude Include="AnimatorManager.h" />
@@ -145,7 +145,12 @@
     <ClInclude Include="BitMapManager.h" />
     <ClInclude Include="BlackBGObj.h" />
     <ClInclude Include="BoxCollider.h" />
+    <ClInclude Include="Bubble.h" />
+    <ClInclude Include="BubbleLeft.h" />
+    <ClInclude Include="BubbleObj.h" />
+    <ClInclude Include="BubbleRight.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="CeilingState.h" />
     <ClInclude Include="ChargeAim.h" />
     <ClInclude Include="ChargeAimObj.h" />
     <ClInclude Include="ChargeDashAttackState.h" />
@@ -227,7 +232,12 @@
     <ClInclude Include="PlatformObject.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerObject.h" />
+    <ClInclude Include="Potal.h" />
+    <ClInclude Include="PotalObj.h" />
+    <ClInclude Include="PRLG.h" />
+    <ClInclude Include="PRLGMgr.h" />
     <ClInclude Include="PrologueCloud.h" />
+    <ClInclude Include="PrologueCloudObj.h" />
     <ClInclude Include="PrologueMapObj.h" />
     <ClInclude Include="PrologueScene.h" />
     <ClInclude Include="PrologueSky.h" />
@@ -241,6 +251,8 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="ScrollBG.h" />
     <ClInclude Include="ScrollBGObject.h" />
+    <ClInclude Include="SNBDummy.h" />
+    <ClInclude Include="SNBDummyObj.h" />
     <ClInclude Include="SNBLogo.h" />
     <ClInclude Include="SNBLogoObj.h" />
     <ClInclude Include="SoundMgr.h" />
@@ -254,11 +266,12 @@
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="TitleScene.h" />
     <ClInclude Include="Transform.h" />
+    <ClInclude Include="Tuto.h" />
+    <ClInclude Include="TutoObj.h" />
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="WingObj.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AfterImageEffect.cpp" />
     <ClCompile Include="Animator.cpp" />
     <ClCompile Include="AnimatorManager.cpp" />
     <ClCompile Include="APIProject.cpp" />
@@ -266,7 +279,12 @@
     <ClCompile Include="BitMapManager.cpp" />
     <ClCompile Include="BlackBGObj.cpp" />
     <ClCompile Include="BoxCollider.cpp" />
+    <ClCompile Include="Bubble.cpp" />
+    <ClCompile Include="BubbleLeft.cpp" />
+    <ClCompile Include="BubbleObj.cpp" />
+    <ClCompile Include="BubbleRight.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CeilingState.cpp" />
     <ClCompile Include="ChargeAim.cpp" />
     <ClCompile Include="ChargeAimObj.cpp" />
     <ClCompile Include="ChargeDashAttackState.cpp" />
@@ -344,7 +362,12 @@
     <ClCompile Include="PlatformObject.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerObject.cpp" />
+    <ClCompile Include="Potal.cpp" />
+    <ClCompile Include="PotalObj.cpp" />
+    <ClCompile Include="PRLG.cpp" />
+    <ClCompile Include="PRLGMgr.cpp" />
     <ClCompile Include="PrologueCloud.cpp" />
+    <ClCompile Include="PrologueCloudObj.cpp" />
     <ClCompile Include="PrologueMapObj.cpp" />
     <ClCompile Include="PrologueScene.cpp" />
     <ClCompile Include="PrologueSky.cpp" />
@@ -357,6 +380,8 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="ScrollBG.cpp" />
     <ClCompile Include="ScrollBGObject.cpp" />
+    <ClCompile Include="SNBDummy.cpp" />
+    <ClCompile Include="SNBDummyObj.cpp" />
     <ClCompile Include="SNBLogo.cpp" />
     <ClCompile Include="SNBLogoObj.cpp" />
     <ClCompile Include="SoundMgr.cpp" />
@@ -368,6 +393,8 @@
     <ClCompile Include="TextRenderer.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="TitleScene.cpp" />
+    <ClCompile Include="Tuto.cpp" />
+    <ClCompile Include="TutoObj.cpp" />
     <ClCompile Include="WingObj.cpp" />
   </ItemGroup>
   <ItemGroup>

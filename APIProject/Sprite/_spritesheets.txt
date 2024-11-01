@@ -1,0 +1,12 @@
+SNB_Sleep.png,80,80,8
+SNB_Awake1.png,80,80,5
+SNB_Awake2.png,80,80,5
+SNB_StandUp.png,80,80,21
+PRLG_1_1.png,80,80,5
+Tuto_Move.png,127,126,22
+Tuto_Jump.png,90,85,5
+Tuto_Climb.png,160,128,30
+Tuto_ClimbJump.png,156,149,10
+Tuto_Swing.png,160,160,64
+Tuto_SwingDash.png,127,155,39
+Tuto_SwingRush.png,127,167,20

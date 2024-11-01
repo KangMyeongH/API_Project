@@ -6,9 +6,9 @@
 SpriteRenderer::SpriteRenderer(GameObject* owner, int layer) : Renderer(owner,layer), mImage(nullptr),
                                                                mTargetRect({0, 0, 0, 0}),
                                                                mRenderRect({0, 0, 0, 0}), mParallaxFactor({1.f, 1.f}),
-                                                               mAngle(0),
-                                                               mOpacity(1.0f), mWidth(0),
-                                                               mHeight(0), mScale(1.f),
+                                                               mScale({1.f,1.f}),
+                                                               mAngle(0), mOpacity(1.0f),
+                                                               mWidth(0), mHeight(0),
                                                                mFrame(0),
                                                                mFlip(false),
                                                                mPivotDown(false)
@@ -27,10 +27,10 @@ SpriteRenderer::SpriteRenderer(GameObject* owner, HDC hdc, float width, float he
 SpriteRenderer::SpriteRenderer(GameObject* owner, ID2D1Bitmap* image, float width, float height, int layer)
 	: Renderer(owner, layer), mTransform(nullptr), mImage(image),
 	  mTargetRect({0, 0, 0, 0}),
-	  mRenderRect({0, 0, 0, 0}), mParallaxFactor({1.f,1.f}), mAngle(0),
+	  mRenderRect({0, 0, 0, 0}), mParallaxFactor({1.f,1.f}), mScale({1.f,1.f}),
+	  mAngle(0),
 	  mOpacity(1.0f),
-	  mWidth(width),
-	  mHeight(height), mScale(1.f),
+	  mWidth(width), mHeight(height),
 	  mFrame(0),
 		mFlip(false), mPivotDown(false)
 {

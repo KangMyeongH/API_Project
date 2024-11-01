@@ -21,7 +21,7 @@ IWICImagingFactory2* gWICFactory = nullptr;
 ID2D1Device* gDevice = nullptr;
 ID2D1DeviceContext* gDeviceContext = nullptr;
 IDXGISwapChain* gSwapChain = nullptr;
-float gBGMVolume = 0.0f;
+float gBGMVolume = 0.5f;
 float gEffectVolume = 0.5f;
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:

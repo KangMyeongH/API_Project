@@ -5,6 +5,12 @@
 #include "TimeManager.h"
 #include "Transform.h"
 
+struct AfterImage
+{
+	
+};
+
+
 class SwingState : public State
 {
 public:
@@ -27,6 +33,8 @@ public:
 	void StartSwinging();
 
 	void Swinging();
+
+	void CollisionPlatform();
 
 
 private:
