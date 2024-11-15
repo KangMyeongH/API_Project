@@ -17,10 +17,10 @@ CSoundMgr::~CSoundMgr()
 void CSoundMgr::Initialize()
 {
 	// 사운드를 담당하는 대표객체를 생성하는 함수
-	FMOD_System_Create(&m_pSystem);
+	FMOD_System_Create(&m_pSystem, FMOD_VERSION);
 	
 	// 1. 시스템 포인터, 2. 사용할 가상채널 수 , 초기화 방식) 
-	FMOD_System_Init(m_pSystem, 32, FMOD_INIT_NORMAL, NULL);
+	FMOD_System_Init(m_pSystem, 32, FMOD_INIT_NORMAL, nullptr);
 
 	LoadSoundFile(); 
 }
@@ -55,7 +55,7 @@ void CSoundMgr::PlaySound(const TCHAR * pSoundKey, CHANNELID eID, float fVolume)
 
 	if (FMOD_Channel_IsPlaying(m_pChannelArr[eID], &bPlay))
 	{
-		FMOD_System_PlaySound(m_pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &m_pChannelArr[eID]);
+		FMOD_System_PlaySound(m_pSystem, iter->second, nullptr, FALSE, &m_pChannelArr[eID]);
 	}
 
 	FMOD_Channel_SetMode(m_pChannelArr[eID], FMOD_DEFAULT);
@@ -82,7 +82,7 @@ void CSoundMgr::PlayLoopSound(const TCHAR* pSoundKey, CHANNELID eID, float fVolu
 
 	if (FMOD_Channel_IsPlaying(m_pChannelArr[eID], &bPlay))
 	{
-		FMOD_System_PlaySound(m_pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &m_pChannelArr[eID]);
+		FMOD_System_PlaySound(m_pSystem, iter->second, nullptr, FALSE, &m_pChannelArr[eID]);
 	}
 
 	FMOD_Channel_SetMode(m_pChannelArr[eID], FMOD_LOOP_NORMAL);
@@ -103,7 +103,7 @@ void CSoundMgr::PlayBGM(const TCHAR * pSoundKey, float fVolume)
 	if (iter == m_mapSound.end())
 		return;
 
-	FMOD_System_PlaySound(m_pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &m_pChannelArr[SOUND_BGM]);
+	FMOD_System_PlaySound(m_pSystem, iter->second, nullptr, FALSE, &m_pChannelArr[SOUND_BGM]);
 	FMOD_Channel_SetMode(m_pChannelArr[SOUND_BGM], FMOD_LOOP_NORMAL);
 	FMOD_Channel_SetVolume(m_pChannelArr[SOUND_BGM], fVolume);
 	FMOD_System_Update(m_pSystem);
@@ -143,7 +143,7 @@ void CSoundMgr::LoadSoundFile()
 	_finddata_t fd; 
 
 	// _findfirst : <io.h>에서 제공하며 사용자가 설정한 경로 내에서 가장 첫 번째 파일을 찾는 함수
-	long handle = _findfirst("./Sound/*.*", &fd);
+	long long handle = _findfirst("./Sound/*.*", &fd);
 
 	if (handle == -1)
 		return; 
@@ -163,7 +163,7 @@ void CSoundMgr::LoadSoundFile()
 
 		FMOD_SOUND* pSound = nullptr; 
 
-		FMOD_RESULT eRes = FMOD_System_CreateSound(m_pSystem, szFullPath, FMOD_HARDWARE, 0, &pSound);
+		FMOD_RESULT eRes = FMOD_System_CreateSound(m_pSystem, szFullPath, FMOD_DEFAULT, nullptr, &pSound);
 
 		if (eRes == FMOD_OK)
 		{

@@ -1,61 +1,141 @@
 ﻿  pch.cpp
-  AfterImageEffect.cpp
+  APIProject.cpp
+C:\APIProject\API_Project\APIProject\APIProject.cpp(254,13): error C2065: 'DWRITE_FACTORY_TYPE_SHARED': 선언되지 않은 식별자입니다.
+  (소스 파일 '/APIProject.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\APIProject.cpp(255,13): error C2787: 'IDWriteFactory': 이 개체와 연결된 GUID가 없습니다.
+  (소스 파일 '/APIProject.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\APIProject.cpp(253,9): error C3861: 'DWriteCreateFactory': 식별자를 찾을 수 없습니다.
+  (소스 파일 '/APIProject.cpp'을(를) 컴파일하는 중)
+  
   Animator.cpp
   AnimatorManager.cpp
-  APIProject.cpp
-  Bitmap.cpp
   BitMapManager.cpp
+  Bitmap.cpp
   BlackBGObj.cpp
   BoxCollider.cpp
+  Bubble.cpp
+C:\APIProject\API_Project\APIProject\Bubble.h(21,23): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Bubble.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(33,3): error C2027: 정의되지 않은 형식 'IDWriteFactory'을(를) 사용했습니다.
+  (소스 파일 '/Bubble.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d2d1_1.h(35,19):
+      'IDWriteFactory' 선언을 참조하십시오.
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(36,4): error C2065: 'DWRITE_FONT_WEIGHT_NORMAL': 선언되지 않은 식별자입니다.
+  (소스 파일 '/Bubble.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(37,4): error C2065: 'DWRITE_FONT_STYLE_NORMAL': 선언되지 않은 식별자입니다.
+  (소스 파일 '/Bubble.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(38,4): error C2065: 'DWRITE_FONT_STRETCH_NORMAL': 선언되지 않은 식별자입니다.
+  (소스 파일 '/Bubble.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(47,4): error C2027: 정의되지 않은 형식 'IDWriteTextFormat'을(를) 사용했습니다.
+  (소스 파일 '/Bubble.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d2d1.h(50,19):
+      'IDWriteTextFormat' 선언을 참조하십시오.
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(47,33): error C2065: 'DWRITE_TEXT_ALIGNMENT_CENTER': 선언되지 않은 식별자입니다.
+  (소스 파일 '/Bubble.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(48,4): error C2027: 정의되지 않은 형식 'IDWriteTextFormat'을(를) 사용했습니다.
+  (소스 파일 '/Bubble.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d2d1.h(50,19):
+      'IDWriteTextFormat' 선언을 참조하십시오.
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(48,38): error C2065: 'DWRITE_PARAGRAPH_ALIGNMENT_CENTER': 선언되지 않은 식별자입니다.
+  (소스 파일 '/Bubble.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(65,18): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Bubble.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(71,3): error C2027: 정의되지 않은 형식 'IDWriteTextFormat'을(를) 사용했습니다.
+  (소스 파일 '/Bubble.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d2d1.h(50,19):
+      'IDWriteTextFormat' 선언을 참조하십시오.
+  
+  BubbleLeft.cpp
+  BubbleObj.cpp
+C:\APIProject\API_Project\APIProject\Bubble.h(21,23): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/BubbleObj.cpp'을(를) 컴파일하는 중)
+  
+  BubbleRight.cpp
   Camera.cpp
+  CeilingState.cpp
+  ChargeAim.cpp
+  ChargeAimObj.cpp
   ChargeDashAttackState.cpp
   ChargeDashState.cpp
   ClimbingState.cpp
   Collider.cpp
   Collision.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
   CollisionManager.cpp
   Component.cpp
   Core.cpp
   EdgeCollider.cpp
   Effect.cpp
   EffectObj.cpp
-  코드를 생성하고 있습니다...
-  컴파일하고 있습니다...
+  Enemy.cpp
   EnemyObject.cpp
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
   (소스 파일 '/EnemyObject.cpp'을(를) 컴파일하는 중)
-      D:\DDingHo\API_Project\APIProject\GameObject.h(39,48):
+      C:\APIProject\API_Project\APIProject\GameObject.h(39,48):
       템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
-          D:\DDingHo\API_Project\APIProject\EnemyObject.cpp(11,2):
+          C:\APIProject\API_Project\APIProject\EnemyObject.cpp(11,2):
           컴파일되는 함수 템플릿 인스턴스화 'T *GameObject::AddComponent<Rigidbody,int,bool,int,int,BodyType>(int &&,bool &&,int &&,int &&,BodyType &&)'에 대한 참조를 확인하세요.
           with
           [
               T=Rigidbody
           ]
   
+  ExcAttackState.cpp
   ExcDashState.cpp
   ExcState.cpp
   Fade.cpp
   FadeObj.cpp
   FireBird.cpp
-D:\DDingHo\API_Project\APIProject\FireBird.cpp(247,9): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\APIProject\API_Project\APIProject\FireBird.cpp(256,2): error C2027: 정의되지 않은 형식 'IDWriteFactory'을(를) 사용했습니다.
   (소스 파일 '/FireBird.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d2d1_1.h(35,19):
+      'IDWriteFactory' 선언을 참조하십시오.
+  
+C:\APIProject\API_Project\APIProject\FireBird.cpp(259,3): error C2065: 'DWRITE_FONT_WEIGHT_NORMAL': 선언되지 않은 식별자입니다.
+  (소스 파일 '/FireBird.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\FireBird.cpp(260,3): error C2065: 'DWRITE_FONT_STYLE_NORMAL': 선언되지 않은 식별자입니다.
+  (소스 파일 '/FireBird.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\FireBird.cpp(261,3): error C2065: 'DWRITE_FONT_STRETCH_NORMAL': 선언되지 않은 식별자입니다.
+  (소스 파일 '/FireBird.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\FireBird.cpp(282,9): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/FireBird.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\FireBird.cpp(288,2): error C2027: 정의되지 않은 형식 'IDWriteTextFormat'을(를) 사용했습니다.
+  (소스 파일 '/FireBird.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d2d1.h(50,19):
+      'IDWriteTextFormat' 선언을 참조하십시오.
   
   FireBirdAim.cpp
   FireBirdAimObj.cpp
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
   (소스 파일 '/FireBirdAimObj.cpp'을(를) 컴파일하는 중)
-      D:\DDingHo\API_Project\APIProject\GameObject.h(39,48):
+      C:\APIProject\API_Project\APIProject\GameObject.h(39,48):
       템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
-          D:\DDingHo\API_Project\APIProject\FireBirdAimObj.cpp(18,2):
+          C:\APIProject\API_Project\APIProject\FireBirdAimObj.cpp(18,2):
           컴파일되는 함수 템플릿 인스턴스화 'T *GameObject::AddComponent<Rigidbody,int,bool,float,int,BodyType>(int &&,bool &&,float &&,int &&,BodyType &&)'에 대한 참조를 확인하세요.
           with
           [
@@ -66,18 +146,20 @@ D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
   FireBirdBGMid02Object.cpp
   FireBirdBGObject.cpp
   FireBirdBodyVFX.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
   FireBirdBodyVFXObj.cpp
   FireBirdBomb.cpp
   FireBirdBombObj.cpp
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
   (소스 파일 '/FireBirdBombObj.cpp'을(를) 컴파일하는 중)
-      D:\DDingHo\API_Project\APIProject\GameObject.h(39,48):
+      C:\APIProject\API_Project\APIProject\GameObject.h(39,48):
       템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
-          D:\DDingHo\API_Project\APIProject\FireBirdBombObj.cpp(16,2):
+          C:\APIProject\API_Project\APIProject\FireBirdBombObj.cpp(16,2):
           컴파일되는 함수 템플릿 인스턴스화 'T *GameObject::AddComponent<Rigidbody,int,bool,int,int,BodyType>(int &&,bool &&,int &&,int &&,BodyType &&)'에 대한 참조를 확인하세요.
           with
           [
@@ -86,15 +168,15 @@ D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
   
   FireBirdClusterAim.cpp
   FireBirdClusterAimObj.cpp
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
   (소스 파일 '/FireBirdClusterAimObj.cpp'을(를) 컴파일하는 중)
-      D:\DDingHo\API_Project\APIProject\GameObject.h(39,48):
+      C:\APIProject\API_Project\APIProject\GameObject.h(39,48):
       템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
-          D:\DDingHo\API_Project\APIProject\FireBirdClusterAimObj.cpp(18,2):
+          C:\APIProject\API_Project\APIProject\FireBirdClusterAimObj.cpp(18,2):
           컴파일되는 함수 템플릿 인스턴스화 'T *GameObject::AddComponent<Rigidbody,int,bool,float,int,BodyType>(int &&,bool &&,float &&,int &&,BodyType &&)'에 대한 참조를 확인하세요.
           with
           [
@@ -102,16 +184,17 @@ D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
           ]
   
   FireBirdManager.cpp
+  FireBirdManagerObj.cpp
   FireBirdObj.cpp
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
   (소스 파일 '/FireBirdObj.cpp'을(를) 컴파일하는 중)
-      D:\DDingHo\API_Project\APIProject\GameObject.h(39,48):
+      C:\APIProject\API_Project\APIProject\GameObject.h(39,48):
       템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
-          D:\DDingHo\API_Project\APIProject\FireBirdObj.cpp(52,2):
+          C:\APIProject\API_Project\APIProject\FireBirdObj.cpp(56,2):
           컴파일되는 함수 템플릿 인스턴스화 'T *GameObject::AddComponent<Rigidbody,int,bool,float,int,BodyType>(int &&,bool &&,float &&,int &&,BodyType &&)'에 대한 참조를 확인하세요.
           with
           [
@@ -119,18 +202,16 @@ D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
           ]
   
   FireBirdPlatform.cpp
-  코드를 생성하고 있습니다...
-  컴파일하고 있습니다...
   FireBirdPlatformObj.cpp
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
   (소스 파일 '/FireBirdPlatformObj.cpp'을(를) 컴파일하는 중)
-      D:\DDingHo\API_Project\APIProject\GameObject.h(39,48):
+      C:\APIProject\API_Project\APIProject\GameObject.h(39,48):
       템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
-          D:\DDingHo\API_Project\APIProject\FireBirdPlatformObj.cpp(24,2):
+          C:\APIProject\API_Project\APIProject\FireBirdPlatformObj.cpp(24,2):
           컴파일되는 함수 템플릿 인스턴스화 'T *GameObject::AddComponent<Rigidbody,int,bool,float,int,BodyType>(int &&,bool &&,float &&,int &&,BodyType &&)'에 대한 참조를 확인하세요.
           with
           [
@@ -139,25 +220,44 @@ D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
   
   FireBirdScene.cpp
   FireBirdWing.cpp
+  FloatingBomb.cpp
+  FloatingBombObj.cpp
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
+  (소스 파일 '/FloatingBombObj.cpp'을(를) 컴파일하는 중)
+      C:\APIProject\API_Project\APIProject\GameObject.h(39,48):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          C:\APIProject\API_Project\APIProject\FloatingBombObj.cpp(22,2):
+          컴파일되는 함수 템플릿 인스턴스화 'T *GameObject::AddComponent<Rigidbody,int,bool,int,int,BodyType>(int &&,bool &&,int &&,int &&,BodyType &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              T=Rigidbody
+          ]
+  
   GameObject.cpp
   GameObjectManager.cpp
   Grab.cpp
   GrabObject.cpp
   IdleState.cpp
   Image.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
   ImageManager.cpp
   JumpState.cpp
   JusinLogo.cpp
   JusinLogoObj.cpp
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
   (소스 파일 '/JusinLogoObj.cpp'을(를) 컴파일하는 중)
-      D:\DDingHo\API_Project\APIProject\GameObject.h(39,48):
+      C:\APIProject\API_Project\APIProject\GameObject.h(39,48):
       템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
-          D:\DDingHo\API_Project\APIProject\JusinLogoObj.cpp(11,2):
+          C:\APIProject\API_Project\APIProject\JusinLogoObj.cpp(11,2):
           컴파일되는 함수 템플릿 인스턴스화 'T *GameObject::AddComponent<SpriteRenderer,ID2D1Bitmap*,int,int,int>(ID2D1Bitmap *&&,int &&,int &&,int &&)'에 대한 참조를 확인하세요.
           with
           [
@@ -170,12 +270,45 @@ D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
   MainTitleBG.cpp
   MainTitleBGObj.cpp
   MainTitleButton.cpp
-D:\DDingHo\API_Project\APIProject\TextRenderer.h(50,10): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\APIProject\API_Project\APIProject\TextRenderer.h(33,3): error C2027: 정의되지 않은 형식 'IDWriteFactory'을(를) 사용했습니다.
+  (소스 파일 '/MainTitleButton.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d2d1_1.h(35,19):
+      'IDWriteFactory' 선언을 참조하십시오.
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(36,4): error C2065: 'DWRITE_FONT_WEIGHT_NORMAL': 선언되지 않은 식별자입니다.
   (소스 파일 '/MainTitleButton.cpp'을(를) 컴파일하는 중)
   
+C:\APIProject\API_Project\APIProject\TextRenderer.h(37,4): error C2065: 'DWRITE_FONT_STYLE_NORMAL': 선언되지 않은 식별자입니다.
+  (소스 파일 '/MainTitleButton.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(38,4): error C2065: 'DWRITE_FONT_STRETCH_NORMAL': 선언되지 않은 식별자입니다.
+  (소스 파일 '/MainTitleButton.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(47,4): error C2027: 정의되지 않은 형식 'IDWriteTextFormat'을(를) 사용했습니다.
+  (소스 파일 '/MainTitleButton.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d2d1.h(50,19):
+      'IDWriteTextFormat' 선언을 참조하십시오.
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(47,33): error C2065: 'DWRITE_TEXT_ALIGNMENT_CENTER': 선언되지 않은 식별자입니다.
+  (소스 파일 '/MainTitleButton.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(48,4): error C2027: 정의되지 않은 형식 'IDWriteTextFormat'을(를) 사용했습니다.
+  (소스 파일 '/MainTitleButton.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d2d1.h(50,19):
+      'IDWriteTextFormat' 선언을 참조하십시오.
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(48,38): error C2065: 'DWRITE_PARAGRAPH_ALIGNMENT_CENTER': 선언되지 않은 식별자입니다.
+  (소스 파일 '/MainTitleButton.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(65,18): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/MainTitleButton.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(71,3): error C2027: 정의되지 않은 형식 'IDWriteTextFormat'을(를) 사용했습니다.
+  (소스 파일 '/MainTitleButton.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d2d1.h(50,19):
+      'IDWriteTextFormat' 선언을 참조하십시오.
+  
   MainTitleButtonObj.cpp
-  코드를 생성하고 있습니다...
-  컴파일하고 있습니다...
   MajorBossRoomBG.cpp
   MajorBossRoomClockIdle.cpp
   MajorBossRoomFront.cpp
@@ -184,58 +317,60 @@ D:\DDingHo\API_Project\APIProject\TextRenderer.h(50,10): warning C4267: '인수'
   MonoBehaviourManager.cpp
   Mouse.cpp
   MouseObj.cpp
+  PRLG.cpp
+C:\APIProject\API_Project\APIProject\Bubble.h(21,23): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PRLG.cpp'을(를) 컴파일하는 중)
+  
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  PRLGMgr.cpp
   PhysicsManager.cpp
   Platform.cpp
   PlatformObject.cpp
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
-  (소스 파일 '/PlatformObject.cpp'을(를) 컴파일하는 중)
-      D:\DDingHo\API_Project\APIProject\GameObject.h(39,48):
-      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
-          D:\DDingHo\API_Project\APIProject\PlatformObject.cpp(12,2):
-          컴파일되는 함수 템플릿 인스턴스화 'T *GameObject::AddComponent<Rigidbody,int,bool,float,int,BodyType>(int &&,bool &&,float &&,int &&,BodyType &&)'에 대한 참조를 확인하세요.
-          with
-          [
-              T=Rigidbody
-          ]
-  
   Player.cpp
+C:\APIProject\API_Project\APIProject\Player.cpp(464,15): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Player.cpp'을(를) 컴파일하는 중)
+  
   PlayerObject.cpp
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
-D:\DDingHo\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         with
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         [
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:             _Ty=int
+C:\APIProject\API_Project\APIProject\GameObject.h(39,48): warning C4244:         ]
   (소스 파일 '/PlayerObject.cpp'을(를) 컴파일하는 중)
-      D:\DDingHo\API_Project\APIProject\GameObject.h(39,48):
+      C:\APIProject\API_Project\APIProject\GameObject.h(39,48):
       템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
-          D:\DDingHo\API_Project\APIProject\PlayerObject.cpp(15,2):
+          C:\APIProject\API_Project\APIProject\PlayerObject.cpp(15,2):
           컴파일되는 함수 템플릿 인스턴스화 'T *GameObject::AddComponent<Rigidbody,int,bool,int,int,BodyType>(int &&,bool &&,int &&,int &&,BodyType &&)'에 대한 참조를 확인하세요.
           with
           [
               T=Rigidbody
           ]
   
-  Renderer.cpp
+  Potal.cpp
+  PotalObj.cpp
+  PrologueCloud.cpp
+  PrologueCloudObj.cpp
+  PrologueMapObj.cpp
+  PrologueScene.cpp
+  PrologueSky.cpp
+  PrologueSkyObj.cpp
   RenderManager.cpp
+  Renderer.cpp
   Rigidbody.cpp
   RunState.cpp
+  SNBDummy.cpp
+  SNBDummyObj.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  SNBLogo.cpp
+  SNBLogoObj.cpp
   Scene.cpp
   SceneManager.cpp
   ScrollBG.cpp
-  코드를 생성하고 있습니다...
-  컴파일하고 있습니다...
   ScrollBGObject.cpp
-  SNBLogo.cpp
-  SNBLogoObj.cpp
   SoundMgr.cpp
-D:\DDingHo\API_Project\APIProject\SoundMgr.cpp(109,14): warning C4244: '초기화 중': 'intptr_t'에서 'long'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/SoundMgr.cpp'을(를) 컴파일하는 중)
-  
-D:\DDingHo\API_Project\APIProject\SoundMgr.cpp(133,16): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\APIProject\API_Project\APIProject\SoundMgr.cpp(170,16): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/SoundMgr.cpp'을(를) 컴파일하는 중)
   
   SpriteRenderer.cpp
@@ -244,24 +379,47 @@ D:\DDingHo\API_Project\APIProject\SoundMgr.cpp(133,16): warning C4267: '초기�
   SwingJumpState.cpp
   SwingState.cpp
   TextRenderer.cpp
-D:\DDingHo\API_Project\APIProject\TextRenderer.h(50,10): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\APIProject\API_Project\APIProject\TextRenderer.h(33,3): error C2027: 정의되지 않은 형식 'IDWriteFactory'을(를) 사용했습니다.
   (소스 파일 '/TextRenderer.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d2d1_1.h(35,19):
+      'IDWriteFactory' 선언을 참조하십시오.
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(36,4): error C2065: 'DWRITE_FONT_WEIGHT_NORMAL': 선언되지 않은 식별자입니다.
+  (소스 파일 '/TextRenderer.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(37,4): error C2065: 'DWRITE_FONT_STYLE_NORMAL': 선언되지 않은 식별자입니다.
+  (소스 파일 '/TextRenderer.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(38,4): error C2065: 'DWRITE_FONT_STRETCH_NORMAL': 선언되지 않은 식별자입니다.
+  (소스 파일 '/TextRenderer.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(47,4): error C2027: 정의되지 않은 형식 'IDWriteTextFormat'을(를) 사용했습니다.
+  (소스 파일 '/TextRenderer.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d2d1.h(50,19):
+      'IDWriteTextFormat' 선언을 참조하십시오.
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(47,33): error C2065: 'DWRITE_TEXT_ALIGNMENT_CENTER': 선언되지 않은 식별자입니다.
+  (소스 파일 '/TextRenderer.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(48,4): error C2027: 정의되지 않은 형식 'IDWriteTextFormat'을(를) 사용했습니다.
+  (소스 파일 '/TextRenderer.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d2d1.h(50,19):
+      'IDWriteTextFormat' 선언을 참조하십시오.
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(48,38): error C2065: 'DWRITE_PARAGRAPH_ALIGNMENT_CENTER': 선언되지 않은 식별자입니다.
+  (소스 파일 '/TextRenderer.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(65,18): warning C4267: '인수': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/TextRenderer.cpp'을(를) 컴파일하는 중)
+  
+C:\APIProject\API_Project\APIProject\TextRenderer.h(71,3): error C2027: 정의되지 않은 형식 'IDWriteTextFormat'을(를) 사용했습니다.
+  (소스 파일 '/TextRenderer.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d2d1.h(50,19):
+      'IDWriteTextFormat' 선언을 참조하십시오.
   
   TimeManager.cpp
   TitleScene.cpp
+  Tuto.cpp
+  TutoObj.cpp
   WingObj.cpp
   코드를 생성하고 있습니다...
-SoundMgr.obj : error LNK2019: FMOD_System_Create"public: void __cdecl CSoundMgr::Initialize(void)" (?Initialize@CSoundMgr@@QEAAXXZ) 함수에서 참조되는 확인할 수 없는 외부 기호
-SoundMgr.obj : error LNK2019: FMOD_System_Release"public: void __cdecl CSoundMgr::Release(void)" (?Release@CSoundMgr@@QEAAXXZ) 함수에서 참조되는 확인할 수 없는 외부 기호
-SoundMgr.obj : error LNK2019: FMOD_System_Init"public: void __cdecl CSoundMgr::Initialize(void)" (?Initialize@CSoundMgr@@QEAAXXZ) 함수에서 참조되는 확인할 수 없는 외부 기호
-SoundMgr.obj : error LNK2019: FMOD_System_Close"public: void __cdecl CSoundMgr::Release(void)" (?Release@CSoundMgr@@QEAAXXZ) 함수에서 참조되는 확인할 수 없는 외부 기호
-SoundMgr.obj : error LNK2019: FMOD_System_Update"private: void __cdecl CSoundMgr::LoadSoundFile(void)" (?LoadSoundFile@CSoundMgr@@AEAAXXZ) 함수에서 참조되는 확인할 수 없는 외부 기호
-SoundMgr.obj : error LNK2019: FMOD_System_CreateSound"private: void __cdecl CSoundMgr::LoadSoundFile(void)" (?LoadSoundFile@CSoundMgr@@AEAAXXZ) 함수에서 참조되는 확인할 수 없는 외부 기호
-SoundMgr.obj : error LNK2019: FMOD_System_PlaySound"public: void __cdecl CSoundMgr::PlayBGM(wchar_t const *,float)" (?PlayBGM@CSoundMgr@@QEAAXPEB_WM@Z) 함수에서 참조되는 확인할 수 없는 외부 기호
-SoundMgr.obj : error LNK2019: FMOD_Sound_Release"public: void __cdecl CSoundMgr::Release(void)" (?Release@CSoundMgr@@QEAAXXZ) 함수에서 참조되는 확인할 수 없는 외부 기호
-SoundMgr.obj : error LNK2019: FMOD_Channel_Stop"public: void __cdecl CSoundMgr::StopAll(void)" (?StopAll@CSoundMgr@@QEAAXXZ) 함수에서 참조되는 확인할 수 없는 외부 기호
-SoundMgr.obj : error LNK2019: FMOD_Channel_SetVolume"public: void __cdecl CSoundMgr::PlayBGM(wchar_t const *,float)" (?PlayBGM@CSoundMgr@@QEAAXPEB_WM@Z) 함수에서 참조되는 확인할 수 없는 외부 기호
-SoundMgr.obj : error LNK2019: FMOD_Channel_IsPlaying"public: void __cdecl CSoundMgr::PlaySound(wchar_t const *,enum CHANNELID,float)" (?PlaySound@CSoundMgr@@QEAAXPEB_WW4CHANNELID@@M@Z) 함수에서 참조되는 확인할 수 없는 외부 기호
-SoundMgr.obj : error LNK2019: FMOD_Channel_SetMode"public: void __cdecl CSoundMgr::PlayBGM(wchar_t const *,float)" (?PlayBGM@CSoundMgr@@QEAAXPEB_WM@Z) 함수에서 참조되는 확인할 수 없는 외부 기호
-fmodex_vc.lib : warning LNK4272: 'x86' 라이브러리 컴퓨터 종류가 'x64' 대상 컴퓨터 종류와 충돌합니다.
-D:\DDingHo\API_Project\x64\Debug\APIProject.exe : fatal error LNK1120: 12개의 확인할 수 없는 외부 참조입니다.
